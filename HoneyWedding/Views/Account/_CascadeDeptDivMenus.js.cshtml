@@ -1,0 +1,39 @@
+﻿<script type="text/javascript">
+    function updateDivMenu() {
+        $("#DivMenu").empty();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetDivsForDept", "GlobalSettings")', // we are calling json method
+
+            dataType: 'json',
+
+            data: { id: $("#DeptMenu").val() },
+
+            success: function (divs) {
+                $("#DivMenu").append('<option value="null">--Select Div--</option>');
+                $.each(divs, function (i, div) {
+                    $("#DivMenu").append('<option value="' + div.Value + '">' +
+                         div.Text + '</option>');
+                });
+            },
+            error: function (ex) {
+                $("#DivMenu").append('<option value="null">--Select Div--</option>');
+                alert('Error: Failed to retrieve Divisions.' + ex);
+            }
+        });
+        $("#DivMenu").prop("disabled", false);
+    }
+
+    $(document).ready(function () {
+        $("#DivMenu").empty();
+        $("#DivMenu").prop("disabled", true);
+
+        if ($("#DeptMenu").val() != '') {
+            updateDivMenu();
+        }
+        //Dropdownlist Selectedchange event
+        $("#DeptMenu").change(function () {
+            updateDivMenu();
+        })
+    });
+</script>

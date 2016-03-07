@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Content/themes/nvapps/variables.css",
+    "inputFile": "Content/themes/nvapps/variables.less"
+  },
+  {
+    "outputFile": "Content/themes/nvapps/bootstrap.css",
+    "inputFile": "Content/themes/nvapps/bootstrap.less"
+  }
+]

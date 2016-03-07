@@ -1,0 +1,62 @@
+﻿.badge-danger {
+  background-color: #d43f3a;
+}
+
+.badge-warning {
+  background-color: #d58512;
+}
+
+.badge-success {
+  background-color: #398439;
+}
+
+.badge-info {
+  background-color: #269abc;
+}
+
+.badge-inverse {
+  background-color: #333333;
+}
+
+.btn-help-left {
+    margin-right: 4px;
+}
+
+
+/*! custom list group styling*/
+.list-group-narrow {
+    max-width: 600px;
+}
+
+.list-group-item-text {
+    margin-bottom: 10px;
+}
+
+
+/*! override line wrap from <dt> components*/
+.dl-horizontal dt 
+{
+    white-space: normal;
+}
+
+/*! full-screen header styles*/
+.fullScreenHeader {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.fullScreenHeaderForm {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: right;
+}
+
+.gantt-toolbar {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-left: 15px solid #ffffff;
+    border-right: 15px solid #ffffff;
+    background: #aaaaaa;
+    color: white;
+}

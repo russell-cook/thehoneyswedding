@@ -1,0 +1,14 @@
+﻿@{
+    string trimmedModuleName = ViewBag.ModuleName.Replace(" ", "");
+    string menuPath = string.Format("~/Areas/{0}/Views/Shared/_SidebarMenu.cshtml", trimmedModuleName);
+}
+
+<div class="row">
+    <div class="col-md-2 col-xs-4">
+        <br />
+        <div class="panel panel-default">
+            @{Html.RenderPartial(menuPath); }
+        </div>
+    </div>
+    <div class="col-md-10 col-xs-8">
+        <br />
