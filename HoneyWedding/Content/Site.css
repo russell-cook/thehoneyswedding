@@ -65,3 +65,15 @@ body {
     opacity: 0.9;
     padding: 8px;
 }
+
+.mdl-navigation, .mdl-layout-title, .mdl-mini-footer__link-list {
+    font-family: 'Sue Ellen Francisco', cursive;
+}
+
+.mdl-layout-title {
+    font-size: 28px;
+}
+
+.mdl-navigation__link, .mdl-mini-footer__link-list {
+    font-size: 22px;
+}

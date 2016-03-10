@@ -8,6 +8,7 @@
     @Scripts.Render("~/bundles/jquery")
     @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("headLevel", required: false)
+    <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.teal-pink.min.css">
     <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
@@ -24,60 +25,60 @@ else
     @:<body class="mdl-color--grey-100">
 }
 
-@RenderSection("topLevel", required: false)
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">The Honeys' Wedding</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-                @Html.ActionLink("Getting There", "Location", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-                @Html.ActionLink("Staying There", "Lodging", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-                @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-            </nav>
-        </div>
-    </header>
-    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <span class="mdl-layout-title">The Honeys' Wedding</span>
-        <nav class="mdl-navigation">
-            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("Getting There", "Location", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("Staying There", "Lodging", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-        </nav>
-    </div>
-    <main class="mdl-layout__content">
-        <section class="section--center mdl-grid mdl-grid--no-spacing">
-                @{
-                    if (ViewBag.ModuleName == null)
-                    {
-                        Html.RenderPartial("_Alerts");
-                        @RenderBody()
+        @RenderSection("topLevel", required: false)
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">The Honeys' Wedding</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation. We hide it in small screens. -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                        @Html.ActionLink("Getting There", "Location", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                        @Html.ActionLink("Staying There", "Lodging", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                        @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+                <span class="mdl-layout-title">The Honeys' Wedding</span>
+                <nav class="mdl-navigation">
+                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                    @Html.ActionLink("Getting There", "Location", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                    @Html.ActionLink("Staying There", "Lodging", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                    @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    @{
+                        if (ViewBag.ModuleName == null)
+                        {
+                            Html.RenderPartial("_Alerts");
+                            @RenderBody()
+                        }
+                        else
+                        {
+                            Html.RenderPartial("_ModuleTopCap");
+                            Html.RenderPartial("_Alerts");
+                            @RenderBody()
+                            Html.RenderPartial("_ModuleBtmCap");
+                        }
                     }
-                    else
-                    {
-                        Html.RenderPartial("_ModuleTopCap");
-                        Html.RenderPartial("_Alerts");
-                        @RenderBody()
-                        Html.RenderPartial("_ModuleBtmCap");
-                    }
-                }
-        </section>
-    </main>
-    <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__right-section">
-            <ul class="mdl-mini-footer__link-list">
-                <li><a href="#">Contact The Honeys</a></li>
-            </ul>
+                </section>
+            </main>
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__right-section">
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="#">Contact The Honeys</a></li>
+                    </ul>
+                </div>
+            </footer>
         </div>
-    </footer>
-</div>
 
-@RenderSection("scripts", required: false)
-</body>
+        @RenderSection("scripts", required: false)
+    </body>
 
 </html>
