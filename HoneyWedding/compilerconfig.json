@@ -1,5 +1,9 @@
 ﻿[
   {
+    "outputFile": "Content/mdl.css",
+    "inputFile": "Content/mdl/material-design-lite.scss"
+  },
+  {
     "outputFile": "Content/themes/nvapps/variables.css",
     "inputFile": "Content/themes/nvapps/variables.less"
   },

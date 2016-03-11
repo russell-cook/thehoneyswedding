@@ -1,25 +1,26 @@
-﻿using System;
+﻿using HoneyWedding.Models;
+using System;
 
 namespace HoneyWedding.DAL.Repositories
 {
     public partial class UnitOfWork : IDisposable
     {
         private ApplicationDbContext context = new ApplicationDbContext();
-        //private GenericRepository<modelType> modelRepository;
+        private GenericRepository<Guest> _guestRepository;
 
         // template for GenericRepository implementation:
-        //public GenericRepository<modelType> ModelRepository
-        //{
-        //    get
-        //    {
+        public GenericRepository<Guest> GuestRepository
+        {
+            get
+            {
 
-        //        if (this.modelRepository == null)
-        //        {
-        //            this.modelRepository = new GenericRepository<modelType>(context);
-        //        }
-        //        return modelRepository;
-        //    }
-        //}
+                if (this._guestRepository == null)
+                {
+                    this._guestRepository = new GenericRepository<Guest>(context);
+                }
+                return _guestRepository;
+            }
+        }
 
         public void Save()
         {
