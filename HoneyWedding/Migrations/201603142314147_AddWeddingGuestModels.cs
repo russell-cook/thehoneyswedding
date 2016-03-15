@@ -3,7 +3,7 @@ namespace HoneyWedding.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class test : DbMigration
+    public partial class AddWeddingGuestModels : DbMigration
     {
         public override void Up()
         {
@@ -13,14 +13,20 @@ namespace HoneyWedding.Migrations
             AddColumn("dbo.AspNetUsers", "HasPlusOne", c => c.Boolean());
             AddColumn("dbo.AspNetUsers", "RsvpPlusOne", c => c.Boolean());
             AddColumn("dbo.AspNetUsers", "Notes", c => c.String());
-            AddColumn("dbo.AspNetUsers", "EmailSent", c => c.Boolean());
+            AddColumn("dbo.AspNetUsers", "NoMeat", c => c.Boolean());
+            AddColumn("dbo.AspNetUsers", "NoDairy", c => c.Boolean());
+            AddColumn("dbo.AspNetUsers", "NoGluten", c => c.Boolean());
+            AddColumn("dbo.AspNetUsers", "DietaryNotes", c => c.String());
             AddColumn("dbo.AspNetUsers", "Discriminator", c => c.String(nullable: false, maxLength: 128));
         }
         
         public override void Down()
         {
             DropColumn("dbo.AspNetUsers", "Discriminator");
-            DropColumn("dbo.AspNetUsers", "EmailSent");
+            DropColumn("dbo.AspNetUsers", "DietaryNotes");
+            DropColumn("dbo.AspNetUsers", "NoGluten");
+            DropColumn("dbo.AspNetUsers", "NoDairy");
+            DropColumn("dbo.AspNetUsers", "NoMeat");
             DropColumn("dbo.AspNetUsers", "Notes");
             DropColumn("dbo.AspNetUsers", "RsvpPlusOne");
             DropColumn("dbo.AspNetUsers", "HasPlusOne");

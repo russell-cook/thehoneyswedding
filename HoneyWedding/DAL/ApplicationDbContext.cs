@@ -33,7 +33,7 @@ namespace HoneyWedding.DAL
             return new ApplicationDbContext();
         }
 
-        public DbSet<Guest> Guests { get; set; }
+        public DbSet<WeddingGuest> Guests { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

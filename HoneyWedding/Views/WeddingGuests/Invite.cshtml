@@ -1,0 +1,54 @@
+﻿@model HoneyWedding.Models.InviteWeddingGuestViewModel
+
+@{
+    ViewBag.Title = "Invite Guest";
+}
+
+<section id="inviteForm">
+
+    @using (Html.BeginForm("Invite", "WeddingGuests", FormMethod.Post, new { @class = "mdl-card", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            @Html.ValidationSummary("", new { @class = "text-error" })
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "mdl-textfield__input" })
+                @Html.LabelFor(m => m.FirstName, new { @class = "mdl-textfield__label" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "mdl-textfield__error" })
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "mdl-textfield__input" })
+                @Html.LabelFor(m => m.LastName, new { @class = "mdl-textfield__label" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "mdl-textfield__error" })
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                @Html.TextBoxFor(m => m.Email, new { @class = "mdl-textfield__input" })
+                @Html.LabelFor(m => m.Email, new { @class = "mdl-textfield__label" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "mdl-textfield__error" })
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "mdl-textfield__input" })
+                @Html.LabelFor(m => m.PhoneNumber, new { @class = "mdl-textfield__label" })
+                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "mdl-textfield__error" })
+            </div>
+            <label class="mdl-checkbox mdl-js-checkbox">
+                @Html.CheckBoxFor(m => m.HasPlusOne, new { @class = "mdl-checkbox__input" })
+                <span class="mdl-checkbox__label">@Html.DisplayNameFor(m => m.HasPlusOne)</span>
+            </label>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                @Html.TextAreaFor(m => m.Notes, new { @class = "mdl-textfield__input" })
+                @Html.LabelFor(m => m.Notes, new { @class = "mdl-textfield__label" })
+                @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "mdl-textfield__error" })
+            </div>
+            <div class="form-group">
+                <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Send Invite" />
+            </div>
+        </div>
+    }
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

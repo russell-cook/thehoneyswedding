@@ -6,19 +6,19 @@ namespace HoneyWedding.DAL.Repositories
     public partial class UnitOfWork : IDisposable
     {
         private ApplicationDbContext context = new ApplicationDbContext();
-        private GenericRepository<Guest> _guestRepository;
+        private GenericRepository<WeddingGuest> _weddingGuestRepository;
 
         // template for GenericRepository implementation:
-        public GenericRepository<Guest> GuestRepository
+        public GenericRepository<WeddingGuest> WeddingGuestRepository
         {
             get
             {
 
-                if (this._guestRepository == null)
+                if (this._weddingGuestRepository == null)
                 {
-                    this._guestRepository = new GenericRepository<Guest>(context);
+                    this._weddingGuestRepository = new GenericRepository<WeddingGuest>(context);
                 }
-                return _guestRepository;
+                return _weddingGuestRepository;
             }
         }
 

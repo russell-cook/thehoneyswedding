@@ -22,11 +22,11 @@ namespace HoneyWedding.Models
 
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
-        private const int PasswordRequiredLength = 8;
-        private const bool PasswordRequireNonLetterOrDigit = true;
-        private const bool PasswordRequireDigit = true;
-        private const bool PasswordRequireLowercase = true;
-        private const bool PasswordRequireUppercase = true;
+        private const int PasswordRequiredLength = 4;
+        private const bool PasswordRequireNonLetterOrDigit = false;
+        private const bool PasswordRequireDigit = false;
+        private const bool PasswordRequireLowercase = false;
+        private const bool PasswordRequireUppercase = false;
 
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
@@ -148,7 +148,7 @@ namespace HoneyWedding.Models
 
             // Credentials:
             var credentialUserName = ConfigurationManager.AppSettings["MAIL_USER"];
-            var sentFrom = "HoneyWedding@sendgrid.com";
+            var sentFrom = "test@thehoneyswedding.com";
             var pwd = ConfigurationManager.AppSettings["MAIL_PASSWORD"];
 
             // Configure the client:

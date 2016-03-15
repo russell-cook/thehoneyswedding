@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HoneyWedding.Models
 {
-    public class Guest : ApplicationUser
+    public class WeddingGuest : ApplicationUser
     {
         //public Guid ID { get; set; }
         //public string FirstName { get; set; }
@@ -16,30 +16,46 @@ namespace HoneyWedding.Models
         //[DataType(DataType.PhoneNumber)]
         //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
         //public string PhoneNumber { get; set; }
+        public DateTime? InviteDate { get; set; }
         public bool? CanAttend { get; set; }
         public bool DidRsvp { get; set; }
         [Display(Name = "RSVP Date")]
-        public DateTime RsvpDate { get; set; }
+        public DateTime? RsvpDate { get; set; }
         public bool HasPlusOne { get; set; }
-        public bool RsvpPlusOne { get; set; }
+        public bool PlusOneCanAtend { get; set; }
         public string Notes { get; set; }
 
-        public bool EmailSent { get; set; }
+        // user prefs
+        public bool? NoMeat { get; set; }
+        public bool? NoDairy { get; set; }
+        public bool? NoGluten { get; set; }
+        public string DietaryNotes { get; set; }
 
-        [Display(Name = "Name")]
-        public string FullName
-        {
-            get
-            {
-                if (FirstName != null && LastName != null)
-                {
-                    return FirstName + " " + LastName;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }
     }
+    public class InviteWeddingGuestViewModel
+    {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "Plus one?")]
+        public bool HasPlusOne { get; set; }
+        [Display(Name = "Notes...")]
+        public string Notes { get; set; }
+
+    }
+
+
+
 }

@@ -7,13 +7,13 @@ namespace HoneyWedding.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class test : IMigrationMetadata
+    public sealed partial class AddInviteDateToWeddingGuest : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddInviteDateToWeddingGuest));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603112251118_test"; }
+            get { return "201603142347418_AddInviteDateToWeddingGuest"; }
         }
         
         string IMigrationMetadata.Source

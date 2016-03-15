@@ -33,7 +33,7 @@ namespace HoneyWedding.Migrations
                 new ApplicationRole(){Name = "GlobalAdmin", Description = "Highest level of administration; allows configuration of Global App Settings" },
                 new ApplicationRole(){Name = "RolesAdmin",  Description = "Allows for User/Role administration" },
                 new ApplicationRole(){Name = "UsersAdmin",  Description = "Allows for User administration, but not Role administration"},
-                new ApplicationRole(){Name = "RegisteredUser",  Description = "Allows for CIP Application administration"}
+                new ApplicationRole(){Name = "WeddingGuest",  Description = "Wedding Guest"}
             };
 
             //Create ApplicationRole for each roleNames if it does not exist
@@ -47,8 +47,8 @@ namespace HoneyWedding.Migrations
             }
 
             // set username and password for default admin user
-            const string name = "admin@nvapps.nv.gov";
-            const string password = "Admin@1234";
+            const string name = "admin@thehoneyswedding.com";
+            const string password = "Skoofer_78";
 
             // Create default admin@example.com user if it does not exist
             var user = userManager.FindByName(name);

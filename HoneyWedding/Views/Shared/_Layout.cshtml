@@ -10,7 +10,7 @@
     @RenderSection("headLevel", required: false)
     <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.teal-pink.min.css">
+    @*<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.teal-pink.min.css">*@
     <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
     @Styles.Render("~/Content/css")
 </head>
@@ -30,12 +30,12 @@ else
             <header class="mdl-layout__header">
                 <div class="mdl-layout__header-row">
                     <!-- Title -->
-                    <span class="mdl-layout-title">The Honeys' Wedding</span>
+                    <span class="mdl-layout-title">@Html.ActionLink("The Honeys' Wedding", "Index", "Home")</span>
                     <!-- Add spacer, to align navigation to the right -->
                     <div class="mdl-layout-spacer"></div>
                     <!-- Navigation. We hide it in small screens. -->
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                        @Html.ActionLink("When and Where?", "Venue", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
                         @Html.ActionLink("Getting There", "Location", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
                         @Html.ActionLink("Staying There", "Lodging", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
                         @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
