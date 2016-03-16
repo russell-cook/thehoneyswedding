@@ -2,9 +2,37 @@
 @{
     ViewBag.Title = "The Honeys' Wedding!";
 }
-@*<div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text"></h2>
-    </div>
-</div>*@
+
+@section headLevel {
+    <style>
+        .honeyContainer {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        .honeyHome {
+	        min-height: 100%;
+	        width: 100%;
+	        text-align: center;
+	        margin: 0 auto; 
+	        display: block;
+        }
+
+        .honeyContentBlock {
+            width: 100%;
+	        min-height:100%;
+            display: block;
+         	background: #f9f9f9 url(http://www.cvodesigns.co.za/CasperenDanel/images/white_texture.png) repeat top left;
+       }
+    </style>
+}
+
+@section bodyTagOpen {
+    <body style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;">
+}
+
+<div class="honeyContainer">
+    <div class="honeyHome"></div>
+    <div class="honeyContentBlock"></div>
+</div>
 

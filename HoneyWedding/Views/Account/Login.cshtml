@@ -1,14 +1,15 @@
 ﻿@model HoneyWedding.Models.LoginViewModel
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Log In";
 }
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "", role = "form" })) {
-                @Html.AntiForgeryToken()
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
-                </div>
+<section id="loginForm">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "mdl-card mdl-card__small-form mdl-shadow--2dp", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+        </div>
                 <div class="mdl-card__supporting-text">
                     @Html.ValidationSummary(true, "", new { @class = "mdl-textfield__error" })
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -21,24 +22,21 @@
                         @Html.LabelFor(m => m.Password, new { @class = "mdl-textfield__label" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "mdl-textfield__error" })
                     </div>
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "mdl-checkbox__input" })
-                        @Html.LabelFor(m => m.RememberMe)
-                    </label>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Log in" class="btn btn-default" />
-                        </div>
-                    </div>
+                    <p>
+                        <label class="mdl-checkbox mdl-js-checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "mdl-checkbox__input" })
+                            @Html.LabelFor(m => m.RememberMe)
+                        </label>
+                    </p>
+                    <p>
+                        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Log In" />
+                    </p>
                     <p>
                         @Html.ActionLink("Forget your password?", "ForgotPassword")
                     </p>
-                    <p>
-                        @Html.ActionLink("Create New User Account", "Register")
-                    </p>
                 </div>
-            }
-        </section>
+    }
+</section>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

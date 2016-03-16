@@ -33,6 +33,7 @@ namespace HoneyWedding.Migrations
                 new ApplicationRole(){Name = "GlobalAdmin", Description = "Highest level of administration; allows configuration of Global App Settings" },
                 new ApplicationRole(){Name = "RolesAdmin",  Description = "Allows for User/Role administration" },
                 new ApplicationRole(){Name = "UsersAdmin",  Description = "Allows for User administration, but not Role administration"},
+                new ApplicationRole(){Name = "WeddingAdmin",  Description = "Allows for WeddingGuest administration"},
                 new ApplicationRole(){Name = "WeddingGuest",  Description = "Wedding Guest"}
             };
 
@@ -63,8 +64,13 @@ namespace HoneyWedding.Migrations
             var rolesForUser = userManager.GetRoles(user.Id);
             if (!rolesForUser.Contains(initRoles[0].Name))
             {
-                // adds default admin user to first role in list above
+                // adds default admin user to GlobalAdmin role
                 var result = userManager.AddToRole(user.Id, initRoles[0].Name);
+            }
+            if (!rolesForUser.Contains(initRoles[3].Name))
+            {
+                // adds default admin user to WeddingAdmin role
+                var result = userManager.AddToRole(user.Id, initRoles[3].Name);
             }
 
         }

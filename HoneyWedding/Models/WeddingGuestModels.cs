@@ -46,6 +46,7 @@ namespace HoneyWedding.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Display(Name = "Phone (###-###-####)")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
         public string PhoneNumber { get; set; }
 

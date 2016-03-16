@@ -147,57 +147,57 @@ namespace HoneyWedding.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            RegisterViewModel viewModel = new RegisterViewModel();
+        //[AllowAnonymous]
+        //public ActionResult Register()
+        //{
+        //    RegisterViewModel viewModel = new RegisterViewModel();
 
-            return View(viewModel);
-        }
+        //    return View(viewModel);
+        //}
 
         //
         // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        // original action was async, but the action was made synchronous because the 'await' operator was commented out below
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            // disable Register action; users can only be manually created by IdentityManager or UserManager roles
-            //return RedirectToAction("Index", "Home");
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //// original action was async, but the action was made synchronous because the 'await' operator was commented out below
+        //public async Task<ActionResult> Register(RegisterViewModel model)
+        //{
+        //    // disable Register action; users can only be manually created by IdentityManager or UserManager roles
+        //    //return RedirectToAction("Index", "Home");
 
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, UserName = model.Email, Email = model.Email, IsActive = true };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    var rolesForUser = UserManager.GetRoles(user.Id);
-                    if (!rolesForUser.Contains("RegisteredUser"))
-                    {
-                        // add user to CIPUser role
-                        UserManager.AddToRole(user.Id, "RegisteredUser");
-                    }
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, UserName = model.Email, Email = model.Email, IsActive = true };
+        //        var result = await UserManager.CreateAsync(user, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            var rolesForUser = UserManager.GetRoles(user.Id);
+        //            if (!rolesForUser.Contains("RegisteredUser"))
+        //            {
+        //                // add user to CIPUser role
+        //                UserManager.AddToRole(user.Id, "RegisteredUser");
+        //            }
 
-                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    string body;
-                    using (var sr = new StreamReader(Server.MapPath("~/Templates/") + "NewUserRegistrationConfirmation.html"))
-                    {
-                        body = await sr.ReadToEndAsync();
-                    }
-                    string messageBody = string.Format(body, callbackUrl);
-                    await UserManager.SendEmailAsync(user.Id, "Welcome New User", messageBody);
-                    ViewBag.Link = callbackUrl;
-                    return View("DisplayEmail");
-                }
-                AddErrors(result);
-            }
+        //            var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+        //            var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+        //            string body;
+        //            using (var sr = new StreamReader(Server.MapPath("~/Templates/") + "NewUserRegistrationConfirmation.html"))
+        //            {
+        //                body = await sr.ReadToEndAsync();
+        //            }
+        //            string messageBody = string.Format(body, callbackUrl);
+        //            await UserManager.SendEmailAsync(user.Id, "Welcome New User", messageBody);
+        //            ViewBag.Link = callbackUrl;
+        //            return View("DisplayEmail");
+        //        }
+        //        AddErrors(result);
+        //    }
 
-            // If we got this far, something failed, redisplay form
+        //    // If we got this far, something failed, redisplay form
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         //
         // GET: /Account/ConfirmEmail

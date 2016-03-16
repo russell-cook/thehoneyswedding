@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -16,19 +17,20 @@ namespace HoneyWedding.Controllers
         private UnitOfWork _unitOfWork = new UnitOfWork();
 
         // GET: WeddingGuests
+        [Authorize(Roles = "WeddingAdmin")]
         public async Task<ActionResult> Index()
         {
             var guests = await _unitOfWork.WeddingGuestRepository.GetAsync(null, q => q.OrderBy(g => g.LastName));
             return View(guests);
         }
 
-        [Authorize(Roles = "GlobalAdmin, RolesAdmin, UsersAdmin")]
+        [Authorize(Roles = "WeddingAdmin")]
         public ActionResult Invite()
         {
             return View();
         }
 
-        [Authorize(Roles = "GlobalAdmin, RolesAdmin, UsersAdmin")]
+        [Authorize(Roles = "WeddingAdmin")]
         // POST: /WeddingGuests/Create
         [HttpPost]
         public async Task<ActionResult> Invite(InviteWeddingGuestViewModel guestViewModel)
@@ -88,6 +90,21 @@ namespace HoneyWedding.Controllers
             return View(viewModel);
         }
 
+        public async Task<ActionResult> RSVP(string userId)
+        {
+            if (userId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
+            var guest = await UserManager.FindByIdAsync(userId) as WeddingGuest;
+
+            if (guest == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(guest);
+        }
     }
 }

@@ -1,18 +1,18 @@
-﻿@model HoneyWedding.Models.InviteWeddingGuestViewModel
-
+﻿@model HoneyWedding.Models.WeddingGuest
 @{
-    ViewBag.Title = "Invite Guest";
+    ViewBag.Title = "RSVP";
 }
 
-<section id="inviteForm">
+<section id="rsvpForm">
 
-    @using (Html.BeginForm("Invite", "WeddingGuests", FormMethod.Post, new { @class = "mdl-card mdl-card__small-form mdl-shadow--2dp", role = "form" }))
+    @using (Html.BeginForm("RSVP", "WeddingGuests", FormMethod.Post, new { @class = "mdl-card", role = "form" }))
     {
         @Html.AntiForgeryToken()
         <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+            <h2 class="mdl-card__title-text">You're Invited!</h2>
         </div>
         <div class="mdl-card__supporting-text">
+            <p>@Model.FullName</p>
             @Html.ValidationSummary("", new { @class = "text-error" })
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 @Html.TextBoxFor(m => m.FirstName, new { @class = "mdl-textfield__input" })
@@ -43,12 +43,17 @@
                 @Html.LabelFor(m => m.Notes, new { @class = "mdl-textfield__label" })
                 @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "mdl-textfield__error" })
             </div>
-            <p>
-                <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Send Invite" />
-            </p>
+            <div class="form-group">
+                <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Submit RSVP" />
+            </div>
         </div>
     }
 </section>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+
+

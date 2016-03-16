@@ -309,6 +309,7 @@
     <None Include="Properties\PublishProfiles\Arvixe Publish.pubxml" />
     <Content Include="Views\WeddingGuests\Invite.cshtml" />
     <Content Include="Views\WeddingGuests\Index.cshtml" />
+    <Content Include="Views\WeddingGuests\RSVP.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
