@@ -6,12 +6,10 @@
     <title>@ViewBag.Title</title>
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("headLevel", required: false)
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    @*<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.teal-pink.min.css">*@
     <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
     @Styles.Render("~/Content/css")
 </head>
@@ -29,18 +27,18 @@ else
 @RenderSection("topLevel", required: false)
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
+        <div class="mdl-layout__header-row" id="headerRow">
             <!-- Title -->
-            <span class="mdl-layout-title">@Html.ActionLink("The Honeys' Wedding", "Index", "Home")</span>
+            <span class="mdl-layout-title">@Html.ActionLink("The Honeys' Wedding", "Index", "Home", null, null, "home", null, null)</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-                @Html.ActionLink("Our Story", "Story", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-                @Html.ActionLink("When and Where?", "Info", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-                @Html.ActionLink("Staying There", "Lodging", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-                @Html.ActionLink("The Venue", "Venue", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-                @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+                @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
+                @Html.ActionLink("When and Where?", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
+                @Html.ActionLink("Staying There", "Index", "Home", null, null, "stayingThere", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
+                @Html.ActionLink("The Venue", "Index", "Home", null, null, "venue", null, new { id = "menuVenue", @class = "mdl-layout__tab" })
+                @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-layout__tab" })
             </nav>
         </div>
     </header>
@@ -55,11 +53,21 @@ else
         </nav>
     </div>
     <main class="mdl-layout__content">
-        <div class="content-wrapper">
+        @if (ViewBag.NoContentWrapper == true)
+        {
             @Html.Partial("_Alerts")
             @RenderBody()
-        </div>
+        }
+        else
+        {
+            <div class="content-wrapper">
+                @Html.Partial("_Alerts")
+                @RenderBody()
+            </div>
+        }
     </main>
+
+    <!--begin FAB at bottom-right corner-->
     <div class="mdl-floating-fab-bottom-left__container mdl-layout--large-screen-only">
         <button id="fab-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon mdl-button--fab mdl-button--colored">
             <i class="material-icons">more_vert</i>
@@ -75,11 +83,15 @@ else
             {
                 <li>@Html.ActionLink("Users Admin", "Index", "UsersAdmin", new { area = "" }, new { @class = "mdl-menu__item" })</li>
             }
+            @if (!Request.IsAuthenticated)
+            {
+                <li disabled class="mdl-menu__item"><i>(honeys only, for now!)</i></li>
+            }
         </ul>
     </div>
+    <!--end FAB-->
+
 </div>
-
-
 
 @RenderSection("scripts", required: false)
 
