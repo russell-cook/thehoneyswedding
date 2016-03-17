@@ -45,9 +45,9 @@ else
     <div class="mdl-layout__drawer mdl-layout--small-screen-only">
         <span class="mdl-layout-title">The Honeys' Wedding</span>
         <nav class="mdl-navigation">
-            @Html.ActionLink("Our Story", "Story", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("When and Where?", "Info", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("Staying There", "Lodging", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("When and Where?", "Index", "Home", null, null, "whenWhere", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Staying There", "Index", "Home", null, null, "stayingThere", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Venue", "Venue", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
         </nav>
@@ -95,6 +95,15 @@ else
 
 @RenderSection("scripts", required: false)
 
+<script>
+    // close mdl drawer when a nav link is clicked
+    $(document).ready(function () {
+        $('.mdl-navigation__link').click(function () {
+            $('.mdl-layout__drawer').toggleClass('is-visible');
+            $('.mdl-layout__obfuscator').toggleClass('is-visible');
+        });
+    });
+</script>
 </body>
 
 </html>
