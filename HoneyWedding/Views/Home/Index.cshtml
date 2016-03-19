@@ -100,7 +100,7 @@
         function calcDurations() {
             // calculate and set triggerHook (i.e. vertical position of trigger)
             // this should place triggerHook exactly at the bottom of the headerRow (i.e. menu bar)
-            var triggerHookVal = ($('#headerRow').height() / $(window).height()).toFixed(2);
+            var triggerHookVal = (Math.ceil(($('#headerRow').height() / $(window).height()) * 100) / 100).toFixed(2); // calculate what percentage of window height is occupied by menu bar, round up to two decimal places to add buffer for small screen heights
             sceneOurStory.triggerHook(triggerHookVal);
             sceneWhenWhere.triggerHook(triggerHookVal);
 

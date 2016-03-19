@@ -36,7 +36,7 @@ else
             <nav class="mdl-navigation mdl-layout--large-screen-only">
                 @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
                 @Html.ActionLink("When and Where?", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
-                @Html.ActionLink("Staying There", "Index", "Home", null, null, "stayingThere", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
+                @Html.ActionLink("Staying There", "Accommodations", "Home", null, null, "stayingThere", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
                 @Html.ActionLink("The Venue", "Index", "Home", null, null, "venue", null, new { id = "menuVenue", @class = "mdl-layout__tab" })
                 @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-layout__tab" })
             </nav>
@@ -98,7 +98,7 @@ else
 <script>
     // close mdl drawer when a nav link is clicked
     $(document).ready(function () {
-        $('.mdl-navigation__link').click(function () {
+        $('.mdl-layout__drawer .mdl-navigation__link').click(function () {
             $('.mdl-layout__drawer').toggleClass('is-visible');
             $('.mdl-layout__obfuscator').toggleClass('is-visible');
         });

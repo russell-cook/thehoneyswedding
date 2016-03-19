@@ -34,6 +34,8 @@ namespace HoneyWedding.DAL
         }
 
         public DbSet<WeddingGuest> Guests { get; set; }
+        public DbSet<AccommodationLocation> AccommodationLocations { get; set; }
+        public DbSet<AccommodationRoom> AccommodationRooms { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -465,6 +465,7 @@
       <DependentUpon>201603150015009_RefineWeddingGuestModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\AlertModels.cs" />

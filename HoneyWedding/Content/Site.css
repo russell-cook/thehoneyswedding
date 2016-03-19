@@ -65,17 +65,23 @@ input[type="checkbox"].input-validation-error {
     font-family: 'Sue Ellen Francisco', cursive;
 }
 
+.mdl-layout-title {
+    text-transform: uppercase;
+    font-size: 26px;
+}
+
 .mdl-layout-title a {
     color: rgba(255,255,255,0.87);
     text-decoration: none;
 }
 
-.mdl-layout-title {
-    font-size: 26px;
-}
-
 .mdl-layout__tab {
     font-size: 18px;
+}
+
+.mdl-navigation__link {
+    text-transform: uppercase;
+    font-size: 20px;
 }
 
 .mdl-floating-fab-bottom-left__container {
