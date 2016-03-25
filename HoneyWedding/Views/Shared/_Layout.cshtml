@@ -25,7 +25,7 @@ else
 }
 
 @RenderSection("topLevel", required: false)
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header obscure-on-load">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row" id="headerRow">
             <!-- Title -->
@@ -35,7 +35,8 @@ else
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
                 @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
-                @Html.ActionLink("When and Where?", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
+                @Html.ActionLink("Our Family", "Index", "Home", null, null, "ourFamily", null, new { id = "menuOurFamily", @class = "mdl-layout__tab" })
+                @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
                 @Html.ActionLink("Staying There", "Accommodations", "Home", null, null, "stayingThere", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
                 @Html.ActionLink("The Venue", "Index", "Home", null, null, "venue", null, new { id = "menuVenue", @class = "mdl-layout__tab" })
                 @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-layout__tab" })
@@ -46,7 +47,8 @@ else
         <span class="mdl-layout-title">The Honeys' Wedding</span>
         <nav class="mdl-navigation">
             @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("When and Where?", "Index", "Home", null, null, "whenWhere", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Our Family", "Index", "Home", null, null, "ourFamily", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("Staying There", "Index", "Home", null, null, "stayingThere", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Venue", "Venue", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
@@ -68,7 +70,7 @@ else
     </main>
 
     <!--begin FAB at bottom-right corner-->
-    <div class="mdl-floating-fab-bottom-left__container mdl-layout--large-screen-only">
+    <div class="mdl-floating-fab-bottom-left__container mdl-layout--large-screen-only obscure-on-load">
         <button id="fab-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon mdl-button--fab mdl-button--colored">
             <i class="material-icons">more_vert</i>
         </button>
@@ -96,12 +98,14 @@ else
 @RenderSection("scripts", required: false)
 
 <script>
-    // close mdl drawer when a nav link is clicked
-    $(document).ready(function () {
+    $(window).load(function () {
+        // add listener: close mdl drawer and hide obfuscator when a nav link is clicked
         $('.mdl-layout__drawer .mdl-navigation__link').click(function () {
             $('.mdl-layout__drawer').toggleClass('is-visible');
             $('.mdl-layout__obfuscator').toggleClass('is-visible');
         });
+        // prevent content flash (resulting from deferred mdl script) for elements that will be hidden on small screen (nav, fab, etc.)
+        $('.obscure-on-load').toggleClass('obscure-on-load');
     });
 </script>
 </body>
