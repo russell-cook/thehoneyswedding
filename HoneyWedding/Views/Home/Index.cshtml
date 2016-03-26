@@ -32,8 +32,56 @@
             width: 100%;
             min-height: 100%;
             display: block;
-            background: #f9f9f9 url(http://www.cvodesigns.co.za/CasperenDanel/images/white_texture.png) repeat top left;
+            background: #f9f9f9 url('../../Content/img/light_grey.png') repeat;
+            padding: 40px;
         }
+
+        .timelineContainer {
+            background: url('../../Content/img/timeline_bg.gif') repeat-y center top;
+            margin: 20px auto;
+            max-width: 600px;
+            overflow: hidden;
+        }
+
+        .timeslot {
+            width: 285px;
+            float: left;
+            margin: 0 0 25px 0;
+            padding: 10px 120px 0 0;
+            border-top: 3px solid #ddd;
+            position: relative;
+        }
+
+            .timeslot span {
+                position: absolute;
+                right: 0;
+                top: 20px;
+                font-size: 4em;
+                line-height: 1em;
+                color: #999;
+                font-family: 'Sue Ellen Francisco', cursive;
+            }
+
+        .even {
+            float: right;
+            padding: 10px 0 0 120px;
+            border-color: rgb(239, 83, 80);
+        }
+
+            .even span {
+                left: 0;
+                color: rgb(239, 83, 80);
+            }
+
+        .mdl-card__timeline {
+            max-width: 285px;
+        }
+
+        .mdl-card__title-honeys-on-couch {
+            height: 200px;
+            background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
+        }
+
     </style>
 }
 
@@ -44,7 +92,26 @@
 <div class="honeyContainer">
     <div class="honeyHome" id="home"></div>
 
-    <div class="honeyContentBlock" id="ourStory"></div>
+    <div class="honeyContentBlock" id="ourStory">
+        <div class="honeyContentBlock__title mdl-color-text--primary">Our Story</div>
+        <div class="timelineContainer">
+            <div class="timeslot">
+                <span>1978</span>
+                <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card__title-honeys-on-couch">
+                        <h2 class="mdl-card__title-text mdl-color-text--accent">Dec 30th, 1978</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeslot even">
+                <span>1982</span>
+                <p>Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. </p>
+            </div>
+        </div>
+    </div>
 
     <div class="honeyPhotoGap" id="photoGap1"></div>
 
@@ -80,10 +147,10 @@
 </div>
 
 @section scripts {
-        <script src="~/Content/greensock-js/src/minified/TweenMax.min.js"></script>
-        <script src="~/Content/greensock-js/src/minified/plugins/ScrollToPlugin.min.js"></script>
-        <script src="~/Content/scrollmagic/minified/ScrollMagic.min.js"></script>
-        <script src="~/Content/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+    <script src="~/Content/greensock-js/src/minified/TweenMax.min.js"></script>
+    <script src="~/Content/greensock-js/src/minified/plugins/ScrollToPlugin.min.js"></script>
+    <script src="~/Content/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script src="~/Content/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
     <script type="text/javascript">
         var controller = new ScrollMagic.Controller({ globalSceneOptions: {} });
         var sceneOurStory;

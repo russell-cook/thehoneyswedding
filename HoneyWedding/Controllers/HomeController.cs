@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using HoneyWedding.Services;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace HoneyWedding.Controllers
 {
@@ -10,14 +12,10 @@ namespace HoneyWedding.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public async Task<ActionResult> Accommodations()
         {
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            return View();
+            var accommodationsManager = new AccommodationsManager();
+            return View(await accommodationsManager.GetAsync());
         }
     }
 }

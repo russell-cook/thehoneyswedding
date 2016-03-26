@@ -1,0 +1,84 @@
+﻿@model HoneyWedding.Models.AccommodationRoom
+
+@{
+    ViewBag.Title = "Room Details";
+}
+
+<div class="mdl-card mdl-card__page mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Location.LocationName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Location.LocationName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SleepsTotal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SleepsTotal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SleepsBed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SleepsBed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SleepsSofa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SleepsSofa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CostNightly)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CostNightly)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MinNights)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MinNights)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CostMinimum)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CostMinimum)
+            </dd>
+
+        </dl>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

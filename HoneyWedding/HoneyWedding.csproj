@@ -209,7 +209,11 @@
     <Content Include="Content\greensock-js\src\uncompressed\TweenLite.js" />
     <Content Include="Content\greensock-js\src\uncompressed\TweenMax.js" />
     <Content Include="Content\greensock-js\src\uncompressed\utils\Draggable.js" />
+    <Content Include="Content\img\128-196.jpg" />
+    <Content Include="Content\img\confectionary.png" />
     <Content Include="Content\img\honeys_on_couch.jpg" />
+    <Content Include="Content\img\light_grey.png" />
+    <Content Include="Content\img\timeline_bg.gif" />
     <Content Include="Content\mdl.css" />
     <Content Include="Content\mdl.min.css">
       <DependentUpon>mdl.css</DependentUpon>
@@ -361,6 +365,17 @@
     <Content Include="Views\WeddingGuests\Invite.cshtml" />
     <Content Include="Views\WeddingGuests\Index.cshtml" />
     <Content Include="Views\WeddingGuests\RSVP.cshtml" />
+    <Content Include="Views\AccommodationLocations\Create.cshtml" />
+    <Content Include="Views\AccommodationLocations\Delete.cshtml" />
+    <Content Include="Views\AccommodationLocations\Details.cshtml" />
+    <Content Include="Views\AccommodationLocations\Edit.cshtml" />
+    <Content Include="Views\AccommodationLocations\Index.cshtml" />
+    <Content Include="Views\AccommodationRooms\Create.cshtml" />
+    <Content Include="Views\AccommodationRooms\Delete.cshtml" />
+    <Content Include="Views\AccommodationRooms\Details.cshtml" />
+    <Content Include="Views\AccommodationRooms\Edit.cshtml" />
+    <Content Include="Views\AccommodationRooms\Index.cshtml" />
+    <Content Include="Views\Home\Accommodations.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -427,6 +442,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccommodationLocationsController.cs" />
+    <Compile Include="Controllers\AccommodationRoomsController.cs" />
     <Compile Include="Controllers\WeddingGuestsController.cs" />
     <Compile Include="DAL\Repositories\GenericRepository.cs" />
     <Compile Include="DAL\Repositories\UnitOfWork.cs" />
@@ -464,6 +481,10 @@
     <Compile Include="Migrations\201603150015009_RefineWeddingGuestModels.Designer.cs">
       <DependentUpon>201603150015009_RefineWeddingGuestModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603252015093_AddAccommodationModelsAndController.cs" />
+    <Compile Include="Migrations\201603252015093_AddAccommodationModelsAndController.Designer.cs">
+      <DependentUpon>201603252015093_AddAccommodationModelsAndController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -473,6 +494,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\WeddingGuestModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccommodationsManager.cs" />
     <Compile Include="Services\WeddingGuestManager.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -523,6 +545,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603150015009_RefineWeddingGuestModels.resx">
       <DependentUpon>201603150015009_RefineWeddingGuestModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603252015093_AddAccommodationModelsAndController.resx">
+      <DependentUpon>201603252015093_AddAccommodationModelsAndController.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

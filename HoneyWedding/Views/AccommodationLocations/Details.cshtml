@@ -1,0 +1,150 @@
+﻿@model HoneyWedding.Models.AccommodationLocation
+
+@{
+    ViewBag.Title = "Acommodation Details";
+}
+
+<div class="mdl-card mdl-card__page mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LocationName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LocationName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Website)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Website)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Notes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Notes)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HoneyComments)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HoneyComments)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InFairPlay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InFairPlay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DistanceFromVenue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DistanceFromVenue)
+            </dd>
+
+        </dl>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+        <h3>Rooms</h3>
+
+        <p>
+            @Html.ActionLink("Create New", "Create", "AccommodationRooms", new { id = Model.ID }, null)
+        </p>
+
+        <table class="mdl-data-table mdl-js-data-table">
+            <thead>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().RoomName)
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsTotal)
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsBed)
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsSofa)
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostNightly)
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().MinNights)
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostMinimum)
+            </th>
+            <th class="mdl-data-table__cell--non-numeric"></th>
+            </thead>
+
+            @foreach (var item in Model.Rooms)
+            {
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.RoomName)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.SleepsTotal)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.SleepsBed)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.SleepsSofa)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.CostNightly)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.MinNights)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.CostMinimum)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.ActionLink("Edit", "Edit", "AccommodationRooms", new { id = item.ID }, null) |
+                        @Html.ActionLink("Details", "Details", "AccommodationRooms", new { id = item.ID }, null) |
+                        @Html.ActionLink("Delete", "Delete", "AccommodationRooms", new { id = item.ID }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

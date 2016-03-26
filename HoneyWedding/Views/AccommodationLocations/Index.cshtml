@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HoneyWedding.Models.AccommodationLocation>
+
+@{
+    ViewBag.Title = "Accommodations";
+}
+
+<div class="mdl-card mdl-card__page mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="mdl-data-table mdl-js-data-table">
+            <thead>
+                <th class="mdl-data-table__cell--non-numeric">
+                    @Html.DisplayNameFor(model => model.LocationName)
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                    @Html.DisplayNameFor(model => model.Website)
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                    @Html.DisplayNameFor(model => model.Notes)
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                    @Html.DisplayNameFor(model => model.HoneyComments)
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                    @Html.DisplayNameFor(model => model.InFairPlay)
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                    @Html.DisplayNameFor(model => model.DistanceFromVenue)
+                </th>
+                <th class="mdl-data-table__cell--non-numeric"></th>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.LocationName)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.Website)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.HoneyComments)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.InFairPlay)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.DistanceFromVenue)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

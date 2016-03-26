@@ -44,14 +44,40 @@ namespace HoneyWedding.Models
         public int SleepsSofa { get; set; }
         [DataType(DataType.Currency)]
         [Display(Name = "Cost Per Night")]
-        public decimal CostNightly { get; set; }
+        public decimal? CostNightly { get; set; }
         [Display(Name ="Minimum # Nights")]
-        public int MinNights { get; set; }
-        [DataType(DataType.Currency)]
-        [Display(Name = "Minimum Total Cost")]
-        public decimal CostMinimum { get; set; }
+        public int? MinNights { get; set; }
 
         // navigation properties
         public virtual AccommodationLocation Location { get; set; }
+
+        // calculated properties
+        [DataType(DataType.Currency)]
+        [Display(Name = "Minimum Total Cost")]
+        public decimal? CostMinimum {
+            get
+            {
+                if (CostNightly != null && MinNights != null)
+                {
+                    return CostNightly * MinNights;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+    }
+
+    public class AccommodationViewModel
+    {
+        public int ID { get; set; }
+        [Display(Name = "Name")]
+        public string LocationName { get; set; }
+        [Display(Name = "Price Range (Per Night)")]
+        public string PriceRange { get; set; }
+        [Display(Name = "Room For:")]
+        public string RoomFor { get; set; }
     }
 }

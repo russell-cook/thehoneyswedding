@@ -21,7 +21,8 @@
 }
 else
 {
-    @:<body class="mdl-color--grey-100">
+    @*@:<body class="mdl-color--grey-100">*@
+    @:<body style="background: url('../../Content/img/light_grey.png') repeat">
 }
 
 @RenderSection("topLevel", required: false)
@@ -37,7 +38,7 @@ else
                 @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
                 @Html.ActionLink("Our Family", "Index", "Home", null, null, "ourFamily", null, new { id = "menuOurFamily", @class = "mdl-layout__tab" })
                 @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
-                @Html.ActionLink("Staying There", "Accommodations", "Home", null, null, "stayingThere", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
+                @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
                 @Html.ActionLink("The Venue", "Index", "Home", null, null, "venue", null, new { id = "menuVenue", @class = "mdl-layout__tab" })
                 @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-layout__tab" })
             </nav>
@@ -49,7 +50,7 @@ else
             @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("Our Family", "Index", "Home", null, null, "ourFamily", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("Staying There", "Index", "Home", null, null, "stayingThere", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Venue", "Venue", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
         </nav>
@@ -80,6 +81,7 @@ else
             {
                 <li>@Html.ActionLink("List Wedding Guests", "Index", "WeddingGuests", new { area = "" }, new { @class = "mdl-menu__item" })</li>
                 <li>@Html.ActionLink("Invite Wedding Guests", "Invite", "WeddingGuests", new { area = "" }, new { @class = "mdl-menu__item" })</li>
+                <li>@Html.ActionLink("Manage Accommodations", "Index", "AccommodationLocations", new { area = "" }, new { @class = "mdl-menu__item" })</li>
             }
             @if (Request.IsAuthenticated && User.IsInRole("GlobalAdmin"))
             {

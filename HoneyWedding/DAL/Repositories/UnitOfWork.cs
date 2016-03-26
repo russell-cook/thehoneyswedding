@@ -7,8 +7,8 @@ namespace HoneyWedding.DAL.Repositories
     {
         private ApplicationDbContext context = new ApplicationDbContext();
         private GenericRepository<WeddingGuest> _weddingGuestRepository;
+        private GenericRepository<AccommodationLocation> _accommodationsRepository;
 
-        // template for GenericRepository implementation:
         public GenericRepository<WeddingGuest> WeddingGuestRepository
         {
             get
@@ -19,6 +19,19 @@ namespace HoneyWedding.DAL.Repositories
                     this._weddingGuestRepository = new GenericRepository<WeddingGuest>(context);
                 }
                 return _weddingGuestRepository;
+            }
+        }
+
+        public GenericRepository<AccommodationLocation> AccommodationsRepository
+        {
+            get
+            {
+
+                if (this._accommodationsRepository == null)
+                {
+                    this._accommodationsRepository = new GenericRepository<AccommodationLocation>(context);
+                }
+                return _accommodationsRepository;
             }
         }
 

@@ -1,0 +1,48 @@
+﻿
+@model List<HoneyWedding.Models.AccommodationViewModel>
+
+@{
+    ViewBag.Title = "Staying There";
+}
+
+<div class="mdl-card mdl-card__page mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <table class="mdl-data-table mdl-js-data-table">
+            <thead>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().LocationName)
+            </th>
+            <th class="mdl-data-table__cell">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PriceRange)
+            </th>
+            <th class="mdl-data-table__cell">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().RoomFor)
+            </th>
+            <th></th>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.LocationName)
+                    </td>
+                    <td class="mdl-data-table__cell">
+                        @Html.DisplayFor(modelItem => item.PriceRange)
+                    </td>
+                    <td class="mdl-data-table__cell">
+                        @Html.DisplayFor(modelItem => item.RoomFor)
+                    </td>
+                    <td>
+                        @Html.ActionLink("View Details", "Details", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<HoneyWedding.Models.AccommodationRoom>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SleepsTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SleepsBed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SleepsSofa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostNightly)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MinNights)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostMinimum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SleepsTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SleepsBed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SleepsSofa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostNightly)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MinNights)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostMinimum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
