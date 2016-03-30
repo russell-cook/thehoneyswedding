@@ -376,6 +376,7 @@
     <Content Include="Views\AccommodationRooms\Edit.cshtml" />
     <Content Include="Views\AccommodationRooms\Index.cshtml" />
     <Content Include="Views\Home\Accommodations.cshtml" />
+    <Content Include="Views\Shared\_LayoutBlank.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

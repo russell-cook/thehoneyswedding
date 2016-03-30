@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("headLevel", required: false)
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+    @Styles.Render("~/Content/css")
+</head>
+@*allow override of opening body tag*@
+@if (IsSectionDefined("bodyTagOpen"))
+{
+    @RenderSection("bodyTagOpen")
+}
+else
+{
+    @:<body class="mdl-color--grey-100">
+    @*@:<body style="background: url('../../Content/img/light_grey.png') repeat">*@
+}
+
+@RenderSection("topLevel", required: false)
+@*<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header obscure-on-load">*@
+
+    @RenderBody()
+
+@*</div>*@
+
+
+    @RenderSection("scripts", required: false)
+          <script>
+    $(window).load(function () {
+        // add listener: close mdl drawer and hide obfuscator when a nav link is clicked
+        $('.mdl-layout__drawer .mdl-navigation__link').click(function () {
+            $('.mdl-layout__drawer').toggleClass('is-visible');
+            $('.mdl-layout__obfuscator').toggleClass('is-visible');
+        });
+        // prevent content flash (resulting from deferred mdl script) for elements that will be hidden on small screen (nav, fab, etc.)
+        $('.obscure-on-load').toggleClass('obscure-on-load');
+    });
+          </script>
+</body>
+
+</html>
