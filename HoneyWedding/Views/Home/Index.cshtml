@@ -145,16 +145,16 @@
 
 <div class="parallax__viewport">
     <div class="parallax__layer parallax__layer--base"><h1>Hey it's a test!</h1></div>
-    <div class="parallax__layer parallax__layer--back" id="parrallax1" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
 </div>
 
-<div class="honeyContentBlock" id="ourFamily">
-    <div class="honeyContentBlock__title mdl-color-text--primary">Our Family</div>
+<div class="honeyContentBlock" id="ourFamilies">
+    <div class="honeyContentBlock__title mdl-color-text--primary">Our Families</div>
 </div>
 
 <div class="parallax__viewport">
     <div class="parallax__layer parallax__layer--base"><h1>Hey it's another test!</h1></div>
-    <div class="parallax__layer parallax__layer--back" id="parrallax1" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
 </div>
 
 <div class="honeyContentBlock" id="whenWhere">
@@ -191,7 +191,7 @@
     <script type="text/javascript">
         var controller = new ScrollMagic.Controller({ globalSceneOptions: {} });
         var sceneOurStory;
-        var sceneOurFamily;
+        var sceneOurFamilies;
         var sceneWhenWhere;
 
         $(document).on("click", "a[href*='#']", function (e) {
@@ -213,7 +213,7 @@
         });
 
         $(window).load(function () {
-            // timeout is required to fire functions AFTER mdl does it's deferred execution
+            // timeout ensures function fires AFTER mdl does its upgrades
             setTimeout(function () {
                 initScrollMagic();
                 calcDurations();
@@ -227,8 +227,8 @@
             sceneOurStory = new ScrollMagic.Scene({ triggerElement: "#ourStory" })
                             .setClassToggle("#menuOurStory", "is-active")
                             .addTo(controller);
-            sceneOurFamily = new ScrollMagic.Scene({ triggerElement: "#ourFamily" })
-                            .setClassToggle("#menuOurFamily", "is-active")
+            sceneOurFamilies = new ScrollMagic.Scene({ triggerElement: "#ourFamilies" })
+                            .setClassToggle("#menuOurFamilies", "is-active")
                             .addTo(controller);
             sceneWhenWhere = new ScrollMagic.Scene({ triggerElement: "#whenWhere" })
                             .setClassToggle("#menuWhenWhere", "is-active")
@@ -243,14 +243,14 @@
             // this should place triggerHook exactly at the bottom of the headerRow (i.e. menu bar)
             var triggerHookVal = (Math.ceil(($('#headerRow').height() / $(window).height()) * 100) / 100).toFixed(2); // calculate what percentage of window height is occupied by menu bar, round up to two decimal places to add buffer for small screen heights
             sceneOurStory.triggerHook(triggerHookVal);
-            sceneOurFamily.triggerHook(triggerHookVal);
+            sceneOurFamilies.triggerHook(triggerHookVal);
             sceneWhenWhere.triggerHook(triggerHookVal);
 
             // calculate duration (i.e. height) of each scene (i.e. content block <div>)
             var ourStoryHeight = $('#ourStory').height();
             sceneOurStory.duration(ourStoryHeight);
-            var ourFamilyHeight = $('#ourFamily').height();
-            sceneOurFamily.duration(ourFamilyHeight);
+            var ourFamiliesHeight = $('#ourFamilies').height();
+            sceneOurFamilies.duration(ourFamiliesHeight);
             var whenWhereHeight = $('#whenWhere').height();
             sceneWhenWhere.duration(whenWhereHeight);
 

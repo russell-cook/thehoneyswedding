@@ -7046,7 +7046,7 @@ input.mdl-button[type="submit"] {
   box-sizing: border-box; }
 
 .mdl-navigation__link {
-  color: #424242;
+  color: rgba(255, 255, 255, 0.87);
   text-decoration: none;
   margin: 0;
   font-size: 14px;
@@ -7106,14 +7106,14 @@ input.mdl-button[type="submit"] {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   border-right: 1px solid #e0e0e0;
-  background: #fafafa;
+  background: #795548;
   transform: translateX(-250px);
   transform-style: preserve-3d;
   will-change: transform;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: transform;
-  color: #424242;
+  color: rgba(255, 255, 255, 0.87);
   overflow: visible;
   overflow-y: auto;
   z-index: 5; }
@@ -7141,15 +7141,15 @@ input.mdl-button[type="submit"] {
       flex-shrink: 0;
       padding: 16px 40px;
       margin: 0;
-      color: #757575; }
+      color: rgba(255, 255, 255, 0.87); }
       @media screen and (max-width: 1024px) {
         .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
           padding: 16px 16px; } }
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
-        background-color: #e0e0e0; }
+        background-color: rgba(224, 224, 224, 0.6); }
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
-        background-color: black;
-        color: #e0e0e0; }
+        background-color: #795548;
+        color: #795548; }
   @media screen and (min-width: 1025px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
       transform: translateX(0); } }

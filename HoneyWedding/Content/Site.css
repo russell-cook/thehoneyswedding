@@ -33,8 +33,8 @@ input[type="checkbox"].input-validation-error {
 
 .mdl-layout__header {
     background-image:
-        repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 32px),
-        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 32px),
+        repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 31px),
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 31px),
         linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
         linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
     background-size: 35px 64px;
@@ -76,7 +76,7 @@ input[type="checkbox"].input-validation-error {
 
 .mdl-layout-title {
     text-transform: uppercase;
-    font-size: 26px;
+    font-size: 28px;
 }
 
 .mdl-layout-title a {
@@ -114,10 +114,10 @@ a.mdl-layout__tab:hover {
     .mdl-layout-title {
         font-size: 22px;
     }
-    .mdl-layout__header {
+    .mdl-layout__header, .mdl-layout__drawer {
         background-image:
-            repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 28px),
-            repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 28px),
+            repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 29px),
+            repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 29px),
             linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
             linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
         background-size: 35px 56px;

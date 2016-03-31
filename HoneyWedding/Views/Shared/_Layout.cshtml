@@ -37,7 +37,7 @@ else
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
                 @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
-                @Html.ActionLink("Our Family", "Index", "Home", null, null, "ourFamily", null, new { id = "menuOurFamily", @class = "mdl-layout__tab" })
+                @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { id = "menuOurFamilies", @class = "mdl-layout__tab" })
                 @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
                 @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
                 @Html.ActionLink("The Venue", "Index", "Home", null, null, "venue", null, new { id = "menuVenue", @class = "mdl-layout__tab" })
@@ -46,10 +46,10 @@ else
         </div>
     </header>
     <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <span class="mdl-layout-title">The Honeys' Wedding</span>
         <nav class="mdl-navigation">
+            @Html.ActionLink("Home", "Index", "Home", null, null, "home", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("Our Family", "Index", "Home", null, null, "ourFamily", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Venue", "Venue", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
@@ -98,11 +98,9 @@ else
 
 </div>
 
-@RenderSection("scripts", required: false)
-
 <script>
     $(window).load(function () {
-        setTimeout(function () {
+        setTimeout(function () { // timeout ensures function fires AFTER mdl does its upgrades
             // add listener: close mdl drawer and hide obfuscator when a nav link is clicked
             $('.mdl-layout__drawer .mdl-navigation__link').click(function () {
                 $('.mdl-layout__drawer').toggleClass('is-visible');
@@ -121,6 +119,7 @@ else
         $('.mdl-layout__drawer-button').css("background-color", "rgba(0,0,0,0)");
     }
 </script>
+@RenderSection("scripts", required: false)
 </body>
 
 </html>
