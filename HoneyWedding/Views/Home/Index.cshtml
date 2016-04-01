@@ -15,7 +15,6 @@
 
         .parallax__viewport {
             position: relative;
-            /*height: 100vh;*/
             transform-style: preserve-3d;
             z-index: -1;
                /*transform: translate3d(70px, 0, -80px) rotateY(30deg);*/
@@ -27,8 +26,6 @@
             right: 0;
             bottom: 0;
             left: 0;
-            /*width: 100%;
-            height: 100%;*/
             transform-origin-x: 100%;
         }
 
@@ -40,17 +37,8 @@
             transform: translateZ(-1px) scale(2);
         }
 
-        .honeyHome {
-            /*height: 100vh;*/
-            /*background: url('../../Content/img/honeys_on_couch.jpg') center / cover;*/
-        }
-
         .honeyContentBlock {
-            /*width: 100%;*/
-            /*min-height: 100vh;*/
-            /*display: block;*/
             background: #f9f9f9 url('../../Content/img/light_grey.png') repeat;
-            /*padding: 40px;*/
         }
 
         .honeyContentBlock__title {
@@ -124,7 +112,7 @@
 
 <div class="honeyContentBlock" id="ourStory">
     <div class="honeyContentBlock__title mdl-color-text--primary">Our Story</div>
-    @*<div class="timelineContainer">
+    <div class="timelineContainer">
             <div class="timeslot">
                 <span>1978</span>
                 <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
@@ -140,7 +128,7 @@
                 <span>1982</span>
                 <p>Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. </p>
             </div>
-        </div>*@
+        </div>
 </div>
 
 <div class="parallax__viewport">
@@ -203,7 +191,7 @@
                 // trigger scroll
                 //var scrollLocation = ($(id).position().top - $('#headerRow').height()); // offset for menu bar
                 var scrollLocation = $('main').scrollTop() + $(id).position().top;
-                TweenMax.to('main', 1, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
+                TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
 
                 // if supported by the browser we can even update the URL.
                 if (window.history && window.history.pushState) {
@@ -217,6 +205,15 @@
             setTimeout(function () {
                 initScrollMagic();
                 calcDurations();
+                if (window.location.hash) {
+                    var hrefValue = window.location.href;
+                    var id = hrefValue.substr(hrefValue.indexOf('#'), hrefValue.length);
+                    if ($(id).length > 0) {
+                        // trigger scroll
+                        var scrollLocation = $('main').scrollTop() + $(id).position().top;
+                        TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
+                    }
+                }
             }, 0);
         })
 
