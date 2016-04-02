@@ -378,6 +378,7 @@
     <Content Include="Views\Home\Accommodations.cshtml" />
     <Content Include="Views\Shared\_LayoutBlank.cshtml" />
     <None Include="Properties\PublishProfiles\thehoneyswedding.net - Web Deploy.pubxml" />
+    <Content Include="Views\Home\_AccommodationDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -487,6 +488,10 @@
     <Compile Include="Migrations\201603252015093_AddAccommodationModelsAndController.Designer.cs">
       <DependentUpon>201603252015093_AddAccommodationModelsAndController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604012251468_AddImageAndAvailabilityToAccommodations.cs" />
+    <Compile Include="Migrations\201604012251468_AddImageAndAvailabilityToAccommodations.Designer.cs">
+      <DependentUpon>201604012251468_AddImageAndAvailabilityToAccommodations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -550,6 +555,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603252015093_AddAccommodationModelsAndController.resx">
       <DependentUpon>201603252015093_AddAccommodationModelsAndController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604012251468_AddImageAndAvailabilityToAccommodations.resx">
+      <DependentUpon>201604012251468_AddImageAndAvailabilityToAccommodations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -25,6 +25,7 @@ namespace HoneyWedding.Models
         public bool InFairPlay { get; set; }
         [Display(Name = "Distance from Venue")]
         public int DistanceFromVenue { get; set; }
+        public string Img { get; set; }
 
         // navigation properties
         public virtual ICollection<AccommodationRoom> Rooms { get; set; }
@@ -32,6 +33,11 @@ namespace HoneyWedding.Models
 
     public class AccommodationRoom
     {
+        public AccommodationRoom()
+        {
+            IsAvailable = true;
+        }
+
         public int ID { get; set; }
         public int AccommodationLocationID { get; set; }
         [Display(Name = "Room")]
@@ -47,6 +53,8 @@ namespace HoneyWedding.Models
         public decimal? CostNightly { get; set; }
         [Display(Name ="Minimum # Nights")]
         public int? MinNights { get; set; }
+        [Display(Name = "Available?")]
+        public bool IsAvailable { get; set; }
 
         // navigation properties
         public virtual AccommodationLocation Location { get; set; }

@@ -17,7 +17,7 @@
             position: relative;
             transform-style: preserve-3d;
             z-index: -1;
-               /*transform: translate3d(70px, 0, -80px) rotateY(30deg);*/
+            /*transform: translate3d(70px, 0, -80px) rotateY(30deg);*/
         }
 
         .parallax__layer {
@@ -26,7 +26,6 @@
             right: 0;
             bottom: 0;
             left: 0;
-            transform-origin-x: 100%;
         }
 
         .parallax__layer--base {
@@ -44,16 +43,16 @@
         .honeyContentBlock__title {
             text-align: center;
             font-size: 3em;
-            line-height: 3em;
+            line-height: 2em;
             text-transform: uppercase;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
         }
 
         .timelineContainer {
             background: url('../../Content/img/timeline_bg.gif') repeat-y center top;
-            margin: 20px auto;
             max-width: 600px;
             overflow: hidden;
+            margin: 0 auto;
         }
 
         .timeslot {
@@ -108,27 +107,27 @@
 }
 
 <div id="home"></div>
-<div class="honeyHome" id="pinHome"></div>
+<div class="honeyHome"></div>
 
 <div class="honeyContentBlock" id="ourStory">
     <div class="honeyContentBlock__title mdl-color-text--primary">Our Story</div>
     <div class="timelineContainer">
-            <div class="timeslot">
-                <span>1978</span>
-                <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
-                    <div class="mdl-card__title mdl-card__title-honeys-on-couch">
-                        <h2 class="mdl-card__title-text mdl-color-text--accent">Dec 30th, 1978</h2>
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                        <p>Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. </p>
-                    </div>
+        <div class="timeslot">
+            <span>1978</span>
+            <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card__title-honeys-on-couch">
+                    <h2 class="mdl-card__title-text mdl-color-text--accent">Dec 30th, 1978</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <p>Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. </p>
                 </div>
             </div>
-            <div class="timeslot even">
-                <span>1982</span>
-                <p>Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. </p>
-            </div>
         </div>
+        <div class="timeslot even">
+            <span>1982</span>
+            <p>Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. </p>
+        </div>
+    </div>
 </div>
 
 <div class="parallax__viewport">
@@ -182,6 +181,7 @@
         var sceneOurFamilies;
         var sceneWhenWhere;
 
+        // enable automatic scrolling when clicking on an anchor link
         $(document).on("click", "a[href*='#']", function (e) {
             var hrefValue = $(this).attr("href");
             var id = hrefValue.substr(hrefValue.indexOf('#'), hrefValue.length);
@@ -205,6 +205,7 @@
             setTimeout(function () {
                 initScrollMagic();
                 calcDurations();
+                // if loaded with # link, scroll to anchor
                 if (window.location.hash) {
                     var hrefValue = window.location.href;
                     var id = hrefValue.substr(hrefValue.indexOf('#'), hrefValue.length);
@@ -235,7 +236,17 @@
         function calcDurations() {
             // set min-height of honeyContentBlock divs
             var minHeight = $(window).height() - $('#headerRow').height();
-            $('.honeyContentBlock, .honeyHome, .parallax__viewport').css('min-height', [minHeight, 'px'].join(""));
+            $('.honeyContentBlock, .honeyHome, .parallax__viewport').css({ 'min-height': (minHeight - 40), 'padding': 20 }); // minHeight minus 40, to account for padding
+
+            // calculate transform-origin for CSS parallex (needed because default behavior doesn't correct for the width of the vertical scroll bar)
+            var xValue = $(window).width() / 2;
+            var yValue = minHeight / 2;
+            $('.parallax__layer--back').css({
+                '-webkit-transform-origin-x': xValue,
+                '-moz-transform-origin': [xValue, 'px ', yValue, 'px'].join("") // moz requires 2-value syntax
+            });
+
+
             // calculate and set triggerHook (i.e. vertical position of trigger)
             // this should place triggerHook exactly at the bottom of the headerRow (i.e. menu bar)
             var triggerHookVal = (Math.ceil(($('#headerRow').height() / $(window).height()) * 100) / 100).toFixed(2); // calculate what percentage of window height is occupied by menu bar, round up to two decimal places to add buffer for small screen heights

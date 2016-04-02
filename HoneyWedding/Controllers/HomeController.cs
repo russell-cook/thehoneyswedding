@@ -17,5 +17,11 @@ namespace HoneyWedding.Controllers
             var accommodationsManager = new AccommodationsManager();
             return View(await accommodationsManager.GetAsync());
         }
+
+        public async Task<ActionResult> AccommodationDetail(int id)
+        {
+            var accommodationsManager = new AccommodationsManager();
+            return PartialView("_AccommodationDetail", await accommodationsManager.Detail(id));
+        }
     }
 }

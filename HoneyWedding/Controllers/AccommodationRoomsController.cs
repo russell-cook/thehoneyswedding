@@ -55,7 +55,7 @@ namespace HoneyWedding.Controllers
 
             var location = await db.AccommodationLocations.FindAsync(id);
             ViewBag.AccommodationLocationID = new SelectList(db.AccommodationLocations, "ID", "LocationName", location.ID);
-            return View();
+            return View(new AccommodationRoom());
         }
 
         // POST: AccommodationRooms/Create
@@ -63,7 +63,7 @@ namespace HoneyWedding.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,AccommodationLocationID,RoomName,SleepsTotal,SleepsBed,SleepsSofa,CostNightly,MinNights,CostMinimum")] AccommodationRoom accommodationRoom)
+        public ActionResult Create([Bind(Include = "ID,AccommodationLocationID,RoomName,SleepsTotal,SleepsBed,SleepsSofa,CostNightly,MinNights,CostMinimum,IsAvailable")] AccommodationRoom accommodationRoom)
         {
             if (ModelState.IsValid)
             {

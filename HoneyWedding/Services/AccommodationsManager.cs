@@ -72,5 +72,12 @@ namespace HoneyWedding.Services
             }
             return viewModel;
         }
+
+        public async Task<AccommodationLocation> Detail(int id)
+        {
+            var accommodation = await _unitOfWork.AccommodationsRepository.GetByIDAsync(id);
+            return accommodation;
+        }
+
     }
 }

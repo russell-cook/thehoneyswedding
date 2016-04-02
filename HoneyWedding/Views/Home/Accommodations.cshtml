@@ -5,6 +5,8 @@
     ViewBag.Title = "Staying There";
 }
 
+<div class="mdl-card mdl-card__page mdl-shadow--2dp" id="accommodationDetail"></div>
+
 <div class="mdl-card mdl-card__page mdl-shadow--2dp">
     <div class="mdl-card__title">
         <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
@@ -37,7 +39,9 @@
                         @Html.DisplayFor(modelItem => item.RoomFor)
                     </td>
                     <td>
-                        @Html.ActionLink("View Details", "Details", new { id = item.ID })
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="loadAccommodation(@item.ID)">
+                            View Details
+                        </button>
                     </td>
                 </tr>
             }
@@ -46,3 +50,29 @@
 
     </div>
 </div>
+
+@section scripts {
+    <script type="text/javascript">
+
+        var accommodationDetailUrl = '@Url.Action("AccommodationDetail")';
+        var accommodationDetail = $('#accommodationDetail');
+
+        $(document).ready(loadAccommodation(@Model.FirstOrDefault().ID, true));
+
+        function loadAccommodation(accommodationId, pageLoad = false) {
+            accommodationDetail.html('');
+            var spinner = document.createElement('div');
+            spinner.className = 'mdl-spinner mdl-js-spinner is-active';
+            spinner.style.margin = 'auto auto';
+            if (!pageLoad)
+            {
+                componentHandler.upgradeElement(spinner);
+            }
+            document.getElementById('accommodationDetail').appendChild(spinner);
+            setTimeout(function () {
+                accommodationDetail.load(accommodationDetailUrl, { id: accommodationId });
+            }, 1000);
+        }
+
+    </script>
+}
