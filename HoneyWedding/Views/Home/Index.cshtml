@@ -38,6 +38,11 @@
 
         .honeyContentBlock {
             background: #f9f9f9 url('../../Content/img/light_grey.png') repeat;
+            border-image-slice: 40 40 40 40;
+            border-image-width: 40px 40px 40px 40px;
+            border-image-outset: 20px 0 20px 0;
+            border-image-repeat: round stretch;
+            border-image-source: url('../../Content/img/border__honey-content-block.png');
         }
 
         .honeyContentBlock__title {
@@ -50,43 +55,9 @@
 
         .timelineContainer {
             background: url('../../Content/img/timeline_bg.gif') repeat-y center top;
-            max-width: 600px;
+            /*max-width: 600px;*/
             overflow: hidden;
             margin: 0 auto;
-        }
-
-        .timeslot {
-            width: 285px;
-            float: left;
-            margin: 0 0 25px 0;
-            padding: 10px 120px 0 0;
-            border-top: 3px solid #ddd;
-            position: relative;
-        }
-
-            .timeslot span {
-                position: absolute;
-                right: 0;
-                top: 20px;
-                font-size: 4em;
-                line-height: 1em;
-                color: #999;
-                font-family: 'Sue Ellen Francisco', cursive;
-            }
-
-        .even {
-            float: right;
-            padding: 10px 0 0 120px;
-            border-color: rgb(239, 83, 80);
-        }
-
-            .even span {
-                left: 0;
-                color: rgb(239, 83, 80);
-            }
-
-        .mdl-card__timeline {
-            max-width: 285px;
         }
 
         .mdl-card__title-honeys-on-couch {
@@ -112,20 +83,35 @@
 <div class="honeyContentBlock" id="ourStory">
     <div class="honeyContentBlock__title mdl-color-text--primary">Our Story</div>
     <div class="timelineContainer">
-        <div class="timeslot">
-            <span>1978</span>
-            <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card__title-honeys-on-couch">
-                    <h2 class="mdl-card__title-text mdl-color-text--accent">Dec 30th, 1978</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                    <p>Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. </p>
+        <div class="mdl-grid mdl-grid__honey-timeslot">
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
+                <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card__title-honeys-on-couch">
+                        <h2 class="mdl-card__title-text mdl-color-text--accent">Dec 30th, 1978</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. </p>
+                    </div>
                 </div>
             </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--hide-phone">
+                <span>1978</span>
+            </div>
         </div>
-        <div class="timeslot even">
-            <span>1982</span>
-            <p>Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. </p>
+        <div class="mdl-grid mdl-grid__honey-timeslot even">
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--hide-phone">
+                <span>1982</span>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
+                <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card__title-honeys-on-couch">
+                        <h2 class="mdl-card__title-text mdl-color-text--accent">May 9th, 1982</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
