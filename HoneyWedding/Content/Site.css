@@ -50,6 +50,7 @@ input[type="checkbox"].input-validation-error {
 
 .mdl-card {
     opacity: 0.97;
+    width: auto;
 }
 
 .mdl-card__page {
@@ -68,6 +69,7 @@ input[type="checkbox"].input-validation-error {
 
 .mdl-data-table {
     width: 100%;
+    white-space: normal;
 }
 
 .mdl-navigation, .mdl-layout-title, .honeyContentBlock__title, .mdl-card__title-text {
@@ -126,9 +128,9 @@ a.mdl-layout__tab:hover {
 }
 
 .mdl-card__title-text {
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
     text-transform: uppercase;
-    line-height: 1.5em;
+    /*line-height: 1.5em;*/
 }
 
 .mdl-card__title {
@@ -139,7 +141,12 @@ a.mdl-layout__tab:hover {
     max-width: 960px;
     border-top: 3px solid #ddd;
     margin-bottom: 20px;
+    padding: 0;
 }
+    
+    .mdl-grid__honey-timeslot .mdl-cell {
+        margin: 8px 0;
+    }
 
     .mdl-grid__honey-timeslot span {
         /*position: absolute;
@@ -176,6 +183,15 @@ a.mdl-layout__tab:hover {
         margin-left: 20px;
     }
 
+.table-list tr {
+    line-height: 24px;
+}
+
+.table-list--term {
+    font-weight: 700;
+    float: right;
+    margin-right: 10px;
+}
 
 @media screen and (max-width: 1024px) {
     .mdl-layout-title {
@@ -202,9 +218,11 @@ a.mdl-layout__tab:hover {
         margin-right: 0;
     }
     .even {
-    margin-left: 0;
-}
-
+        margin-left: 0;
+    }
+    .mdl-cell--4-col {
+        width: 100%;
+    }
 }
 
 /*.timeslot {

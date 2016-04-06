@@ -78,7 +78,7 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 @import "functions";
 
 /* ==========  IMAGES  ========== */
-$image_path: '/images' !default;
+$image_path: 'images' !default;
 
 /* ==========  Color & Themes  ========== */
 
@@ -94,7 +94,7 @@ $trim-color-classes: false !default;
 // your brand and provide good contrast between visual components.
 $color-primary: $palette-brown-600 !default;
 $color-primary-dark: $palette-brown-800 !default;
-$color-accent: $palette-red-800 !default;
+$color-accent: $palette-red-A700 !default;
 
 // Our primary is dark, so use $color-dark-contrast for overlaid text.
 $color-primary-contrast: rgba-tpl($color-dark-contrast, 0.87) !default;

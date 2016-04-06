@@ -220,6 +220,9 @@
       <DependentUpon>mdl.css</DependentUpon>
     </Content>
     <Content Include="Content\mdl\demos.css" />
+    <Content Include="Content\mdl\images\buffer.svg" />
+    <Content Include="Content\mdl\images\tick-mask.svg" />
+    <Content Include="Content\mdl\images\tick.svg" />
     <Content Include="Content\mdl\index.html" />
     <Content Include="Content\mdl\mdlComponentHandler.js" />
     <Content Include="Content\PagedList.css" />
@@ -493,6 +496,10 @@
     <Compile Include="Migrations\201604012251468_AddImageAndAvailabilityToAccommodations.Designer.cs">
       <DependentUpon>201604012251468_AddImageAndAvailabilityToAccommodations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604060054109_AddDescriptionToAccommodationLocation.cs" />
+    <Compile Include="Migrations\201604060054109_AddDescriptionToAccommodationLocation.Designer.cs">
+      <DependentUpon>201604060054109_AddDescriptionToAccommodationLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -521,7 +528,6 @@
     <Folder Include="Content\mdl\footer\" />
     <Folder Include="Content\mdl\grid\" />
     <Folder Include="Content\mdl\icon-toggle\" />
-    <Folder Include="Content\mdl\images\" />
     <Folder Include="Content\mdl\layout\" />
     <Folder Include="Content\mdl\list\" />
     <Folder Include="Content\mdl\menu\" />
@@ -559,6 +565,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604012251468_AddImageAndAvailabilityToAccommodations.resx">
       <DependentUpon>201604012251468_AddImageAndAvailabilityToAccommodations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604060054109_AddDescriptionToAccommodationLocation.resx">
+      <DependentUpon>201604060054109_AddDescriptionToAccommodationLocation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -11,6 +11,8 @@ namespace HoneyWedding.Models
         public int ID { get; set; }
         [Display(Name = "Name")]
         public string LocationName { get; set; }
+        [Display(Name = "Description")]
+        public string Description { get; set; }
         [Display(Name = "Phone")]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
@@ -22,6 +24,7 @@ namespace HoneyWedding.Models
         public string Notes { get; set; }
         public string HoneyComments { get; set; }
         [Display(Name = "In Fair Play?")]
+        [UIHint("BooleanButton")]
         public bool InFairPlay { get; set; }
         [Display(Name = "Distance from Venue")]
         public int DistanceFromVenue { get; set; }
@@ -83,9 +86,9 @@ namespace HoneyWedding.Models
         public int ID { get; set; }
         [Display(Name = "Name")]
         public string LocationName { get; set; }
-        [Display(Name = "Price Range (Per Night)")]
+        [Display(Name = "Cost/Night")]
         public string PriceRange { get; set; }
-        [Display(Name = "Room For:")]
+        [Display(Name = "Sleeps")]
         public string RoomFor { get; set; }
     }
 }
