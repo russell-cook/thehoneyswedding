@@ -7,13 +7,16 @@
 
 }
 
-<div class="mdl-grid">
+@section headLevel {<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>}
+
+<div class="mdl-grid mdl-cell--hide-phone">
     <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
         <div class="mdl-card mdl-shadow--2dp">
             <div class="mdl-card__title">
-                @*<h2 class="mdl-card__title-text">@ViewBag.Title</h2>*@
+                <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
             </div>
             <div class="mdl-card__supporting-text">
+
                 <table class="mdl-data-table mdl-js-data-table">
                     <thead>
                     <th class="mdl-data-table__cell--non-numeric">
@@ -54,13 +57,51 @@
     </div>
 </div>
 
+<div id="accordion" class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-tablet">
+    <div class="mdl-cell--4-col">
+        <ul class="mdl-list">
+            @foreach (var item in Model)
+            {
+                <li class="mdl-list__item mdl-list__item--three-line accordion-toggle">
+                    <span class="mdl-list__item-primary-content">
+                        <span class="mdl-list__item-avatar" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></span>
+                        <span>Location 1</span>
+                        <span class="mdl-list__item-text-body">
+                            This is the description. Phone: ###-###-#### Email: 123@456.com
+                        </span>
+                    </span>
+                    <span class="mdl-list__item-secondary-content">
+                        <span class="mdl-color-text--accent">@Html.DisplayFor(modelItem => item.PriceRange)</span>
+                    </span>
+                </li>
+                <li class="accordion-content mdl-list__item">
+                    <p>Cras malesuada ultrices augue molestie risus.</p>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+
+
 @section scripts {
     <script type="text/javascript">
 
         var accommodationDetailUrl = '@Url.Action("AccommodationDetail")';
         var accommodationDetail = $('#accommodationDetail');
 
-        $(document).ready(loadAccommodation(@Model.FirstOrDefault().ID, true));
+        $(document).ready( function () {
+            loadAccommodation(@Model.FirstOrDefault().ID, true);
+            $('#accordion').find('.accordion-toggle').click(function(){
+
+                //Expand or collapse this panel
+                $(this).next().slideToggle('fast');
+
+                //Hide the other panels
+                $(".accordion-content").not($(this).next()).slideUp('fast');
+
+            });
+        })
 
         function loadAccommodation(accommodationId, pageLoad = false) {
             // clear html from target div

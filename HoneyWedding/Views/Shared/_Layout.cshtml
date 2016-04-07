@@ -57,18 +57,8 @@ else
         </nav>
     </div>
     <main class="mdl-layout__content">
-        @if (ViewBag.NoContentWrapper == true)
-        {
-            @Html.Partial("_Alerts")
-            @RenderBody()
-        }
-        else
-        {
-            <div class="content-wrapper">
-                @Html.Partial("_Alerts")
-                @RenderBody()
-            </div>
-        }
+        @Html.Partial("_Alerts")
+        @RenderBody()
     </main>
 
     <!--begin FAB at bottom-right corner-->

@@ -234,3 +234,12 @@ a.mdl-layout__tab:hover {
     position: relative;
 }*/
 
+  .accordion-toggle {
+      cursor: pointer; 
+  }
+
+  .accordion-content {
+      display: none; 
+  }
+
+  .accordion-content.default {display: block;}

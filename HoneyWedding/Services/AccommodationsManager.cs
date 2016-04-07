@@ -55,11 +55,11 @@ namespace HoneyWedding.Services
                 {
                     if (lowPrice != highPrice)
                     {
-                        priceRange = string.Format("${0}-${1}", lowPrice, highPrice);
+                        priceRange = string.Format("${0}-${1}/nt", lowPrice, highPrice);
                     }
                     else
                     {
-                        priceRange = string.Format("${0}", lowPrice);
+                        priceRange = string.Format("${0}/nt", lowPrice);
                     }
                 }
 

@@ -24,7 +24,7 @@ namespace HoneyWedding.Models
         public string Notes { get; set; }
         public string HoneyComments { get; set; }
         [Display(Name = "In Fair Play?")]
-        [UIHint("BooleanButton")]
+        [UIHint("BooleanYesKnowUnknown")]
         public bool InFairPlay { get; set; }
         [Display(Name = "Distance from Venue")]
         public int DistanceFromVenue { get; set; }
@@ -52,6 +52,7 @@ namespace HoneyWedding.Models
         [Display(Name = "Sofa beds for:")]
         public int SleepsSofa { get; set; }
         [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
         [Display(Name = "Cost Per Night")]
         public decimal? CostNightly { get; set; }
         [Display(Name ="Minimum # Nights")]
