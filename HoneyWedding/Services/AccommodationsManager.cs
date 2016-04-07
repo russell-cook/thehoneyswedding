@@ -53,13 +53,15 @@ namespace HoneyWedding.Services
 
                 if (lowPrice.HasValue)
                 {
+                    var lowPriceFormatted = lowPrice.ToString().Remove(lowPrice.ToString().IndexOf('.'));
                     if (lowPrice != highPrice)
                     {
-                        priceRange = string.Format("${0}-${1}/nt", lowPrice, highPrice);
+                        var highPriceFormatted = highPrice.ToString().Remove(highPrice.ToString().IndexOf('.'));
+                        priceRange = string.Format("${0}-${1}", lowPriceFormatted, highPriceFormatted);
                     }
                     else
                     {
-                        priceRange = string.Format("${0}/nt", lowPrice);
+                        priceRange = string.Format("${0}", lowPriceFormatted);
                     }
                 }
 
@@ -67,7 +69,8 @@ namespace HoneyWedding.Services
                     ID = location.ID,
                     LocationName = location.LocationName,
                     PriceRange = priceRange,
-                    RoomFor = roomFor
+                    RoomFor = roomFor,
+                    BallerRating = location.BallerRating
                 });
             }
             return viewModel;

@@ -29,6 +29,10 @@ namespace HoneyWedding.Models
         [Display(Name = "Distance from Venue")]
         public int DistanceFromVenue { get; set; }
         public string Img { get; set; }
+        [UIHint("StarRating")]
+        [Display(Name ="Baller-ness")]
+        public int BallerRating { get; set; }
+
 
         // navigation properties
         public virtual ICollection<AccommodationRoom> Rooms { get; set; }
@@ -91,5 +95,9 @@ namespace HoneyWedding.Models
         public string PriceRange { get; set; }
         [Display(Name = "Sleeps")]
         public string RoomFor { get; set; }
+        [UIHint("StarRating")]
+        [Display(Name = "Baller-ness")]
+        public int BallerRating { get; set; }
+
     }
 }

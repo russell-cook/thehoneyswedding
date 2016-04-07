@@ -3,17 +3,17 @@
 
 @{
     ViewBag.Title = "Staying There";
-    Layout = "~/views/shared/_layoutBlank.cshtml";
+    //Layout = "~/views/shared/_layoutBlank.cshtml";
 
 }
 
 @section headLevel {<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>}
 
 <div class="mdl-grid mdl-cell--hide-phone">
-    <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+    <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--4-col-tablet">
         <div class="mdl-card mdl-shadow--2dp">
             <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+                @*<h2 class="mdl-card__title-text">@ViewBag.Title</h2>*@
             </div>
             <div class="mdl-card__supporting-text">
 
@@ -23,10 +23,14 @@
                         @Html.DisplayNameFor(model => model.FirstOrDefault().LocationName)
                     </th>
                     <th class="mdl-data-table__cell">
-                        @Html.DisplayNameFor(model => model.FirstOrDefault().PriceRange)
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().RoomFor)
                     </th>
                     <th class="mdl-data-table__cell">
-                        @Html.DisplayNameFor(model => model.FirstOrDefault().RoomFor)
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().PriceRange)
+                    </th>
+                    <th class="mdl-data-table__cell--non-numeric">
+                        @*<span style="vertical-align: bottom">@Html.DisplayNameFor(model => model.FirstOrDefault().BallerRating)</span> <button id="menu_ballerRating" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons mdl-color-text--accent">info</i></button> <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="menu_ballerRating"><li class="mdl-menu__item"><a href="http://onlineslangdictionary.com/meaning-definition-of/baller" target="_blank">More Info</a></li></ul>*@
+                        <a href="#" id="menu_ballerRating">@Html.DisplayNameFor(model => model.FirstOrDefault().BallerRating)</a> <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="menu_ballerRating"><li class="mdl-menu__item"><a href="http://onlineslangdictionary.com/meaning-definition-of/baller" target="_blank">More Info</a></li></ul>
                     </th>
                     </thead>
 
@@ -37,10 +41,13 @@
                                 @Html.DisplayFor(modelItem => item.LocationName)
                             </td>
                             <td class="mdl-data-table__cell">
-                                @Html.DisplayFor(modelItem => item.PriceRange)
+                                @Html.DisplayFor(modelItem => item.RoomFor)
                             </td>
                             <td class="mdl-data-table__cell">
-                                @Html.DisplayFor(modelItem => item.RoomFor)
+                                @Html.DisplayFor(modelItem => item.PriceRange)
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                @Html.DisplayFor(modelItem => item.BallerRating)
                             </td>
                         </tr>
                     }
@@ -52,7 +59,7 @@
 
     </div>
 
-    <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+    <div class="mdl-cell mdl-cell--7-col-desktop mdl-cell--4-col-tablet">
         <div class="mdl-card mdl-shadow--2dp" id="accommodationDetail"></div>
     </div>
 </div>

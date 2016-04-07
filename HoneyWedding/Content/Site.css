@@ -243,3 +243,7 @@ a.mdl-layout__tab:hover {
   }
 
   .accordion-content.default {display: block;}
+
+  .star-rating i {
+      font-size: 14px;
+  }

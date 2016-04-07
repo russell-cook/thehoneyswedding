@@ -333,6 +333,7 @@
     <Content Include="Scripts\locale\locale_sv.js" />
     <Content Include="Scripts\locale\locale_tr.js" />
     <Content Include="Scripts\locale\locale_ua.js" />
+    <Content Include="Scripts\material.min.js" />
     <Content Include="Templates\InviteWeddingGuestEmail.html" />
     <Content Include="Templates\NewUserRegistrationConfirmation.html" />
     <Content Include="Templates\RegisterAccountEmailTemplate.html" />
@@ -365,6 +366,7 @@
     <Content Include="Content\mdl\_functions.scss" />
     <Content Include="Content\mdl\_mixins.scss" />
     <Content Include="Content\mdl\_variables.scss" />
+    <Content Include="Content\mdl\layout\_layout.scss" />
     <None Include="Properties\PublishProfiles\Arvixe Publish.pubxml" />
     <Content Include="Views\WeddingGuests\Invite.cshtml" />
     <Content Include="Views\WeddingGuests\Index.cshtml" />
@@ -383,6 +385,7 @@
     <Content Include="Views\Shared\_LayoutBlank.cshtml" />
     <None Include="Properties\PublishProfiles\thehoneyswedding.net - Web Deploy.pubxml" />
     <Content Include="Views\Home\_AccommodationDetail.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\StarRating.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -500,6 +503,10 @@
     <Compile Include="Migrations\201604060054109_AddDescriptionToAccommodationLocation.Designer.cs">
       <DependentUpon>201604060054109_AddDescriptionToAccommodationLocation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604071737481_AddBallerRatingToAccommodationModel.cs" />
+    <Compile Include="Migrations\201604071737481_AddBallerRatingToAccommodationModel.Designer.cs">
+      <DependentUpon>201604071737481_AddBallerRatingToAccommodationModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -528,7 +535,6 @@
     <Folder Include="Content\mdl\footer\" />
     <Folder Include="Content\mdl\grid\" />
     <Folder Include="Content\mdl\icon-toggle\" />
-    <Folder Include="Content\mdl\layout\" />
     <Folder Include="Content\mdl\list\" />
     <Folder Include="Content\mdl\menu\" />
     <Folder Include="Content\mdl\palette\" />
@@ -568,6 +574,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604060054109_AddDescriptionToAccommodationLocation.resx">
       <DependentUpon>201604060054109_AddDescriptionToAccommodationLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604071737481_AddBallerRatingToAccommodationModel.resx">
+      <DependentUpon>201604071737481_AddBallerRatingToAccommodationModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
