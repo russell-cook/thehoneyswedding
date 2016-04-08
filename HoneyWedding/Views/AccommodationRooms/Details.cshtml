@@ -68,17 +68,17 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.CostMinimum)
+                @Html.DisplayNameFor(model => model.IsAvailable)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.CostMinimum)
+                @Html.DisplayFor(model => model.IsAvailable)
             </dd>
 
         </dl>
         <p>
             @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to Accommodation", "Details", "AccommodationLocations", new { id = Model.AccommodationLocationID }, null)
         </p>
     </div>
 </div>

@@ -12,6 +12,7 @@ namespace HoneyWedding.Models
         [Display(Name = "Name")]
         public string LocationName { get; set; }
         [Display(Name = "Description")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         [Display(Name = "Phone")]
         [DataType(DataType.PhoneNumber)]
@@ -20,8 +21,11 @@ namespace HoneyWedding.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [DataType(DataType.Url)]
+        [UIHint("OpenInNewWindow")]
         public string Website { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
+        [DataType(DataType.MultilineText)]
         public string HoneyComments { get; set; }
         [Display(Name = "In Fair Play?")]
         [UIHint("BooleanYesKnowUnknown")]
@@ -69,6 +73,7 @@ namespace HoneyWedding.Models
 
         // calculated properties
         [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
         [Display(Name = "Minimum Total Cost")]
         public decimal? CostMinimum {
             get

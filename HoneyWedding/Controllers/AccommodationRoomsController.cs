@@ -55,7 +55,7 @@ namespace HoneyWedding.Controllers
 
             var location = await db.AccommodationLocations.FindAsync(id);
             ViewBag.AccommodationLocationID = new SelectList(db.AccommodationLocations, "ID", "LocationName", location.ID);
-            return View(new AccommodationRoom());
+            return View(new AccommodationRoom { AccommodationLocationID = location.ID });
         }
 
         // POST: AccommodationRooms/Create
@@ -63,13 +63,13 @@ namespace HoneyWedding.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,AccommodationLocationID,RoomName,SleepsTotal,SleepsBed,SleepsSofa,CostNightly,MinNights,CostMinimum,IsAvailable")] AccommodationRoom accommodationRoom)
+        public ActionResult Create([Bind(Include = "ID,AccommodationLocationID,RoomName,SleepsTotal,SleepsBed,SleepsSofa,CostNightly,MinNights,IsAvailable")] AccommodationRoom accommodationRoom)
         {
             if (ModelState.IsValid)
             {
                 db.AccommodationRooms.Add(accommodationRoom);
                 db.SaveChanges();
-                return RedirectToAction("Index", "AccommodationLocations", null);
+                return RedirectToAction("Details", "AccommodationLocations", new { id = accommodationRoom.AccommodationLocationID });
             }
 
             ViewBag.AccommodationLocationID = new SelectList(db.AccommodationLocations, "ID", "LocationName", accommodationRoom.AccommodationLocationID);
@@ -97,7 +97,7 @@ namespace HoneyWedding.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,AccommodationLocationID,RoomName,SleepsTotal,SleepsBed,SleepsSofa,CostNightly,MinNights,CostMinimum")] AccommodationRoom accommodationRoom)
+        public ActionResult Edit([Bind(Include = "ID,AccommodationLocationID,RoomName,SleepsTotal,SleepsBed,SleepsSofa,CostNightly,MinNights,IsAvailable")] AccommodationRoom accommodationRoom)
         {
             if (ModelState.IsValid)
             {
@@ -132,7 +132,7 @@ namespace HoneyWedding.Controllers
             AccommodationRoom accommodationRoom = db.AccommodationRooms.Find(id);
             db.AccommodationRooms.Remove(accommodationRoom);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "AccommodationLocations", new { id = accommodationRoom.AccommodationLocationID });
         }
 
         protected override void Dispose(bool disposing)

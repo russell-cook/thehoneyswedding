@@ -20,6 +20,14 @@
             </dd>
 
             <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
                 @Html.DisplayNameFor(model => model.PhoneNumber)
             </dt>
 
@@ -75,6 +83,21 @@
                 @Html.DisplayFor(model => model.DistanceFromVenue)
             </dd>
 
+            <dt>
+                @Html.DisplayNameFor(model => model.Img)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Img)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BallerRating)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BallerRating)
+            </dd>
         </dl>
         <p>
             @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |

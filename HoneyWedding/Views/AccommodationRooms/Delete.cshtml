@@ -73,11 +73,11 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.CostMinimum)
+                    @Html.DisplayNameFor(model => model.IsAvailable)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.CostMinimum)
+                    @Html.DisplayFor(model => model.IsAvailable)
                 </dd>
 
             </dl>
@@ -88,7 +88,7 @@
 
                 <div class="form-actions no-color">
                     <input type="submit" value="Delete" class="btn btn-default" /> |
-                    @Html.ActionLink("Back to List", "Index")
+                    @Html.ActionLink("Back to Accommodation", "Details", "AccommodationLocations", new { id = Model.AccommodationLocationID }, null)
                 </div>
             }
         </div>

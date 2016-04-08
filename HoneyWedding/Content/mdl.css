@@ -10522,7 +10522,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-cell--3-offset-phone.mdl-cell--3-offset-phone {
       margin-left: 75%; } }
 
-@media (min-width: 959px) and (max-width: 1024px) {
+@media (min-width: 959px) and (max-width: 1025px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
@@ -10671,7 +10671,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-cell--7-offset-tablet.mdl-cell--7-offset-tablet {
       margin-left: 87.5%; } }
 
-@media (min-width: 1025px) {
+@media (min-width: 1026px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
