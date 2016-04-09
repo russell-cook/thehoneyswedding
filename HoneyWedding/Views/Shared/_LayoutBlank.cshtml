@@ -26,14 +26,12 @@ else
 
 @RenderSection("topLevel", required: false)
 @*<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header obscure-on-load">*@
-
     @RenderBody()
 
 @*</div>*@
 
 
-    @RenderSection("scripts", required: false)
-          <script>
+<script>
     $(window).load(function () {
         // add listener: close mdl drawer and hide obfuscator when a nav link is clicked
         $('.mdl-layout__drawer .mdl-navigation__link').click(function () {
@@ -43,7 +41,8 @@ else
         // prevent content flash (resulting from deferred mdl script) for elements that will be hidden on small screen (nav, fab, etc.)
         $('.obscure-on-load').toggleClass('obscure-on-load');
     });
-          </script>
+</script>
+@RenderSection("scripts", required: false)
 </body>
 
 </html>

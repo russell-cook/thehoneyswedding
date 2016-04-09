@@ -30,7 +30,8 @@ namespace HoneyWedding
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       //"~/Content/themes/nvapps/bootstrap.css",
                       "~/Content/mdl.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/table__fixed-headers.css"));
         }
     }
 }

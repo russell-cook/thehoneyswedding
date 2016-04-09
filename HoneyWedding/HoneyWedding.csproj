@@ -236,6 +236,7 @@
     <Content Include="Content\scrollmagic\uncompressed\plugins\debug.addIndicators.js" />
     <Content Include="Content\scrollmagic\uncompressed\plugins\jquery.ScrollMagic.js" />
     <Content Include="Content\scrollmagic\uncompressed\ScrollMagic.js" />
+    <Content Include="Content\table__fixed-headers.css" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />

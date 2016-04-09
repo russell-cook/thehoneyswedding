@@ -67,6 +67,12 @@ input[type="checkbox"].input-validation-error {
     margin-right: auto;
 }
 
+.mdl-card__accommodation-detail > .mdl-card__title {
+    color: #fff;
+    height: 200px;
+    background: url('img/honeys_on_couch.jpg') center / cover;
+}
+
 .mdl-data-table {
     width: 100%;
     white-space: normal;
@@ -193,7 +199,7 @@ a.mdl-layout__tab:hover {
     margin-right: 10px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
     .mdl-layout-title {
         font-size: 22px;
     }
@@ -213,7 +219,7 @@ a.mdl-layout__tab:hover {
     }
 }
 
-@media (max-width: 479px) {
+/*@media (max-width: 479px) {
     .mdl-card__timeline {
         margin-right: 0;
     }
@@ -222,7 +228,7 @@ a.mdl-layout__tab:hover {
     }
     .mdl-cell--4-col {
         width: 100%;
-    }
+    }*/
 }
 
 /*.timeslot {
@@ -246,4 +252,5 @@ a.mdl-layout__tab:hover {
 
   .star-rating i {
       font-size: 14px;
+      letter-spacing: -6px;
   }

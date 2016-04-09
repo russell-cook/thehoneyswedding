@@ -8377,13 +8377,13 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   transform: translate(-50%, 80px);
   transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1);
   pointer-events: none; }
-  @media (max-width: 958px) {
+  @media (max-width: 479px) {
     .mdl-snackbar {
       width: 100%;
       left: 0;
       min-height: 48px;
       max-height: 80px; } }
-  @media (min-width: 959px) {
+  @media (min-width: 480px) {
     .mdl-snackbar {
       min-width: 288px;
       max-width: 568px;
@@ -10397,7 +10397,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 .mdl-cell--order-12 {
   order: 12; }
 
-@media (max-width: 958px) {
+@media (max-width: 479px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
@@ -10522,7 +10522,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-cell--3-offset-phone.mdl-cell--3-offset-phone {
       margin-left: 75%; } }
 
-@media (min-width: 959px) and (max-width: 1025px) {
+@media (min-width: 480px) and (max-width: 1023px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
@@ -10671,7 +10671,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-cell--7-offset-tablet.mdl-cell--7-offset-tablet {
       margin-left: 87.5%; } }
 
-@media (min-width: 1026px) {
+@media (min-width: 1024px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
