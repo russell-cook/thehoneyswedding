@@ -210,6 +210,7 @@
     <Content Include="Content\greensock-js\src\uncompressed\TweenMax.js" />
     <Content Include="Content\greensock-js\src\uncompressed\utils\Draggable.js" />
     <Content Include="Content\img\128-196.jpg" />
+    <Content Include="Content\img\AppleBlossoms_RightSideFg_ShedInBg.jpg" />
     <Content Include="Content\img\border__honey-content-block.png" />
     <Content Include="Content\img\confectionary.png" />
     <Content Include="Content\img\honeys_on_couch.jpg" />
