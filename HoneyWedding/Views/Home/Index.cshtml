@@ -1,7 +1,6 @@
 ﻿
 @{
     ViewBag.Title = "The Honeys' Wedding!";
-    //ViewBag.NoContentWrapper = true;
     //Layout = "~/views/shared/_layoutBlank.cshtml";
 
 }
@@ -9,12 +8,17 @@
 @section headLevel {
     <style>
         main {
+            -webkit-perspective: 1px;
             perspective: 1px;
-            perspective-origin-x: 100%;
+            /*perspective-origin-x: 100%;*/
+              /*overflow-y: auto;
+  overflow-x: hidden;*/
+    /*height: 700px;*/
         }
 
         .parallax__viewport {
             position: relative;
+            -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
             z-index: -1;
             /*transform: translate3d(70px, 0, -80px) rotateY(30deg);*/
@@ -29,10 +33,12 @@
         }
 
         .parallax__layer--base {
+            -webkit-transform: translateZ(0);
             transform: translateZ(0);
         }
 
         .parallax__layer--back {
+            -webkit-transform: translateZ(-1px) scale(2);
             transform: translateZ(-1px) scale(2);
         }
 

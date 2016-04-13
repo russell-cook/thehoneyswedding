@@ -25,10 +25,29 @@ else
 }
 
 @RenderSection("topLevel", required: false)
-@*<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header obscure-on-load">*@
-    @RenderBody()
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header obscure-on-load">
+    <header class="mdl-layout__header" id="header">
+        <div class="mdl-layout__header-row" id="headerRow">
+            <!-- Title -->
+            <span class="mdl-layout-title">@Html.ActionLink("The Honeys' Wedding", "Index", "Home", null, null, "home", null, null)</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
+                @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { id = "menuOurFamilies", @class = "mdl-layout__tab" })
+                @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
+                @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
+                @Html.ActionLink("The Venue", "Index", "Home", null, null, "venue", null, new { id = "menuVenue", @class = "mdl-layout__tab" })
+                @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-layout__tab" })
+            </nav>
+        </div>
+    </header>
+    <main class="mdl-layout__content">
+        @RenderBody()
+    </main>
 
-@*</div>*@
+</div>
 
 
 <script>
