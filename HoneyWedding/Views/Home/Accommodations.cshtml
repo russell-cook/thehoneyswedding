@@ -118,9 +118,9 @@
 
                 });
             }, 0);
-        })
+        });
 
-        function loadAccommodation(accommodationId, pageLoad = false) {
+        function loadAccommodation(accommodationId, pageLoad) {
             // clear html from target div
             accommodationDetail.html('');
 
@@ -144,6 +144,12 @@
             // set card heights
             if ($(window).width() >= 1024)
             {
+                // set widths for no-csscalc
+                if (!Modernizr.csscalc) {
+                    var listWidth = ($(window).width() * .5833333) - 16;
+                    $('#cell__accommodations-list, card__accommodations-list').css({ 'width': listWidth });
+                }
+
                 var mainHeightCorrected = $(window).height() - $('#headerRow').height() - 32; //  minus padding
                 $('#card__accommodations-list').css({ 'height': mainHeightCorrected });
 
@@ -152,6 +158,8 @@
                 $('.table__fixed-headers td, .table__fixed-headers th').css({ 'width': ((accommodationsInnerWidth - 2) / 4) });
 
             }
+
+
         }
 
     </script>

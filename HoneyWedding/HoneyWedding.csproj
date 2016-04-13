@@ -226,6 +226,7 @@
     <Content Include="Content\mdl\images\tick.svg" />
     <Content Include="Content\mdl\index.html" />
     <Content Include="Content\mdl\mdlComponentHandler.js" />
+    <Content Include="Content\modernizr.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\scrollmagic\minified\plugins\animation.gsap.min.js" />
     <Content Include="Content\scrollmagic\minified\plugins\animation.velocity.min.js" />
@@ -336,6 +337,7 @@
     <Content Include="Scripts\locale\locale_tr.js" />
     <Content Include="Scripts\locale\locale_ua.js" />
     <Content Include="Scripts\material.min.js" />
+    <Content Include="Scripts\modernizr-custom.js" />
     <Content Include="Templates\InviteWeddingGuestEmail.html" />
     <Content Include="Templates\NewUserRegistrationConfirmation.html" />
     <Content Include="Templates\RegisterAccountEmailTemplate.html" />
