@@ -168,6 +168,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\form_validation.css" />
     <Content Include="Content\greensock-js\src\minified\easing\EasePack.min.js" />
     <Content Include="Content\greensock-js\src\minified\jquery.gsap.min.js" />
     <Content Include="Content\greensock-js\src\minified\plugins\AttrPlugin.min.js" />
@@ -228,6 +229,7 @@
     <Content Include="Content\mdl\mdlComponentHandler.js" />
     <Content Include="Content\modernizr.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\parallax.css" />
     <Content Include="Content\scrollmagic\minified\plugins\animation.gsap.min.js" />
     <Content Include="Content\scrollmagic\minified\plugins\animation.velocity.min.js" />
     <Content Include="Content\scrollmagic\minified\plugins\debug.addIndicators.min.js" />
@@ -371,6 +373,8 @@
     <Content Include="Content\mdl\_mixins.scss" />
     <Content Include="Content\mdl\_variables.scss" />
     <Content Include="Content\mdl\layout\_layout.scss" />
+    <Content Include="Content\mdl\grid\_grid.scss" />
+    <Content Include="Content\mdl\card\_card.scss" />
     <None Include="Properties\PublishProfiles\Arvixe Publish.pubxml" />
     <Content Include="Views\WeddingGuests\Invite.cshtml" />
     <Content Include="Views\WeddingGuests\Index.cshtml" />
@@ -532,12 +536,10 @@
     <Folder Include="Content\mdl\animation\" />
     <Folder Include="Content\mdl\badge\" />
     <Folder Include="Content\mdl\button\" />
-    <Folder Include="Content\mdl\card\" />
     <Folder Include="Content\mdl\checkbox\" />
     <Folder Include="Content\mdl\data-table\" />
     <Folder Include="Content\mdl\dialog\" />
     <Folder Include="Content\mdl\footer\" />
-    <Folder Include="Content\mdl\grid\" />
     <Folder Include="Content\mdl\icon-toggle\" />
     <Folder Include="Content\mdl\list\" />
     <Folder Include="Content\mdl\menu\" />

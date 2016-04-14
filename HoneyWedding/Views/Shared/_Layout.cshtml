@@ -40,9 +40,12 @@ else
                 @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
                 @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { id = "menuOurFamilies", @class = "mdl-layout__tab" })
                 @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
-                @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { id = "menuStayingThere", @class = "mdl-layout__tab" })
-                @Html.ActionLink("The Venue", "Index", "Home", null, null, "venue", null, new { id = "menuVenue", @class = "mdl-layout__tab" })
-                @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-layout__tab" })
+                @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { id = "menuStayingThere", @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "Staying There" ? "is-active" : "") })
+                @Html.ActionLink("The Venue", "Index", "Home", null, null, "venue", null, new { id = "menuVenue", @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Venue" ? "is-active" : "") })
+                @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Honey Fund" ? "is-active" : "") })
+                <button id="user-menu" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">more_vert</i>
+                </button>
             </nav>
         </div>
     </header>
@@ -58,59 +61,65 @@ else
         </nav>
     </div>
     <main class="mdl-layout__content">
-        @Html.Partial("_Alerts")
-        @RenderBody()
+        @if (ViewBag.NoContentWrapper == true)
+        {
+            @Html.Partial("_Alerts")
+            @RenderBody()
+        }
+        else
+        {
+            <div class="content-wrapper">
+                @Html.Partial("_Alerts")
+                @RenderBody()
+            </div>
+        }
     </main>
 
-    <!--begin FAB at bottom-right corner-->
-    <div class="mdl-floating-fab-bottom-left__container mdl-layout--large-screen-only obscure-on-load">
-        <button id="fab-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon mdl-button--fab mdl-button--colored">
-            <i class="material-icons">more_vert</i>
-        </button>
-        <ul class="mdl-menu mdl-menu--top-right mdl-js-menu" for="fab-menu-lower-left">
-            @Html.Partial("_LoginPartial")
-            @if (Request.IsAuthenticated && User.IsInRole("WeddingAdmin"))
-            {
-                <li>@Html.ActionLink("List Wedding Guests", "Index", "WeddingGuests", new { area = "" }, new { @class = "mdl-menu__item" })</li>
-                            <li>@Html.ActionLink("Invite Wedding Guests", "Invite", "WeddingGuests", new { area = "" }, new { @class = "mdl-menu__item" })</li>
-                            <li>@Html.ActionLink("Manage Accommodations", "Index", "AccommodationLocations", new { area = "" }, new { @class = "mdl-menu__item" })</li>
-            }
-            @if (Request.IsAuthenticated && User.IsInRole("GlobalAdmin"))
-            {
-                <li>@Html.ActionLink("Users Admin", "Index", "UsersAdmin", new { area = "" }, new { @class = "mdl-menu__item" })</li>
-            }
-            @if (!Request.IsAuthenticated)
-            {
-                <li disabled class="mdl-menu__item"><i>(honeys only, for now!)</i></li>
-            }
-        </ul>
-    </div>
-    <!--end FAB-->
-
 </div>
+
+<!--Nav Menu-->
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="user-menu">
+    @Html.Partial("_LoginPartial")
+    @if (Request.IsAuthenticated && User.IsInRole("WeddingAdmin"))
+    {
+        <li>@Html.ActionLink("List Wedding Guests", "Index", "WeddingGuests", new { area = "" }, new { @class = "mdl-menu__item" })</li>
+        <li>@Html.ActionLink("Invite Wedding Guests", "Invite", "WeddingGuests", new { area = "" }, new { @class = "mdl-menu__item" })</li>
+        <li>@Html.ActionLink("Manage Accommodations", "Index", "AccommodationLocations", new { area = "" }, new { @class = "mdl-menu__item" })</li>
+    }
+    @if (Request.IsAuthenticated && User.IsInRole("GlobalAdmin"))
+    {
+        <li>@Html.ActionLink("Users Admin", "Index", "UsersAdmin", new { area = "" }, new { @class = "mdl-menu__item" })</li>
+    }
+    @if (!Request.IsAuthenticated)
+    {
+        <li disabled class="mdl-menu__item"><i>(honeys only, for now!)</i></li>
+    }
+</ul>
+
+
+
+@RenderSection("scripts", required: false)
 
 <script>
     $(window).load(function () {
         setTimeout(function () { // timeout ensures function fires AFTER mdl does its upgrades
+
             // add listener: close mdl drawer and hide obfuscator when a nav link is clicked
             $('.mdl-layout__drawer .mdl-navigation__link').click(function () {
                 $('.mdl-layout__drawer').toggleClass('is-visible');
                 $('.mdl-layout__obfuscator').toggleClass('is-visible');
             });
-            // fire override for drawer button bg, add event listener for resize
-            overrideDrawerButtonBg();
-            $(window).resize(overrideDrawerButtonBg);
+
             // prevent content flash (resulting from deferred mdl script) for elements that will be hidden on small screen (nav, fab, etc.)
             $('.obscure-on-load').toggleClass('obscure-on-load');
+
+            // render window.load scripts from view templates
+            @RenderSection("scriptWindowLoad", required: false)
+
         }, 0);
     });
 
-    // override 'inherit' background-color for drawer-button
-    function overrideDrawerButtonBg() {
-        $('.mdl-layout__drawer-button').css("background-color", "rgba(0,0,0,0)");
-    }
 </script>
-@RenderSection("scripts", required: false)
 </body>
 
 </html>

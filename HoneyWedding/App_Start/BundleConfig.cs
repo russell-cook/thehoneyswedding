@@ -31,7 +31,9 @@ namespace HoneyWedding
                       //"~/Content/themes/nvapps/bootstrap.css",
                       "~/Content/mdl.css",
                       "~/Content/modernizr.css",
+                      "~/Content/form_validation.css",
                       "~/Content/site.css",
+                      "~/Content/parallax.css",
                       "~/Content/table__fixed-headers.css"));
         }
     }

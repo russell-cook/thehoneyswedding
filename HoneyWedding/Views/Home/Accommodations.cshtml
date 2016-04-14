@@ -3,18 +3,46 @@
 
 @{
     ViewBag.Title = "Staying There";
+    ViewBag.NoContentWrapper = true;
     //Layout = "~/views/shared/_layoutBlank.cshtml";
 
 }
 
 @section headLevel {
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>}
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <style>
+        .mdl-card__accommodation-list > .mdl-card__title {
+            color: #fff;
+            height: 100px;
+            background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
+        }
+
+        .mdl-card__accommodation-detail > .mdl-card__title {
+            color: #fff;
+            height: 250px;
+            background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
+        }
+
+        .mdl-card__accommodation-detail > .mdl-card__supporting-text {
+            overflow-y: auto;
+            height: -webit-calc(100% - 255px);
+            height: -moz-calc(100% - 255px);
+            height: calc(100% - 255px);
+        }
+
+        .mdl-card__accommodation-detail > .mdl-card__actions {
+            height: 55px;
+        }
+
+
+    </style>
+}
 
 <div class="mdl-grid mdl-cell--hide-phone">
     <div class="mdl-cell mdl-cell--7-col-desktop mdl-cell--8-col-tablet" id="cell__accommodations-list">
-        <div class="mdl-card mdl-shadow--2dp" id="card__accommodations-list">
+        <div class="mdl-card mdl-card__accommodation-list mdl-shadow--2dp" id="card__accommodations-list">
             <div class="mdl-card__title">
-                @*<h2 class="mdl-card__title-text">@ViewBag.Title</h2>*@
+                <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
             </div>
             <div class="mdl-card__supporting-text">
                 <table class="mdl-data-table mdl-js-data-table table__fixed-headers" id="table__accommodations-list">
@@ -35,7 +63,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tableBody">
                         @foreach (var item in Model)
                         {
                             <tr onclick="loadAccommodation(@item.ID)">
@@ -99,27 +127,6 @@
         var accommodationDetailUrl = '@Url.Action("AccommodationDetail")';
         var accommodationDetail = $('#card__accommodation-detail');
 
-        $(window).load( function () {
-            setTimeout(function () {
-                // calculate dimensions of scrollable tables
-                calcDimensions();
-
-                // load default Accommodation Detail
-                loadAccommodation(@Model.FirstOrDefault().ID, true);
-
-                // phone - add event listener for accordion clicks
-                $('#accordion').find('.accordion-toggle').click(function(){
-
-                    //Expand or collapse this panel
-                    $(this).next().slideToggle('fast');
-
-                    //Hide the other panels
-                    $(".accordion-content").not($(this).next()).slideUp('fast');
-
-                });
-            }, 0);
-        });
-
         function loadAccommodation(accommodationId, pageLoad) {
             // clear html from target div
             accommodationDetail.html('');
@@ -138,29 +145,51 @@
             accommodationDetail.load(accommodationDetailUrl, { id: accommodationId });
         }
 
-        $(window).resize(calcDimensions);
-
         function calcDimensions() {
-            // set card heights
             if ($(window).width() >= 1024)
             {
-                // set widths for no-csscalc
-                if (!Modernizr.csscalc) {
-                    var listWidth = ($(window).width() * .5833333) - 16;
-                    $('#cell__accommodations-list, card__accommodations-list').css({ 'width': listWidth });
-                }
-
+                // set card heights
                 var mainHeightCorrected = $(window).height() - $('#headerRow').height() - 32; //  minus padding
-                $('#card__accommodations-list').css({ 'height': mainHeightCorrected });
+                $('#card__accommodations-list, #card__accommodation-detail').css({ 'height': mainHeightCorrected });
 
-                var accommodationsInnerWidth = $('#card__accommodations-list').width() - 32 - 2; // minus padding, border
+                // set widths for scrollable table
+                var accommodationsInnerWidth = $('#cell__accommodations-list').width() - 32 - 2; // minus padding, border
                 $('#table__accommodations-list').css({ 'width': accommodationsInnerWidth });
                 $('.table__fixed-headers td, .table__fixed-headers th').css({ 'width': ((accommodationsInnerWidth - 2) / 4) });
 
+                // set tbody height for scrollable table
+                var tbodyHeight = mainHeightCorrected - 32 - 100 - 50; // minus card padding, card__title height, thead height
+                if (tbodyHeight < 50) // minimum height of 50px to maintain scrollability and proportion to thead
+                {
+                    tbodyHeight = 50;
+                }
+                $('#tableBody').css({ 'height': tbodyHeight });
             }
-
-
         }
 
     </script>
 }
+
+<script>
+@section scriptWindowLoad {
+    // calculate dimensions of scrollable tables
+    calcDimensions();
+
+    // load default Accommodation Detail
+    loadAccommodation(@Model.FirstOrDefault().ID, true);
+
+    // phone - add event listener for accordion clicks
+    $('#accordion').find('.accordion-toggle').click(function(){
+
+        //Expand or collapse this panel
+        $(this).next().slideToggle('fast');
+
+        //Hide the other panels
+        $(".accordion-content").not($(this).next()).slideUp('fast');
+
+    });
+
+    $(window).resize(calcDimensions);
+
+}
+</script>

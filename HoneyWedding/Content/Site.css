@@ -1,53 +1,66 @@
-﻿/* Set width on the form input elements since they're 100% wide by default */
-.input-group,
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+﻿/* =======================================
+    Global look and feel
+   ======================================= */
 
-/* styles for validation helpers */
-.field-validation-error {
-    color: #b94a48;
-}
-
-.field-validation-valid {
+/* Hide certain elements until mdl has done its upgrade (prevents content flash on small screens) */
+.obscure-on-load {
     display: none;
 }
 
-input.input-validation-error {
-    border: 1px solid #b94a48;
-}
-
-input[type="checkbox"].input-validation-error {
-    border: 0 none;
-}
-
-.validation-summary-errors {
-    color: #b94a48;
-}
-
-.validation-summary-valid {
-    display: none;
-}
-
-.mdl-layout__header {
-    background-image:
-        repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 31px),
-        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 31px),
-        linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
-        linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
-    background-size: 35px 64px;
-} 
-
-.mdl-textfield__error {
-    visibility: visible;
-}
-
+/* container for basic pages */
 .content-wrapper {
     margin-top: 40px;
 }
 
+/* ----Grid---- */
+.mdl-grid {
+    max-width: 1008px;
+}
+
+/* ----Top Navbar---- */
+.mdl-layout__header {
+    /* Argyle BG Pattern */
+    background-image: repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 31px), 
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 31px), 
+        linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)), 
+        linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+    background-size: 35px 64px;
+}
+
+.mdl-layout__header-row {
+    padding: 0 20px 0 20px;
+}
+
+.mdl-navigation, .mdl-layout-title, .honeyContentBlock__title, .mdl-card__title-text {
+    font-family: 'Sue Ellen Francisco', cursive;
+}
+
+.mdl-layout-title {
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+    .mdl-layout-title a {
+        color: rgba(255,255,255,0.87);
+        text-decoration: none;
+    }
+
+/* ----Nav Tabs---- */
+.mdl-layout__tab {
+    font-size: 18px;
+    padding: 0 12px 0 12px;
+}
+
+a.mdl-layout__tab:hover {
+    color: rgba(255,255,255,0.87);
+}
+
+.mdl-navigation__link {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+/* ----Card Styling----*/
 .mdl-card {
     opacity: 0.97;
     width: auto;
@@ -67,190 +80,76 @@ input[type="checkbox"].input-validation-error {
     margin-right: auto;
 }
 
-.mdl-card__accommodation-detail > .mdl-card__title {
-    color: #fff;
-    height: 200px;
-    background: url('img/honeys_on_couch.jpg') center / cover;
+.mdl-card__title-text {
+    text-transform: uppercase;
 }
 
+.mdl-card__title {
+    padding: 8px 16px 8px 16px;
+}
+
+/* Table Styling */
 .mdl-data-table {
     width: 100%;
     white-space: normal;
 }
 
-.mdl-navigation, .mdl-layout-title, .honeyContentBlock__title, .mdl-card__title-text {
-    font-family: 'Sue Ellen Francisco', cursive;
-}
 
-.mdl-layout-title {
-    text-transform: uppercase;
-    font-size: 28px;
-}
-
-.mdl-layout-title a {
-    color: rgba(255,255,255,0.87);
-    text-decoration: none;
-}
-
-.mdl-layout__tab {
-    font-size: 18px;
-    padding: 0 12px 0 12px;    
-}
-
-a.mdl-layout__tab:hover {
-    color: rgba(255,255,255,0.87);
-}
-
-.mdl-navigation__link {
-    text-transform: uppercase;
-    font-size: 20px;
-}
-
-.mdl-floating-fab-bottom-left__container {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    margin: 30px;
-    z-index: 2;
-}
-
-.mdl-layout__header-row {
-    padding: 0 40px 0 40px;
-}
-
-.obscure-on-load {
-    display: none;
-}
-
-.honeyMap {
-    min-height: 400px;
-    margin: 20px;
-    border: 0;
-}
-
-.mdl-list-label {
-    text-align: right;
-    font-weight: bold;
-}
-
-.mdl-card__title-text {
-    /*font-size: 1.5em;*/
-    text-transform: uppercase;
-    /*line-height: 1.5em;*/
-}
-
-.mdl-card__title {
-        padding: 8px 16px 8px 16px;
-}
-
-.mdl-grid__honey-timeslot {
-    max-width: 960px;
-    border-top: 3px solid #ddd;
-    margin-bottom: 20px;
-    padding: 0;
-}
-    
-    .mdl-grid__honey-timeslot .mdl-cell {
-        margin: 8px 0;
-    }
-
-    .mdl-grid__honey-timeslot span {
-        /*position: absolute;
-        right: 0;*/
-        /*top: 20px;*/
-        margin-left: 20px;
-        font-size: 4em;
-        line-height: 1em;
-        color: #999;
-        font-family: 'Sue Ellen Francisco', cursive;
-    }
-
-.mdl-card__timeline {
-    width: auto;
-    margin-right: 20px;
-}
-
-.even {
-    /*float: right;*/
-    /*padding: 10px 0 0 120px;*/
-    border-color: rgb(239, 83, 80);
-}
-
-    .even span {
-        /*left: 0;*/
-        float: right;
-        margin-left: 0;
-        margin-right: 20px;
-        color: rgb(239, 83, 80);
-    }
-
-    .even .mdl-card__timeline {
-        margin-right: 0;
-        margin-left: 20px;
-    }
-
-.table-list tr {
-    line-height: 24px;
+/* Table-based styling for Definition Lists*/
+/* -----------Hacky! need better solution------------- */
+.table-list td {
+    vertical-align: bottom;
+    padding-bottom: 10px;
 }
 
 .table-list--term {
     font-weight: 700;
     float: right;
+    text-align: right;
     margin-right: 10px;
 }
+
+/* Accordion Styling (phone only) */
+.accordion-toggle {
+    cursor: pointer;
+}
+
+.accordion-content {
+    display: none;
+}
+
+    .accordion-content.default {
+        display: block;
+    }
+
+
+/* Star Rating System */
+.star-rating i {
+    font-size: 18px;
+    letter-spacing: -8px;
+}
+
+
+
+/* ============================================
+    Media Transforms
+    =========================================== */
 
 @media screen and (max-width: 959px) {
     .mdl-layout-title {
         font-size: 22px;
     }
+
     .mdl-layout__header, .mdl-layout__drawer {
-        background-image:
-            repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 29px),
-            repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 29px),
-            linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
-            linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+        background-image: repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 29px), repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 29px), linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)), linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
         background-size: 35px 56px;
-    } 
+    }
+
     .mdl-layout__header-row {
         padding: 0 40px 0 72px;
     }
+
     .mdl-card__supporting-text {
         padding: 8px;
     }
 }
-
-/*@media (max-width: 479px) {
-    .mdl-card__timeline {
-        margin-right: 0;
-    }
-    .even {
-        margin-left: 0;
-    }
-    .mdl-cell--4-col {
-        width: 100%;
-    }*/
-}
-
-/*.timeslot {
-    width: 285px;
-    float: left;
-    margin: 0 0 25px 0;
-    padding: 10px 120px 0 0;
-    border-top: 3px solid #ddd;
-    position: relative;
-}*/
-
-  .accordion-toggle {
-      cursor: pointer; 
-  }
-
-  .accordion-content {
-      display: none; 
-  }
-
-  .accordion-content.default {display: block;}
-
-  .star-rating i {
-      font-size: 14px;
-      letter-spacing: -6px;
-  }

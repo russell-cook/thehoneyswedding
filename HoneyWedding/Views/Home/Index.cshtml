@@ -1,63 +1,23 @@
 ﻿
 @{
     ViewBag.Title = "The Honeys' Wedding!";
+    ViewBag.NoContentWrapper = true;
     //Layout = "~/views/shared/_layoutBlank.cshtml";
-
 }
 
 @section headLevel {
     <style>
-        main {
-            -webkit-perspective: 1px;
-            perspective: 1px;
-            /*perspective-origin-x: 100%;*/
-              /*overflow-y: auto;
-  overflow-x: hidden;*/
-    /*height: 700px;*/
-        }
-
-        .parallax__viewport {
-            position: relative;
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            z-index: -1;
-            /*transform: translate3d(70px, 0, -80px) rotateY(30deg);*/
-        }
-
-        .parallax__layer {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-
-        .parallax__layer--base {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-
-        .parallax__layer--back {
-            -webkit-transform: translateZ(-1px) scale(2);
-            transform: translateZ(-1px) scale(2);
-        }
-
         .honeyContentBlock {
             background-color: rgb(62, 39, 35);
-            background-image: 
-                radial-gradient(circle at 100% 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent),
-                radial-gradient(circle at 0    150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent),
-                radial-gradient(circle at 50%  100%, rgb(50, 30, 30) 10%, rgb(62, 39, 35) 11%, rgb(62, 39, 35) 23%, rgb(50, 30, 30) 24%, rgb(50, 30, 30) 30%, rgb(62, 39, 35) 31%, rgb(62, 39, 35) 43%, rgb(50, 30, 30) 44%, rgb(50, 30, 30) 50%, rgb(62, 39, 35) 51%, rgb(62, 39, 35) 63%, rgb(50, 30, 30) 64%, rgb(50, 30, 30) 71%, transparent 71%, transparent),
-                radial-gradient(circle at 100% 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent),
-                radial-gradient(circle at 0    50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent);
-            background-size:66px 33px;
+            background-image: radial-gradient(circle at 100% 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, rgb(50, 30, 30) 10%, rgb(62, 39, 35) 11%, rgb(62, 39, 35) 23%, rgb(50, 30, 30) 24%, rgb(50, 30, 30) 30%, rgb(62, 39, 35) 31%, rgb(62, 39, 35) 43%, rgb(50, 30, 30) 44%, rgb(50, 30, 30) 50%, rgb(62, 39, 35) 51%, rgb(62, 39, 35) 63%, rgb(50, 30, 30) 64%, rgb(50, 30, 30) 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent);
+            background-size: 66px 33px;
             /*background: #f9f9f9 url('../../Content/img/light_grey.png') repeat;*/
             /*border-image-slice: 40 40 40 40;
             border-image-width: 40px 40px 40px 40px;
             border-image-outset: 20px 0 20px 0;
             border-image-repeat: round stretch;
             border-image-source: url('../../Content/img/border__honey-content-block.png');*/
-            box-shadow: rgba(0,0,0,0.4) 2px 2px inset;
+            /*box-shadow: rgba(0,0,0,0.4) 2px 2px inset;*/
         }
 
         .honeyContentBlock__title {
@@ -67,6 +27,52 @@
             text-transform: uppercase;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
         }
+
+        .mdl-grid__honey-timeslot {
+            /*max-width: 960px;*/
+            border-top: 3px solid #ddd;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+
+            .mdl-grid__honey-timeslot .mdl-cell {
+                margin: 8px 0;
+            }
+
+            .mdl-grid__honey-timeslot span {
+                /*position: absolute;
+        right: 0;*/
+                /*top: 20px;*/
+                margin-left: 20px;
+                font-size: 4em;
+                line-height: 1em;
+                color: #999;
+                font-family: 'Sue Ellen Francisco', cursive;
+            }
+
+        .mdl-card__timeline {
+            width: auto;
+            margin-right: 20px;
+        }
+
+        .even {
+            /*float: right;*/
+            /*padding: 10px 0 0 120px;*/
+            border-color: rgb(239, 83, 80);
+        }
+
+            .even span {
+                /*left: 0;*/
+                float: right;
+                margin-left: 0;
+                margin-right: 20px;
+                color: rgb(239, 83, 80);
+            }
+
+            .even .mdl-card__timeline {
+                margin-right: 0;
+                margin-left: 20px;
+            }
 
         .timelineContainer {
             background: url('../../Content/img/timeline_bg.gif') repeat-y center top;
@@ -147,29 +153,55 @@
 
 <div class="honeyContentBlock" id="whenWhere">
     <div class="honeyContentBlock__title mdl-color-text--brown-200">When & Where</div>
-    <div class="mdl-grid mdl-grid__honeyContentBlock">
+    <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
             <div class="mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title mdl-color--accent">
                     <h2 class="mdl-card__title-text mdl-color-text--accent-contrast">Details</h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone mdl-cell--3-col-tablet mdl-list-label">Date:</div>
-                        <div class="mdl-cell mdl-cell--8-col mdl-cell--2-col-phone mdl-cell--5-col-tablet">October 1, 2016</div>
-                        <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone mdl-cell--3-col-tablet mdl-list-label">Time:</div>
-                        <div class="mdl-cell mdl-cell--8-col mdl-cell--2-col-phone mdl-cell--5-col-tablet">4pm-10pm</div>
-                        <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone mdl-cell--3-col-tablet mdl-list-label">Location:</div>
-                        <div class="mdl-cell mdl-cell--8-col mdl-cell--2-col-phone mdl-cell--5-col-tablet">Mastroserio Winery</div>
-                        <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone mdl-cell--3-col-tablet mdl-list-label">Address:</div>
-                        <div class="mdl-cell mdl-cell--8-col mdl-cell--2-col-phone mdl-cell--5-col-tablet">7351 Fairplay Rd<br />Somerset, CA 95684</div>
-                    </div>
+                    <table class="table-list" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="table-list--term">
+                                Date:
+                            </td>
+                            <td>
+                                October 1, 2016
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table-list--term">
+                                Time:
+                            </td>
+                            <td>
+                                4pm-10pm
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table-list--term">
+                                Location:
+                            </td>
+                            <td>
+                                Mastroserio Winery
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table-list--term">
+                                Address:
+                            </td>
+                            <td>
+                                7351 Fairplay Rd<br />Somerset, CA 95684
+                            </td>
+                        </tr>
+                    </table>
+
                 </div>
             </div>
         </div>
         <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
             <div class="mdl-card mdl-shadow--2dp">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354" draggable="true" frameborder="0" class="honeyMap"></iframe>
+                @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354" draggable="true" frameborder="0" class="honeyMap"></iframe>*@
+                <iframe src="" id="map" draggable="true" frameborder="0" class="honeyMap"></iframe>
             </div>
         </div>
     </div>
@@ -185,45 +217,6 @@
         var sceneOurStory;
         var sceneOurFamilies;
         var sceneWhenWhere;
-
-        // enable automatic scrolling when clicking on an anchor link
-        $(document).on("click", "a[href*='#']", function (e) {
-            var hrefValue = $(this).attr("href");
-            var id = hrefValue.substr(hrefValue.indexOf('#'), hrefValue.length);
-            if ($(id).length > 0) {
-                e.preventDefault();
-
-                // trigger scroll
-                //var scrollLocation = ($(id).position().top - $('#headerRow').height()); // offset for menu bar
-                var scrollLocation = $('main').scrollTop() + $(id).position().top;
-                TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
-
-                // if supported by the browser we can even update the URL.
-                if (window.history && window.history.pushState) {
-                    history.pushState("", document.title, id);
-                }
-            }
-        });
-
-        $(window).load(function () {
-            // timeout ensures function fires AFTER mdl does its upgrades
-            setTimeout(function () {
-                initScrollMagic();
-                calcDurations();
-                // if loaded with # link, scroll to anchor
-                if (window.location.hash) {
-                    var hrefValue = window.location.href;
-                    var id = hrefValue.substr(hrefValue.indexOf('#'), hrefValue.length);
-                    if ($(id).length > 0) {
-                        // trigger scroll
-                        var scrollLocation = $('main').scrollTop() + $(id).position().top;
-                        TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
-                    }
-                }
-            }, 0);
-        })
-
-        $(window).resize(calcDurations);
 
         function initScrollMagic() {
             // build nav tab scenes
@@ -270,6 +263,55 @@
 
         }
 
+        function initMap() {
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 8
+            });
+        }
+
     </script>
 
 }
+
+<script>
+@section scriptWindowLoad {
+    // enable automatic scrolling when clicking on an anchor link
+    $(document).on("click", "a[href*='#']", function (e) {
+        var hrefValue = $(this).attr("href");
+        var id = hrefValue.substr(hrefValue.indexOf('#'), hrefValue.length);
+        if ($(id).length > 0) {
+            e.preventDefault();
+
+            // trigger scroll
+            var scrollLocation = $('main').scrollTop() + $(id).position().top;
+            TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
+
+            // if supported by the browser we can even update the URL.
+            if (window.history && window.history.pushState) {
+                history.pushState("", document.title, id);
+            }
+        }
+    });
+
+    $(window).resize(calcDurations);
+
+    initScrollMagic();
+    calcDurations();
+
+    // load google map
+    $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354');
+
+    // if loaded with # link, scroll to anchor
+    if (window.location.hash) {
+        var hrefValue = window.location.href;
+        var id = hrefValue.substr(hrefValue.indexOf('#'), hrefValue.length);
+        if ($(id).length > 0) {
+            // trigger scroll
+            var scrollLocation = $('main').scrollTop() + $(id).position().top;
+            TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
+        }
+    }
+}
+</script>

@@ -201,7 +201,7 @@
     .mdl-layout__header & {
       position: absolute;
       color: $layout-header-text-color;
-      background-color: inherit;
+      /*background-color: inherit;*/
 
       @media screen and (max-width: $layout-screen-size-threshold) {
         margin: 4px;

@@ -1,0 +1,32 @@
+﻿main {
+    -webkit-perspective: 1px;
+    perspective: 1px;
+    /*perspective-origin-x: 100%;*/
+}
+
+.parallax__viewport {
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: -1;
+    /*transform: translate3d(70px, 0, -80px) rotateY(30deg);*/
+}
+
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.parallax__layer--back {
+    -webkit-transform: translateZ(-1px) scale(2);
+    transform: translateZ(-1px) scale(2);
+}
+
