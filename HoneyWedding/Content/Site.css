@@ -113,6 +113,11 @@ a.mdl-layout__tab:hover {
     float: right;
     text-align: right;
     margin-right: 10px;
+    width: 100px;
+}
+
+.table-list--term:after {
+    content: ":";
 }
 
 /* Accordion Styling (phone only) */

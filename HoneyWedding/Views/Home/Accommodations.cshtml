@@ -45,12 +45,15 @@
             margin-top: 0;
         }
 
+        .phoneText {
+            display: none;
+        }
 
 
-        @@media screen and (max-width: 959px) {
+        @@media screen and (max-width: 959px) and (min-width: 480px) {
             .accommodationsFlexContainer {
                 flex-direction: row;
-                height: -webit-calc(100% -55px);
+                height: -webit-calc(100% - 55px);
                 height: -moz-calc(100% - 55px);
                 height: calc(100% - 55px);
             }
@@ -65,48 +68,53 @@
                 height: 100%;
             }
         }
+
+        @@media screen and (max-width: 479px) {
+            .accommodationsFlexContainer {
+                flex-direction: column;
+                height: -webit-calc(100% - 55px);
+                height: -moz-calc(100% - 55px);
+                height: calc(100% - 55px);
+            }
+
+            .mdl-card__accommodation-detail .mdl-card__title {
+                height: 100px;
+            }
+
+            .mdl-card__accommodation-detail .mdl-card__supporting-text {
+                overflow-y: auto;
+                height: -webit-calc(100% - 100px);
+                height: -moz-calc(100% - 100px);
+                height: calc(100% - 100px);
+            }
+
+            .phoneText {
+                display: normal;
+            }
+
+            .largeScreenText {
+                display: none;
+            }
+        }
+
+        @@media screen and (max-height: 479px) {
+            .mdl-card__accommodation-detail .mdl-card__title {
+                height: 100px;
+            }
+        }
     </style>
 }
 
-<div class="mdl-grid mdl-cell--hide-phone">
+<div class="mdl-grid">
+
     <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet">
         <div class="mdl-card mdl-card__accommodation-detail mdl-shadow--2dp" id="card__accommodation-detail">
-            <div class="accommodationsFlexContainer">
-                <div class="mdl-card__title" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover">
-                    <p class="mdl-card__title-text">@ViewBag.Title</p>
-                </div>
-                <div class="mdl-card__supporting-text">
-                    <h5 class="mdl-color-text--primary">Accommodations in the Fair Play Area</h5>
-                    <p>
-                        We love Fair Play, but it's a small town, and the accommodations are limited. So we've tried to do the homework for you!
-                    </p>
-                    <p>
-                        The following table lists all of the options that we were able to locate in the Fair Play area, as well as a few motels in the towns of Placerville and Camino (about a 30-minute drive).
-                        You can sort by price, distance from the venue, etc. Click on a row to load the details for that location.
-                    </p>
-                    <p>
-                        <strong>PLEASE NOTE: </strong>Most of the accommodations in the Fair Play area are small, family-run operations.
-                        In order to secure their availability we have contacted the owners, and in some cases we have put down deposits, so we'll need your help in coordinating this effort.
-                        Please read the 'Notes' under each accommodation for special instructions. Thanks!
-                    </p>
-                    <p>
-                        -The Honeys
-                    </p>
-                </div>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.google.com/maps/place/Fair+Play,+CA" target="_blank">
-                    View Map of Fair Play
-                </a>
-            </div>
+            <!--Accommodation Location Detail content-->
         </div>
     </div>
 
-    <div class="mdl-cell mdl-cell--7-col-desktop mdl-cell--8-col-tablet" id="cell__accommodations-list">
+    <div class="mdl-cell mdl-cell--7-col-desktop mdl-cell--8-col-tablet mdl-cell--hide-phone" id="cell__accommodations-list">
         <div class="mdl-card mdl-card__accommodation-list mdl-shadow--2dp" id="card__accommodations-list">
-            @*<div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
-                </div>*@
             <div class="mdl-card__supporting-text">
                 <table class="mdl-data-table mdl-js-data-table table__fixed-headers" id="table__accommodations-list">
                     <thead>
@@ -146,10 +154,8 @@
                         }
                     </tbody>
                 </table>
-
             </div>
         </div>
-
     </div>
 
 </div>
@@ -161,10 +167,11 @@
             {
                 <li class="mdl-list__item mdl-list__item--three-line accordion-toggle">
                     <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></span>
-                        <span>Location 1</span>
+                        <span class="mdl-list__item-avatar" style="background: url('../../Content/img/@Html.DisplayFor(modelItem => item.Img)') center / cover;"></span>
+                        <span>@Html.DisplayFor(modelItem => item.LocationName)</span>
                         <span class="mdl-list__item-text-body">
-                            This is the description. Phone: ###-###-#### Email: 123@456.com
+                            @Html.DisplayNameFor(modelItem => item.DistanceFromVenue): @Html.DisplayFor(modelItem => item.DistanceFromVenue) mi<br />
+                            @Html.DisplayNameFor(modelItem => item.RoomFor): @Html.DisplayFor(modelItem => item.RoomFor)
                         </span>
                     </span>
                     <span class="mdl-list__item-secondary-content">
@@ -172,7 +179,31 @@
                     </span>
                 </li>
                 <li class="accordion-content mdl-list__item">
-                    <p>Cras malesuada ultrices augue molestie risus.</p>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    <p>
+                        <strong>@Html.DisplayNameFor(modelItem => item.Notes): </strong>@Html.DisplayFor(modelItem => item.Notes)<br />
+                    </p>
+                    <p>
+                        <strong>@Html.DisplayNameFor(modelItem => item.BallerRating): </strong>@Html.DisplayFor(modelItem => item.BallerRating)<br />
+                        <strong>@Html.DisplayNameFor(modelItem => item.PhoneNumber): </strong>@Html.DisplayFor(modelItem => item.PhoneNumber)<br />
+                        <strong>@Html.DisplayNameFor(modelItem => item.Email): </strong>@Html.DisplayFor(modelItem => item.Email)<br />
+                    </p>
+                    @if (!item.Website.IsEmpty() || !item.MapLink.IsEmpty())
+                    {
+                        if (!item.Website.IsEmpty())
+                        {
+                            <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.Website" target="_blank">
+                                Website
+                            </a>
+                        }
+                        if (!item.MapLink.IsEmpty())
+                        {
+                            <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.MapLink" target="_blank">
+                                Map
+                            </a>
+                        }
+                    }
+
                 </li>
             }
 
@@ -242,7 +273,12 @@
                 $('#tableBody').css({ 'height': tbodyHeight });
             }
             else {
+                // set card height
+                var cardHeight = 100 + $('.accommodationsFlexContainer .mdl-card__supporting-text').prop('scrollHeight') + 55;
+                $('#card__accommodation-detail').css({ 'height': cardHeight });
 
+                // load Accommodation Welcome (id = 0) in case landscape mode allowed for loading of _AccommodationDetail partial
+                loadAccommodation(0);
             }
         }
 
@@ -254,8 +290,8 @@
     // calculate dimensions of scrollable tables
     calcDimensions();
 
-    // load default Accommodation Detail
-    @*loadAccommodation(@Model.FirstOrDefault().ID, true);*@
+    // load Accommodation Welcome (id = 0)
+    loadAccommodation(0, true);
 
     // phone - add event listener for accordion clicks
     $('#accordion').find('.accordion-toggle').click(function () {

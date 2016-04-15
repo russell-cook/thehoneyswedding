@@ -24,9 +24,9 @@ namespace HoneyWedding.Services
 
         public async Task<List<AccommodationViewModel>> GetAsync()
         {
-            var accommodations = await _unitOfWork.AccommodationsRepository.GetAsync(null, q => q.OrderBy(a => a.LocationName), "Rooms");
+            var locations = await _unitOfWork.AccommodationsRepository.GetAsync(null, q => q.OrderBy(a => a.LocationName), "Rooms");
             var viewModel = new List<AccommodationViewModel>();
-            foreach (AccommodationLocation location in accommodations)
+            foreach (AccommodationLocation location in locations)
             {
                 decimal? lowPrice = null;
                 decimal? highPrice = null;
@@ -65,14 +65,39 @@ namespace HoneyWedding.Services
                     }
                 }
 
-                viewModel.Add(new AccommodationViewModel {
+                var accommodationLocation = new AccommodationViewModel {
                     ID = location.ID,
                     LocationName = location.LocationName,
                     PriceRange = priceRange,
                     RoomFor = roomFor,
-                    BallerRating = location.BallerRating
-                });
+                    BallerRating = location.BallerRating,
+                    Description = location.Description,
+                    PhoneNumber = location.PhoneNumber,
+                    Email = location.Email,
+                    InFairPlay = location.InFairPlay,
+                    DistanceFromVenue = location.DistanceFromVenue,
+                    Notes = location.Notes,
+                    Website = location.Website,
+                    MapLink = location.MapLink
+                };
+
+                if (location.Img != null)
+                {
+                    accommodationLocation.Img = location.Img;
+                }
+                else
+                {
+                    accommodationLocation.Img = "needImage.png";
+                }
+
+                foreach (AccommodationRoom room in location.Rooms)
+                {
+                    accommodationLocation.Rooms.Add(room);
+                }
+
+                viewModel.Add(accommodationLocation);
             }
+
             return viewModel;
         }
 

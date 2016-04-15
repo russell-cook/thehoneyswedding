@@ -216,6 +216,7 @@
     <Content Include="Content\img\confectionary.png" />
     <Content Include="Content\img\honeys_on_couch.jpg" />
     <Content Include="Content\img\light_grey.png" />
+    <Content Include="Content\img\needImage.png" />
     <Content Include="Content\img\timeline_bg.gif" />
     <Content Include="Content\mdl.css" />
     <Content Include="Content\mdl.min.css">
@@ -394,6 +395,7 @@
     <None Include="Properties\PublishProfiles\thehoneyswedding.net - Web Deploy.pubxml" />
     <Content Include="Views\Home\_AccommodationDetail.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StarRating.cshtml" />
+    <Content Include="Views\Home\_AccommodationWelcome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

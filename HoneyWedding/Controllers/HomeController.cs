@@ -20,6 +20,10 @@ namespace HoneyWedding.Controllers
 
         public async Task<ActionResult> AccommodationDetail(int id)
         {
+            if (id == 0)
+            {
+                return PartialView("_AccommodationWelcome");
+            }
             var accommodationsManager = new AccommodationsManager();
             return PartialView("_AccommodationDetail", await accommodationsManager.Detail(id));
         }
