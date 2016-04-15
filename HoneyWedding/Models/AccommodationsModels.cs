@@ -36,6 +36,9 @@ namespace HoneyWedding.Models
         [UIHint("StarRating")]
         [Display(Name ="Baller-ness")]
         public int BallerRating { get; set; }
+        [DataType(DataType.Url)]
+        [UIHint("OpenInNewWindow")]
+        public string MapLink { get; set; }
 
 
         // navigation properties

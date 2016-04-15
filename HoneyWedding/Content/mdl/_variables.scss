@@ -94,7 +94,7 @@ $trim-color-classes: false !default;
 // your brand and provide good contrast between visual components.
 $color-primary: $palette-brown-600 !default;
 $color-primary-dark: $palette-brown-800 !default;
-$color-accent: $palette-pink-A700 !default;
+$color-accent: $palette-pink-A200 !default;
 
 // Our primary is dark, so use $color-dark-contrast for overlaid text.
 $color-primary-contrast: rgba-tpl($color-dark-contrast, 0.87) !default;
@@ -527,7 +527,7 @@ $grid-desktop-columns: 12 !default;
 $grid-desktop-gutter: 16px !default;
 $grid-desktop-margin: 16px !default;
 
-$grid-desktop-breakpoint: 1024px !default;
+$grid-desktop-breakpoint: 960px !default;
 
 $grid-tablet-columns: 8 !default;
 $grid-tablet-gutter: $grid-desktop-gutter !default;

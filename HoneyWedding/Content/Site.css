@@ -31,6 +31,8 @@
     padding: 0 20px 0 20px;
 }
 
+
+/* -----Typography----- */
 .mdl-navigation, .mdl-layout-title, .honeyContentBlock__title, .mdl-card__title-text {
     font-family: 'Sue Ellen Francisco', cursive;
 }
@@ -44,6 +46,10 @@
         color: rgba(255,255,255,0.87);
         text-decoration: none;
     }
+
+p {
+    line-height: 20px;
+}
 
 /* ----Nav Tabs---- */
 .mdl-layout__tab {
@@ -149,7 +155,4 @@ a.mdl-layout__tab:hover {
         padding: 0 40px 0 72px;
     }
 
-    .mdl-card__supporting-text {
-        padding: 8px;
-    }
 }

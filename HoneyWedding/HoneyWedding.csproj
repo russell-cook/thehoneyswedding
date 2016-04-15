@@ -515,6 +515,10 @@
     <Compile Include="Migrations\201604071737481_AddBallerRatingToAccommodationModel.Designer.cs">
       <DependentUpon>201604071737481_AddBallerRatingToAccommodationModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604150112373_AddMapLinkToAccommodationLocation.cs" />
+    <Compile Include="Migrations\201604150112373_AddMapLinkToAccommodationLocation.Designer.cs">
+      <DependentUpon>201604150112373_AddMapLinkToAccommodationLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -583,6 +587,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604071737481_AddBallerRatingToAccommodationModel.resx">
       <DependentUpon>201604071737481_AddBallerRatingToAccommodationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604150112373_AddMapLinkToAccommodationLocation.resx">
+      <DependentUpon>201604150112373_AddMapLinkToAccommodationLocation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

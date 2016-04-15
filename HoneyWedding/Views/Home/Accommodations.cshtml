@@ -11,39 +11,102 @@
 @section headLevel {
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <style>
-        .mdl-card__accommodation-list > .mdl-card__title {
+        .mdl-card__accommodation-list .mdl-card__title {
             color: #fff;
-            height: 100px;
+            height: 75px;
             background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
         }
 
-        .mdl-card__accommodation-detail > .mdl-card__title {
+        .mdl-card__accommodation-detail .mdl-card__title {
             color: #fff;
-            height: 250px;
-            background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
+            height: 200px;
         }
 
-        .mdl-card__accommodation-detail > .mdl-card__supporting-text {
+        .mdl-card__accommodation-detail .mdl-card__supporting-text {
             overflow-y: auto;
-            height: -webit-calc(100% - 255px);
-            height: -moz-calc(100% - 255px);
-            height: calc(100% - 255px);
+            height: -webit-calc(100% - 200px);
+            height: -moz-calc(100% - 200px);
+            height: calc(100% - 200px);
         }
 
-        .mdl-card__accommodation-detail > .mdl-card__actions {
+        .mdl-card__accommodation-detail .mdl-card__actions {
             height: 55px;
         }
 
+        .accommodationsFlexContainer {
+            display: flex;
+            flex-direction: column;
+            height: -webit-calc(100% - 55px);
+            height: -moz-calc(100% - 55px);
+            height: calc(100% - 55px);
+        }
 
+        .mdl-card__accommodation-detail h5 {
+            margin-top: 0;
+        }
+
+
+
+        @@media screen and (max-width: 959px) {
+            .accommodationsFlexContainer {
+                flex-direction: row;
+                height: -webit-calc(100% -55px);
+                height: -moz-calc(100% - 55px);
+                height: calc(100% - 55px);
+            }
+
+            .mdl-card__accommodation-detail .mdl-card__title {
+                width: 40%;
+                height: 100%;
+            }
+
+            .mdl-card__accommodation-detail .mdl-card__supporting-text {
+                width: 60%;
+                height: 100%;
+            }
+        }
     </style>
 }
 
 <div class="mdl-grid mdl-cell--hide-phone">
+    <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet">
+        <div class="mdl-card mdl-card__accommodation-detail mdl-shadow--2dp" id="card__accommodation-detail">
+            <div class="accommodationsFlexContainer">
+                <div class="mdl-card__title" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover">
+                    <p class="mdl-card__title-text">@ViewBag.Title</p>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <h5 class="mdl-color-text--primary">Accommodations in the Fair Play Area</h5>
+                    <p>
+                        We love Fair Play, but it's a small town, and the accommodations are limited. So we've tried to do the homework for you!
+                    </p>
+                    <p>
+                        The following table lists all of the options that we were able to locate in the Fair Play area, as well as a few motels in the towns of Placerville and Camino (about a 30-minute drive).
+                        You can sort by price, distance from the venue, etc. Click on a row to load the details for that location.
+                    </p>
+                    <p>
+                        <strong>PLEASE NOTE: </strong>Most of the accommodations in the Fair Play area are small, family-run operations.
+                        In order to secure their availability we have contacted the owners, and in some cases we have put down deposits, so we'll need your help in coordinating this effort.
+                        Please read the 'Notes' under each accommodation for special instructions. Thanks!
+                    </p>
+                    <p>
+                        -The Honeys
+                    </p>
+                </div>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.google.com/maps/place/Fair+Play,+CA" target="_blank">
+                    View Map of Fair Play
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="mdl-cell mdl-cell--7-col-desktop mdl-cell--8-col-tablet" id="cell__accommodations-list">
         <div class="mdl-card mdl-card__accommodation-list mdl-shadow--2dp" id="card__accommodations-list">
-            <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
-            </div>
+            @*<div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+                </div>*@
             <div class="mdl-card__supporting-text">
                 <table class="mdl-data-table mdl-js-data-table table__fixed-headers" id="table__accommodations-list">
                     <thead>
@@ -89,9 +152,6 @@
 
     </div>
 
-    <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet">
-        <div class="mdl-card mdl-card__accommodation-detail mdl-shadow--2dp" id="card__accommodation-detail"></div>
-    </div>
 </div>
 
 <div id="accordion" class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-tablet">
@@ -111,9 +171,9 @@
                         <span class="mdl-color-text--accent">@Html.DisplayFor(modelItem => item.PriceRange)</span>
                     </span>
                 </li>
-                    <li class="accordion-content mdl-list__item">
-                        <p>Cras malesuada ultrices augue molestie risus.</p>
-                    </li>
+                <li class="accordion-content mdl-list__item">
+                    <p>Cras malesuada ultrices augue molestie risus.</p>
+                </li>
             }
 
         </ul>
@@ -146,24 +206,43 @@
         }
 
         function calcDimensions() {
-            if ($(window).width() >= 1024)
-            {
-                // set card heights
-                var mainHeightCorrected = $(window).height() - $('#headerRow').height() - 32; //  minus padding
-                $('#card__accommodations-list, #card__accommodation-detail').css({ 'height': mainHeightCorrected });
+            var winWidth = $(window).width();
+            var listTitleHeight = $('.mdl-card__accommodation-list > .mdl-card__title').outerHeight();
+            //var listTitleHeight = 0;
+            var mainHeight = $(window).height() - $('#headerRow').height(); //  minus padding
+            var accommodationsListWidth = $('#cell__accommodations-list').width();
 
-                // set widths for scrollable table
-                var accommodationsInnerWidth = $('#cell__accommodations-list').width() - 32 - 2; // minus padding, border
-                $('#table__accommodations-list').css({ 'width': accommodationsInnerWidth });
-                $('.table__fixed-headers td, .table__fixed-headers th').css({ 'width': ((accommodationsInnerWidth - 2) / 4) });
+            // set widths for scrollable table
+            $('#table__accommodations-list').css({ 'width': accommodationsListWidth - 32 });
+            $('.table__fixed-headers td, .table__fixed-headers th').css({ 'width': ((accommodationsListWidth - 32 - 2) / 4) });
+
+            if (winWidth >= 960) {
+                // set card heights
+                $('#card__accommodations-list, #card__accommodation-detail').css({ 'height': mainHeight - 32 });
 
                 // set tbody height for scrollable table
-                var tbodyHeight = mainHeightCorrected - 32 - 100 - 50; // minus card padding, card__title height, thead height
+                var tbodyHeight = mainHeight - 32 - 32 - listTitleHeight - 50; // minus screen padding, card padding, card__title height, thead height
                 if (tbodyHeight < 50) // minimum height of 50px to maintain scrollability and proportion to thead
                 {
                     tbodyHeight = 50;
                 }
                 $('#tableBody').css({ 'height': tbodyHeight });
+            }
+            else if (winWidth >= 480 && winWidth < 960) {
+                // set card heights
+                var cardHeight = (mainHeight - 48) / 2;
+                $('#card__accommodations-list, #card__accommodation-detail').css({ 'height': cardHeight });
+
+                // set tbody height for scrollable table
+                var tbodyHeight = cardHeight - 32 - listTitleHeight - 50; // minus card padding, card__title height, thead height
+                if (tbodyHeight < 50) // minimum height of 50px to maintain scrollability and proportion to thead
+                {
+                    tbodyHeight = 50;
+                }
+                $('#tableBody').css({ 'height': tbodyHeight });
+            }
+            else {
+
             }
         }
 
@@ -176,10 +255,10 @@
     calcDimensions();
 
     // load default Accommodation Detail
-    loadAccommodation(@Model.FirstOrDefault().ID, true);
+    @*loadAccommodation(@Model.FirstOrDefault().ID, true);*@
 
     // phone - add event listener for accordion clicks
-    $('#accordion').find('.accordion-toggle').click(function(){
+    $('#accordion').find('.accordion-toggle').click(function () {
 
         //Expand or collapse this panel
         $(this).next().slideToggle('fast');
@@ -191,5 +270,5 @@
 
     $(window).resize(calcDimensions);
 
-}
+    }
 </script>

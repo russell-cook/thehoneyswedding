@@ -901,7 +901,7 @@ p {
   margin-bottom: 16px; }
 
 a {
-  color: #c51162;
+  color: #ff4081;
   font-weight: 500; }
 
 blockquote {
@@ -3047,7 +3047,7 @@ ul, ol {
   background-color: #4e342e !important; }
 
 .mdl-color--accent {
-  background-color: #c51162 !important; }
+  background-color: #ff4081 !important; }
 
 .mdl-color--accent-contrast {
   background-color: white !important; }
@@ -3062,7 +3062,7 @@ ul, ol {
   color: #4e342e !important; }
 
 .mdl-color-text--accent {
-  color: #c51162 !important; }
+  color: #ff4081 !important; }
 
 .mdl-color-text--accent-contrast {
   color: white !important; }
@@ -3635,13 +3635,13 @@ ul, ol {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #c51162;
+    background: #ff4081;
     color: white; }
     .mdl-button .mdl-badge[data-badge]:after {
       top: -10px;
       right: -5px; }
   .mdl-badge.mdl-badge--no-background[data-badge]:after {
-    color: #c51162;
+    color: #ff4081;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1px gray; }
   .mdl-badge.mdl-badge--overlap {
@@ -3937,14 +3937,14 @@ input.mdl-button[type="submit"] {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
     background-color: rgba(158, 158, 158, 0.4); }
   .mdl-button--fab.mdl-button--colored {
-    background: #c51162;
+    background: #ff4081;
     color: white; }
     .mdl-button--fab.mdl-button--colored:hover {
-      background-color: #c51162; }
+      background-color: #ff4081; }
     .mdl-button--fab.mdl-button--colored:focus:not(:active) {
-      background-color: #c51162; }
+      background-color: #ff4081; }
     .mdl-button--fab.mdl-button--colored:active {
-      background-color: #c51162; }
+      background-color: #ff4081; }
     .mdl-button--fab.mdl-button--colored .mdl-ripple {
       background: white; }
 
@@ -4000,12 +4000,12 @@ input.mdl-button[type="submit"] {
     background-color: #6d4c41; }
 
 .mdl-button--accent.mdl-button--accent {
-  color: #c51162; }
+  color: #ff4081; }
   .mdl-button--accent.mdl-button--accent .mdl-ripple {
     background: white; }
   .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab {
     color: white;
-    background-color: #c51162; }
+    background-color: #ff4081; }
 
 .mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled {
   color: rgba(0, 0, 0, 0.26);
@@ -4214,7 +4214,7 @@ input.mdl-button[type="submit"] {
   box-sizing: border-box; }
 
 .mdl-card__media {
-  background-color: #c51162;
+  background-color: #ff4081;
   background-repeat: repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -7476,7 +7476,7 @@ input.mdl-button[type="submit"] {
     bottom: 0;
     left: 0;
     position: absolute;
-    background: #c51162;
+    background: #ff4081;
     animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
     transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
   .mdl-layout__tab .mdl-layout__tab-ripple-container {
@@ -8400,7 +8400,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-snackbar__action {
     background: transparent;
     border: none;
-    color: #c51162;
+    color: #ff4081;
     float: right;
     text-transform: uppercase;
     padding: 14px 24px 14px 12px;
@@ -10554,7 +10554,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-cell--3-offset-phone.mdl-cell--3-offset-phone {
       margin-left: 75%; } }
 
-@media (min-width: 480px) and (max-width: 1023px) {
+@media (min-width: 480px) and (max-width: 959px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
@@ -10743,7 +10743,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-cell--7-offset-tablet.mdl-cell--7-offset-tablet {
       margin-left: 87.5%; } }
 
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {

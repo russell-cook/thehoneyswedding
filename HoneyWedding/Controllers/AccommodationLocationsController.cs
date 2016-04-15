@@ -48,7 +48,7 @@ namespace HoneyWedding.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,LocationName,Description,PhoneNumber,Email,Website,Notes,HoneyComments,InFairPlay,DistanceFromVenue,Img,BallerRating")] AccommodationLocation accommodationLocation)
+        public ActionResult Create([Bind(Include = "ID,LocationName,Description,PhoneNumber,Email,Website,Notes,HoneyComments,InFairPlay,DistanceFromVenue,Img,BallerRating,MapLink")] AccommodationLocation accommodationLocation)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace HoneyWedding.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,LocationName,Description,PhoneNumber,Email,Website,Notes,HoneyComments,InFairPlay,DistanceFromVenue,Img,BallerRating")] AccommodationLocation accommodationLocation)
+        public ActionResult Edit([Bind(Include = "ID,LocationName,Description,PhoneNumber,Email,Website,Notes,HoneyComments,InFairPlay,DistanceFromVenue,Img,BallerRating,MapLink")] AccommodationLocation accommodationLocation)
         {
             if (ModelState.IsValid)
             {

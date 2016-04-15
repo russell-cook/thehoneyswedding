@@ -1,57 +1,70 @@
 ﻿@model HoneyWedding.Models.AccommodationLocation
+<div class="accommodationsFlexContainer">
+    <div class="mdl-card__title" style="background: url('../../Content/img/@(!string.IsNullOrEmpty(Model.Img) ? Model.Img : "honeys_on_couch.jpg" )') center / cover">
+        <p class="mdl-card__title-text">@Html.DisplayFor(model => model.LocationName)</p>
+    </div>
 
-<div class="mdl-card__title">
-    <p class="mdl-card__title-text">@Html.DisplayFor(model => model.LocationName)</p>
+    <div class="mdl-card__supporting-text">
+        <p>@Html.DisplayFor(model => model.Description)</p>
+        <table class="table-list" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="table-list--term">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </td>
+            </tr>
+            <tr>
+                <td class="table-list--term">
+                    @Html.DisplayNameFor(model => model.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Email)
+                </td>
+            </tr>
+            <tr>
+                <td class="table-list--term">
+                    @Html.DisplayNameFor(model => model.InFairPlay)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.InFairPlay)
+                </td>
+            </tr>
+            <tr>
+                <td class="table-list--term">
+                    @Html.DisplayNameFor(model => model.DistanceFromVenue)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.DistanceFromVenue) mi
+                </td>
+            </tr>
+            <tr>
+                <td class="table-list--term">
+                    @Html.DisplayNameFor(model => model.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Notes)
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
-<div class="mdl-card__supporting-text" id="card__accommodation-detail-supporting-text">
-    <p>@Html.DisplayFor(model => model.Description)</p>
-    <table class="table-list" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td class="table-list--term">
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.PhoneNumber)
-            </td>
-        </tr>
-        <tr>
-            <td class="table-list--term">
-                @Html.DisplayNameFor(model => model.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Email)
-            </td>
-        </tr>
-        <tr>
-            <td class="table-list--term">
-                @Html.DisplayNameFor(model => model.InFairPlay)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.InFairPlay)
-            </td>
-        </tr>
-        <tr>
-            <td class="table-list--term">
-                @Html.DisplayNameFor(model => model.DistanceFromVenue)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.DistanceFromVenue) mi
-            </td>
-        </tr>
-        <tr>
-            <td class="table-list--term">
-                @Html.DisplayNameFor(model => model.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Notes)
-            </td>
-        </tr>
-    </table>
-</div>
-
-<div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="@Model.Website" target="_blank">
-        Website
-    </a>
-</div>
+@if (!Model.Website.IsEmpty() || !Model.MapLink.IsEmpty())
+{
+    <div class="mdl-card__actions mdl-card--border">
+        @if (!Model.Website.IsEmpty())
+        {
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="@Model.Website" target="_blank">
+                Website
+            </a>
+        }
+        @if (!Model.MapLink.IsEmpty())
+        {
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="@Model.MapLink" target="_blank">
+                Map
+            </a>
+        }
+    </div>
+}
