@@ -21,13 +21,18 @@ namespace HoneyWedding.Models
         public bool DidRsvp { get; set; }
         [Display(Name = "RSVP Date")]
         public DateTime? RsvpDate { get; set; }
+        [UIHint("BooleanYesNoUnknown")]
         public bool HasPlusOne { get; set; }
+        [UIHint("BooleanYesNoUnknown")]
         public bool PlusOneCanAtend { get; set; }
         public string Notes { get; set; }
 
-        // user prefs
+        // dietary prefs
+        [UIHint("BooleanYesNoUnknown")]
         public bool? NoMeat { get; set; }
+        [UIHint("BooleanYesNoUnknown")]
         public bool? NoDairy { get; set; }
+        [UIHint("BooleanYesNoUnknown")]
         public bool? NoGluten { get; set; }
         public string DietaryNotes { get; set; }
 
@@ -51,6 +56,7 @@ namespace HoneyWedding.Models
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Plus one?")]
+        [UIHint("BooleanYesNoUnknown")]
         public bool HasPlusOne { get; set; }
         [Display(Name = "Notes...")]
         public string Notes { get; set; }

@@ -9,7 +9,11 @@
     <style>
         .honeyContentBlock {
             background-color: rgb(62, 39, 35);
-            background-image: radial-gradient(circle at 100% 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, rgb(50, 30, 30) 10%, rgb(62, 39, 35) 11%, rgb(62, 39, 35) 23%, rgb(50, 30, 30) 24%, rgb(50, 30, 30) 30%, rgb(62, 39, 35) 31%, rgb(62, 39, 35) 43%, rgb(50, 30, 30) 44%, rgb(50, 30, 30) 50%, rgb(62, 39, 35) 51%, rgb(62, 39, 35) 63%, rgb(50, 30, 30) 64%, rgb(50, 30, 30) 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent);
+            background-image: radial-gradient(circle at 100% 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), 
+                radial-gradient(circle at 0 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), 
+                radial-gradient(circle at 50% 100%, rgb(50, 30, 30) 10%, rgb(62, 39, 35) 11%, rgb(62, 39, 35) 23%, rgb(50, 30, 30) 24%, rgb(50, 30, 30) 30%, rgb(62, 39, 35) 31%, rgb(62, 39, 35) 43%, rgb(50, 30, 30) 44%, rgb(50, 30, 30) 50%, rgb(62, 39, 35) 51%, rgb(62, 39, 35) 63%, rgb(50, 30, 30) 64%, rgb(50, 30, 30) 71%, transparent 71%, transparent), 
+                radial-gradient(circle at 100% 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent), 
+                radial-gradient(circle at 0 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent);
             background-size: 66px 33px;
             /*background: #f9f9f9 url('../../Content/img/light_grey.png') repeat;*/
             /*border-image-slice: 40 40 40 40;
@@ -298,9 +302,6 @@
     initScrollMagic();
     calcDurations();
 
-    // load google map
-    $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354');
-
     // if loaded with # link, scroll to anchor
     if (window.location.hash) {
         var hrefValue = window.location.href;
@@ -311,5 +312,8 @@
             TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
         }
     }
+
+    // load google map
+    $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354');
 }
 </script>

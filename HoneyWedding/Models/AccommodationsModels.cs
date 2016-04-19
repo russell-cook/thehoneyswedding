@@ -27,9 +27,9 @@ namespace HoneyWedding.Models
         [DataType(DataType.MultilineText)]
         public string HoneyComments { get; set; }
         [Display(Name = "In Fair Play?")]
-        [UIHint("BooleanYesKnowUnknown")]
+        [UIHint("BooleanYesNoUnknown")]
         public bool InFairPlay { get; set; }
-        [Display(Name = "Distance from Venue")]
+        [Display(Name = "Distance")]
         public int DistanceFromVenue { get; set; }
         public string Img { get; set; }
         [UIHint("StarRating")]
@@ -57,17 +57,18 @@ namespace HoneyWedding.Models
         public string RoomName { get; set; }
         [Display(Name = "Sleeps")]
         public int SleepsTotal { get; set; }
-        [Display(Name = "Beds for:")]
+        [Display(Name = "Beds for")]
         public int SleepsBed { get; set; }
-        [Display(Name = "Sofa beds for:")]
+        [Display(Name = "Sofa for")]
         public int SleepsSofa { get; set; }
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:C0}")]
-        [Display(Name = "Cost Per Night")]
+        [Display(Name = "Cost/ Night")]
         public decimal? CostNightly { get; set; }
         [Display(Name ="Minimum # Nights")]
         public int? MinNights { get; set; }
         [Display(Name = "Available?")]
+        [UIHint("BooleanYesNoUnknown")]
         public bool IsAvailable { get; set; }
 
         // navigation properties
@@ -116,9 +117,9 @@ namespace HoneyWedding.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Display(Name = "In Fair Play?")]
-        [UIHint("BooleanYesKnowUnknown")]
+        [UIHint("BooleanYesNoUnknown")]
         public bool InFairPlay { get; set; }
-        [Display(Name = "Distance from Venue")]
+        [Display(Name = "Distance")]
         public int DistanceFromVenue { get; set; }
         public string Notes { get; set; }
         public string Img { get; set; }

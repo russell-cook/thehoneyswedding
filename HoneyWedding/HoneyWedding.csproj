@@ -355,7 +355,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
     <Content Include="Views\Shared\EditorTemplates\BooleanButton.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\BooleanYesKnowUnknown.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\BooleanYesNoUnknown.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\OpenInNewWindow.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DangerText.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />

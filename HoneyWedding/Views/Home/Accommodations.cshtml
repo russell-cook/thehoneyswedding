@@ -49,6 +49,16 @@
             display: none;
         }
 
+        .mdl-list-card {
+            z-index: 1;
+            background: white;
+            border-radius: 2px;
+            box-sizing: border-box;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            padding: 0;
+        }
+
 
         @@media screen and (max-width: 959px) and (min-width: 480px) {
             .accommodationsFlexContainer {
@@ -101,13 +111,20 @@
             .mdl-card__accommodation-detail .mdl-card__title {
                 height: 100px;
             }
+
+            .mdl-card__accommodation-detail .mdl-card__supporting-text {
+                overflow-y: auto;
+                height: -webit-calc(100% - 100px);
+                height: -moz-calc(100% - 100px);
+                height: calc(100% - 100px);
+            }
         }
     </style>
 }
 
 <div class="mdl-grid">
 
-    <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet">
+    <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
         <div class="mdl-card mdl-card__accommodation-detail mdl-shadow--2dp" id="card__accommodation-detail">
             <!--Accommodation Location Detail content-->
         </div>
@@ -161,50 +178,54 @@
 </div>
 
 <div id="accordion" class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-tablet">
-    <div class="mdl-cell--4-col">
+    <div class="mdl-cell mdl-cell--4-col-phone">
         <ul class="mdl-list">
             @foreach (var item in Model)
             {
-                <li class="mdl-list__item mdl-list__item--three-line accordion-toggle">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar" style="background: url('../../Content/img/@Html.DisplayFor(modelItem => item.Img)') center / cover;"></span>
-                        <span>@Html.DisplayFor(modelItem => item.LocationName)</span>
-                        <span class="mdl-list__item-text-body">
-                            @Html.DisplayNameFor(modelItem => item.DistanceFromVenue): @Html.DisplayFor(modelItem => item.DistanceFromVenue) mi<br />
-                            @Html.DisplayNameFor(modelItem => item.RoomFor): @Html.DisplayFor(modelItem => item.RoomFor)
+                <div class="mdl-list-card mdl-shadow--2dp">
+                    <li class="mdl-list__item mdl-list__item--three-line accordion-toggle">
+                        <span class="mdl-list__item-primary-content">
+                            <span class="mdl-list__item-avatar" style="background: url('../../Content/img/@Html.DisplayFor(modelItem => item.Img)') center / cover;"></span>
+                            <span>@Html.DisplayFor(modelItem => item.LocationName)</span>
+                            <span class="mdl-list__item-text-body">
+                                @Html.DisplayNameFor(modelItem => item.DistanceFromVenue): @Html.DisplayFor(modelItem => item.DistanceFromVenue) mi<br />
+                                @Html.DisplayNameFor(modelItem => item.RoomFor): @Html.DisplayFor(modelItem => item.RoomFor)
+                            </span>
                         </span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                        <span class="mdl-color-text--accent">@Html.DisplayFor(modelItem => item.PriceRange)</span>
-                    </span>
-                </li>
-                <li class="accordion-content mdl-list__item">
-                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
-                    <p>
-                        <strong>@Html.DisplayNameFor(modelItem => item.Notes): </strong>@Html.DisplayFor(modelItem => item.Notes)<br />
-                    </p>
-                    <p>
-                        <strong>@Html.DisplayNameFor(modelItem => item.BallerRating): </strong>@Html.DisplayFor(modelItem => item.BallerRating)<br />
-                        <strong>@Html.DisplayNameFor(modelItem => item.PhoneNumber): </strong>@Html.DisplayFor(modelItem => item.PhoneNumber)<br />
-                        <strong>@Html.DisplayNameFor(modelItem => item.Email): </strong>@Html.DisplayFor(modelItem => item.Email)<br />
-                    </p>
-                    @if (!item.Website.IsEmpty() || !item.MapLink.IsEmpty())
-                    {
-                        if (!item.Website.IsEmpty())
+                        <span class="mdl-list__item-secondary-content">
+                            <span class="mdl-color-text--accent">@Html.DisplayFor(modelItem => item.PriceRange)</span>
+                        </span>
+                    </li>
+                    <li class="accordion-content mdl-list__item">
+                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p>
+                            <strong>@Html.DisplayNameFor(modelItem => item.Notes): </strong>@Html.DisplayFor(modelItem => item.Notes)<br />
+                        </p>
+                        <p>
+                            <strong>@Html.DisplayNameFor(modelItem => item.BallerRating): </strong>@Html.DisplayFor(modelItem => item.BallerRating)<br />
+                            <strong>@Html.DisplayNameFor(modelItem => item.PhoneNumber): </strong>@Html.DisplayFor(modelItem => item.PhoneNumber)<br />
+                            <strong>@Html.DisplayNameFor(modelItem => item.Email): </strong>@Html.DisplayFor(modelItem => item.Email)<br />
+                            <strong>@Html.DisplayNameFor(modelItem => item.InFairPlay): </strong>@Html.DisplayFor(modelItem => item.InFairPlay)<br />
+                        </p>
+                        @if (!item.Website.IsEmpty() || !item.MapLink.IsEmpty())
                         {
-                            <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.Website" target="_blank">
-                                Website
-                            </a>
+                            if (!item.Website.IsEmpty())
+                            {
+                                <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.Website" target="_blank">
+                                    Website
+                                </a>
+                            }
+                            if (!item.MapLink.IsEmpty())
+                            {
+                                <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.MapLink" target="_blank">
+                                    Map
+                                </a>
+                            }
                         }
-                        if (!item.MapLink.IsEmpty())
-                        {
-                            <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.MapLink" target="_blank">
-                                Map
-                            </a>
-                        }
-                    }
 
-                </li>
+                    </li>
+
+                </div>
             }
 
         </ul>

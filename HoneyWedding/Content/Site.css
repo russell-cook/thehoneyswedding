@@ -103,6 +103,10 @@ a.mdl-layout__tab:hover {
 
 /* Table-based styling for Definition Lists*/
 /* -----------Hacky! need better solution------------- */
+.table-list {
+    margin-top: 16px;
+}
+
 .table-list td {
     vertical-align: bottom;
     padding-bottom: 10px;
