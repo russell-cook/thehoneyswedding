@@ -239,6 +239,15 @@
         var accommodationDetailUrl = '@Url.Action("AccommodationDetail")';
         var accommodationDetail = $('#card__accommodation-detail');
 
+        function upgradeTooltips() {
+            var counter = 0;
+            $('.mdl-tooltip').each(function () {
+                var t = $(this)[counter];
+                componentHandler.upgradeElement(t);
+                counter++;
+            })
+        }
+
         function loadAccommodation(accommodationId, pageLoad) {
             // clear html from target div
             accommodationDetail.html('');
@@ -254,7 +263,13 @@
             document.getElementById('card__accommodation-detail').appendChild(spinner);
 
             // ajax call
-            accommodationDetail.load(accommodationDetailUrl, { id: accommodationId });
+            accommodationDetail.load(accommodationDetailUrl, { id: accommodationId }, function () {
+                if (!pageLoad)
+                {
+                    //upgradeTooltips();
+                    componentHandler.upgradeDom();
+                }
+            });
         }
 
         function calcDimensions() {

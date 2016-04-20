@@ -396,6 +396,7 @@
     <Content Include="Views\Home\_AccommodationDetail.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StarRating.cshtml" />
     <Content Include="Views\Home\_AccommodationWelcome.cshtml" />
+    <Content Include="Views\Home\_AccommodationDetail.bak.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -33,8 +33,10 @@ namespace HoneyWedding
                       "~/Content/modernizr.css",
                       "~/Content/form_validation.css",
                       "~/Content/site.css",
-                      "~/Content/parallax.css",
                       "~/Content/table__fixed-headers.css"));
+
+            bundles.Add(new StyleBundle("~/Content/parallax_css").Include(
+                      "~/Content/parallax.css"));
         }
     }
 }

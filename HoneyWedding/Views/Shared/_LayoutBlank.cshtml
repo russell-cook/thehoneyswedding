@@ -59,6 +59,9 @@ else
         });
         // prevent content flash (resulting from deferred mdl script) for elements that will be hidden on small screen (nav, fab, etc.)
         $('.obscure-on-load').toggleClass('obscure-on-load');
+
+        // render window.load scripts from view templates
+        @RenderSection("scriptWindowLoad", required: false)
     });
 </script>
 @RenderSection("scripts", required: false)

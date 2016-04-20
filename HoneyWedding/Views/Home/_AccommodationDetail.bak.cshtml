@@ -40,13 +40,9 @@
                         </td>
                         <td class="mdl-data-table__cell--non-numeric">
                             <i class="material-icons mdl-color-text--accent" id="info_@item.ID">info</i>
-                            <span class="mdl-tooltip mdl-tooltip--top" for="info_@item.ID">
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsBed) @Html.DisplayFor(model => item.SleepsBed) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsSofa) @Html.DisplayFor(model => item.SleepsSofa) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsTotal) @Html.DisplayFor(model => item.SleepsTotal) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostNightly) @Html.DisplayFor(model => item.CostNightly) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().MinNights) @Html.DisplayFor(model => item.MinNights) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostMinimum) @Html.DisplayFor(model => item.CostMinimum) <br />
+                            <span class="mdl-tooltip mdl-tooltip--right" for="info_@item.ID">
+                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsBed) @Html.DisplayFor(model => model.Rooms.FirstOrDefault().SleepsBed) <br />
+                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsSofa) @Html.DisplayFor(model => model.Rooms.FirstOrDefault().SleepsSofa) 
                             </span>
                         </td>
                     </tr>
