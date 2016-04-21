@@ -1,7 +1,4 @@
-﻿
-@model List<HoneyWedding.Models.AccommodationViewModel>
-
-@{
+﻿@{
     ViewBag.Title = "Staying There";
     ViewBag.NoContentWrapper = true;
     //Layout = "~/views/shared/_layoutBlank.cshtml";
@@ -132,104 +129,14 @@
 
     <div class="mdl-cell mdl-cell--7-col-desktop mdl-cell--8-col-tablet mdl-cell--hide-phone" id="cell__accommodations-list">
         <div class="mdl-card mdl-card__accommodation-list mdl-shadow--2dp" id="card__accommodations-list">
-            <div class="mdl-card__supporting-text">
-                <table class="mdl-data-table mdl-js-data-table table__fixed-headers" id="table__accommodations-list">
-                    <thead>
-                        <tr>
-                            <th class="mdl-data-table__cell--non-numeric">
-                                @Html.DisplayNameFor(model => model.FirstOrDefault().LocationName)
-                            </th>
-                            <th class="mdl-data-table__cell">
-                                @Html.DisplayNameFor(model => model.FirstOrDefault().RoomFor)
-                            </th>
-                            <th class="mdl-data-table__cell">
-                                @Html.DisplayNameFor(model => model.FirstOrDefault().PriceRange)
-                            </th>
-                            <th class="mdl-data-table__cell--non-numeric">
-                                @*<span style="vertical-align: bottom">@Html.DisplayNameFor(model => model.FirstOrDefault().BallerRating)</span> <button id="menu_ballerRating" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons mdl-color-text--accent">info</i></button> <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="menu_ballerRating"><li class="mdl-menu__item"><a href="http://onlineslangdictionary.com/meaning-definition-of/baller" target="_blank">More Info</a></li></ul>*@
-                                <a href="#" id="menu_ballerRating">@Html.DisplayNameFor(model => model.FirstOrDefault().BallerRating)</a> <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="menu_ballerRating"><li class="mdl-menu__item"><a href="http://onlineslangdictionary.com/meaning-definition-of/baller" target="_blank">More Info</a></li></ul>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        @foreach (var item in Model)
-                        {
-                            <tr onclick="loadAccommodation(@item.ID)">
-                                <td class="mdl-data-table__cell--non-numeric">
-                                    @Html.DisplayFor(modelItem => item.LocationName)
-                                </td>
-                                <td class="mdl-data-table__cell">
-                                    @Html.DisplayFor(modelItem => item.RoomFor)
-                                </td>
-                                <td class="mdl-data-table__cell">
-                                    @Html.DisplayFor(modelItem => item.PriceRange)
-                                </td>
-                                <td class="mdl-data-table__cell--non-numeric">
-                                    @Html.DisplayFor(modelItem => item.BallerRating)
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+            <!--AccommodationsList content-->
         </div>
     </div>
 
 </div>
 
-<div id="accordion" class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-tablet">
-    <div class="mdl-cell mdl-cell--4-col-phone">
-        <ul class="mdl-list">
-            @foreach (var item in Model)
-            {
-                <div class="mdl-list-card mdl-shadow--2dp">
-                    <li class="mdl-list__item mdl-list__item--three-line accordion-toggle">
-                        <span class="mdl-list__item-primary-content">
-                            <span class="mdl-list__item-avatar" style="background: url('../../Content/img/@Html.DisplayFor(modelItem => item.Img)') center / cover;"></span>
-                            <span>@Html.DisplayFor(modelItem => item.LocationName)</span>
-                            <span class="mdl-list__item-text-body">
-                                @Html.DisplayNameFor(modelItem => item.DistanceFromVenue): @Html.DisplayFor(modelItem => item.DistanceFromVenue) mi<br />
-                                @Html.DisplayNameFor(modelItem => item.RoomFor): @Html.DisplayFor(modelItem => item.RoomFor)
-                            </span>
-                        </span>
-                        <span class="mdl-list__item-secondary-content">
-                            <span class="mdl-color-text--accent">@Html.DisplayFor(modelItem => item.PriceRange)</span>
-                        </span>
-                    </li>
-                    <li class="accordion-content mdl-list__item">
-                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
-                        <p>
-                            <strong>@Html.DisplayNameFor(modelItem => item.Notes): </strong>@Html.DisplayFor(modelItem => item.Notes)<br />
-                        </p>
-                        <p>
-                            <strong>@Html.DisplayNameFor(modelItem => item.BallerRating): </strong>@Html.DisplayFor(modelItem => item.BallerRating)<br />
-                            <strong>@Html.DisplayNameFor(modelItem => item.PhoneNumber): </strong>@Html.DisplayFor(modelItem => item.PhoneNumber)<br />
-                            <strong>@Html.DisplayNameFor(modelItem => item.Email): </strong>@Html.DisplayFor(modelItem => item.Email)<br />
-                            <strong>@Html.DisplayNameFor(modelItem => item.InFairPlay): </strong>@Html.DisplayFor(modelItem => item.InFairPlay)<br />
-                        </p>
-                        @if (!item.Website.IsEmpty() || !item.MapLink.IsEmpty())
-                        {
-                            if (!item.Website.IsEmpty())
-                            {
-                                <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.Website" target="_blank">
-                                    Website
-                                </a>
-                            }
-                            if (!item.MapLink.IsEmpty())
-                            {
-                                <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.MapLink" target="_blank">
-                                    Map
-                                </a>
-                            }
-                        }
-
-                    </li>
-
-                </div>
-            }
-
-        </ul>
-    </div>
+<div id="accommodationsAccordion" class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-tablet">
+    <!--AccommodationsAccordion content-->
 </div>
 
 
@@ -238,6 +145,11 @@
 
         var accommodationDetailUrl = '@Url.Action("AccommodationDetail")';
         var accommodationDetail = $('#card__accommodation-detail');
+        var accommodationsListUrl = '@Url.Action("AccommodationsList")';
+        var accommodationsList = $('#card__accommodations-list');
+        var accommodationsAccordionUrl = '@Url.Action("AccommodationsAccordion")';
+        var accommodationsAccordion = $('#accommodationsAccordion');
+        var accommodationsMode;
 
         function upgradeTooltips() {
             var counter = 0;
@@ -248,11 +160,22 @@
             })
         }
 
-        function loadAccommodation(accommodationId, pageLoad) {
-            // clear html from target div
-            accommodationDetail.html('');
+        function addAccordionClickListeners() {
+            // phone - add event listener for accordion clicks
+            $('#accommodationsAccordion').find('.accordion-toggle').click(function () {
 
-            // create spinner for loading
+                //Expand or collapse this panel
+                $(this).next().slideToggle('fast');
+
+                //Hide the other panels
+                $(".accordion-content").not($(this).next()).slideUp('fast');
+
+            });
+            accordionClickListeners = true;
+        }
+
+        function addSpinner(targetId, pageLoad) {
+            // create spinner for data-loading
             var spinner = document.createElement('div');
             spinner.className = 'mdl-spinner mdl-js-spinner is-active';
             spinner.style.margin = 'auto auto';
@@ -260,22 +183,78 @@
             {
                 componentHandler.upgradeElement(spinner);
             }
-            document.getElementById('card__accommodation-detail').appendChild(spinner);
+            document.getElementById(targetId).appendChild(spinner);
+        }
+
+        function loadAccommodationDetail(accommodationId, pageLoad) {
+            // clear html from target div
+            accommodationDetail.html('');
+
+            addSpinner('card__accommodation-detail', pageLoad);
 
             // ajax call
             accommodationDetail.load(accommodationDetailUrl, { id: accommodationId }, function () {
                 if (!pageLoad)
                 {
-                    //upgradeTooltips();
                     componentHandler.upgradeDom();
                 }
             });
         }
 
+        function loadAccommodationsList(sort, pageLoad) {
+            // clear html from target div
+            accommodationsList.html('');
+
+            addSpinner('card__accommodations-list', pageLoad);
+
+            // ajax call
+            accommodationsList.load(accommodationsListUrl, { sortOrder: sort }, function () {
+                // callback
+                calcDimensions();
+            });
+        }
+
+        function loadAccommodationsAccordion(sort, pageLoad) {
+            // clear html from target div
+            accommodationsAccordion.html('');
+
+            addSpinner('accommodationsAccordion', pageLoad);
+
+            // ajax call
+            accommodationsAccordion.load(accommodationsAccordionUrl, { sortOrder: null }, function () {
+                // callback
+                addAccordionClickListeners();
+                calcDimensions();
+            });
+        }
+
+        function setMode() {
+            var winWidth = $(window).width();
+
+            if (winWidth >= 960) {
+                if (accommodationsMode != 'list') {
+                    loadAccommodationsList('');
+                    accommodationsMode = 'list';
+                }
+            }
+            else if (winWidth >= 480 && winWidth < 960) {
+                if (accommodationsMode != 'list') {
+                    loadAccommodationsList('');
+                    accommodationsMode = 'list';
+                }
+            }
+            else {
+                if (accommodationsMode != 'accordion') {
+                    loadAccommodationsAccordion('');
+                    accommodationsMode = 'accordion';
+                }
+            }
+        }
+
+
         function calcDimensions() {
             var winWidth = $(window).width();
             var listTitleHeight = $('.mdl-card__accommodation-list > .mdl-card__title').outerHeight();
-            //var listTitleHeight = 0;
             var mainHeight = $(window).height() - $('#headerRow').height(); //  minus padding
             var accommodationsListWidth = $('#cell__accommodations-list').width();
 
@@ -289,7 +268,7 @@
 
                 // set tbody height for scrollable table
                 var tbodyHeight = mainHeight - 32 - 32 - listTitleHeight - 50; // minus screen padding, card padding, card__title height, thead height
-                if (tbodyHeight < 50) // minimum height of 50px to maintain scrollability and proportion to thead
+                if (tbodyHeight < 50) // minimum height of 50px to maintain scrollability and proportion to <thead>
                 {
                     tbodyHeight = 50;
                 }
@@ -314,7 +293,7 @@
                 $('#card__accommodation-detail').css({ 'height': cardHeight });
 
                 // load Accommodation Welcome (id = 0) in case landscape mode allowed for loading of _AccommodationDetail partial
-                loadAccommodation(0);
+                loadAccommodationDetail(0);
             }
         }
 
@@ -325,22 +304,14 @@
 @section scriptWindowLoad {
     // calculate dimensions of scrollable tables
     calcDimensions();
+    setMode();
 
     // load Accommodation Welcome (id = 0)
-    loadAccommodation(0, true);
+    loadAccommodationDetail(0, true);
 
-    // phone - add event listener for accordion clicks
-    $('#accordion').find('.accordion-toggle').click(function () {
-
-        //Expand or collapse this panel
-        $(this).next().slideToggle('fast');
-
-        //Hide the other panels
-        $(".accordion-content").not($(this).next()).slideUp('fast');
-
+    $(window).resize(function () {
+        calcDimensions();
+        setMode();
     });
-
-    $(window).resize(calcDimensions);
-
-    }
+}
 </script>

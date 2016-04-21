@@ -103,7 +103,7 @@ namespace HoneyWedding.Controllers
             {
                 db.Entry(accommodationRoom).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "AccommodationLocations", new { id = accommodationRoom.AccommodationLocationID });
             }
             ViewBag.AccommodationLocationID = new SelectList(db.AccommodationLocations, "ID", "LocationName", accommodationRoom.AccommodationLocationID);
             return View(accommodationRoom);

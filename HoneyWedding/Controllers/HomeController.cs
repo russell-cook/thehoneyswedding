@@ -1,4 +1,5 @@
 ﻿using HoneyWedding.Services;
+using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -12,10 +13,9 @@ namespace HoneyWedding.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Accommodations()
+        public ActionResult Accommodations()
         {
-            var accommodationsManager = new AccommodationsManager();
-            return View(await accommodationsManager.GetAsync());
+            return View();
         }
 
         public async Task<ActionResult> AccommodationDetail(int id)
@@ -26,6 +26,32 @@ namespace HoneyWedding.Controllers
             }
             var accommodationsManager = new AccommodationsManager();
             return PartialView("_AccommodationDetail", await accommodationsManager.Detail(id));
+        }
+
+        public async Task<ActionResult> AccommodationsList(string sortOrder)
+        {
+            ViewBag.SortOrder = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DistanceSortParm = sortOrder == "Distance" ? "distance_desc" : "Distance";
+            ViewBag.BallerSortParm = sortOrder == "Baller" ? "baller_desc" : "Baller";
+            ViewBag.SleepsSortParm = sortOrder == "Sleeps" ? "sleeps_desc" : "Sleeps";
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
+
+            var accommodationsManager = new AccommodationsManager();
+            return PartialView("_AccommodationsList", await accommodationsManager.GetAsync(sortOrder));
+        }
+
+        public async Task<ActionResult> AccommodationsAccordion(string sortOrder)
+        {
+            //ViewBag.SortOrder = sortOrder;
+            //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            //ViewBag.DistanceSortParm = sortOrder == "Distance" ? "distance_desc" : "Distance";
+            //ViewBag.BallerSortParm = sortOrder == "Baller" ? "baller_desc" : "Baller";
+            //ViewBag.SleepsSortParm = sortOrder == "Sleeps" ? "sleeps_desc" : "Sleeps";
+            //ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
+
+            var accommodationsManager = new AccommodationsManager();
+            return PartialView("_AccommodationsAccordion", await accommodationsManager.GetAsync(""));
         }
     }
 }

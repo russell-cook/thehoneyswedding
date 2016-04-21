@@ -21,7 +21,8 @@
                     <th class="mdl-data-table__cell">
                         @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostNightly)
                     </th>
-                    <th class="mdl-data-table__cell--non-numeric">
+                    <th class="mdl-data-table__cell">
+                        Details
                     </th>
                 </tr>
             </thead>
@@ -38,15 +39,15 @@
                         <td class="mdl-data-table__cell">
                             @Html.DisplayFor(modelItem => item.CostNightly)
                         </td>
-                        <td class="mdl-data-table__cell--non-numeric">
+                        <td class="mdl-data-table__cell">
                             <i class="material-icons mdl-color-text--accent" id="info_@item.ID">info</i>
-                            <span class="mdl-tooltip mdl-tooltip--top" for="info_@item.ID">
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsBed) @Html.DisplayFor(model => item.SleepsBed) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsSofa) @Html.DisplayFor(model => item.SleepsSofa) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsTotal) @Html.DisplayFor(model => item.SleepsTotal) <br />
+                            <span class="mdl-tooltip mdl-tooltip--large mdl-tooltip--left" for="info_@item.ID">
+                                @if (item.SleepsBed > 0) { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsBed) @Html.DisplayFor(model => item.SleepsBed) <br /></text> }
+                                @if (item.SleepsSofa > 0) { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsSofa) @Html.DisplayFor(model => item.SleepsSofa) <br /></text> }
+                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsTotal) @Html.DisplayFor(model => item.SleepsTotal) total<br />
                                 @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostNightly) @Html.DisplayFor(model => item.CostNightly) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().MinNights) @Html.DisplayFor(model => item.MinNights) <br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostMinimum) @Html.DisplayFor(model => item.CostMinimum) <br />
+                                @if (item.MinNights > 1) { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().MinNights) @Html.DisplayFor(model => item.MinNights) <br /></text> }
+                                @if (item.MinNights > 1) { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostMinimum) @Html.DisplayFor(model => item.CostMinimum) <br /></text> }
                             </span>
                         </td>
                     </tr>

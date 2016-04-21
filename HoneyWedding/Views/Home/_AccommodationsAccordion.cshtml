@@ -1,0 +1,55 @@
+﻿@model List<HoneyWedding.Models.AccommodationViewModel>
+
+<div class="mdl-cell mdl-cell--4-col-phone">
+    <ul class="mdl-list">
+        @foreach (var item in Model)
+            {
+            <div class="mdl-list-card mdl-shadow--2dp">
+                <li class="mdl-list__item mdl-list__item--three-line accordion-toggle">
+                    <span class="mdl-list__item-primary-content">
+                        <span class="mdl-list__item-avatar" style="background: url('../../Content/img/@Html.DisplayFor(modelItem => item.Img)') center / cover;"></span>
+                        <span class="mdl-list__item-header">@Html.DisplayFor(modelItem => item.LocationName)</span>
+                        <span class="mdl-list__item-text-body">
+                            @Html.DisplayNameFor(modelItem => item.DistanceFromVenue): @Html.DisplayFor(modelItem => item.DistanceFromVenue) mi<br />
+                            @Html.DisplayNameFor(modelItem => item.RoomFor): @Html.DisplayFor(modelItem => item.RoomFor)
+                        </span>
+                    </span>
+                    <span class="mdl-list__item-secondary-content">
+                        <span class="mdl-color-text--accent">@Html.DisplayFor(modelItem => item.PriceRange)</span>
+                    </span>
+                </li>
+                <li class="accordion-content mdl-list__item">
+                    <p>
+                        <strong>@Html.DisplayNameFor(modelItem => item.LocationName): </strong>@Html.DisplayFor(modelItem => item.LocationName)<br />
+                        <strong>@Html.DisplayNameFor(modelItem => item.Description): </strong>@Html.DisplayFor(modelItem => item.Description)<br />
+                        <strong>@Html.DisplayNameFor(modelItem => item.Notes): </strong>@Html.DisplayFor(modelItem => item.Notes)<br />
+                        <strong>@Html.DisplayNameFor(modelItem => item.BallerRating): </strong>@Html.DisplayFor(modelItem => item.BallerRating)<br />
+                        <strong>@Html.DisplayNameFor(modelItem => item.PhoneNumber): </strong>@Html.DisplayFor(modelItem => item.PhoneNumber)<br />
+                        <strong>@Html.DisplayNameFor(modelItem => item.Email): </strong>@Html.DisplayFor(modelItem => item.Email)<br />
+                        <strong>@Html.DisplayNameFor(modelItem => item.InFairPlay): </strong>@Html.DisplayFor(modelItem => item.InFairPlay)<br />
+                    </p>
+                    @if (!item.Website.IsEmpty() || !item.MapLink.IsEmpty())
+                    {
+                        if (!item.Website.IsEmpty())
+                        {
+                            <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.Website" target="_blank">
+                                Website
+                            </a>
+                        }
+                        if (!item.MapLink.IsEmpty())
+                        {
+                            <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.MapLink" target="_blank">
+                                Map
+                            </a>
+                        }
+                    }
+
+                </li>
+
+            </div>
+        }
+
+    </ul>
+</div>
+
+

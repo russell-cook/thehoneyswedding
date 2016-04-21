@@ -95,14 +95,14 @@ namespace HoneyWedding.Controllers
                     if (userViewModel.Password == null)
                     {
                         string body;
-                        using (var sr = new StreamReader(Server.MapPath("\\Templates\\") + "RegisterAccountEmailTemplate.html"))
+                        using (var sr = new StreamReader(Server.MapPath("\\Templates\\") + "NewAdminUserAccountEmailTemplate.html"))
                         {
                             body = await sr.ReadToEndAsync();
                         }
                         var code = await UserManager.GenerateEmailConfirmationTokenAsync(newUser.Id);
                         var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = newUser.Id, code = code }, protocol: Request.Url.Scheme);
                         string messageBody = string.Format(body, callbackUrl, newUser.UserName, password);
-                        await UserManager.SendEmailAsync(newUser.Id, "Your AdminApps user account has been created. Please confirm your email address.", messageBody);
+                        await UserManager.SendEmailAsync(newUser.Id, "Your HoneysWedding user account has been created. Please confirm your email address.", messageBody);
                     }
 
                     //Add User to the selected Roles 

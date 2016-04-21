@@ -100,6 +100,10 @@ a.mdl-layout__tab:hover {
     white-space: normal;
 }
 
+.mdl-data-table__column-sort-icon {
+    vertical-align: bottom;
+}
+
 
 /* Table-based styling for Definition Lists*/
 /* -----------Hacky! need better solution------------- */
@@ -123,6 +127,16 @@ a.mdl-layout__tab:hover {
 .table-list--term:after {
     content: ":";
 }
+
+
+/* mdl List Styling (used for phone) */
+.mdl-list__item-header {
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 
 /* Accordion Styling (phone only) */
 .accordion-toggle {

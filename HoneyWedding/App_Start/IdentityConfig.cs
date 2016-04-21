@@ -92,10 +92,14 @@ namespace HoneyWedding.Models
             // See note at the the top (constants)
             // using required character sets, create appropriate source 
             var source = String.Format("{0}{1}{2}{3}",
-                (PasswordRequireLowercase ? lower : String.Empty),
-                (PasswordRequireUppercase ? upper : String.Empty),
-                (PasswordRequireDigit ? digits : String.Empty),
-                (PasswordRequireNonLetterOrDigit ? nonld : String.Empty)
+                //(PasswordRequireLowercase ? lower : String.Empty),
+                //(PasswordRequireUppercase ? upper : String.Empty),
+                //(PasswordRequireDigit ? digits : String.Empty),
+                //(PasswordRequireNonLetterOrDigit ? nonld : String.Empty)
+                (PasswordRequireLowercase ? lower : lower),
+                (PasswordRequireUppercase ? upper : upper),
+                (PasswordRequireDigit ? digits : digits),
+                (PasswordRequireNonLetterOrDigit ? nonld : nonld)
                 );
             // sanity check, this should never occur
             if (source.Length == 0)

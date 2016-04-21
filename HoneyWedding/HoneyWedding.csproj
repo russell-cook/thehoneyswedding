@@ -343,7 +343,7 @@
     <Content Include="Scripts\modernizr-custom.js" />
     <Content Include="Templates\InviteWeddingGuestEmail.html" />
     <Content Include="Templates\NewUserRegistrationConfirmation.html" />
-    <Content Include="Templates\RegisterAccountEmailTemplate.html" />
+    <Content Include="Templates\NewAdminUserAccountEmailTemplate.html" />
     <Content Include="Views\Shared\_Alerts.cshtml" />
     <Content Include="Views\Shared\_ModuleTopCap.cshtml" />
     <Content Include="Views\Shared\_ModuleBtmCap.cshtml" />
@@ -396,7 +396,8 @@
     <Content Include="Views\Home\_AccommodationDetail.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StarRating.cshtml" />
     <Content Include="Views\Home\_AccommodationWelcome.cshtml" />
-    <Content Include="Views\Home\_AccommodationDetail.bak.cshtml" />
+    <Content Include="Views\Home\_AccommodationsList.cshtml" />
+    <Content Include="Views\Home\_AccommodationsAccordion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
