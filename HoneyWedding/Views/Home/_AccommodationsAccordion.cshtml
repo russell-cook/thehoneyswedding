@@ -28,7 +28,7 @@
                         <strong>@Html.DisplayNameFor(modelItem => item.Email): </strong>@Html.DisplayFor(modelItem => item.Email)<br />
                         <strong>@Html.DisplayNameFor(modelItem => item.InFairPlay): </strong>@Html.DisplayFor(modelItem => item.InFairPlay)<br />
                     </p>
-                    @if (!item.Website.IsEmpty() || !item.MapLink.IsEmpty())
+                    @if (!item.Website.IsEmpty() || !item.MapLink.IsEmpty() || !item.PhoneNumber.IsEmpty())
                     {
                         if (!item.Website.IsEmpty())
                         {
@@ -40,6 +40,12 @@
                         {
                             <a class="mdl-button mdl-js-button mdl-button--raised" href="@item.MapLink" target="_blank">
                                 Map
+                            </a>
+                        }
+                        if (!item.PhoneNumber.IsEmpty())
+                        {
+                            <a class="mdl-button mdl-js-button mdl-button--raised" href="tel:+1-@item.PhoneNumber">
+                                <i class="material-icons">call</i>Call
                             </a>
                         }
                     }

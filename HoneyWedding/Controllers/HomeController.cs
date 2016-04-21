@@ -20,7 +20,7 @@ namespace HoneyWedding.Controllers
 
         public async Task<ActionResult> AccommodationDetail(int id)
         {
-            if (id == 0)
+            if (id == 0) // special case for Accommodations page load
             {
                 return PartialView("_AccommodationWelcome");
             }

@@ -100,6 +100,25 @@ a.mdl-layout__tab:hover {
     white-space: normal;
 }
 
+.mdl-data-table-condensed th {
+    height: auto;
+    padding: 4px;
+}
+
+.mdl-data-table-condensed td {
+    height: auto;
+    padding: 4px;
+}
+
+.mdl-data-table-condensed tbody tr {
+    height: auto;
+}
+
+.mdl-data-table-condensed tbody tr.booked-room td {
+    background: rgba(255,0,0,0.2);
+    opacity: 0.7;
+}
+
 .mdl-data-table__column-sort-icon {
     vertical-align: bottom;
 }

@@ -58,7 +58,7 @@ namespace HoneyWedding.Services
                 decimal? lowPrice = null;
                 decimal? highPrice = null;
                 string priceRange = null;
-                string roomFor = null;
+                int roomFor = 0;
 
                 if (location.Rooms.Any())
                 {
@@ -67,14 +67,14 @@ namespace HoneyWedding.Services
                     int counter = 0;
                     foreach (AccommodationRoom room in location.Rooms)
                     {
-                        if (room.SleepsTotal > 0)
+                        if (room.SleepsTotal > 0 && room.IsAvailable)
                         {
                             counter = counter + room.SleepsTotal;
                         }
                     }
                     if (counter > 0)
                     {
-                        roomFor = counter.ToString();
+                        roomFor = counter;
                     }
                 }
 
@@ -117,7 +117,7 @@ namespace HoneyWedding.Services
                     accommodationLocation.Img = "needImage.png";
                 }
 
-                foreach (AccommodationRoom room in location.Rooms)
+                foreach (AccommodationRoom room in location.Rooms.OrderBy(r => r.RoomName).ToList())
                 {
                     accommodationLocation.Rooms.Add(room);
                 }
@@ -150,6 +150,7 @@ namespace HoneyWedding.Services
         public async Task<AccommodationLocation> Detail(int id)
         {
             var accommodation = await _unitOfWork.AccommodationsRepository.GetByIDAsync(id);
+            accommodation.Rooms = accommodation.Rooms.OrderBy(r => r.RoomName).ToList();
             return accommodation;
         }
 

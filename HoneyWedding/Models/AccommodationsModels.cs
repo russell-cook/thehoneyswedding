@@ -56,6 +56,7 @@ namespace HoneyWedding.Models
         [Display(Name = "Room")]
         public string RoomName { get; set; }
         [Display(Name = "Sleeps")]
+        [UIHint("Sleeps")]
         public int SleepsTotal { get; set; }
         [Display(Name = "Beds for")]
         public int SleepsBed { get; set; }
@@ -63,7 +64,7 @@ namespace HoneyWedding.Models
         public int SleepsSofa { get; set; }
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:C0}")]
-        [Display(Name = "Cost/ Night")]
+        [Display(Name = "Cost/Night")]
         public decimal? CostNightly { get; set; }
         [Display(Name ="Minimum # Nights")]
         public int? MinNights { get; set; }
@@ -106,8 +107,9 @@ namespace HoneyWedding.Models
         public string LocationName { get; set; }
         [Display(Name = "Cost/Night")]
         public string PriceRange { get; set; }
-        [Display(Name = "Sleeps")]
-        public string RoomFor { get; set; }
+        [Display(Name = "Room For")]
+        [UIHint("RoomFor")]
+        public int RoomFor { get; set; }
         [UIHint("StarRating")]
         [Display(Name = "Baller Rating")]
         public int BallerRating { get; set; }

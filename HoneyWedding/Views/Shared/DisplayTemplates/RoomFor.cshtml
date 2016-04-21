@@ -1,0 +1,9 @@
+﻿@model int
+
+@if (Model > 0 && Model != 99)
+{ @Model.ToString() }
+else if (Model == 99)
+{ <span>Lots!</span> }
+else
+{ <span class="mdl-color-text--red-400">Booked!</span> }
+

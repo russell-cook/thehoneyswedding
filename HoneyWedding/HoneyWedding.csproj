@@ -398,6 +398,8 @@
     <Content Include="Views\Home\_AccommodationWelcome.cshtml" />
     <Content Include="Views\Home\_AccommodationsList.cshtml" />
     <Content Include="Views\Home\_AccommodationsAccordion.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\RoomFor.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Sleeps.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

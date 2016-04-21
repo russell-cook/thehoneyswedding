@@ -9,7 +9,7 @@
     <div class="mdl-card__supporting-text">
         <p>@Html.DisplayFor(model => model.Description)</p>
 
-        <table class="mdl-data-table" id="table__accommodation-rooms">
+        <table class="mdl-data-table mdl-data-table-condensed" id="table__accommodation-rooms">
             <thead>
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">
@@ -29,7 +29,7 @@
             <tbody>
                 @foreach (var item in Model.Rooms)
                 {
-                    <tr>
+                    <tr class="@(item.IsAvailable ? "" : "booked-room")">
                         <td class="mdl-data-table__cell--non-numeric">
                             @Html.DisplayFor(modelItem => item.RoomName)
                         </td>
@@ -40,15 +40,26 @@
                             @Html.DisplayFor(modelItem => item.CostNightly)
                         </td>
                         <td class="mdl-data-table__cell">
-                            <i class="material-icons mdl-color-text--accent" id="info_@item.ID">info</i>
-                            <span class="mdl-tooltip mdl-tooltip--large mdl-tooltip--left" for="info_@item.ID">
-                                @if (item.SleepsBed > 0) { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsBed) @Html.DisplayFor(model => item.SleepsBed) <br /></text> }
-                                @if (item.SleepsSofa > 0) { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsSofa) @Html.DisplayFor(model => item.SleepsSofa) <br /></text> }
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsTotal) @Html.DisplayFor(model => item.SleepsTotal) total<br />
-                                @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostNightly) @Html.DisplayFor(model => item.CostNightly) <br />
-                                @if (item.MinNights > 1) { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().MinNights) @Html.DisplayFor(model => item.MinNights) <br /></text> }
-                                @if (item.MinNights > 1) { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostMinimum) @Html.DisplayFor(model => item.CostMinimum) <br /></text> }
-                            </span>
+                            @if (item.IsAvailable)
+                            {
+                                <i class="material-icons mdl-color-text--accent" id="info_@item.ID">info</i>
+                                <span class="mdl-tooltip mdl-tooltip--large mdl-tooltip--left" for="info_@item.ID">
+                                    @if (item.SleepsBed > 0)
+                                    { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsBed) @Html.DisplayFor(model => item.SleepsBed) <br /></text> }
+                                    @if (item.SleepsSofa > 0)
+                                    { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsSofa) @Html.DisplayFor(model => item.SleepsSofa) <br /></text> }
+                                    @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsTotal) @Html.DisplayFor(model => item.SleepsTotal) total<br />
+                                    @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostNightly) @Html.DisplayFor(model => item.CostNightly) <br />
+                                    @if (item.MinNights > 1)
+                                    { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().MinNights) @Html.DisplayFor(model => item.MinNights) <br /></text> }
+                                    @if (item.MinNights > 1)
+                                    { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostMinimum) @Html.DisplayFor(model => item.CostMinimum) <br /></text> }
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="mdl-color-text--red-700">Booked!</span>
+                            }
                         </td>
                     </tr>
                 }
