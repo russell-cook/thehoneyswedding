@@ -100,6 +100,11 @@ a.mdl-layout__tab:hover {
     white-space: normal;
 }
 
+.mdl-data-table th a {
+    font-weight: 700;
+    /*text-decoration: none;*/
+}
+
 .mdl-data-table-condensed th {
     height: auto;
     padding: 4px;
@@ -117,22 +122,29 @@ a.mdl-layout__tab:hover {
 .mdl-data-table-condensed tbody tr.booked-room td {
     background: rgba(255,0,0,0.2);
     opacity: 0.7;
+    text-decoration: line-through;
+}
+
+.mdl-data-table-condensed tbody tr.booked-room td:nth-of-type(4) {
+    text-decoration: none;
 }
 
 .mdl-data-table__column-sort-icon {
     vertical-align: bottom;
+    position: absolute;
+    left: 0;
 }
 
 
 /* Table-based styling for Definition Lists*/
 /* -----------Hacky! need better solution------------- */
 .table-list {
+    width: 100%;
     margin-top: 16px;
 }
 
 .table-list td {
-    vertical-align: bottom;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .table-list--term {
@@ -140,7 +152,6 @@ a.mdl-layout__tab:hover {
     float: right;
     text-align: right;
     margin-right: 10px;
-    width: 100px;
 }
 
 .table-list--term:after {

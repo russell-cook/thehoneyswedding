@@ -260,8 +260,12 @@
             var accommodationsListWidth = $('#cell__accommodations-list').width();
 
             // set widths for scrollable table
-            $('#table__accommodations-list').css({ 'width': accommodationsListWidth - 32 });
-            $('.table__fixed-headers td, .table__fixed-headers th').css({ 'width': ((accommodationsListWidth - 32 - 2) / 4) });
+            tableWidth = accommodationsListWidth - 32;
+            $('#table__accommodations-list').css({ 'width': tableWidth });
+            $('.table__fixed-headers td:nth-of-type(4), .table__fixed-headers th:nth-of-type(4)').css({ 'width': 125 });
+            $('.table__fixed-headers td:nth-of-type(3), .table__fixed-headers th:nth-of-type(3)').css({ 'width': 105 });
+            $('.table__fixed-headers td:nth-of-type(2), .table__fixed-headers th:nth-of-type(2)').css({ 'width': 100 });
+            $('.table__fixed-headers td:first-of-type, .table__fixed-headers th:first-of-type').css({ 'width': ((tableWidth - 2) - 330) });
 
             if (winWidth >= 960) {
                 // set card heights

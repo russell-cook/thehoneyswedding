@@ -217,7 +217,9 @@
     <Content Include="Content\img\honeys_on_couch.jpg" />
     <Content Include="Content\img\light_grey.png" />
     <Content Include="Content\img\needImage.png" />
+    <Content Include="Content\img\staying_there.jpg" />
     <Content Include="Content\img\timeline_bg.gif" />
+    <Content Include="Content\img\when_where.jpg" />
     <Content Include="Content\mdl.css" />
     <Content Include="Content\mdl.min.css">
       <DependentUpon>mdl.css</DependentUpon>

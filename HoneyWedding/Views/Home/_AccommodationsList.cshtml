@@ -11,16 +11,18 @@
                     <a href="#" onclick="loadAccommodationsList('@ViewBag.NameSortParm')">@Html.DisplayNameFor(model => model.FirstOrDefault().LocationName)</a>
                 </th>
                 <th class="mdl-data-table__cell">
-                    @(ViewBag.SortOrder == "Sleeps" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_up</i>") : Html.Raw(""))
-                    @(ViewBag.SortOrder == "sleeps_desc" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_down</i>") : Html.Raw(""))
-                    <a href="#" onclick="loadAccommodationsList('@ViewBag.SleepsSortParm')">@Html.DisplayNameFor(model => model.FirstOrDefault().RoomFor)</a>
+                        @(ViewBag.SortOrder == "Sleeps" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_up</i>") : Html.Raw(""))
+                        @(ViewBag.SortOrder == "sleeps_desc" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_down</i>") : Html.Raw(""))
+                        <a href="#" onclick="loadAccommodationsList('@ViewBag.SleepsSortParm')">@Html.DisplayNameFor(model => model.FirstOrDefault().RoomFor)</a>
                 </th>
                 <th class="mdl-data-table__cell">
-                    @(ViewBag.SortOrder == "Price" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_up</i>") : Html.Raw(""))
-                    @(ViewBag.SortOrder == "price_desc" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_down</i>") : Html.Raw(""))
-                    <a href="#" onclick="loadAccommodationsList('@ViewBag.PriceSortParm')">@Html.DisplayNameFor(model => model.FirstOrDefault().PriceRange)</a>
+                    <div style="display: inline-block;">
+                        @(ViewBag.SortOrder == "Price" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_up</i>") : Html.Raw(""))
+                        @(ViewBag.SortOrder == "price_desc" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_down</i>") : Html.Raw(""))
+                        <a href="#" onclick="loadAccommodationsList('@ViewBag.PriceSortParm')">@Html.DisplayNameFor(model => model.FirstOrDefault().PriceRange)</a>
+                    </div>
                 </th>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell">
                     @(ViewBag.SortOrder == "Baller" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_up</i>") : Html.Raw(""))
                     @(ViewBag.SortOrder == "baller_desc" ? Html.Raw("<i class='material-icons mdl-data-table__column-sort-icon'>arrow_drop_down</i>") : Html.Raw(""))
                     <a href="#" onclick="loadAccommodationsList('@ViewBag.BallerSortParm')">@Html.DisplayNameFor(model => model.FirstOrDefault().BallerRating)</a>
@@ -46,7 +48,7 @@
                     <td class="mdl-data-table__cell">
                         @Html.DisplayFor(modelItem => item.PriceRange)
                     </td>
-                    <td class="mdl-data-table__cell--non-numeric">
+                    <td class="mdl-data-table__cell">
                         @Html.DisplayFor(modelItem => item.BallerRating)
                     </td>
                 </tr>
