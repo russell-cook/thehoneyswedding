@@ -2,8 +2,14 @@
     ViewBag.Title = "Error";
 }
 
-<hgroup>
-    <h1 class="text-error">Error.</h1>
-    <h2 class="text-error">An error occurred while processing your request. The verification code provided in your account registration email has expired.</h2>
-    <p>For security purposes, verification codes expire 14 days from the date of your registration email. To request a new verification code, or if you believe you received this message in error, please <a href="mailto:rcook@admin.nv.gov?subject=HoneyWedding: Expired email verification code">email Russell Cook</a>, the analyst in charge of maintining the HoneyWedding website.</p>
-</hgroup>
+<div class="mdl-card mdl-card__small-form mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <div class="mdl-card__title-text">
+            @ViewBag.Title
+        </div>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <p>An error occurred while processing your request. The verification code provided in your account registration email has expired.</p>
+        <p>For security purposes, verification codes expire 14 days from the date of your registration email. To request a new verification code, or if you believe you received this message in error, please <a href="mailto:rcook@admin.nv.gov?subject=HoneyWedding: Expired email verification code">email Russell Cook</a>, the analyst in charge of maintining the HoneyWedding website.</p>
+    </div>
+</div>

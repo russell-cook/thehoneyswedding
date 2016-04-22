@@ -88,7 +88,7 @@ namespace HoneyWedding.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Manage");
                     }
                 case SignInStatus.LockedOut:
                     return View("Lockout");

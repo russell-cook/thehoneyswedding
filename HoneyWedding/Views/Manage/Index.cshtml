@@ -3,47 +3,42 @@
     ViewBag.Title = "Manage User Account";
 }
 
-<h2>@ViewBag.Title</h2>
-<p class="text-success">@ViewBag.StatusMessage</p>
-<p class="text-danger">@ViewBag.ErrorMessage</p>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading"><strong>User Home Page</strong></div>
-                <div class="panel-body">
-                    @*<p>
-                        The "User Home Page" setting determines where you will be re-directed after logging in.
-                        The default setting directs you to this page ("Manage User Account") after login,
-                        but you may choose any module to which you have been granted access. The dropdown menu (below) will list all available modules.
-                        Click 'Save Changes' when you have made your selection.
-                    </p>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.UserDefaultAppModuleList, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.DropDownListFor(m => m.AppModuleID, Model.UserDefaultAppModuleList, null, htmlAttributes: new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <br /><br />*@
-                    <div class="form-group">
-                        <input type="submit" value="Save Changes" class="btn btn-success" />
-                    </div>
+    <div class="mdl-card mdl-card__small-form mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <div class="mdl-card__title-text">@ViewBag.Title</div>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p class="text-success">@ViewBag.StatusMessage</p>
+            <p class="text-danger">@ViewBag.ErrorMessage</p>
+            @*<p>
+                The "User Home Page" setting determines where you will be re-directed after logging in.
+                The default setting directs you to this page ("Manage User Account") after login,
+                but you may choose any module to which you have been granted access. The dropdown menu (below) will list all available modules.
+                Click 'Save Changes' when you have made your selection.
+            </p>
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserDefaultAppModuleList, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.AppModuleID, Model.UserDefaultAppModuleList, null, htmlAttributes: new { @class = "form-control" })
                 </div>
             </div>
+            <br /><br />*@
+            @*<input type="submit" value="Save Changes" class="btn btn-success" />*@
+            @if (Model.HasPassword)
+            {
+                <p>@Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "mdl-button mdl-js-button mdl-button--raised" })</p>
+            }
+            else
+            {
+                @Html.ActionLink("Pick a password", "SetPassword")
+            }
         </div>
     </div>
 
 }
 
-@if (Model.HasPassword)
-{
-    <p>@Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "btn btn-default" })</p>
-}
-else
-{
-    @Html.ActionLink("Pick a password", "SetPassword")
-}
 

@@ -18,9 +18,12 @@
                 <th class="mdl-data-table__cell--non-numeric">
                     @Html.DisplayNameFor(model => model.LocationName)
                 </th>
-                <th class="mdl-data-table__cell--non-numeric">
-                    @Html.DisplayNameFor(model => model.Website)
-                </th>
+            <th class="mdl-data-table__cell--non-numeric">
+                @Html.DisplayNameFor(model => model.Website)
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">
+                Rooms
+            </th>
                 <th class="mdl-data-table__cell--non-numeric">
                     @Html.DisplayNameFor(model => model.InFairPlay)
                 </th>
@@ -38,6 +41,9 @@
                     </td>
                     <td class="mdl-data-table__cell--non-numeric">
                         @Html.DisplayFor(modelItem => item.Website)
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        @Html.DisplayFor(modelItem => item.Rooms.Count)
                     </td>
                     <td class="mdl-data-table__cell--non-numeric">
                         @Html.DisplayFor(modelItem => item.InFairPlay)

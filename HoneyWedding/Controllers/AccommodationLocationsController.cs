@@ -19,7 +19,7 @@ namespace HoneyWedding.Controllers
         // GET: AccommodationLocations
         public ActionResult Index()
         {
-            return View(db.AccommodationLocations.ToList());
+            return View(db.AccommodationLocations.Include(l => l.Rooms).ToList());
         }
 
         // GET: AccommodationLocations/Details/5
