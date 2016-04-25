@@ -261,7 +261,7 @@ namespace HoneyWedding.Controllers
                     await db.SaveChangesAsync();
                     Success("Thank you for updating your password.");
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("RedirectAfterLogin", "Traffic", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);
             return View(model);

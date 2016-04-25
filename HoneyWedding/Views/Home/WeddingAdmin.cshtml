@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Wedding Administration";
+}
+
+<div class="mdl-card mdl-card__page mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">@ViewBag.Title</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <h5>@Html.ActionLink("List Wedding Guests", "Index", "WeddingGuests", new { area = "" }, new { @class = "" })</h5>
+        <h5>@Html.ActionLink("Invite Wedding Guests", "Invite", "WeddingGuests", new { area = "" }, new { @class = "" })</h5>
+        <h5>@Html.ActionLink("Manage Accommodations", "Index", "AccommodationLocations", new { area = "" }, new { @class = "" })</h5>
+    </div>
+</div>

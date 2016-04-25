@@ -53,5 +53,11 @@ namespace HoneyWedding.Controllers
             var accommodationsManager = new AccommodationsManager();
             return PartialView("_AccommodationsAccordion", await accommodationsManager.GetAsync(""));
         }
+
+        [Authorize(Roles = "WeddingAdmin")]
+        public ActionResult WeddingAdmin()
+        {
+            return View();
+        }
     }
 }

@@ -152,7 +152,7 @@ namespace HoneyWedding.Models
 
             // Credentials:
             var credentialUserName = ConfigurationManager.AppSettings["MAIL_USER"];
-            var sentFrom = "Lisa and Russ <invites@thehoneyswedding.com>";
+            var sentFrom = "Lisa and Russ <noreply@thehoneyswedding.net>";
             var pwd = ConfigurationManager.AppSettings["MAIL_PASSWORD"];
 
             // Configure the client:

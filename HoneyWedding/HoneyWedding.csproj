@@ -402,6 +402,7 @@
     <Content Include="Views\Home\_AccommodationsAccordion.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\RoomFor.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Sleeps.cshtml" />
+    <Content Include="Views\Home\WeddingAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -470,6 +471,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccommodationLocationsController.cs" />
     <Compile Include="Controllers\AccommodationRoomsController.cs" />
+    <Compile Include="Controllers\TrafficController.cs" />
     <Compile Include="Controllers\WeddingGuestsController.cs" />
     <Compile Include="DAL\Repositories\GenericRepository.cs" />
     <Compile Include="DAL\Repositories\UnitOfWork.cs" />
@@ -570,6 +572,7 @@
     <Folder Include="Content\mdl\tooltip\" />
     <Folder Include="Content\mdl\typography\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Traffic\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603031736036_InitDatabase.resx">

@@ -6,7 +6,7 @@
         @Html.AntiForgeryToken()
 
         <li>@Html.ActionLink("Hello " + User.Identity.GetUserName(), "Index", "Manage", new { area = "" }, new { title = "Manage", @class = "mdl-menu__item" })</li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()" class="mdl-menu__item">Log off</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()" class="mdl-menu__item mdl-menu__item--full-bleed-divider">Log off</a></li>
     }
 }
 else
