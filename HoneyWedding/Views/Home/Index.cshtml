@@ -8,6 +8,10 @@
 @section headLevel {
     @Styles.Render("~/Content/parallax_css")
     <style>
+        main {
+            background: #fff url('../../Content/img/honeys_on_couch.jpg') center / cover;
+        }
+
         .honeyContentBlock {
             background-color: rgb(62, 39, 35);
             background-image: radial-gradient(circle at 100% 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), 
@@ -99,9 +103,9 @@
     </style>
 }
 
-@section bodyTagOpen {
+@*@section bodyTagOpen {
     <body style="background: #fff url('../../Content/img/honeys_on_couch.jpg') center / cover;">
-}
+}*@
 
 <div id="home"></div>
 <div class="honeyHome"></div>
@@ -181,7 +185,7 @@
                         <tr>
                             <td class="table-list--term">Location</td>
                             <td>
-                                Mastroserio Winery
+                                <a href="http://www.mastroseriowinery.com/" target="_blank">Mastroserio Winery</a>
                             </td>
                         </tr>
                         <tr>
@@ -196,6 +200,9 @@
                 <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-js-button mdl-button--raised" href="Home/Accommodations">
                         Staying There
+                    </a>
+                    <a class="mdl-button mdl-js-button mdl-button--raised" href="Home/Venue">
+                        The Venue
                     </a>
                 </div>
 

@@ -59,5 +59,16 @@ namespace HoneyWedding.Controllers
         {
             return View();
         }
+
+        public ActionResult Venue()
+        {
+            return View();
+        }
+
+        public ActionResult Registry()
+        {
+            return View();
+        }
+
     }
 }
