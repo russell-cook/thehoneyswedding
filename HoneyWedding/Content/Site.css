@@ -20,20 +20,37 @@
 /* ----Top Navbar---- */
 .mdl-layout__header {
     /* Argyle BG Pattern */
-    background-image: repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 31px), 
-        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 31px), 
+    background-image: repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 30px), 
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 30px), 
         linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)), 
         linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
-    background-size: 35px 64px;
+    background-size: 32px 64px;
 }
 
 .mdl-layout__header-row {
     padding: 0 20px 0 20px;
 }
 
+main {
+    /* should match .argyle-overlay (below); this is used at the element level so that it can be overridden by headLevel styles in child view templates */
+    background-image: repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 30px), 
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 30px), 
+        linear-gradient(60deg, rgba(0,0,0,.03) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.03) 75%, rgba(0,0,0,.03)), 
+        linear-gradient(120deg, rgba(0,0,0,.03) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.03) 75%, rgba(0,0,0,.03));
+    background-size: 32px 64px;
+}
+
+/* -----Argyle Overlay (works with any bg-color)----- */
+.argyle-overlay {
+    background-image: repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 30px), 
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 30px), 
+        linear-gradient(60deg, rgba(0,0,0,.03) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.03) 75%, rgba(0,0,0,.03)), 
+        linear-gradient(120deg, rgba(0,0,0,.03) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.03) 75%, rgba(0,0,0,.03));
+    background-size: 32px 64px;
+}
 
 /* -----Typography----- */
-.mdl-navigation, .mdl-layout-title, .honeyContentBlock__title, .mdl-card__title-text {
+.mdl-navigation, .mdl-layout-title, .mdl-card__title-text {
     font-family: 'Sue Ellen Francisco', cursive;
 }
 
@@ -95,6 +112,8 @@ a.mdl-layout__tab:hover {
 
 .mdl-card__title-text {
     text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    color: #ffffff;
 }
 
 .mdl-card__title {

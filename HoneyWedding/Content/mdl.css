@@ -901,7 +901,7 @@ p {
   margin-bottom: 16px; }
 
 a {
-  color: #ff4081;
+  color: #ec407a;
   font-weight: 500; }
 
 blockquote {
@@ -3047,7 +3047,7 @@ ul, ol {
   background-color: #4e342e !important; }
 
 .mdl-color--accent {
-  background-color: #ff4081 !important; }
+  background-color: #ec407a !important; }
 
 .mdl-color--accent-contrast {
   background-color: white !important; }
@@ -3062,7 +3062,7 @@ ul, ol {
   color: #4e342e !important; }
 
 .mdl-color-text--accent {
-  color: #ff4081 !important; }
+  color: #ec407a !important; }
 
 .mdl-color-text--accent-contrast {
   color: white !important; }
@@ -3635,13 +3635,13 @@ ul, ol {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #ff4081;
+    background: #ec407a;
     color: white; }
     .mdl-button .mdl-badge[data-badge]:after {
       top: -10px;
       right: -5px; }
   .mdl-badge.mdl-badge--no-background[data-badge]:after {
-    color: #ff4081;
+    color: #ec407a;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1px gray; }
   .mdl-badge.mdl-badge--overlap {
@@ -3937,14 +3937,14 @@ input.mdl-button[type="submit"] {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
     background-color: rgba(158, 158, 158, 0.4); }
   .mdl-button--fab.mdl-button--colored {
-    background: #ff4081;
+    background: #ec407a;
     color: white; }
     .mdl-button--fab.mdl-button--colored:hover {
-      background-color: #ff4081; }
+      background-color: #ec407a; }
     .mdl-button--fab.mdl-button--colored:focus:not(:active) {
-      background-color: #ff4081; }
+      background-color: #ec407a; }
     .mdl-button--fab.mdl-button--colored:active {
-      background-color: #ff4081; }
+      background-color: #ec407a; }
     .mdl-button--fab.mdl-button--colored .mdl-ripple {
       background: white; }
 
@@ -4000,12 +4000,12 @@ input.mdl-button[type="submit"] {
     background-color: #6d4c41; }
 
 .mdl-button--accent.mdl-button--accent {
-  color: #ff4081; }
+  color: #ec407a; }
   .mdl-button--accent.mdl-button--accent .mdl-ripple {
     background: white; }
   .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab {
     color: white;
-    background-color: #ff4081; }
+    background-color: #ec407a; }
 
 .mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled {
   color: rgba(0, 0, 0, 0.26);
@@ -4214,7 +4214,7 @@ input.mdl-button[type="submit"] {
   box-sizing: border-box; }
 
 .mdl-card__media {
-  background-color: #ff4081;
+  background-color: #ec407a;
   background-repeat: repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -7363,7 +7363,7 @@ input.mdl-button[type="submit"] {
 .mdl-layout__tab-bar {
   height: 96px;
   margin: 0;
-  width: calc(100% - 112px);
+  width: calc(100% - 112px);
   padding: 0 0 0 56px;
   display: flex;
   background-color: #6d4c41;
@@ -7373,17 +7373,17 @@ input.mdl-button[type="submit"] {
     display: none; }
   .mdl-layout--no-drawer-button .mdl-layout__tab-bar {
     padding-left: 16px;
-    width: calc(100% - 32px); }
+    width: calc(100% - 32px); }
   @media screen and (min-width: 960px) {
     .mdl-layout--no-desktop-drawer-button .mdl-layout__tab-bar {
       padding-left: 16px;
-      width: calc(100% - 32px); } }
+      width: calc(100% - 32px); } }
   @media screen and (max-width: 959px) {
     .mdl-layout__tab-bar {
-      width: calc(100% - 60px);
+      width: calc(100% - 60px);
       padding: 0 0 0 60px; }
       .mdl-layout--no-drawer-button .mdl-layout__tab-bar {
-        width: calc(100% - 8px);
+        width: calc(100% - 8px);
         padding-left: 4px; } }
   .mdl-layout--fixed-tabs .mdl-layout__tab-bar {
     padding: 0;
@@ -7476,7 +7476,7 @@ input.mdl-button[type="submit"] {
     bottom: 0;
     left: 0;
     position: absolute;
-    background: #ff4081;
+    background: #ec407a;
     animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
     transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
   .mdl-layout__tab .mdl-layout__tab-ripple-container {
@@ -8400,7 +8400,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-snackbar__action {
     background: transparent;
     border: none;
-    color: #ff4081;
+    color: #ec407a;
     float: right;
     text-transform: uppercase;
     padding: 14px 24px 14px 12px;

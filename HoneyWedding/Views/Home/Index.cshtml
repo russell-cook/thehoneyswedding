@@ -13,86 +13,106 @@
         }
 
         .honeyContentBlock {
-            background-color: rgb(62, 39, 35);
-            background-image: radial-gradient(circle at 100% 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), 
-                radial-gradient(circle at 0 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent), 
-                radial-gradient(circle at 50% 100%, rgb(50, 30, 30) 10%, rgb(62, 39, 35) 11%, rgb(62, 39, 35) 23%, rgb(50, 30, 30) 24%, rgb(50, 30, 30) 30%, rgb(62, 39, 35) 31%, rgb(62, 39, 35) 43%, rgb(50, 30, 30) 44%, rgb(50, 30, 30) 50%, rgb(62, 39, 35) 51%, rgb(62, 39, 35) 63%, rgb(50, 30, 30) 64%, rgb(50, 30, 30) 71%, transparent 71%, transparent), 
-                radial-gradient(circle at 100% 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent), 
+            box-sizing: border-box;
+            padding: 16px;
+            /*box-shadow: rgba(0,0,0,0.2) 5px 5px 5px;*/
+            /* -----rainbow bg pattern----- */
+            /*background-color: rgb(62, 39, 35);
+            background-image: radial-gradient(circle at 100% 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent),
+                radial-gradient(circle at 0 150%, rgb(62, 39, 35) 24%, rgb(50, 30, 30) 25%, rgb(50, 30, 30) 28%, rgb(62, 39, 35) 29%, rgb(62, 39, 35) 36%, rgb(50, 30, 30) 36%, rgb(50, 30, 30) 40%, transparent 40%, transparent),
+                radial-gradient(circle at 50% 100%, rgb(50, 30, 30) 10%, rgb(62, 39, 35) 11%, rgb(62, 39, 35) 23%, rgb(50, 30, 30) 24%, rgb(50, 30, 30) 30%, rgb(62, 39, 35) 31%, rgb(62, 39, 35) 43%, rgb(50, 30, 30) 44%, rgb(50, 30, 30) 50%, rgb(62, 39, 35) 51%, rgb(62, 39, 35) 63%, rgb(50, 30, 30) 64%, rgb(50, 30, 30) 71%, transparent 71%, transparent),
+                radial-gradient(circle at 100% 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent),
                 radial-gradient(circle at 0 50%, rgb(50, 30, 30) 5%, rgb(62, 39, 35) 6%, rgb(62, 39, 35) 15%, rgb(50, 30, 30) 16%, rgb(50, 30, 30) 20%, rgb(62, 39, 35) 21%, rgb(62, 39, 35) 30%, rgb(50, 30, 30) 31%, rgb(50, 30, 30) 35%, rgb(62, 39, 35) 36%, rgb(62, 39, 35) 45%, rgb(50, 30, 30) 46%, rgb(50, 30, 30) 49%, transparent 50%, transparent);
-            background-size: 66px 33px;
-            /*background: #f9f9f9 url('../../Content/img/light_grey.png') repeat;*/
+            background-size: 50px 25px;*/
+            /* -----border image----- */
             /*border-image-slice: 40 40 40 40;
             border-image-width: 40px 40px 40px 40px;
             border-image-outset: 20px 0 20px 0;
             border-image-repeat: round stretch;
             border-image-source: url('../../Content/img/border__honey-content-block.png');*/
-            /*box-shadow: rgba(0,0,0,0.4) 2px 2px inset;*/
         }
 
-        .honeyContentBlock__title {
+        .honeyContentBlock h1 {
             text-align: center;
-            font-size: 3em;
-            line-height: 2em;
+            font-family: 'Fredericka the Great', cursive;
+            font-size: 4em;
+            line-height: 1.2em;
             text-transform: uppercase;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+            /*margin-bottom: 16px;*/
         }
 
-        .mdl-grid__honey-timeslot {
-            /*max-width: 960px;*/
-            border-top: 3px solid #ddd;
-            margin-bottom: 20px;
-            padding: 0;
+        .honeyContentBlock h2 {
+            text-align: center;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Special Elite', cursive;
+            font-size: 1.2em;
+            line-height: 1.4em;
+            color: #fff;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
         }
-
-            .mdl-grid__honey-timeslot .mdl-cell {
-                margin: 8px 0;
-            }
-
-            .mdl-grid__honey-timeslot span {
-                /*position: absolute;
-        right: 0;*/
-                /*top: 20px;*/
-                margin-left: 20px;
-                font-size: 4em;
-                line-height: 1em;
-                color: #999;
-                font-family: 'Sue Ellen Francisco', cursive;
-            }
-
-        .mdl-card__timeline {
-            width: auto;
-            margin-right: 20px;
-        }
-
-        .even {
-            /*float: right;*/
-            /*padding: 10px 0 0 120px;*/
-            border-color: rgb(239, 83, 80);
-        }
-
-            .even span {
-                /*left: 0;*/
-                float: right;
-                margin-left: 0;
-                margin-right: 20px;
-                color: rgb(239, 83, 80);
-            }
-
-            .even .mdl-card__timeline {
-                margin-right: 0;
-                margin-left: 20px;
-            }
 
         .timelineContainer {
-            background: url('../../Content/img/timeline_bg.gif') repeat-y center top;
-            /*max-width: 600px;*/
+            background: url('../../Content/img/timeline_bg.png') repeat-y center top;
+            max-width: 736px;
             overflow: hidden;
             margin: 0 auto;
         }
 
-        .mdl-card__title-honeys-on-couch {
-            height: 200px;
-            background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
+        .mdl-grid__honey-timeslot {
+            margin-bottom: 16px;
+            padding: 0;
+        }
+
+            .mdl-grid__honey-timeslot .mdl-cell {
+                box-sizing: border-box;
+                border-top: 2px solid rgb(121, 134, 203);
+                padding: 16px;
+                margin: 0;
+            }
+
+            .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
+                width: 368px;
+            }
+
+            .mdl-grid__honey-timeslot .mdl-cell--3-col-desktop {
+                width: 184px;
+            }
+
+            .mdl-grid__honey-timeslot .mdl-cell--no-border {
+                border: 0;
+            }
+
+            .mdl-grid__honey-timeslot .mdl-card__title {
+                height: 250px;
+            }
+
+            .mdl-grid__honey-timeslot span {
+                width: 192px;
+                font-size: 4em;
+                line-height: 1em;
+                color: rgb(121, 134, 203);
+                font-family: 'Sue Ellen Francisco', cursive;
+            }
+
+        .even .mdl-cell {
+            border-color: rgb(236, 64, 122);
+        }
+
+            .even span {
+                float: right;
+                text-align: right;
+                color: rgb(236, 64, 122);
+            }
+
+        .mdl-card__title-russ-tiller {
+            background: url('../../Content/img/russ_with_tiller.jpg') center / cover;
+        }
+
+        .mdl-card__title-need-image {
+            background: url('../../Content/img/needImage.png') center / cover;
         }
 
         .honeyMap {
@@ -104,38 +124,48 @@
 }
 
 @*@section bodyTagOpen {
-    <body style="background: #fff url('../../Content/img/honeys_on_couch.jpg') center / cover;">
-}*@
+        <body style="background: #fff url('../../Content/img/honeys_on_couch.jpg') center / cover;">
+    }*@
 
 <div id="home"></div>
 <div class="honeyHome"></div>
 
-<div class="honeyContentBlock" id="ourStory">
-    <div class="honeyContentBlock__title mdl-color-text--brown-200">Our Story</div>
+<div class="honeyContentBlock mdl-shadow--4dp mdl-color--indigo-100 argyle-overlay" id="ourStory">
+
+    <h1 class="mdl-color-text--primary-dark">Our Story</h1>
+
+    <h2>It all started in a simpler time, when wealth trickled down, and Michael Jackson ruled the airwaves...</h2>
+
     <div class="timelineContainer">
+
+        <!--Begin odd/even pair-->
+
         <div class="mdl-grid mdl-grid__honey-timeslot">
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
-                <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
-                    <div class="mdl-card__title mdl-card__title-honeys-on-couch">
-                        <h2 class="mdl-card__title-text mdl-color-text--accent">Dec 30th, 1978</h2>
+            <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
+                <div class="mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title mdl-card__title-russ-tiller">
+                        <div class="mdl-card__title-text">Dec 30th, 1978</div>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        <p>Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. Russell is born to Gary and Joyce Cook in Camarillo, CA. </p>
+                        <p>Russell is born to Gary and Joyce Cook in Camarillo, CA. From a young age his friends found him affable and easy to get along with!</p>
                     </div>
                 </div>
             </div>
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--hide-phone">
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone">
                 <span>1978</span>
             </div>
         </div>
+
         <div class="mdl-grid mdl-grid__honey-timeslot even">
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--hide-phone">
-                <span>1982</span>
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone mdl-cell--no-border">
             </div>
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
-                <div class="mdl-card mdl-card__timeline mdl-shadow--2dp">
-                    <div class="mdl-card__title mdl-card__title-honeys-on-couch">
-                        <h2 class="mdl-card__title-text mdl-color-text--accent">May 9th, 1982</h2>
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone">
+                <span class="mdl-color-text--pink-400">1982</span>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
+                <div class="mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title-text">May 9th, 1982</div>
                     </div>
                     <div class="mdl-card__supporting-text">
                         <p>Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. Lisa is born to Arnold and Vicki Hass in Carson City, NV. </p>
@@ -143,6 +173,79 @@
                 </div>
             </div>
         </div>
+
+        <!--Begin odd/even pair-->
+
+        <div class="mdl-grid mdl-grid__honey-timeslot">
+            <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
+                <div class="mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title-text">1991-1995</div>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>Russell attends Carson High School. His dominance as an athlete is immediately apparent. He somehow manages to letter in both JV Soccer and Marching Band.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone">
+                <span>90's-ish</span>
+            </div>
+        </div>
+
+        <div class="mdl-grid mdl-grid__honey-timeslot even">
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone mdl-cell--no-border">
+            </div>
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone">
+                <span class="mdl-color-text--pink-400">Mid-90's</span>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
+                <div class="mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title-text">1995-2000</div>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>Lisa also attends Carson High! (Need more text)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Begin odd/even pair-->
+
+        <div class="mdl-grid mdl-grid__honey-timeslot">
+            <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
+                <div class="mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title-text">1995-1999</div>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>Russell attends the University of Southern California, where fails to make the football team as a walk-on, but succeeds wildly in furthering his marching band career. He majors in Music Recording and goes to work in fabulous Hollywood!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone">
+                <span>Late 90's</span>
+            </div>
+        </div>
+
+        <div class="mdl-grid mdl-grid__honey-timeslot even">
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone mdl-cell--no-border">
+            </div>
+            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone">
+                <span class="mdl-color-text--pink-400">Mid-90's</span>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
+                <div class="mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title-text">1995-2000</div>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>Lisa also attends Carson High! (Need more text)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -151,8 +254,8 @@
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
 </div>
 
-<div class="honeyContentBlock" id="ourFamilies">
-    <div class="honeyContentBlock__title mdl-color-text--brown-200">Our Families</div>
+<div class="honeyContentBlock mdl-shadow--4dp mdl-color--brown-200 argyle-overlay" id="ourFamilies">
+    <h1 class="mdl-color-text--primary-dark">Our Families</h1>
 </div>
 
 <div class="parallax__viewport">
@@ -160,13 +263,13 @@
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
 </div>
 
-<div class="honeyContentBlock" id="whenWhere">
-    <div class="honeyContentBlock__title mdl-color-text--brown-200">When & Where</div>
+<div class="honeyContentBlock mdl-color--deep-purple-100 argyle-overlay" id="whenWhere">
+    <h1 class="mdl-color-text--primary-dark">When & Where</h1>
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
             <div class="mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title" style="background: url('../../Content/img/when_where.jpg') center / cover; height: 200px;">
-                    <h2 class="mdl-card__title-text mdl-color-text--accent-contrast">Details</h2>
+                    <div class="mdl-card__title-text mdl-color-text--accent-contrast">Details</div>
                 </div>
                 <div class="mdl-card__supporting-text">
                     <table class="table-list" border="0" cellpadding="0" cellspacing="0">
@@ -244,7 +347,7 @@
         function calcDurations() {
             // set min-height of honeyContentBlock divs
             var minHeight = $(window).height() - $('#headerRow').height();
-            $('.honeyContentBlock, .honeyHome, .parallax__viewport').css({ 'min-height': (minHeight - 40), 'padding': 20 }); // minHeight minus 40, to account for padding
+            $('.honeyContentBlock, .honeyHome, .parallax__viewport').css({ 'min-height': minHeight }); // minHeight minus 40, to account for padding
 
             // calculate transform-origin for CSS parallex (needed because default behavior doesn't correct for the width of the vertical scroll bar)
             var xValue = $(window).width() / 2;
@@ -315,6 +418,7 @@
         var hrefValue = window.location.href;
         var id = hrefValue.substr(hrefValue.indexOf('#'), hrefValue.length);
         if ($(id).length > 0) {
+
             // trigger scroll
             var scrollLocation = $('main').scrollTop() + $(id).position().top;
             TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
@@ -323,5 +427,5 @@
 
     // load google map
     $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354');
-}
+    }
 </script>

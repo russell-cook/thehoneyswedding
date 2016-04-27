@@ -9,6 +9,8 @@
     @Scripts.RenderFormat("<script src='{0}' defer></script>", "~/bundles/mdl")
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     @Styles.Render("~/Content/css")
     @RenderSection("headLevel", required: false)
@@ -21,8 +23,8 @@
 }
 else
 {
-    @:<body class="mdl-color--grey-100">
-    @*@:<body style="background: url('../../Content/img/light_grey.png') repeat">*@
+    @:<body class="mdl-color--brown-200">
+    @*@:<body style="background: url('../../Content/img/asanoha-400px.png') repeat">*@
 }
 
 @RenderSection("topLevel", required: false)
@@ -44,7 +46,7 @@ else
                 @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { id = "menuOurFamilies", @class = "mdl-layout__tab" })
                 @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
                 @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { id = "menuStayingThere", @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "Staying There" ? "is-active" : "") })
-                @Html.ActionLink("The Venue", "Venue", "Home", null, null, "venue", null, new { id = "menuVenue", @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Venue" ? "is-active" : "") })
+                @Html.ActionLink("The Venue", "Venue", "Home", null, null, null, null, new { id = "menuVenue", @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Venue" ? "is-active" : "") })
                 @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Honey Fund" ? "is-active" : "") })
                 <button id="user-menu" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">more_vert</i>

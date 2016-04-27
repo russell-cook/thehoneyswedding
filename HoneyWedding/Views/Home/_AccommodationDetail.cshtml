@@ -49,10 +49,10 @@
                                     @if (item.SleepsSofa > 0)
                                     { <text>@Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsSofa) @Html.DisplayFor(model => item.SleepsSofa) <br /></text> }
                                     @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().SleepsTotal) @Html.DisplayFor(model => item.SleepsTotal) total<br />
+                                    @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostNightly) @Html.DisplayFor(model => item.CostNightly) <br />
                                     @if (item.MinNights > 1)
                                     {
                                         <text>
-                                            @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostNightly) @Html.DisplayFor(model => item.CostNightly) <br />
                                             @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().MinNights) @Html.DisplayFor(model => item.MinNights) <br />
                                             @Html.DisplayNameFor(model => model.Rooms.FirstOrDefault().CostMinimum) @Html.DisplayFor(model => item.CostMinimum) <br />
                                         </text>
