@@ -85,7 +85,7 @@ a.mdl-layout__tab:hover {
 
 /* ----Card Styling----*/
 .mdl-card {
-    opacity: 0.97;
+    /*opacity: 0.97;*/
     width: auto;
 }
 
@@ -210,8 +210,8 @@ a.mdl-layout__tab:hover {
 
 /* Star Rating System */
 .star-rating i {
-    font-size: 18px;
-    letter-spacing: -8px;
+    font-size: 14px;
+    letter-spacing: -6px;
 }
 
 
