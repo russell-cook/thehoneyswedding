@@ -83,12 +83,12 @@
             }
 
             .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
-                width: calc(50%);
+                width: 50%;
             }
 
             .mdl-grid__honey-timeslot .mdl-cell--3-col-desktop,
             .mdl-grid__honey-timeslot .mdl-cell--2-col-tablet {
-                width: calc(25%);
+                width: 25%;
             }
 
             .mdl-grid__honey-timeslot .mdl-cell--no-border {
@@ -97,25 +97,20 @@
 
             .mdl-grid__honey-timeslot .mdl-card__title {
                 height: 250px;
-            }
-
-            .mdl-grid__honey-timeslot span {
-                float: left;
-            }
-
-            .mdl-grid__honey-timeslot span {
-                font-size: 4em;
-                line-height: 1em;
-                color: rgb(121, 134, 203);
-                font-family: 'Sue Ellen Francisco', cursive;
-            }
-
-            .mdl-grid__honey-timeslot .mdl-card__title {
                 padding: 0;
                 overflow: hidden;
             }
 
-            .mdl-card__title-text {
+            .mdl-grid__honey-timeslot span {
+                float: left;
+                font-size: 4em;
+                line-height: 1em;
+                color: rgb(121, 134, 203);
+                font-family: 'Sue Ellen Francisco', cursive;
+                white-space: nowrap;
+            }
+
+            .mdl-grid__honey-timeslot .mdl-card__title-text {
                 position: absolute;
                 top: 195px;
                 left: 16px;
@@ -124,11 +119,6 @@
         .even .mdl-cell {
             border-color: rgb(236, 64, 122);
         }
-
-            .even .mdl-cell--timeline-photo {
-                /*padding-left: 16px;
-                padding-right: 0;*/
-            }
 
             .even span {
                 float: right;
