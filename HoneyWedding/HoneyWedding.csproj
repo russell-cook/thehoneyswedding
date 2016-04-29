@@ -216,11 +216,13 @@
     <Content Include="Content\img\mastroserio-logo.jpg" />
     <Content Include="Content\img\needImage.png" />
     <Content Include="Content\img\ruggero.jpg" />
+    <Content Include="Content\img\russ_wes_booze_bottles.jpg" />
     <Content Include="Content\img\russ_with_tiller.jpg" />
     <Content Include="Content\img\staying_there.jpg" />
     <Content Include="Content\img\the_venue_party.jpg" />
     <Content Include="Content\img\the_venue_vines.jpg" />
     <Content Include="Content\img\timeline_bg.png" />
+    <Content Include="Content\img\timeline_lisa_delilah_xmas.jpg" />
     <Content Include="Content\img\when_where.jpg" />
     <Content Include="Content\mdl.css" />
     <Content Include="Content\mdl.min.css">
@@ -245,6 +247,18 @@
     <Content Include="Content\scrollmagic\uncompressed\plugins\debug.addIndicators.js" />
     <Content Include="Content\scrollmagic\uncompressed\plugins\jquery.ScrollMagic.js" />
     <Content Include="Content\scrollmagic\uncompressed\ScrollMagic.js" />
+    <Content Include="Content\slick\ajax-loader.gif" />
+    <Content Include="Content\slick\fonts\slick.svg" />
+    <Content Include="Content\slick\slick-theme.css" />
+    <Content Include="Content\slick\slick-theme.min.css">
+      <DependentUpon>slick-theme.css</DependentUpon>
+    </Content>
+    <Content Include="Content\slick\slick.css" />
+    <Content Include="Content\slick\slick.js" />
+    <Content Include="Content\slick\slick.min.css">
+      <DependentUpon>slick.css</DependentUpon>
+    </Content>
+    <Content Include="Content\slick\slick.min.js" />
     <Content Include="Content\table__fixed-headers.css" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -380,6 +394,14 @@
     <Content Include="Content\mdl\layout\_layout.scss" />
     <Content Include="Content\mdl\grid\_grid.scss" />
     <Content Include="Content\mdl\card\_card.scss" />
+    <Content Include="Content\slick\config.rb" />
+    <Content Include="Content\slick\fonts\slick.eot" />
+    <Content Include="Content\slick\fonts\slick.ttf" />
+    <Content Include="Content\slick\fonts\slick.woff" />
+    <Content Include="Content\slick\slick-theme.less" />
+    <Content Include="Content\slick\slick-theme.scss" />
+    <Content Include="Content\slick\slick.less" />
+    <Content Include="Content\slick\slick.scss" />
     <None Include="Properties\PublishProfiles\Arvixe Publish.pubxml" />
     <Content Include="Views\WeddingGuests\Invite.cshtml" />
     <Content Include="Views\WeddingGuests\Index.cshtml" />

@@ -4,6 +4,14 @@
     "inputFile": "Content/mdl/material-design-lite.scss"
   },
   {
+    "outputFile": "Content/slick/slick.css",
+    "inputFile": "Content/slick/slick.scss"
+  },
+  {
+    "outputFile": "Content/slick/slick-theme.css",
+    "inputFile": "Content/slick/slick-theme.scss"
+  },
+  {
     "outputFile": "Content/themes/nvapps/variables.css",
     "inputFile": "Content/themes/nvapps/variables.less"
   },

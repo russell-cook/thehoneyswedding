@@ -6,7 +6,9 @@
 }
 
 @section headLevel {
-    @Styles.Render("~/Content/parallax_css")
+    @Styles.Render("~/Content/parallax.css")
+    @Styles.Render("~/Content/slick/slick.css")
+    @Styles.Render("~/Content/slick/slick-theme.css")
     <style>
         main {
             background: #fff url('../../Content/img/honeys_on_couch.jpg') center / cover;
@@ -57,7 +59,7 @@
         .timelineCard {
             padding: 16px;
             border-radius: 2px;
-            width: 736px;
+            max-width: 736px;
             box-sizing: border-box;
             margin: 0 auto 32px auto;
             background-color: rgba(255,245,245,0.7);
@@ -81,12 +83,12 @@
             }
 
             .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
-                width: 352px;
-                padding-left: 0;
+                width: calc(50%);
             }
 
-            .mdl-grid__honey-timeslot .mdl-cell--3-col-desktop {
-                width: 176px;
+            .mdl-grid__honey-timeslot .mdl-cell--3-col-desktop,
+            .mdl-grid__honey-timeslot .mdl-cell--2-col-tablet {
+                width: calc(25%);
             }
 
             .mdl-grid__honey-timeslot .mdl-cell--no-border {
@@ -94,7 +96,7 @@
             }
 
             .mdl-grid__honey-timeslot .mdl-card__title {
-                height: 220px;
+                height: 250px;
             }
 
             .mdl-grid__honey-timeslot span {
@@ -102,11 +104,21 @@
             }
 
             .mdl-grid__honey-timeslot span {
-                width: 176px;
                 font-size: 4em;
                 line-height: 1em;
                 color: rgb(121, 134, 203);
                 font-family: 'Sue Ellen Francisco', cursive;
+            }
+
+            .mdl-grid__honey-timeslot .mdl-card__title {
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .mdl-card__title-text {
+                position: absolute;
+                top: 195px;
+                left: 16px;
             }
 
         .even .mdl-cell {
@@ -114,8 +126,8 @@
         }
 
             .even .mdl-cell--timeline-photo {
-                padding-left: 16px;
-                padding-right: 0;
+                /*padding-left: 16px;
+                padding-right: 0;*/
             }
 
             .even span {
@@ -137,12 +149,35 @@
             margin: 20px;
             border: 0;
         }
+
+        .honey_slider {
+            width: 100%;
+            height: 100%;
+        }
+
+        @@media screen and (max-width: 479px) {
+            .timelineCard {
+                /*width: auto;*/
+            }
+            .timelineContainer {
+                background: none;
+            }
+            .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
+                width: 100%;
+            }
+
+            .mdl-grid__honey-timeslot .mdl-cell {
+                border: 0;
+                padding: 0;
+            }
+            .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
+                margin: 0;
+            }
+
+        }
+
     </style>
 }
-
-@*@section bodyTagOpen {
-        <body style="background: #fff url('../../Content/img/honeys_on_couch.jpg') center / cover;">
-    }*@
 
 <div id="home"></div>
 <div class="honeyHome"></div>
@@ -160,8 +195,12 @@
 
             <div class="mdl-grid mdl-grid__honey-timeslot">
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
-                    <div class="mdl-card mdl-shadow--4dp">
-                        <div class="mdl-card__title mdl-card__title-russ-tiller">
+                    <div class="mdl-card mdl-card__timeline mdl-shadow--4dp">
+                        <div class="mdl-card__title">
+                            <div class="honey_slider slider__russ_born">
+                                <img src="../../Content/img/russ_with_tiller.jpg" />
+                                <img data-lazy="../../Content/img/russ_wes_booze_bottles.jpg" />
+                            </div>
                             <div class="mdl-card__title-text">Dec 30th, 1978</div>
                         </div>
                         <div class="mdl-card__supporting-text">
@@ -455,6 +494,7 @@
     <script src="~/Content/greensock-js/src/minified/plugins/ScrollToPlugin.min.js"></script>
     <script src="~/Content/scrollmagic/minified/ScrollMagic.min.js"></script>
     <script src="~/Content/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+    <script src="~/Content/slick/slick.min.js"></script>
     <script type="text/javascript">
         var controller = new ScrollMagic.Controller({ globalSceneOptions: {} });
         var sceneOurStory;
@@ -554,6 +594,12 @@
             TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
         }
     }
+
+    // init sliders
+    $('.slider__russ_born').slick({
+        dots: true,
+        lazyLoad: 'progressive'
+    });
 
     // load google map
     $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354');
