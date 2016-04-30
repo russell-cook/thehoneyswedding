@@ -213,6 +213,7 @@
     <Content Include="Content\img\AppleBlossoms_RightSideFg_ShedInBg.jpg" />
     <Content Include="Content\img\border__honey-content-block.png" />
     <Content Include="Content\img\honeys_on_couch.jpg" />
+    <Content Include="Content\img\honey_wedding--home_page_overlay.png" />
     <Content Include="Content\img\mastroserio-logo.jpg" />
     <Content Include="Content\img\needImage.png" />
     <Content Include="Content\img\ruggero.jpg" />
@@ -476,8 +477,6 @@
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />

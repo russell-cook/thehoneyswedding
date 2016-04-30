@@ -11,7 +11,11 @@
     @Styles.Render("~/Content/slick/slick-theme.css")
     <style>
         main {
-            background: #fff url('../../Content/img/honeys_on_couch.jpg') center / cover;
+            background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
+        }
+
+        .honeyHome {
+            background: url('../../Content/img/honey_wedding--home_page_overlay.png') center / cover;
         }
 
         .honeyContentBlock {
@@ -96,6 +100,7 @@
             }
 
             .mdl-grid__honey-timeslot .mdl-card__title {
+                position: relative;
                 height: 250px;
                 padding: 0;
                 overflow: hidden;
@@ -112,8 +117,8 @@
 
             .mdl-grid__honey-timeslot .mdl-card__title-text {
                 position: absolute;
-                top: 195px;
                 left: 16px;
+                bottom: 16px;
             }
 
         .even .mdl-cell {
@@ -125,10 +130,6 @@
                 text-align: right;
                 color: rgb(236, 64, 122);
             }
-
-        .mdl-card__title-russ-tiller {
-            background: url('../../Content/img/russ_with_tiller.jpg') center / cover;
-        }
 
         .mdl-card__title-need-image {
             background: url('../../Content/img/needImage.png') center / cover;

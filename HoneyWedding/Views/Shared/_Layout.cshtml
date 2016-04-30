@@ -16,16 +16,7 @@
     @RenderSection("headLevel", required: false)
 </head>
 
-@*allow override of opening body tag*@
-@if (IsSectionDefined("bodyTagOpen"))
-{
-    @RenderSection("bodyTagOpen")
-}
-else
-{
-    @:<body class="mdl-color--brown-200">
-    @*@:<body style="background: url('../../Content/img/asanoha-400px.png') repeat">*@
-}
+<body class="mdl-color--brown-200">
 
 @RenderSection("topLevel", required: false)
 
