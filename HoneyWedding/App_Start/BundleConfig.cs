@@ -17,6 +17,13 @@ namespace HoneyWedding
                         "~/Scripts/material.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
+            bundles.Add(new ScriptBundle("~/bundles/fastdom").Include(
+                        "~/Scripts/fastdom/fastdom.js",
+                        //"~/Scripts/fastdom/fastdom.min.js",
+                        "~/Scripts/fastdom/fastdom-strict.js"
+                        ));
+
+            // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-custom.js"));

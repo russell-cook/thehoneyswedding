@@ -168,6 +168,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\fastdom\fastdom-strict.js" />
+    <Content Include="Scripts\fastdom\fastdom.js" />
+    <Content Include="Scripts\fastdom\fastdom.min.js" />
     <Content Include="Content\form_validation.css" />
     <Content Include="Content\greensock-js\src\minified\easing\EasePack.min.js" />
     <Content Include="Content\greensock-js\src\minified\jquery.gsap.min.js" />

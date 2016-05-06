@@ -38,31 +38,31 @@
             border-image-source: url('../../Content/img/border__honey-content-block.png');*/
         }
 
-        .honeyContentBlock h1 {
-            text-align: center;
-            font-family: 'Fredericka the Great', cursive;
-            font-size: 4em;
-            line-height: 1.2em;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-            /*margin-bottom: 16px;*/
-        }
+            .honeyContentBlock h1 {
+                text-align: center;
+                font-family: 'Fredericka the Great', cursive;
+                font-size: 4em;
+                line-height: 1.2em;
+                text-transform: uppercase;
+                text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+                /*margin-bottom: 16px;*/
+            }
 
-        .honeyContentBlock h2 {
-            text-align: center;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: 'Special Elite', cursive;
-            font-size: 1.2em;
-            line-height: 1.4em;
-            color: #fff;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-        }
+            .honeyContentBlock h2 {
+                text-align: center;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Special Elite', cursive;
+                font-size: 1.2em;
+                line-height: 1.4em;
+                color: #fff;
+                text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            }
 
-        .honeyContentBlock h2 a {
-            color: #fff;
-        }
+                .honeyContentBlock h2 a {
+                    color: #fff;
+                }
 
         .timelineCard {
             padding: 16px;
@@ -129,11 +129,11 @@
             border-color: rgb(236, 64, 122);
         }
 
-            .even span {
-                float: right;
-                text-align: right;
-                color: rgb(236, 64, 122);
-            }
+        .even span {
+            float: right;
+            text-align: right;
+            color: rgb(236, 64, 122);
+        }
 
         .mdl-card__title-need-image {
             background: url('../../Content/img/needImage.png') center / cover;
@@ -150,13 +150,19 @@
             height: 100%;
         }
 
+        .animationContainer {
+            transform: translateZ(0);
+        }
+
         @@media screen and (max-width: 479px) {
             .timelineCard {
                 /*width: auto;*/
             }
+
             .timelineContainer {
                 background: none;
             }
+
             .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
                 width: 100%;
             }
@@ -165,12 +171,11 @@
                 border: 0;
                 padding: 0;
             }
+
             .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
                 margin: 0;
             }
-
         }
-
     </style>
 }
 
@@ -416,8 +421,13 @@
 
 </div>
 
-<div class="parallax__viewport">
-    <div class="parallax__layer parallax__layer--base"><h1>Hey it's a test!</h1></div>
+<div class="parallax__viewport" id="viewport1">
+    <div id="bigHoneyBikeChaseContainer" class="animationContainer">
+        <img id="bigHoneyBikeChase" src="../../Content/img/needImage.png" />
+    </div>
+    <div class="parallax__layer parallax__layer--base">
+        <h1>Hey it's a test!</h1>
+    </div>
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
 </div>
 
@@ -499,6 +509,19 @@
         var sceneOurFamilies;
         var sceneWhenWhere;
 
+        var bigHoneyBikeChaseFlightPath;
+        var bigHoneyBikeChaseTween;
+        var bigHoneyBikeChaseScene;
+        var littleHoneyBikeChaseFlightPath;
+        var littleHoneyBikeChaseTween;
+        var littleHoneyBikeChaseScene;
+        var bigHoneyFootChaseFlightPath;
+        var bigHoneyFootChaseTween;
+        var bigHoneyFootChaseScene;
+        var littleHoneyFootChaseFlightPath;
+        var littleHoneyFootChaseTween;
+        var littleHoneyFootChaseScene;
+
         function initScrollMagic() {
             // build nav tab scenes
             sceneOurStory = new ScrollMagic.Scene({ triggerElement: "#ourStory" })
@@ -515,7 +538,7 @@
         function calcDurations() {
             // set min-height of honeyContentBlock divs
             var minHeight = $(window).height() - $('#headerRow').height();
-            $('.honeyContentBlock, .honeyHome, .parallax__viewport').css({ 'min-height': minHeight }); 
+            $('.honeyContentBlock, .honeyHome, .parallax__viewport').css({ 'min-height': minHeight });
 
             // calculate transform-origin for CSS parallex (needed because default behavior doesn't correct for the width of the vertical scroll bar)
             var xValue = $(window).width() / 2;
@@ -552,6 +575,71 @@
             });
         }
 
+        // init sliders
+        function initSliders() {
+            $('.slider__russ_born').slick({
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+
+            $('.slider__lisa_born').slick({
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+
+        }
+
+        function calcAnimations() {
+
+            bigHoneyBikeChaseFlightPath = {
+                entry: {
+                    curviness: 1.25,
+                    autoRotate: true,
+                    values: [
+                            { x: -300, y: -100 },
+                            { x: 300, y: 0 }
+                    ]
+                },
+                looping: {
+                    curviness: 1.25,
+                    autoRotate: true,
+                    values: [
+                            { x: 510, y: 60 },
+                            { x: 620, y: -60 },
+                            { x: 500, y: -100 },
+                            { x: 380, y: 20 },
+                            { x: 500, y: 60 },
+                            { x: 580, y: 20 },
+                            { x: 620, y: 15 }
+                    ]
+                },
+                leave: {
+                    curviness: 1.25,
+                    autoRotate: true,
+                    values: [
+                            { x: 660, y: 20 },
+                            { x: 800, y: 130 },
+                            { x: $(window).width() + 300, y: -100 },
+                    ]
+                }
+            };
+
+            bigHoneyBikeChaseTween = new TimelineMax()
+                .add(TweenMax.to($("#bigHoneyBikeChase"), 1.2, { css: { bezier: bigHoneyBikeChaseFlightPath.entry }, ease: Power1.easeInOut }))
+                .add(TweenMax.to($("#bigHoneyBikeChase"), 2, { css: { bezier: bigHoneyBikeChaseFlightPath.looping }, ease: Power1.easeInOut }))
+                .add(TweenMax.to($("#bigHoneyBikeChase"), 1, { css: { bezier: bigHoneyBikeChaseFlightPath.leave }, ease: Power1.easeInOut }));
+
+            // build scene
+            bigHoneyBikeChaseScene = new ScrollMagic.Scene({
+                triggerElement: "#viewport1",
+                //triggerHook: 1,
+                offset: 100,
+                duration: 800
+            })
+                .setPin("#bigHoneyBikeChaseContainer")
+                .setTween(bigHoneyBikeChaseTween)
+                .addTo(controller);
+        }
     </script>
 
 }
@@ -566,8 +654,8 @@
             e.preventDefault();
 
             // trigger scroll
-            var scrollLocation = $('main').scrollTop() + $(id).position().top;
-            TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
+            var scrollLocation = $('.mdl-layout__content').scrollTop() + $(id).position().top;
+            TweenMax.to('.mdl-layout__content', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
 
             // if supported by the browser we can even update the URL.
             if (window.history && window.history.pushState) {
@@ -581,6 +669,10 @@
     initScrollMagic();
     calcDurations();
 
+    initSliders();
+
+    calcAnimations();
+
     // if loaded with # link, scroll to anchor
     if (window.location.hash) {
         var hrefValue = window.location.href;
@@ -588,21 +680,10 @@
         if ($(id).length > 0) {
 
             // trigger scroll
-            var scrollLocation = $('main').scrollTop() + $(id).position().top;
-            TweenMax.to('main', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
+            var scrollLocation = $('.mdl-layout__content').scrollTop() + $(id).position().top;
+            TweenMax.to('.mdl-layout__content', 1.5, { scrollTo: { y: scrollLocation }, ease: Power2.easeInOut });
         }
     }
-
-    // init sliders
-    $('.slider__russ_born').slick({
-        dots: true,
-        lazyLoad: 'progressive'
-    });
-
-    $('.slider__lisa_born').slick({
-        dots: true,
-        lazyLoad: 'progressive'
-    });
 
     // load google map
     $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354');
