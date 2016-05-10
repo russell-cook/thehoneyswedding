@@ -154,9 +154,15 @@
             height: 100%;
         }
 
-        .animationImage {
+        .animationChaseImage {
             position: absolute;
             left: -300px;
+            z-index: 1;
+        }
+
+        .animationBikeChaseImage {
+            position: absolute;
+            right: -400px;
             z-index: 1;
         }
 
@@ -433,11 +439,9 @@
 </div>
 
 <div class="parallax__viewport" id="viewportChase">
-        <img id="lisaChase" src="../../Content/img/lisa_chase.png" class="animationImage" />
-        <img id="russChase" src="../../Content/img/russ_chase.png" class="animationImage" />
-    @*<div class="parallax__layer parallax__layer--base">
-        <h1>Hey it's a test!</h1>
-    </div>*@
+    <img id="lisaChase" src="../../Content/img/lisa_chase.png" class="animationChaseImage" />
+    <img id="russChase" src="../../Content/img/russ_chase.png" class="animationChaseImage" />
+    @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's a test!</h1></div>*@
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_with_fish.jpg') center / cover;"></div>
 </div>
 
@@ -445,8 +449,10 @@
     <h1 class="mdl-color-text--primary-dark">Our Families</h1>
 </div>
 
-<div class="parallax__viewport">
-    <div class="parallax__layer parallax__layer--base"><h1>Hey it's another test!</h1></div>
+<div class="parallax__viewport" id="viewportBikeChase">
+    <img id="lisaBikeChase" src="../../Content/img/lisa_bike_chase.png" class="animationBikeChaseImage" />
+    <img id="russBikeChase" src="../../Content/img/russ_bike_chase.png" class="animationBikeChaseImage" />
+    @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's another test!</h1></div>*@
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_in_peach_tree.jpg') center / cover;"></div>
 </div>
 
@@ -554,6 +560,13 @@
             sceneRussChase = new ScrollMagic.Scene({ triggerElement: "#viewportChase", triggerHook: 0.8 })
                             //.setPin("#russChaseContainer")
                             .addTo(controller);
+            sceneLisaBikeChase = new ScrollMagic.Scene({ triggerElement: "#viewportBikeChase", triggerHook: 0.8 })
+                            //.setPin("#lisaChaseContainer")
+                            .addTo(controller);
+
+            sceneRussBikeChase = new ScrollMagic.Scene({ triggerElement: "#viewportBikeChase", triggerHook: 0.8 })
+                            //.setPin("#russChaseContainer")
+                            .addTo(controller);
         }
 
         function calcDurations() {
@@ -566,7 +579,7 @@
             sceneOurFamilies.triggerHook(triggerHookVal);
             sceneWhenWhere.triggerHook(triggerHookVal);
 
-            // calculate duration (i.e. height) of each scene (i.e. content block <div>)
+            // calculate duration (i.e. height) of each honeyContentBlock scene
             var ourStoryHeight = $('#ourStory').height();
             sceneOurStory.duration(ourStoryHeight);
             var ourFamiliesHeight = $('#ourFamilies').height();
@@ -574,14 +587,18 @@
             var whenWhereHeight = $('#whenWhere').height();
             sceneWhenWhere.duration(whenWhereHeight);
 
-            // calculate animation values
+            // calculate animation durations
             var viewportDuration = windowHeight - headerHeight;
             sceneLisaChase.duration(viewportDuration * 1.3);
             sceneRussChase.duration(viewportDuration * 1.4);
             sceneRussChase.offset(viewportDuration / 3); // this makes Russ lag behind Lisa
+            sceneRussBikeChase.duration(viewportDuration * 1.3);
+            sceneLisaBikeChase.duration(viewportDuration * 1.4);
+            sceneLisaBikeChase.offset(viewportDuration / 2.5); // this makes Lisa lag behind Russ
 
-            var animationImageCssLeftOffset = 300;
-            var correctedWindowWidth = $(window).width() + animationImageCssLeftOffset;
+            // calculate chase animation path
+            var chaseImageCssLeftOffset = 300;
+            var chaseWindowWidth = $(window).width() + chaseImageCssLeftOffset;
 
             chaseFlightPath = {
                 entry: {
@@ -589,43 +606,91 @@
                     //autoRotate: true,
                     values: [
                             { x: 0, y: 0 },
-                            { x: correctedWindowWidth * 0.1, y: 0 },
-                            { x: correctedWindowWidth * 0.2, y: 0 },
-                            { x: correctedWindowWidth * 0.3, y: viewportDuration * 0.1 }
-                ]
+                            { x: chaseWindowWidth * 0.1, y: 0 },
+                            { x: chaseWindowWidth * 0.2, y: 0 },
+                            { x: chaseWindowWidth * 0.3, y: viewportDuration * 0.1 }
+                    ]
                 },
                 looping: {
                     curviness: 1.25,
                     //autoRotate: true,
                     values: [
-                            { x: correctedWindowWidth * 0.4, y: viewportDuration * 0.1 },
-                            { x: correctedWindowWidth * 0.5, y: viewportDuration * 0.2 },
-                            { x: correctedWindowWidth * 0.6, y: viewportDuration * 0.3 }
+                            { x: chaseWindowWidth * 0.4, y: viewportDuration * 0.2 },
+                            { x: chaseWindowWidth * 0.5, y: viewportDuration * 0.3 },
+                            { x: chaseWindowWidth * 0.6, y: viewportDuration * 0.4 }
                     ]
                 },
                 leave: {
                     curviness: 1.25,
                     //autoRotate: true,
                     values: [
-                            { x: correctedWindowWidth * 0.8, y: viewportDuration * 0.4 },
-                            { x: correctedWindowWidth * 0.9, y: viewportDuration * 0.5 },
-                            { x: correctedWindowWidth, y: viewportDuration * 0.7 }
+                            { x: chaseWindowWidth * 0.8, y: viewportDuration * 0.5 },
+                            { x: chaseWindowWidth * 0.9, y: viewportDuration * 0.7 },
+                            { x: chaseWindowWidth, y: viewportDuration * 0.9 }
                     ]
                 }
             };
 
             lisaChaseTween = new TimelineMax()
                 .add(TweenMax.to($("#lisaChase"), 1, { css: { bezier: chaseFlightPath.entry }, ease: Power1.easeInOut }))
-                .add(TweenMax.to($("#lisaChase"), 1, { css: { bezier: chaseFlightPath.looping }, ease: Power1.easeInOut }))
+                .add(TweenMax.to($("#lisaChase"), 2, { css: { bezier: chaseFlightPath.looping }, ease: Power1.easeInOut }))
                 .add(TweenMax.to($("#lisaChase"), 1, { css: { bezier: chaseFlightPath.leave }, ease: Power1.easeInOut }));
 
             russChaseTween = new TimelineMax()
                 .add(TweenMax.to($("#russChase"), 1, { css: { bezier: chaseFlightPath.entry }, ease: Power1.easeInOut }))
-                .add(TweenMax.to($("#russChase"), 1, { css: { bezier: chaseFlightPath.looping }, ease: Power1.easeInOut }))
+                .add(TweenMax.to($("#russChase"), 2, { css: { bezier: chaseFlightPath.looping }, ease: Power1.easeInOut }))
                 .add(TweenMax.to($("#russChase"), 1, { css: { bezier: chaseFlightPath.leave }, ease: Power1.easeInOut }));
 
             sceneLisaChase.setTween(lisaChaseTween);
             sceneRussChase.setTween(russChaseTween);
+
+            // calculate bike chase animation path
+            var bikeChaseImageCssRightOffset = 400;
+            var bikeChaseWindowWidth = 0 - $(window).width() - bikeChaseImageCssRightOffset;
+
+            bikeChaseFlightPath = {
+                entry: {
+                    curviness: 1.25,
+                    //autoRotate: true,
+                    values: [
+                            { x: 0, y: 0 },
+                            { x: bikeChaseWindowWidth * 0.1, y: 0 },
+                            { x: bikeChaseWindowWidth * 0.2, y: 0 },
+                            { x: bikeChaseWindowWidth * 0.3, y: viewportDuration * 0.1 }
+                    ]
+                },
+                looping: {
+                    curviness: 1.25,
+                    //autoRotate: true,
+                    values: [
+                            { x: bikeChaseWindowWidth * 0.4, y: viewportDuration * 0.2 },
+                            { x: bikeChaseWindowWidth * 0.5, y: viewportDuration * 0.3 },
+                            { x: bikeChaseWindowWidth * 0.6, y: viewportDuration * 0.4 }
+                    ]
+                },
+                leave: {
+                    curviness: 1.25,
+                    //autoRotate: true,
+                    values: [
+                            { x: bikeChaseWindowWidth * 0.8, y: viewportDuration * 0.5 },
+                            { x: bikeChaseWindowWidth * 0.9, y: viewportDuration * 0.7 },
+                            { x: bikeChaseWindowWidth, y: viewportDuration * 0.9 }
+                    ]
+                }
+            };
+
+            lisaBikeChaseTween = new TimelineMax()
+                .add(TweenMax.to($("#lisaBikeChase"), 1, { css: { bezier: bikeChaseFlightPath.entry }, ease: Power1.easeInOut }))
+                .add(TweenMax.to($("#lisaBikeChase"), 2, { css: { bezier: bikeChaseFlightPath.looping }, ease: Power1.easeInOut }))
+                .add(TweenMax.to($("#lisaBikeChase"), 1, { css: { bezier: bikeChaseFlightPath.leave }, ease: Power1.easeInOut }));
+
+            russBikeChaseTween = new TimelineMax()
+                .add(TweenMax.to($("#russBikeChase"), 1, { css: { bezier: bikeChaseFlightPath.entry }, ease: Power1.easeInOut }))
+                .add(TweenMax.to($("#russBikeChase"), 2, { css: { bezier: bikeChaseFlightPath.looping }, ease: Power1.easeInOut }))
+                .add(TweenMax.to($("#russBikeChase"), 1, { css: { bezier: bikeChaseFlightPath.leave }, ease: Power1.easeInOut }));
+
+            sceneLisaBikeChase.setTween(lisaBikeChaseTween);
+            sceneRussBikeChase.setTween(russBikeChaseTween);
         }
 
         function initMap() {

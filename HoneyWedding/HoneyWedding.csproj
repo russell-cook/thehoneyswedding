@@ -170,7 +170,9 @@
   <ItemGroup>
     <Content Include="Content\img\honeys_in_peach_tree.jpg" />
     <Content Include="Content\img\honeys_with_fish.jpg" />
+    <Content Include="Content\img\lisa_bike_chase.png" />
     <Content Include="Content\img\lisa_chase.png" />
+    <Content Include="Content\img\russ_bike_chase.png" />
     <Content Include="Content\img\russ_chase.png" />
     <Content Include="Scripts\fastdom\fastdom-strict.js" />
     <Content Include="Scripts\fastdom\fastdom.js" />
