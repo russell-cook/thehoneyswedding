@@ -168,6 +168,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\honeys_in_peach_tree.jpg" />
+    <Content Include="Content\img\honeys_with_fish.jpg" />
     <Content Include="Scripts\fastdom\fastdom-strict.js" />
     <Content Include="Scripts\fastdom\fastdom.js" />
     <Content Include="Scripts\fastdom\fastdom.min.js" />
@@ -452,7 +454,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config">

@@ -14,8 +14,12 @@
             background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
         }
 
-        .honeyHome {
-            background: url('../../Content/img/honey_wedding--home_page_overlay.png') center / cover;
+        .honeyContentBlock {
+            min-height: calc(100vh - 64px);
+        }
+
+        .parallax__viewport {
+            min-height: calc(100vh - 64px);
         }
 
         .honeyContentBlock {
@@ -150,8 +154,8 @@
             height: 100%;
         }
 
-        .animationContainer {
-            transform: translateZ(0);
+        .no-preserve3d .animationContainer {
+            z-index: 1;
         }
 
         @@media screen and (max-width: 479px) {
@@ -178,9 +182,14 @@
         }
     </style>
 }
-
 <div id="home"></div>
-<div class="honeyHome"></div>
+<div class="parallax__viewport" id="viewportHoneyHome">
+    <div class="parallax__layer parallax__layer--base">
+        <!-- need 'scroll down' graphic, align to one side on bottom of div -->
+    </div>
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honey_wedding--home_page_overlay.png') center / cover;"></div>
+</div>
+
 
 <div class="honeyContentBlock mdl-shadow--4dp mdl-color--indigo-100 argyle-overlay" id="ourStory">
 
@@ -422,13 +431,13 @@
 </div>
 
 <div class="parallax__viewport" id="viewport1">
-    <div id="bigHoneyBikeChaseContainer" class="animationContainer">
+    <div id="bigHoneyBikeChaseContainer" class="parallax__layer animationContainer">
         <img id="bigHoneyBikeChase" src="../../Content/img/needImage.png" />
     </div>
     <div class="parallax__layer parallax__layer--base">
         <h1>Hey it's a test!</h1>
     </div>
-    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_with_fish.jpg') center / cover;"></div>
 </div>
 
 <div class="honeyContentBlock mdl-shadow--4dp mdl-color--brown-200 argyle-overlay" id="ourFamilies">
@@ -437,7 +446,7 @@
 
 <div class="parallax__viewport">
     <div class="parallax__layer parallax__layer--base"><h1>Hey it's another test!</h1></div>
-    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_on_couch.jpg') center / cover;"></div>
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_in_peach_tree.jpg') center / cover;"></div>
 </div>
 
 <div class="honeyContentBlock mdl-color--deep-purple-100 argyle-overlay" id="whenWhere">
@@ -536,20 +545,6 @@
         }
 
         function calcDurations() {
-            // set min-height of honeyContentBlock divs
-            var minHeight = $(window).height() - $('#headerRow').height();
-            $('.honeyContentBlock, .honeyHome, .parallax__viewport').css({ 'min-height': minHeight });
-
-            // calculate transform-origin for CSS parallex (needed because default behavior doesn't correct for the width of the vertical scroll bar)
-            var xValue = $(window).width() / 2;
-            var yValue = minHeight / 2;
-            $('.parallax__layer--back').css({
-                'transform-origin-x': xValue,
-                '-webkit-transform-origin-x': xValue,
-                '-moz-transform-origin': [xValue, 'px ', yValue, 'px'].join("") // moz requires 2-value syntax
-            });
-
-
             // calculate and set triggerHook (i.e. vertical position of trigger)
             // this should place triggerHook exactly at the bottom of the headerRow (i.e. menu bar)
             var triggerHookVal = (Math.ceil(($('#headerRow').height() / $(window).height()) * 100) / 100).toFixed(2); // calculate what percentage of window height is occupied by menu bar, round up to two decimal places to add buffer for small screen heights
