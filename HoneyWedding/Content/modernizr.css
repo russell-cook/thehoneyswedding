@@ -1,3 +1,59 @@
-﻿.no-flexbox .mdl-layout__header, .no-flexbox .mdl-layout__header-row {
-    display: -webkit-box;
+﻿/*========================
+    MDL Layout
+========================*/
+
+/*  -----Header-----  */
+
+.no-flexbox .mdl-layout,
+.no-flexbox .mdl-layout__header,
+.no-flexbox .mdl-layout__header-row {
+    display: block;
 }
+
+.no-flexbox .mdl-layout-title,
+.no-flexbox .mdl-layout-spacer {
+    display: inline;
+    line-height: 2.1em;
+}
+
+.no-flexbox .mdl-layout__header {
+    position: fixed;
+}
+
+.no-flexbox .mdl-navigation {
+    float: right;
+    padding-top: 6px
+}
+
+.no-flexbox #user-menu {
+    display: none;
+}
+
+/*  -----Main-----  */
+
+.no-flexbox .mdl-layout__content {
+    display: block;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/*  -----Grid/Cells----- */
+
+/*  -----Cards----- */
+
+/*  -----Media Transforms----- */
+@media screen and (max-width: 959px) {
+}
+
+
+/*========================
+    Home Page
+========================*/
+
+.no-flexbox .parallax__viewport, .no-flexbox .honeyContentBlock {
+    min-height: 95vh;
+}
+

@@ -11,11 +11,8 @@
     @Styles.Render("~/Content/slick/slick-theme.css")
     <style>
         main {
-            background: url('../../Content/img/honeys_on_couch.jpg') center / cover;
-        }
-
-        .honeyContentBlock {
-            min-height: calc(100vh - 64px);
+            background: url('../../Content/img/honeys_on_couch.jpg') center;
+            background-size: cover;
         }
 
         .parallax__viewport {
@@ -23,6 +20,9 @@
         }
 
         .honeyContentBlock {
+            min-height: calc(100vh - 64px);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
             box-sizing: border-box;
             padding: 16px;
             /*box-shadow: rgba(0,0,0,0.2) 5px 5px 5px;*/
@@ -72,6 +72,8 @@
             padding: 16px;
             border-radius: 2px;
             max-width: 736px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
             box-sizing: border-box;
             margin: 0 auto 64px auto;
             background-color: rgba(255,245,245,0.7);
@@ -88,6 +90,8 @@
         }
 
             .mdl-grid__honey-timeslot .mdl-cell {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
                 box-sizing: border-box;
                 border-top: 2px solid rgb(121, 134, 203);
                 padding: 16px;
@@ -167,25 +171,18 @@
         }
 
         @@media screen and (max-width: 479px) {
-            .timelineCard {
-                /*width: auto;*/
-            }
-
             .timelineContainer {
                 background: none;
             }
 
             .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
                 width: 100%;
+                margin: 0;
             }
 
             .mdl-grid__honey-timeslot .mdl-cell {
                 border: 0;
                 padding: 0;
-            }
-
-            .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
-                margin: 0;
             }
         }
     </style>
@@ -195,7 +192,7 @@
     <div class="parallax__layer parallax__layer--base">
         <!-- need 'scroll down' graphic, align to one side on bottom of div -->
     </div>
-    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honey_wedding--home_page_overlay.png') center / cover;"></div>
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honey_wedding--home_page_overlay.png') center; background-size: cover;"></div>
 </div>
 
 
@@ -442,7 +439,7 @@
     <img id="lisaChase" src="../../Content/img/lisa_chase.png" class="animationChaseImage" />
     <img id="russChase" src="../../Content/img/russ_chase.png" class="animationChaseImage" />
     @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's a test!</h1></div>*@
-    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_with_fish.jpg') center / cover;"></div>
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_with_fish.jpg') center; background-size: cover;"></div>
 </div>
 
 <div class="honeyContentBlock mdl-shadow--4dp mdl-color--brown-200 argyle-overlay" id="ourFamilies">
@@ -453,7 +450,7 @@
     <img id="lisaBikeChase" src="../../Content/img/lisa_bike_chase.png" class="animationBikeChaseImage" />
     <img id="russBikeChase" src="../../Content/img/russ_bike_chase.png" class="animationBikeChaseImage" />
     @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's another test!</h1></div>*@
-    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_in_peach_tree.jpg') center / cover;"></div>
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_in_peach_tree.jpg') center; background-size: cover;"></div>
 </div>
 
 <div class="honeyContentBlock mdl-color--deep-purple-100 argyle-overlay" id="whenWhere">
@@ -461,7 +458,7 @@
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
             <div class="mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title" style="background: url('../../Content/img/when_where.jpg') center / cover; height: 200px;">
+                <div class="mdl-card__title" style="background: url('../../Content/img/when_where.jpg') center; background-size: cover; height: 200px;">
                     <div class="mdl-card__title-text">Details</div>
                 </div>
                 <div class="mdl-card__supporting-text">
@@ -569,7 +566,7 @@
                             .addTo(controller);
         }
 
-        function calcDurations() {
+        function calcScrollMagic() {
             // calculate and set triggerHook (i.e. vertical position of trigger)
             // this should place triggerHook exactly at the bottom of the headerRow (i.e. menu bar)
             var headerHeight = $('#headerRow').height();
@@ -655,26 +652,26 @@
                     values: [
                             { x: 0, y: 0 },
                             { x: bikeChaseWindowWidth * 0.1, y: 0 },
-                            { x: bikeChaseWindowWidth * 0.2, y: 0 },
-                            { x: bikeChaseWindowWidth * 0.3, y: viewportDuration * 0.1 }
+                            { x: bikeChaseWindowWidth * 0.2, y: 0.1 },
+                            { x: bikeChaseWindowWidth * 0.3, y: viewportDuration * 0.2 }
                     ]
                 },
                 looping: {
                     curviness: 1.25,
                     //autoRotate: true,
                     values: [
-                            { x: bikeChaseWindowWidth * 0.4, y: viewportDuration * 0.2 },
-                            { x: bikeChaseWindowWidth * 0.5, y: viewportDuration * 0.3 },
-                            { x: bikeChaseWindowWidth * 0.6, y: viewportDuration * 0.4 }
+                            { x: bikeChaseWindowWidth * 0.4, y: viewportDuration * 0.3 },
+                            { x: bikeChaseWindowWidth * 0.5, y: viewportDuration * 0.4 },
+                            { x: bikeChaseWindowWidth * 0.6, y: viewportDuration * 0.6 }
                     ]
                 },
                 leave: {
                     curviness: 1.25,
                     //autoRotate: true,
                     values: [
-                            { x: bikeChaseWindowWidth * 0.8, y: viewportDuration * 0.5 },
+                            { x: bikeChaseWindowWidth * 0.8, y: viewportDuration * 0.6 },
                             { x: bikeChaseWindowWidth * 0.9, y: viewportDuration * 0.7 },
-                            { x: bikeChaseWindowWidth, y: viewportDuration * 0.9 }
+                            { x: bikeChaseWindowWidth, y: viewportDuration * 0.8 }
                     ]
                 }
             };
@@ -715,36 +712,20 @@
 
         }
 
-        function calcAnimations() {
-
-
-            // build scenes
-            lisaChaseScene = new ScrollMagic.Scene({
-                triggerElement: "#viewportChase",
-                //triggerHook: 0.1,
-                //offset: -100,
-                duration: 800
-            })
-                .setPin("#lisaChaseContainer")
-                .setTween(chaseTween)
-                .addTo(controller);
-
-            russChaseScene = new ScrollMagic.Scene({
-                triggerElement: "#viewportChase",
-                //triggerHook: 0.4,
-                offset: 100,
-                duration: 800
-            })
-                .setPin("#russChaseContainer")
-                .setTween(chaseTween)
-                .addTo(controller);
-        }
     </script>
 
 }
 
 <script>
 @section scriptWindowLoad {
+    // initialize ScrollMagic, add event listener to re-calculate scrolling/animation values on resize
+    initScrollMagic();
+    calcScrollMagic();
+    $(window).resize(calcScrollMagic);
+
+    // initialize Slick image sliders
+    initSliders();
+
     // enable automatic scrolling when clicking on an anchor link
     $(document).on("click", "a[href*='#']", function (e) {
         var hrefValue = $(this).attr("href");
@@ -762,13 +743,6 @@
             }
         }
     });
-
-    $(window).resize(calcDurations);
-
-    initScrollMagic();
-    calcDurations();
-
-    initSliders();
 
     // if loaded with # link, scroll to anchor
     if (window.location.hash) {
