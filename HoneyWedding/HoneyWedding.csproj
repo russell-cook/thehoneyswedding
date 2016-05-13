@@ -370,6 +370,7 @@
     <Content Include="Scripts\locale\locale_ua.js" />
     <Content Include="Scripts\material.min.js" />
     <Content Include="Scripts\modernizr-custom.js" />
+    <Content Include="Scripts\prefixfree.min.js" />
     <Content Include="Templates\InviteWeddingGuestEmail.html" />
     <Content Include="Templates\NewUserRegistrationConfirmation.html" />
     <Content Include="Templates\NewAdminUserAccountEmailTemplate.html" />

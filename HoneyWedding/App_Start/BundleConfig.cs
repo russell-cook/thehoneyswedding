@@ -16,6 +16,9 @@ namespace HoneyWedding
             bundles.Add(new ScriptBundle("~/bundles/mdl").Include(
                         "~/Scripts/material.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/prefixfree").Include(
+                        "~/Scripts/prefixfree.min.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             bundles.Add(new ScriptBundle("~/bundles/fastdom").Include(
                         "~/Scripts/fastdom/fastdom.js",

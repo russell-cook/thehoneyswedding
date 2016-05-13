@@ -2,11 +2,11 @@
 
 <div class="accommodationsFlexContainer">
 
-    <div class="mdl-card__title" style="background: url('../../Content/img/@(!string.IsNullOrEmpty(Model.Img) ? Model.Img : "needImage.png" )') center / cover">
+    <div class="mdl-card__title" style="background: url('../../Content/img/@(!string.IsNullOrEmpty(Model.Img) ? Model.Img : "needImage.png" )') center; background-size: cover;">
         <p class="mdl-card__title-text">@Html.DisplayFor(model => model.LocationName)</p>
     </div>
 
-    <div class="mdl-card__supporting-text">
+    <div class="mdl-card__supporting-text" id="detail_text">
         <p><strong>@Html.DisplayNameFor(model => model.Description): </strong>@Html.DisplayFor(model => model.Description)</p>
 
         <table class="mdl-data-table mdl-data-table-condensed" id="table__accommodation-rooms">

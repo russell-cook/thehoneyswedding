@@ -308,6 +308,12 @@
                 // load Accommodation Welcome (id = 0) in case landscape mode allowed for loading of _AccommodationDetail partial
                 loadAccommodationDetail(0);
             }
+
+            // modernizr actions for legacy support (css calc error w/ Safari 6, etc.)
+            if (!Modernizr.flexbox) {
+                var detailHeight = $('#card__accommodation-detail').height() - 200 - 55;
+                $('#detail_text').css({ 'height': detailHeight });
+            }
         }
 
     </script>
