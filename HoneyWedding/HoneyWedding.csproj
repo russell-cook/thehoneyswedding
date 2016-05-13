@@ -440,6 +440,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Sleeps.cshtml" />
     <Content Include="Views\Home\WeddingAdmin.cshtml" />
     <Content Include="Views\Home\Venue.cshtml" />
+    <Content Include="Views\Home\Venue - Backup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

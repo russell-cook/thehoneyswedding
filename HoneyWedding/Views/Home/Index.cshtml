@@ -17,8 +17,6 @@
 
         .parallax__viewport, .honeyContentBlock {
             min-height: calc(100vh - 64px);
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
             box-sizing: border-box;
         }
 
@@ -48,7 +46,6 @@
                 line-height: 1.2em;
                 text-transform: uppercase;
                 text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-                /*margin-bottom: 16px;*/
             }
 
             .honeyContentBlock h2 {
@@ -71,8 +68,6 @@
             padding: 16px;
             border-radius: 2px;
             max-width: 736px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
             box-sizing: border-box;
             margin: 0 auto 64px auto;
             background-color: rgba(255,245,245,0.7);
@@ -80,7 +75,6 @@
 
         .timelineContainer {
             background: url('../../Content/img/timeline_bg.png') repeat-y center top;
-            /*overflow: hidden;*/
         }
 
         .mdl-grid__honey-timeslot {
@@ -89,8 +83,6 @@
         }
 
             .mdl-grid__honey-timeslot .mdl-cell {
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
                 box-sizing: border-box;
                 border-top: 2px solid rgb(121, 134, 203);
                 padding: 16px;
@@ -169,7 +161,45 @@
             z-index: 1;
         }
 
+        .homeLinks {
+            position: absolute;
+            border-radius: 2px;
+            bottom: 0;
+            left: 0;
+            padding: 8px;
+            background-color: rgba(0,0,0,0.3);
+            font-family: 'Sue Ellen Francisco', cursive;
+            text-transform: uppercase;
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+            .homeLinks a {
+                text-decoration: none;
+                color: rgba(255,255,255,0.7);
+                margin-left: 16px;
+            }
+
+            .homeLinks a:hover {
+                color: rgba(255,255,255,1);
+            }
+
+            .homeLinks .material-icons {
+                font-size: 14px;
+            }
+
+        @@media screen and (max-width: 959px) {
+            .parallax__viewport, .honeyContentBlock {
+                min-height: calc(100vh - 56px);
+            }
+        }
+
         @@media screen and (max-width: 479px) {
+            .homeLinks {
+                /*font-size: 14px;*/
+                right: 0;
+            }
+
             .timelineContainer {
                 background: none;
             }
@@ -183,13 +213,22 @@
                 border: 0;
                 padding: 0;
             }
+
         }
+
     </style>
 }
-<div id="home"></div>
+
+<div id="home"></div><!--anchor for ScrollMagic-->
 <div class="parallax__viewport" id="viewportHome">
     <div class="parallax__layer parallax__layer--base">
         <!-- need 'scroll down' graphic, align to one side on bottom of div -->
+        <div class="homeLinks">
+            <span class="mdl-layout--large-screen-only">Scroll Down:</span>
+            <a href="#ourStory"><i class="material-icons">arrow_downward</i>Our Story</a>
+            <a href="#ourFamilies"><i class="material-icons">arrow_downward</i><span class="mdl-layout--large-screen-only"><i class="material-icons">arrow_downward</i></span>Our Families</a>
+            <a href="#whenWhere"><i class="material-icons">arrow_downward</i><span class="mdl-layout--large-screen-only"><i class="material-icons">arrow_downward</i><i class="material-icons">arrow_downward</i></span>When & Where</a>
+        </div>
     </div>
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honey_wedding--home_page_overlay.png') center; background-size: cover;"></div>
 </div>
@@ -757,5 +796,6 @@
 
     // load google map
     $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354');
+
     }
 </script>
