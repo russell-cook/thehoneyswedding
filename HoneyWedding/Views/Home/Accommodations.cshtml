@@ -6,7 +6,7 @@
 }
 
 @section headLevel {
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <style>
         .mdl-card__accommodation-list .mdl-card__title {
             color: #fff;
@@ -52,7 +52,6 @@
             padding: 0;
         }
 
-
         @@media screen and (max-width: 959px) and (min-width: 480px) {
             .accommodationsFlexContainer {
                 flex-direction: row;
@@ -81,7 +80,6 @@
             }
 
             .mdl-card__accommodation-detail .mdl-card__supporting-text {
-                overflow-y: auto;
                 height: calc(100% - 100px);
             }
 
@@ -95,22 +93,24 @@
         }
 
         @@media screen and (max-height: 479px) {
+            .accommodationsFlexContainer {
+                height: calc(100% - 55px);
+            }
+
             .mdl-card__accommodation-detail .mdl-card__title {
-                height: 100px;
+                height: 100%;
             }
 
             .mdl-card__accommodation-detail .mdl-card__supporting-text {
                 overflow-y: auto;
-                /*height: -webit-calc(100% - 100px);
-                height: -moz-calc(100% - 100px);*/
-                height: calc(100% - 100px);
+                height: 100%;
             }
         }
     </style>
 }
 
 
-<div class="mdl-grid">
+<div class="mdl-grid mdl-grid-accommodations obscure-on-load">
 
     <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
         <div class="mdl-card mdl-card__accommodation-detail mdl-shadow--4dp" id="card__accommodation-detail">
@@ -141,6 +141,7 @@
         var accommodationsAccordionUrl = '@Url.Action("AccommodationsAccordion")';
         var accommodationsAccordion = $('#accommodationsAccordion');
         var accommodationsMode;
+        var detailLoaded = false;
 
         function upgradeTooltips() {
             var counter = 0;
@@ -188,6 +189,12 @@
                 if (!pageLoad)
                 {
                     componentHandler.upgradeDom();
+                }
+                if (!Modernizr.flexbox) {
+                    calcDimensions();
+                }
+                if (accommodationId != 0) {
+                    detailLoaded = true;
                 }
             });
         }
@@ -246,8 +253,9 @@
         function calcDimensions() {
             var winWidth = $(window).width();
             var listTitleHeight = $('.mdl-card__accommodation-list > .mdl-card__title').outerHeight();
-            var mainHeight = $(window).height() - $('#headerRow').height(); //  minus padding
+            var mainHeight = $(window).height() - $('#headerRow').height(); 
             var accommodationsListWidth = $('#cell__accommodations-list').width();
+
 
             // set widths for scrollable table
             var tableWidth = accommodationsListWidth - 32;
@@ -267,7 +275,8 @@
 
             if (winWidth >= 960) {
                 // set card heights
-                $('#card__accommodations-list, #card__accommodation-detail').css({ 'height': mainHeight - 32 });
+                var cardHeight = mainHeight - 32;
+                $('#card__accommodations-list, #card__accommodation-detail').css({ 'height': cardHeight });
 
                 // set tbody height for scrollable table
                 var tbodyHeight = mainHeight - 32 - 32 - listTitleHeight - 50; // minus screen padding, card padding, card__title height, thead height
@@ -276,6 +285,12 @@
                     tbodyHeight = 50;
                 }
                 $('#tableBody').css({ 'height': tbodyHeight });
+
+                // modernizr actions for legacy support (css calc error w/ Safari 6, etc.)
+                if (!Modernizr.flexbox) {
+                    $('#detail_text').css({ 'height': cardHeight - 200 - 55 });
+                }
+
             }
             else if (winWidth >= 480 && winWidth < 960) {
                 // set card heights
@@ -289,21 +304,25 @@
                     tbodyHeight = 50;
                 }
                 $('#tableBody').css({ 'height': tbodyHeight });
+
+                // modernizr actions for legacy support (css calc error w/ Safari 6, etc.)
+                if (!Modernizr.flexbox) {
+                    $('#detail_title, #detail_text').css({ 'height': cardHeight - 55 });
+                }
             }
             else {
                 // set card height
                 var cardHeight = 100 + $('.accommodationsFlexContainer .mdl-card__supporting-text').prop('scrollHeight') + 55;
                 $('#card__accommodation-detail').css({ 'height': cardHeight });
+                //var cardHeight = mainHeight - 32;
+                //$('#card__accommodation-detail').css({ 'height': cardHeight });
 
-                // load Accommodation Welcome (id = 0) in case landscape mode allowed for loading of _AccommodationDetail partial
-                loadAccommodationDetail(0);
+                // load Accommodation Welcome (id = 0) if landscape mode allowed for loading of _AccommodationDetail partial
+                if (detailLoaded) {
+                    loadAccommodationDetail(0);
+                }
             }
 
-            // modernizr actions for legacy support (css calc error w/ Safari 6, etc.)
-            if (!Modernizr.flexbox) {
-                var detailHeight = $('#card__accommodation-detail').height() - 200 - 55;
-                $('#detail_text').css({ 'height': detailHeight });
-            }
         }
 
     </script>
@@ -312,15 +331,15 @@
 <script>
 @section scriptWindowLoad {
     // calculate dimensions of scrollable tables
-    calcDimensions();
     setMode();
+    calcDimensions();
+
+    $(window).resize(function () {
+        setMode();
+        calcDimensions();
+    });
 
     // load Accommodation Welcome (id = 0)
     loadAccommodationDetail(0, true);
-
-    $(window).resize(function () {
-        calcDimensions();
-        setMode();
-    });
 }
 </script>

@@ -40,13 +40,15 @@ namespace HoneyWedding
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       //"~/Content/themes/nvapps/bootstrap.css",
                       "~/Content/mdl.css",
-                      "~/Content/modernizr.css",
                       "~/Content/form_validation.css",
                       "~/Content/site.css",
                       "~/Content/table__fixed-headers.css"));
 
             bundles.Add(new StyleBundle("~/Content/parallax_css").Include(
                       "~/Content/parallax.css"));
+
+            bundles.Add(new StyleBundle("~/Content/modernizr_css").Include(
+                      "~/Content/modernizr.css"));
         }
     }
 }

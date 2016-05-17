@@ -60,6 +60,48 @@
 
 /*  -----Media Transforms----- */
 @media screen and (max-width: 959px) {
+    .no-flexbox .mdl-layout__content {
+        top: 56px;
+    }
+}
+
+@media screen and (max-width: 959px) and (min-width: 480px) {
+    .no-flexbox .mdl-grid-accommodations {
+        display: block;
+    }
+
+    .no-flexbox .accommodationsFlexContainer {
+        display: -webkit-box;
+    }
+
+    .no-flexbox .mdl-card__accommodation-detail .mdl-card__title {
+        display: -webkit-box;
+    }
+
+    .no-flexbox .mdl-card__accommodation-detail .mdl-card__supporting-text {
+        /*width: 60%;
+        height: 100%;*/
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .no-flexbox .accommodationsFlexContainer {
+        /*display: -webkit-box;*/
+    }
+
+    .no-flexbox .mdl-card__accommodation-detail .mdl-card__title {
+    }
+
+    .no-flexbox .mdl-card__accommodation-detail .mdl-card__supporting-text {
+    }
+}
+
+@media screen and (max-height: 479px) {
+    .no-flexbox .mdl-card__accommodation-detail .mdl-card__title {
+    }
+
+    .no-flexbox .mdl-card__accommodation-detail .mdl-card__supporting-text {
+    }
 }
 
 
