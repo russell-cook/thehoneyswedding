@@ -204,6 +204,11 @@
                 background: none;
             }
 
+            .honeyContentBlock h1 {
+                font-size: 3em;
+            }
+
+
             .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
                 width: 100%;
                 margin: 0;
@@ -631,6 +636,9 @@
             sceneLisaBikeChase.duration(viewportDuration * 1.4);
             sceneLisaBikeChase.offset(viewportDuration / 2.5); // this makes Lisa lag behind Russ
 
+            // calculate max-height of animation images
+            $('.animationChaseImage, .animationBikeChaseImage').css({ 'max-height': viewportDuration / 2 });
+
             // calculate chase animation path
             var chaseImageCssLeftOffset = 300;
             var chaseWindowWidth = $(window).width() + chaseImageCssLeftOffset;
@@ -700,7 +708,7 @@
                     values: [
                             { x: bikeChaseWindowWidth * 0.4, y: viewportDuration * 0.3 },
                             { x: bikeChaseWindowWidth * 0.5, y: viewportDuration * 0.4 },
-                            { x: bikeChaseWindowWidth * 0.6, y: viewportDuration * 0.6 }
+                            { x: bikeChaseWindowWidth * 0.6, y: viewportDuration * 0.5 }
                     ]
                 },
                 leave: {
@@ -726,6 +734,8 @@
 
             sceneLisaBikeChase.setTween(lisaBikeChaseTween);
             sceneRussBikeChase.setTween(russBikeChaseTween);
+
+
         }
 
         function initMap() {
