@@ -28,6 +28,8 @@
 
 .preserve3d .parallax__layer--back {
     transform: translateZ(-1px) scale(2);
+    -webkit-transform-origin-x: calc(100vw / 2);
+    -ms-transform-origin-x: calc(100vw / 2);
     transform-origin-x: calc(100vw / 2);
     -moz-transform-origin: calc(100vw / 2) calc((100vh - 64px) / 2);
 }
