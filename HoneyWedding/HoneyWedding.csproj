@@ -170,12 +170,14 @@
   <ItemGroup>
     <Content Include="Content\img\accommodations\7up.JPG" />
     <Content Include="Content\img\accommodations\fairplay_lodge.jpg" />
+    <Content Include="Content\img\accommodations\gold_mountain.jpg" />
     <Content Include="Content\img\accommodations\gorgeous_mountain_escape.jpg" />
     <Content Include="Content\img\accommodations\lucindas.jpg" />
     <Content Include="Content\img\accommodations\mountain_cabin.jpg" />
     <Content Include="Content\img\accommodations\rest_hotel.jpg" />
     <Content Include="Content\img\accommodations\saluti.jpg" />
-    <Content Include="Content\img\accommodations\stoney.jpg" />
+    <Content Include="Content\img\accommodations\perry_creek_suite.jpg" />
+    <Content Include="Content\img\accommodations\stoney_creek.jpg" />
     <Content Include="Content\img\accommodations\tall_pines.jpg" />
     <Content Include="Content\img\accommodations\toogood_crush_pad.jpg" />
     <Content Include="Content\img\accommodations\toogood_yellow_house.jpg" />
