@@ -110,7 +110,7 @@ namespace HoneyWedding.Services
 
                 if (location.Img != null)
                 {
-                    accommodationLocation.Img = location.Img;
+                    accommodationLocation.Img = "accommodations/" + location.Img;
                 }
                 else
                 {
