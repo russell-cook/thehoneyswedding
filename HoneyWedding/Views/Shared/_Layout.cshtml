@@ -39,10 +39,10 @@
                 @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
                 @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { id = "menuOurFamilies", @class = "mdl-layout__tab" })
                 @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { id = "menuWhenWhere", @class = "mdl-layout__tab" })
-                @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { id = "menuStayingThere", @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "Staying There" ? "is-active" : "") })
+                <a href="#" id="staying_there_menu" class="mdl-layout__tab @string.Format("mdl-layout__tab {0}", ViewBag.Title == "Staying There" ? "is-active" : "")"><i class="material-icons">arrow_drop_down</i>Staying There</a>
                 @Html.ActionLink("The Venue", "Venue", "Home", null, null, null, null, new { id = "menuVenue", @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Venue" ? "is-active" : "") })
                 @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Honey Fund" ? "is-active" : "") })
-                <button id="user-menu" class="mdl-button mdl-js-button mdl-button--icon">
+                <button id="user_menu" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">more_vert</i>
                 </button>
             </nav>
@@ -54,7 +54,9 @@
             @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("When & Where", "Index", "Home", null, null, "whenWhere", null, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("Staying There", "Accommodations", "Home", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Accommodations", "Accommodations", "Home", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Wineries to Visit", "Wineries", "Home", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Things To Do", "Things_To_Do", "Home", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Venue", "Venue", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
         </nav>
@@ -77,8 +79,15 @@
 
 </div>
 
-<!--Nav Menu-->
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="user-menu">
+<!--Staying There Menu-->
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="staying_there_menu">
+    <li>@Html.ActionLink("Accommodations", "Accommodations", "Home", null, new { @class = "mdl-menu__item" })</li>
+    <li>@Html.ActionLink("Wineries to Visit", "Wineries", "Home", null, new { @class = "mdl-menu__item" })</li>
+    <li>@Html.ActionLink("Things To Do", "Things_To_Do", "Home", null, new { @class = "mdl-menu__item" })</li>
+</ul>
+
+<!--User Menu-->
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="user_menu">
     @Html.Partial("_LoginPartial")
     @if (Request.IsAuthenticated && User.IsInRole("WeddingAdmin"))
     {
@@ -95,7 +104,6 @@
         <li disabled class="mdl-menu__item"><i>(honeys only, for now!)</i></li>
     }
 </ul>
-
 
 
 @RenderSection("scripts", required: false)

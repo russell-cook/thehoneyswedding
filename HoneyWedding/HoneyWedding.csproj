@@ -458,6 +458,8 @@
     <Content Include="Views\Home\WeddingAdmin.cshtml" />
     <Content Include="Views\Home\Venue.cshtml" />
     <Content Include="Views\Home\Venue - Backup.cshtml" />
+    <Content Include="Views\Home\Wineries.cshtml" />
+    <Content Include="Views\Home\Things_To_Do.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -60,6 +60,16 @@ namespace HoneyWedding.Controllers
             return View();
         }
 
+        public ActionResult Wineries()
+        {
+            return View();
+        }
+
+        public ActionResult Things_To_Do()
+        {
+            return View();
+        }
+
         public ActionResult Venue()
         {
             return View();
