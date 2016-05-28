@@ -196,7 +196,6 @@
 
         @@media screen and (max-width: 479px) {
             .homeLinks {
-                /*font-size: 14px;*/
                 right: 0;
             }
 
@@ -221,6 +220,12 @@
 
         }
 
+        @@media screen and (max-width: 374px) {
+            .homeLinks {
+                font-size: 14px;
+            }
+        }
+
     </style>
 }
 
@@ -230,14 +235,77 @@
         <!-- need 'scroll down' graphic, align to one side on bottom of div -->
         <div class="homeLinks">
             <span class="mdl-layout--large-screen-only">Scroll Down:</span>
-            <a href="#ourStory"><i class="material-icons">arrow_downward</i>Our Story</a>
-            <a href="#ourFamilies"><i class="material-icons">arrow_downward</i><span class="mdl-layout--large-screen-only"><i class="material-icons">arrow_downward</i></span>Our Families</a>
-            <a href="#whenWhere"><i class="material-icons">arrow_downward</i><span class="mdl-layout--large-screen-only"><i class="material-icons">arrow_downward</i><i class="material-icons">arrow_downward</i></span>When & Where</a>
+            <a href="#whenWhere"><i class="material-icons">arrow_downward</i>When & Where</a>
+            <a href="#ourStory"><i class="material-icons">arrow_downward</i><span class="mdl-layout--large-screen-only"><i class="material-icons">arrow_downward</i></span>Our Story</a>
+            <a href="#ourFamilies"><i class="material-icons">arrow_downward</i><span class="mdl-layout--large-screen-only"><i class="material-icons">arrow_downward</i><i class="material-icons">arrow_downward</i></span>Our Families</a>
         </div>
     </div>
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honey_wedding--home_page_overlay.png') center; background-size: cover;"></div>
 </div>
 
+<div class="honeyContentBlock mdl-color--deep-purple-100 argyle-overlay" id="whenWhere">
+    <h1 class="mdl-color-text--primary-dark">When & Where</h1>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+            <div class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title" style="background: url('../../Content/img/when_where.jpg') center; background-size: cover; height: 200px;">
+                    <div class="mdl-card__title-text">Details</div>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <table class="table-list" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="table-list--term">Date</td>
+                            <td>
+                                October 1, 2016
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table-list--term">Time</td>
+                            <td>
+                                4pm-10pm
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table-list--term">Location</td>
+                            <td>
+                                <a href="http://www.mastroseriowinery.com/" target="_blank">Mastroserio Winery</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table-list--term">Address</td>
+                            <td>
+                                7351 Fairplay Rd<br />Somerset, CA 95684
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-js-button mdl-button--raised" href="Home/Accommodations">
+                        Staying There
+                    </a>
+                    <a class="mdl-button mdl-js-button mdl-button--raised" href="Home/Venue">
+                        The Venue
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+            <div class="mdl-card mdl-shadow--2dp">
+                @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354" draggable="true" frameborder="0" class="honeyMap"></iframe>*@
+                <iframe src="" id="map" draggable="true" frameborder="0" class="honeyMap"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="parallax__viewport" id="viewportChase">
+    <img id="lisaChase" src="../../Content/img/lisa_chase.png" class="animationChaseImage" />
+    <img id="russChase" src="../../Content/img/russ_chase.png" class="animationChaseImage" />
+    @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's a test!</h1></div>*@
+    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_with_fish.jpg') center; background-size: cover;"></div>
+</div>
 
 <div class="honeyContentBlock mdl-shadow--4dp mdl-color--indigo-100 argyle-overlay" id="ourStory">
 
@@ -255,8 +323,10 @@
                     <div class="mdl-card mdl-card__timeline mdl-shadow--4dp">
                         <div class="mdl-card__title">
                             <div class="honey_slider slider__russ_born">
-                                <img data-lazy="../../Content/img/russ_with_tiller.jpg" />
-                                <img data-lazy="../../Content/img/russ_wes_booze_bottles.jpg" />
+                                <img data-lazy="../../Content/img/ourstory/RussBabyCheeks.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/RussBabyWithCreel.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/russ_with_tiller.jpg" />
+                                <img data-lazy="../../Content/img/ourstory/russ_wes_booze_bottles.jpg" />
                             </div>
                             <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">Dec 30th, 1978</div>
                         </div>
@@ -278,9 +348,13 @@
                 </div>
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
-                        <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title">
                             <div class="honey_slider slider__lisa_born">
-                                <img src="../../Content/img/lisa_and_lori_hearth.jpg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaBaby.jpg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaChair.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaPony.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaChristmasPresents.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/lisa_and_lori_hearth.jpg" />
                             </div>
                             <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">May 9th, 1982</div>
                         </div>
@@ -295,8 +369,56 @@
 
             <div class="mdl-grid mdl-grid__honey-timeslot">
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
+                    <div class="mdl-card mdl-card__timeline mdl-shadow--4dp">
+                        <div class="mdl-card__title">
+                            <div class="honey_slider slider__russ_elementaryschool">
+                                <img data-lazy="../../Content/img/ourstory/RussWesFirstDayOfSchool.jpeg" />
+                            </div>
+                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">The 80's</div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <p>Need Russ elementary school text</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone">
+                    <span>The 80's</span>
+                </div>
+            </div>
+
+            <div class="mdl-grid mdl-grid__honey-timeslot even">
+                <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone mdl-cell--no-border">
+                </div>
+                <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--hide-phone">
+                    <span class="mdl-color-text--pink-400">The (late) 80's</span>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
-                        <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title">
+                            <div class="honey_slider slider__lisa_elementaryschool">
+                                <img data-lazy="../../Content/img/ourstory/LisaLoriSwing.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaLoriVickiTurtles.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaJudyWedding.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaBirthdayCake.jpeg" />
+                            </div>
+                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">The (late) 80's</div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <p>Need Lisa elementary school text.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Begin odd/even pair-->
+
+            <div class="mdl-grid mdl-grid__honey-timeslot">
+                <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div class="mdl-card__title">
+                            <div class="honey_slider slider__russ_highschool">
+                                @*<img data-lazy="../../Content/img/ourstory/LisaBaby.jpg" />*@
+                            </div>
                             <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">1991-1995</div>
                         </div>
                         <div class="mdl-card__supporting-text">
@@ -317,7 +439,14 @@
                 </div>
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
-                        <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title">
+                            <div class="honey_slider slider__lisa_highschool">
+                                <img data-lazy="../../Content/img/ourstory/LisaHighSchoolGrad.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaGroovyDress.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaMatterhorn.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaCarlieRamonGondola.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaEiffelTower.jpeg" />
+                            </div>
                             <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">1995-2000</div>
                         </div>
                         <div class="mdl-card__supporting-text">
@@ -332,7 +461,10 @@
             <div class="mdl-grid mdl-grid__honey-timeslot">
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
-                        <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title">
+                            <div class="honey_slider slider__russ_youngadult">
+                                @*<img data-lazy="../../Content/img/ourstory/LisaHighSchoolGrad.jpeg" />*@
+                            </div>
                             <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">1995-1999</div>
                         </div>
                         <div class="mdl-card__supporting-text">
@@ -353,7 +485,14 @@
                 </div>
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
-                        <div class="mdl-card__title mdl-card__title-need-image">
+                        <div class="mdl-card__title">
+                            <div class="honey_slider slider__lisa_youngadult">
+                                <img data-lazy="../../Content/img/ourstory/LisaCoconut.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/Lisa21stYardOfBeer.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/Lisa21stPassedOut.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaHalloweenBlonde.jpeg" />
+                                <img data-lazy="../../Content/img/ourstory/LisaLindsayDreads.jpeg" />
+                            </div>
                             <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">2000-???</div>
                         </div>
                         <div class="mdl-card__supporting-text">
@@ -478,79 +617,15 @@
 
 </div>
 
-<div class="parallax__viewport" id="viewportChase">
-    <img id="lisaChase" src="../../Content/img/lisa_chase.png" class="animationChaseImage" />
-    <img id="russChase" src="../../Content/img/russ_chase.png" class="animationChaseImage" />
-    @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's a test!</h1></div>*@
-    <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_with_fish.jpg') center; background-size: cover;"></div>
-</div>
-
-<div class="honeyContentBlock mdl-shadow--4dp mdl-color--brown-200 argyle-overlay" id="ourFamilies">
-    <h1 class="mdl-color-text--primary-dark">Our Families</h1>
-</div>
-
 <div class="parallax__viewport" id="viewportBikeChase">
-    <img id="lisaBikeChase" src="../../Content/img/lisa_bike_chase.png" class="animationBikeChaseImage" />
+    <img id="lisaBikeChase" src="../../Content/img/lisa_bike_chase_alt.png" class="animationBikeChaseImage" />
     <img id="russBikeChase" src="../../Content/img/russ_bike_chase.png" class="animationBikeChaseImage" />
     @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's another test!</h1></div>*@
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_in_peach_tree.jpg') center; background-size: cover;"></div>
 </div>
 
-<div class="honeyContentBlock mdl-color--deep-purple-100 argyle-overlay" id="whenWhere">
-    <h1 class="mdl-color-text--primary-dark">When & Where</h1>
-    <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title" style="background: url('../../Content/img/when_where.jpg') center; background-size: cover; height: 200px;">
-                    <div class="mdl-card__title-text">Details</div>
-                </div>
-                <div class="mdl-card__supporting-text">
-                    <table class="table-list" border="0" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="table-list--term">Date</td>
-                            <td>
-                                October 1, 2016
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-list--term">Time</td>
-                            <td>
-                                4pm-10pm
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-list--term">Location</td>
-                            <td>
-                                <a href="http://www.mastroseriowinery.com/" target="_blank">Mastroserio Winery</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-list--term">Address</td>
-                            <td>
-                                7351 Fairplay Rd<br />Somerset, CA 95684
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-js-button mdl-button--raised" href="Home/Accommodations">
-                        Staying There
-                    </a>
-                    <a class="mdl-button mdl-js-button mdl-button--raised" href="Home/Venue">
-                        The Venue
-                    </a>
-                </div>
-
-            </div>
-        </div>
-        <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="mdl-card mdl-shadow--2dp">
-                @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118600.49331621807!2d-120.80860747195742!3d38.63542020196392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809a429b8410230b%3A0x83e40f62a39a4b29!2sMastroserio+Winery+WIne!5e0!3m2!1sen!2sus!4v1458862932354" draggable="true" frameborder="0" class="honeyMap"></iframe>*@
-                <iframe src="" id="map" draggable="true" frameborder="0" class="honeyMap"></iframe>
-            </div>
-        </div>
-    </div>
+<div class="honeyContentBlock mdl-shadow--4dp mdl-color--brown-200 argyle-overlay" id="ourFamilies">
+    <h1 class="mdl-color-text--primary-dark">Our Families</h1>
 </div>
 
 @section scripts {
@@ -754,6 +829,36 @@
             });
 
             $('.slider__lisa_born').slick({
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+
+            $('.slider__russ_elementaryschool').slick({
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+
+            $('.slider__lisa_elementaryschool').slick({
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+
+            $('.slider__russ_highschool').slick({
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+
+            $('.slider__lisa_highschool').slick({
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+
+            $('.slider__russ_youngadult').slick({
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+
+            $('.slider__lisa_youngadult').slick({
                 dots: true,
                 lazyLoad: 'progressive'
             });
