@@ -104,7 +104,7 @@
 
             .mdl-grid__honey-timeslot .mdl-card__title {
                 position: relative;
-                height: 250px;
+                height: 270px;
                 padding: 0;
                 overflow: hidden;
             }
@@ -118,10 +118,11 @@
                 white-space: nowrap;
             }
 
-            .mdl-grid__honey-timeslot .mdl-card__title-text {
-                position: absolute;
-                left: 16px;
-                bottom: 16px;
+            .mdl-grid__honey-timeslot .mdl-card__title-text-mobile {
+                font-size: 24px;
+                line-height: 32px;
+                text-transform: uppercase;
+                font-family: 'Sue Ellen Francisco', cursive;
             }
 
         .even .mdl-cell {
@@ -147,6 +148,7 @@
         .honey_slider {
             width: 100%;
             height: 100%;
+
         }
 
         .animationChaseImage {
@@ -207,6 +209,9 @@
                 font-size: 3em;
             }
 
+            .mdl-grid__honey-timeslot .mdl-card__title {
+                height: 310px;
+            }
 
             .mdl-grid__honey-timeslot .mdl-cell--timeline-photo {
                 width: 100%;
@@ -220,9 +225,29 @@
 
         }
 
-        @@media screen and (max-width: 374px) {
+        /* iPhone 6 Plus */
+        @@media screen and (max-width: 414px) {
+            .mdl-grid__honey-timeslot .mdl-card__title {
+                height: 290px;
+            }
+
+        }
+
+        /* iPhone 6 */
+        @@media screen and (max-width: 375px) {
             .homeLinks {
                 font-size: 14px;
+            }
+            .mdl-grid__honey-timeslot .mdl-card__title {
+                height: 260px;
+            }
+
+        }
+
+        /* iPhone 5 */
+        @@media screen and (max-width: 320px) {
+            .mdl-grid__honey-timeslot .mdl-card__title {
+                height: 220px;
             }
         }
 
@@ -328,9 +353,9 @@
                                 <img data-lazy="../../Content/img/ourstory/russ_with_tiller.jpg" />
                                 <img data-lazy="../../Content/img/ourstory/russ_wes_booze_bottles.jpg" />
                             </div>
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">Dec 30th, 1978</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">Dec 30th, 1978</div>
                             <p>Russell is born to Gary and Joyce Cook in Camarillo, CA. From a young age his friends found him affable and easy to get along with!</p>
                         </div>
                     </div>
@@ -356,9 +381,9 @@
                                 <img data-lazy="../../Content/img/ourstory/LisaChristmasPresents.jpeg" />
                                 <img data-lazy="../../Content/img/ourstory/lisa_and_lori_hearth.jpg" />
                             </div>
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">May 9th, 1982</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">May 9th, 1982</div>
                             <p>Lisa is born to Arny and Vicki Hass in Carson City NV. The question of which is more important--Mother's Day or Lisa's birthday--has yet to be resolved!</p>
                         </div>
                     </div>
@@ -374,9 +399,9 @@
                             <div class="honey_slider slider__russ_elementaryschool">
                                 <img data-lazy="../../Content/img/ourstory/RussWesFirstDayOfSchool.jpeg" />
                             </div>
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">The 80's</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">The 80's</div>
                             <p>Need Russ elementary school text</p>
                         </div>
                     </div>
@@ -401,9 +426,9 @@
                                 <img data-lazy="../../Content/img/ourstory/LisaJudyWedding.jpeg" />
                                 <img data-lazy="../../Content/img/ourstory/LisaBirthdayCake.jpeg" />
                             </div>
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">The (late) 80's</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">The (late) 80's</div>
                             <p>Need Lisa elementary school text.</p>
                         </div>
                     </div>
@@ -419,9 +444,9 @@
                             <div class="honey_slider slider__russ_highschool">
                                 @*<img data-lazy="../../Content/img/ourstory/LisaBaby.jpg" />*@
                             </div>
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">1991-1995</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">1991-1995</div>
                             <p>Russell attends Carson High School. His dominance as an athlete is immediately apparent. He somehow manages to letter in both JV Soccer and Marching Band.</p>
                         </div>
                     </div>
@@ -447,9 +472,9 @@
                                 <img data-lazy="../../Content/img/ourstory/LisaCarlieRamonGondola.jpeg" />
                                 <img data-lazy="../../Content/img/ourstory/LisaEiffelTower.jpeg" />
                             </div>
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">1995-2000</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">1995-2000</div>
                             <p>Lisa also attends Carson High! (Need more text)</p>
                         </div>
                     </div>
@@ -465,9 +490,9 @@
                             <div class="honey_slider slider__russ_youngadult">
                                 @*<img data-lazy="../../Content/img/ourstory/LisaHighSchoolGrad.jpeg" />*@
                             </div>
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">1995-1999</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">1995-1999</div>
                             <p>Russell attends the University of Southern California, where fails to make the football team as a walk-on, but succeeds wildly in furthering his marching band career. He majors in Music Recording and goes to work in fabulous Hollywood!</p>
                         </div>
                     </div>
@@ -493,9 +518,9 @@
                                 <img data-lazy="../../Content/img/ourstory/LisaHalloweenBlonde.jpeg" />
                                 <img data-lazy="../../Content/img/ourstory/LisaLindsayDreads.jpeg" />
                             </div>
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">2000-???</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">2000-???</div>
                             <p>Need description of Lisa's young adult phase</p>
                         </div>
                     </div>
@@ -508,9 +533,9 @@
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
                         <div class="mdl-card__title mdl-card__title-need-image">
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">Jan. 26, 2013</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">Jan. 26, 2013</div>
                             <p>Fast-forward 13 years and... the honey's meet at a mutual friend's surprise birthday party! It wasn't long before they caught each other's eyes and snuck upstairs to talk. He laughed, she laughed, everything was hilarious! </p>
                         </div>
                     </div>
@@ -529,9 +554,9 @@
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
                         <div class="mdl-card__title mdl-card__title-need-image">
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">Feb. 14, 2013</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">Feb. 14, 2013</div>
                             <p>Russ and Lisa decide to make if official--the honeys are a couple! Russ is super excited that the date is so easy to remember.</p>
                         </div>
                     </div>
@@ -544,9 +569,9 @@
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
                         <div class="mdl-card__title mdl-card__title-need-image">
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">Thanksgiving 2013</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">Thanksgiving 2013</div>
                             <p>The honeys visit Fair Play for the first time! (need more text)</p>
                         </div>
                     </div>
@@ -565,9 +590,9 @@
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
                         <div class="mdl-card__title mdl-card__title-need-image">
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">May 3, 2014</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">May 3, 2014</div>
                             <p>Russ surpises Lisa with birthday dinner at The Kitchen in Sacramento. The honeys fall even more deeply in love as they soak in the dining experience that inspired their wedding dinner.</p>
                         </div>
                     </div>
@@ -580,9 +605,9 @@
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
                         <div class="mdl-card__title mdl-card__title-need-image">
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">Winter 2014-2015</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">Winter 2014-2015</div>
                             <p>Marriage has become a common topic of discussion. For months Russ teases Lisa that she needs to grow a pair and pop the big question. Isn't Russ hilarious?</p>
                         </div>
                     </div>
@@ -601,9 +626,9 @@
                 <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--timeline-photo">
                     <div class="mdl-card mdl-shadow--4dp">
                         <div class="mdl-card__title mdl-card__title-need-image">
-                            <div class="mdl-card__title-text mdl-cell--hide-desktop mdl-cell--hide-tablet">Feb. 14, 2015</div>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__title-text-mobile mdl-cell--hide-desktop mdl-cell--hide-tablet">Feb. 14, 2015</div>
                             <p>Lisa does it! She makes Russ the sweetest engagement card a guy has ever received, and of course he says yes! The honeys are engaged!</p>
                             <p>(Need interactive feature for viewing engagement cared)</p>
                         </div>
@@ -783,16 +808,16 @@
                     values: [
                             { x: bikeChaseWindowWidth * 0.4, y: viewportDuration * 0.3 },
                             { x: bikeChaseWindowWidth * 0.5, y: viewportDuration * 0.4 },
-                            { x: bikeChaseWindowWidth * 0.6, y: viewportDuration * 0.5 }
+                            { x: bikeChaseWindowWidth * 0.6, y: viewportDuration * 0.4 }
                     ]
                 },
                 leave: {
                     curviness: 1.25,
                     //autoRotate: true,
                     values: [
-                            { x: bikeChaseWindowWidth * 0.8, y: viewportDuration * 0.6 },
-                            { x: bikeChaseWindowWidth * 0.9, y: viewportDuration * 0.7 },
-                            { x: bikeChaseWindowWidth, y: viewportDuration * 0.8 }
+                            { x: bikeChaseWindowWidth * 0.7, y: viewportDuration * 0.5 },
+                            { x: bikeChaseWindowWidth * 0.8, y: viewportDuration * 0.5 },
+                            { x: bikeChaseWindowWidth, y: viewportDuration * 0.6 }
                     ]
                 }
             };

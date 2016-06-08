@@ -115,6 +115,7 @@ a.mdl-layout__tab:hover {
 }
 
 .mdl-card__title-text {
+    transform: translate3d(0, 0, 0);/* fix for chrome not rendering */
     text-transform: uppercase;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     color: #ffffff;
@@ -195,6 +196,7 @@ a.mdl-layout__tab:hover {
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: calc(100vw - 128px);
 }
 
 
