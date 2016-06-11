@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using Omu.ValueInjecter;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -45,6 +46,7 @@ namespace HoneyWedding.Controllers
                     LastName = guestViewModel.LastName,
                     UserName = guestViewModel.Email,
                     Email = guestViewModel.Email,
+                    PhoneNumber = guestViewModel.PhoneNumber,
                     IsActive = true,
                     InviteDate = DateTime.Now,
                     HasPlusOne = guestViewModel.HasPlusOne,
@@ -104,7 +106,32 @@ namespace HoneyWedding.Controllers
                 return HttpNotFound();
             }
 
-            return View(guest);
+            InviteWeddingGuestViewModel viewModel = new InviteWeddingGuestViewModel();
+            viewModel.InjectFrom(guest);
+
+            return View(viewModel);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> RSVP(InviteWeddingGuestViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var guest = await _unitOfWork.WeddingGuestRepository.GetByIDAsync(model.Id);
+                guest.InjectFrom(model);
+                guest.DidRsvp = true;
+                guest.RsvpDate = DateTime.Now;
+                await _unitOfWork.SaveAsync();
+                return RedirectToAction("RSVPConfirmation", new { id = model.Id });
+            }
+            return View(model);
+        }
+
+        public ActionResult RSVPConfirmation(string id)
+        {
+            return View();
+        }
+
+
     }
 }

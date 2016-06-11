@@ -1,4 +1,4 @@
-﻿@model HoneyWedding.Models.WeddingGuest
+﻿@model HoneyWedding.Models.InviteWeddingGuestViewModel
 @{
     ViewBag.Title = "RSVP";
 }
@@ -7,12 +7,13 @@
 
     @using (Html.BeginForm("RSVP", "WeddingGuests", FormMethod.Post, new { @class = "mdl-card", role = "form" }))
     {
+        @Html.HiddenFor(model => model.Id)
         @Html.AntiForgeryToken()
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">You're Invited!</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            <p>@Model.FullName</p>
+            <p>Hello @Model.FirstName !</p>
             @Html.ValidationSummary("", new { @class = "text-error" })
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 @Html.TextBoxFor(m => m.FirstName, new { @class = "mdl-textfield__input" })

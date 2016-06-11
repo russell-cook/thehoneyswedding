@@ -1,5 +1,6 @@
 ﻿using HoneyWedding.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace HoneyWedding.DAL.Repositories
 {
@@ -35,9 +36,9 @@ namespace HoneyWedding.DAL.Repositories
             }
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
         private bool disposed = false;
