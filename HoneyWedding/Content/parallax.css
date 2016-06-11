@@ -1,7 +1,7 @@
 ﻿.mdl-layout__content {
     perspective: 1px;
-    -webkit-perspective-origin-x: 100%;
-    perspective-origin-x: 100%;
+    /*-webkit-perspective-origin-x: 100%;
+    perspective-origin-x: 100%;*/
 }
 
 
