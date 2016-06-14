@@ -151,6 +151,16 @@
 
         }
 
+        .animationContainer {
+            /* these settings are necessary to prevent webkit horizontal scrolling on touch devices */
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
         .animationChaseImage {
             position: absolute;
             left: -300px;
@@ -326,8 +336,10 @@
 </div>
 
 <div class="parallax__viewport" id="viewportChase">
-    <img id="lisaChase" src="../../Content/img/lisa_chase.png" class="animationChaseImage" />
-    <img id="russChase" src="../../Content/img/russ_chase.png" class="animationChaseImage" />
+    <div class="animationContainer">
+        <img id="lisaChase" src="../../Content/img/lisa_chase.png" class="animationChaseImage" />
+        <img id="russChase" src="../../Content/img/russ_chase.png" class="animationChaseImage" />
+    </div>
     @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's a test!</h1></div>*@
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_with_fish.jpg') center; background-size: cover;"></div>
 </div>
@@ -643,8 +655,10 @@
 </div>
 
 <div class="parallax__viewport" id="viewportBikeChase">
-    <img id="lisaBikeChase" src="../../Content/img/lisa_bike_chase_alt.png" class="animationBikeChaseImage" />
-    <img id="russBikeChase" src="../../Content/img/russ_bike_chase.png" class="animationBikeChaseImage" />
+    <div class="animationContainer">
+        <img id="lisaBikeChase" src="../../Content/img/lisa_bike_chase_alt.png" class="animationBikeChaseImage" />
+        <img id="russBikeChase" src="../../Content/img/russ_bike_chase.png" class="animationBikeChaseImage" />
+    </div>
     @*<div class="parallax__layer parallax__layer--base"><h1>Hey it's another test!</h1></div>*@
     <div class="parallax__layer parallax__layer--back" style="background: url('../../Content/img/honeys_in_peach_tree.jpg') center; background-size: cover;"></div>
 </div>
