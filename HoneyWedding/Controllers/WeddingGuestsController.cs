@@ -92,6 +92,41 @@ namespace HoneyWedding.Controllers
             return View(viewModel);
         }
 
+        [Authorize(Roles = "WeddingAdmin")]
+        public async Task<ActionResult> Edit(string userId)
+        {
+            if (userId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var guest = await UserManager.FindByIdAsync(userId) as WeddingGuest;
+
+            if (guest == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new WeddingGuestViewModel();
+            viewModel.InjectFrom(guest);
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "WeddingAdmin")]
+        public async Task<ActionResult> Edit(WeddingGuestViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var guest = await _unitOfWork.WeddingGuestRepository.GetByIDAsync(model.Id);
+                guest.InjectFrom(model);
+                await _unitOfWork.SaveAsync();
+                return RedirectToAction("RSVPConfirmation", new { id = model.Id });
+            }
+            return View(model);
+        }
+
         public async Task<ActionResult> RSVP(string userId)
         {
             if (userId == null)
@@ -106,21 +141,29 @@ namespace HoneyWedding.Controllers
                 return HttpNotFound();
             }
 
-            InviteWeddingGuestViewModel viewModel = new InviteWeddingGuestViewModel();
+            var viewModel = new WeddingGuestViewModel();
             viewModel.InjectFrom(guest);
 
             return View(viewModel);
         }
 
         [HttpPost]
-        public async Task<ActionResult> RSVP(InviteWeddingGuestViewModel model)
+        public async Task<ActionResult> RSVP(WeddingGuestViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var guest = await _unitOfWork.WeddingGuestRepository.GetByIDAsync(model.Id);
                 guest.InjectFrom(model);
-                guest.DidRsvp = true;
-                guest.RsvpDate = DateTime.Now;
+                if (!guest.DidRsvp)
+                {
+                    guest.DidRsvp = true;
+                    guest.RsvpDate = DateTime.Now;
+                }
+                else
+                {
+                    guest.UpdatedRsvp = true;
+                    guest.UpdatedRsvpDate = DateTime.Now;
+                }
                 await _unitOfWork.SaveAsync();
                 return RedirectToAction("RSVPConfirmation", new { id = model.Id });
             }

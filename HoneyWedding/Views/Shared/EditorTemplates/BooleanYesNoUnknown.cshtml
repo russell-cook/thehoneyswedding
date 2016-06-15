@@ -1,0 +1,17 @@
+﻿@model bool?
+
+@Html.DropDownList(
+    "",
+    new SelectList(
+        new[]
+        {
+            new { Value = "", Text = "Choose..." },
+            new { Value = "true", Text = "Yes" },
+            new { Value = "false", Text = "No" },
+            new { Value = "", Text = "Unsure" }
+        },
+        "Value",
+        "Text",
+        Model
+    )
+)

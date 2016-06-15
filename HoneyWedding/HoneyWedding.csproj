@@ -484,6 +484,8 @@
     <Content Include="Views\Home\Wineries.cshtml" />
     <Content Include="Views\Home\Things_To_Do.cshtml" />
     <Content Include="Views\WeddingGuests\RSVPConfirmation.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\BooleanYesNoUnknown.cshtml" />
+    <Content Include="Views\WeddingGuests\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -607,6 +609,18 @@
     <Compile Include="Migrations\201604150112373_AddMapLinkToAccommodationLocation.Designer.cs">
       <DependentUpon>201604150112373_AddMapLinkToAccommodationLocation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606141918261_AddPlusOneFieldsToDietaryPrefs.cs" />
+    <Compile Include="Migrations\201606141918261_AddPlusOneFieldsToDietaryPrefs.Designer.cs">
+      <DependentUpon>201606141918261_AddPlusOneFieldsToDietaryPrefs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606142252190_AddUpdatedRsvpFieldsToWeddingGuest.cs" />
+    <Compile Include="Migrations\201606142252190_AddUpdatedRsvpFieldsToWeddingGuest.Designer.cs">
+      <DependentUpon>201606142252190_AddUpdatedRsvpFieldsToWeddingGuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.cs" />
+    <Compile Include="Migrations\201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.Designer.cs">
+      <DependentUpon>201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -679,6 +693,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604150112373_AddMapLinkToAccommodationLocation.resx">
       <DependentUpon>201604150112373_AddMapLinkToAccommodationLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606141918261_AddPlusOneFieldsToDietaryPrefs.resx">
+      <DependentUpon>201606141918261_AddPlusOneFieldsToDietaryPrefs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606142252190_AddUpdatedRsvpFieldsToWeddingGuest.resx">
+      <DependentUpon>201606142252190_AddUpdatedRsvpFieldsToWeddingGuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.resx">
+      <DependentUpon>201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
