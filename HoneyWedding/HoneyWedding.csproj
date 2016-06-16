@@ -411,7 +411,8 @@
     <Content Include="Scripts\material.min.js" />
     <Content Include="Scripts\modernizr-custom.js" />
     <Content Include="Scripts\prefixfree.min.js" />
-    <Content Include="Templates\InviteWeddingGuestEmail.html" />
+    <Content Include="Templates\InviteWeddingGuestEmailHead.html" />
+    <Content Include="Templates\InviteWeddingGuestEmailTail.html" />
     <Content Include="Templates\NewUserRegistrationConfirmation.html" />
     <Content Include="Templates\NewAdminUserAccountEmailTemplate.html" />
     <Content Include="Views\Shared\_Alerts.cshtml" />

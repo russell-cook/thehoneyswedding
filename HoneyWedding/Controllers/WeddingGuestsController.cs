@@ -61,10 +61,21 @@ namespace HoneyWedding.Controllers
                 {
                     // send invitation email to guest
                     string body;
-                    using (var sr = new StreamReader(Server.MapPath("\\Templates\\") + "InviteWeddingGuestEmail.html"))
+                    string templateTail;
+                    string plusOneMessage = "<h4>But wait, there's more... you even get a <i>PLUS ONE!</i> (so choose your guest wisely...)</h4>";
+                    using (var sr = new StreamReader(Server.MapPath("\\Templates\\") + "InviteWeddingGuestEmailHead.html"))
                     {
                         body = await sr.ReadToEndAsync();
                     }
+                    using (var sr = new StreamReader(Server.MapPath("\\Templates\\") + "InviteWeddingGuestEmailTail.html"))
+                    {
+                        templateTail = await sr.ReadToEndAsync();
+                    }
+                    if (newUser.HasPlusOne)
+                    {
+                        body += plusOneMessage;
+                    }
+                    body += templateTail;
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(newUser.Id);
                     var callbackUrl = Url.Action("RSVP", "WeddingGuests", new { userId = newUser.Id }, protocol: Request.Url.Scheme);
                     string messageBody = string.Format(body, newUser.FirstName, callbackUrl);
