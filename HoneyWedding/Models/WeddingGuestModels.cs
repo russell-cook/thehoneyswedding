@@ -10,6 +10,7 @@ namespace HoneyWedding.Models
     {
         public DateTime? InviteDate { get; set; }
         public bool? CanAttend { get; set; }
+        [UIHint("BooleanYesNoUnknown")]
         public bool DidRsvp { get; set; }
         [Display(Name = "RSVP Date")]
         public DateTime? RsvpDate { get; set; }

@@ -37,12 +37,19 @@ namespace HoneyWedding
                       "~/Scripts/respond.js"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/gsap").Include(
+                      "~/Content/greensock-js/src/minified/TweenMax.min.js",
+                      "~/Content/greensock-js/src/minified/plugins/ScrollToPlugin.min.js",
+                      "~/Content/scrollmagic/minified/ScrollMagic.min.js",
+                      "~/Content/scrollmagic/minified/plugins/animation.gsap.min.js"
+            ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      //"~/Content/themes/nvapps/bootstrap.css",
-                      "~/Content/mdl.css",
-                      "~/Content/form_validation.css",
-                      "~/Content/site.css",
-                      "~/Content/table__fixed-headers.css"));
+                    //"~/Content/themes/nvapps/bootstrap.css",
+                    "~/Content/mdl.css",
+                    "~/Content/form_validation.css",
+                    "~/Content/site.css",
+                    "~/Content/table__fixed-headers.css"));
 
             bundles.Add(new StyleBundle("~/Content/parallax_css").Include(
                       "~/Content/parallax.css"));
