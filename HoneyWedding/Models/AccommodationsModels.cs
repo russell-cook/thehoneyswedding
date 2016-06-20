@@ -105,6 +105,7 @@ namespace HoneyWedding.Models
         public int ID { get; set; }
         [Display(Name = "Name")]
         public string LocationName { get; set; }
+        public decimal? PriceForSorting { get; set; }
         [Display(Name = "Cost/Night")]
         public string PriceRange { get; set; }
         [Display(Name = "Room For")]

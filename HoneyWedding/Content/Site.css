@@ -114,6 +114,11 @@ a.mdl-layout__tab:hover {
     margin-right: auto;
 }
 
+.mdl-card__title {
+    transform: translate3d(0, 0, 0);/* fix for chrome not rendering */
+    /*z-index: 2;*/
+}
+
 .mdl-card__title-text {
     transform: translate3d(0, 0, 0);/* fix for chrome not rendering */
     text-transform: uppercase;

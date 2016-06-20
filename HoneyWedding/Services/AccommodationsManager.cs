@@ -95,6 +95,7 @@ namespace HoneyWedding.Services
                 var accommodationLocation = new AccommodationViewModel {
                     ID = location.ID,
                     LocationName = location.LocationName,
+                    PriceForSorting = lowPrice,
                     PriceRange = priceRange,
                     RoomFor = roomFor,
                     BallerRating = location.BallerRating,
@@ -134,10 +135,10 @@ namespace HoneyWedding.Services
                     viewModel = viewModel.OrderByDescending(m => m.RoomFor).ThenBy(a => a.LocationName).ToList();
                     break;
                 case "Price":
-                    viewModel = viewModel.OrderBy(m => m.PriceRange).ToList();
+                    viewModel = viewModel.OrderBy(m => m.PriceForSorting).ToList();
                     break;
                 case "price_desc":
-                    viewModel = viewModel.OrderByDescending(m => m.PriceRange).ToList();
+                    viewModel = viewModel.OrderByDescending(m => m.PriceForSorting).ToList();
                     break;
                 default:
                     break;
