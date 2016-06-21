@@ -2,52 +2,53 @@
 @{
     ViewBag.Title = "RSVP";
 }
+@section bodyTagOpen {
+    <body class="mdl-color--indigo-100">
+}
 
-<div class="mdl-grid">
-    <div class="mdl-cell">
+<div class="mdl-card mdl-card__page-small mdl-color--indigo-50 mdl-shadow--2dp">
 
-        <section id="rsvpForm">
+    <section id="rsvpForm">
 
-            @using (Html.BeginForm("RSVP", "WeddingGuests", FormMethod.Post, new { @class = "mdl-card mdl-card__page-small", role = "form" }))
-            {
-                @Html.HiddenFor(model => model.Id)
-                @Html.AntiForgeryToken()
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">RSVP</h2>
+        @using (Html.BeginForm("RSVP", "WeddingGuests", FormMethod.Post, new { @class = "", role = "form" }))
+        {
+            @Html.HiddenFor(model => model.Id)
+            @Html.AntiForgeryToken()
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">RSVP</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <p>Hello @Model.FirstName !</p>
+                @Html.ValidationSummary("", new { @class = "text-error" })
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "mdl-textfield__input" })
+                    @Html.LabelFor(m => m.FirstName, new { @class = "mdl-textfield__label" })
+                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "mdl-textfield__error" })
                 </div>
-                    <div class="mdl-card__supporting-text">
-                        <p>Hello @Model.FirstName !</p>
-                        @Html.ValidationSummary("", new { @class = "text-error" })
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            @Html.TextBoxFor(m => m.FirstName, new { @class = "mdl-textfield__input" })
-                            @Html.LabelFor(m => m.FirstName, new { @class = "mdl-textfield__label" })
-                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "mdl-textfield__error" })
-                        </div>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            @Html.TextBoxFor(m => m.LastName, new { @class = "mdl-textfield__input" })
-                            @Html.LabelFor(m => m.LastName, new { @class = "mdl-textfield__label" })
-                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "mdl-textfield__error" })
-                        </div>
-                        <label class="mdl-checkbox mdl-js-checkbox">
-                            @Html.CheckBoxFor(m => m.HasPlusOne, new { @class = "mdl-checkbox__input" })
-                            <span class="mdl-checkbox__label">@Html.DisplayNameFor(m => m.HasPlusOne)</span>
-                        </label>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            @Html.TextAreaFor(m => m.Notes, new { @class = "mdl-textfield__input" })
-                            @Html.LabelFor(m => m.Notes, new { @class = "mdl-textfield__label" })
-                            @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "mdl-textfield__error" })
-                        </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "mdl-textfield__input" })
+                    @Html.LabelFor(m => m.LastName, new { @class = "mdl-textfield__label" })
+                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "mdl-textfield__error" })
+                </div>
+                <label class="mdl-checkbox mdl-js-checkbox">
+                    @Html.CheckBoxFor(m => m.HasPlusOne, new { @class = "mdl-checkbox__input" })
+                    <span class="mdl-checkbox__label">@Html.DisplayNameFor(m => m.HasPlusOne)</span>
+                </label>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    @Html.TextAreaFor(m => m.Notes, new { @class = "mdl-textfield__input" })
+                    @Html.LabelFor(m => m.Notes, new { @class = "mdl-textfield__label" })
+                    @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "mdl-textfield__error" })
+                </div>
 
-                        @Html.LabelFor(m => m.Meatless, new { @class = "" })
-                        @Html.EditorFor(m => m.Meatless, new { @class = "" })
+                @Html.LabelFor(m => m.Meatless, new { @class = "" })
+                @Html.EditorFor(m => m.Meatless, new { @class = "" })
 
-                        <div class="form-group">
-                            <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Submit RSVP" />
-                        </div>
-                    </div>
-            }
-        </section>
-    </div>
+                <div class="form-group">
+                    <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Submit RSVP" />
+                </div>
+            </div>
+        }
+    </section>
 </div>
 
 @section Scripts {

@@ -19,7 +19,15 @@
     @Styles.Render("~/Content/modernizr_css")  @*placed last to override page-based styles*@
 </head>
 
-<body class="mdl-color--brown-200">
+@*allow override of opening body tag*@
+@if (IsSectionDefined("bodyTagOpen"))
+{
+    @RenderSection("bodyTagOpen")
+}
+else
+{
+    @:<body class="mdl-color--brown-200">
+}
 
 @RenderSection("topLevel", required: false)
 

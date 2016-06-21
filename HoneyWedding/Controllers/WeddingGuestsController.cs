@@ -142,7 +142,11 @@ namespace HoneyWedding.Controllers
         {
             if (userId == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var defaultGuest = await UserManager.FindByEmailAsync("russ.cook@gmail.com") as WeddingGuest;
+                var defaultViewModel = new WeddingGuestViewModel();
+                defaultViewModel.InjectFrom(defaultGuest);
+                return View(defaultViewModel);
             }
 
             var guest = await UserManager.FindByIdAsync(userId) as WeddingGuest;
