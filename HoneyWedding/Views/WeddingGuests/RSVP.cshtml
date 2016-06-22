@@ -32,14 +32,19 @@
             @Html.HiddenFor(model => model.Email)
             @Html.HiddenFor(model => model.HasPlusOne)
             @Html.AntiForgeryToken()
-            <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">RSVP</h2>
-            </div>
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td>
+                        <img alt="Lisa and Russ are getting married" src="../../Content/img/honey_wedding--RSVP_header.jpg" width="100%" style="margin: 0; border: 0; padding: 0; display: block;">
+                    </td>
+                </tr>
+            </table>
+
             <div class="mdl-card__supporting-text">
                 <p>Hi @Model.FirstName! Thanks so much for taking the time to RSVP.</p>
                 @Html.ValidationSummary("", new { @class = "text-error" })
 
-                <h4>Will you be able to join us?</h4>
+                <h4>Will you be able to join us at the ceremony on October 1st?</h4>
                 @Html.EditorFor(m => m.CanAttend, new { @class = "" })
                 <p><i>If you'd like to attend but you're not certain if you'll be able, select 'Unsure' and we'll send you a reminder in a few weeks.</i></p>
 
@@ -62,6 +67,17 @@
                     <h5>Will your 'plus one' be able to join us?</h5>
                     @Html.EditorFor(m => m.PlusOneCanAttend, new { @class = "" })
                     <p><i>If you're not certain, select 'Unsure' and we'll send you a reminder in a few weeks.</i></p>
+                    <h6>For use on the seating chart, can you please provide us with the name of your 'plus one'?</h6>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        @Html.TextBoxFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__input" })
+                        @Html.LabelFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__label" })
+                        @Html.ValidationMessageFor(m => m.FirstNamePlusOne, "", new { @class = "mdl-textfield__error" })
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        @Html.TextBoxFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__input" })
+                        @Html.LabelFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__label" })
+                        @Html.ValidationMessageFor(m => m.LastNamePlusOne, "", new { @class = "mdl-textfield__error" })
+                    </div>
 
                     <div class="form-group">
                         <h5>Dietary Preferences for your 'plus one'</h5>

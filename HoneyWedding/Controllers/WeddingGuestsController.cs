@@ -118,7 +118,7 @@ namespace HoneyWedding.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new WeddingGuestViewModel();
+            var viewModel = new InviteWeddingGuestViewModel();
             viewModel.InjectFrom(guest);
 
             return View(viewModel);
@@ -126,14 +126,15 @@ namespace HoneyWedding.Controllers
 
         [HttpPost]
         [Authorize(Roles = "WeddingAdmin")]
-        public async Task<ActionResult> Edit(WeddingGuestViewModel model)
+        public async Task<ActionResult> Edit(InviteWeddingGuestViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var guest = await _unitOfWork.WeddingGuestRepository.GetByIDAsync(model.Id);
                 guest.InjectFrom(model);
                 await _unitOfWork.SaveAsync();
-                return RedirectToAction("RSVPConfirmation", new { id = model.Id });
+                Success("Wedding Guest was updated successfully.", true);
+                return RedirectToAction("Index", new { id = model.Id });
             }
             return View(model);
         }

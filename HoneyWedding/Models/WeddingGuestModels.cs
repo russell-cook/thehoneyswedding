@@ -9,33 +9,46 @@ namespace HoneyWedding.Models
     public class WeddingGuest : ApplicationUser
     {
         public DateTime? InviteDate { get; set; }
-        public bool? CanAttend { get; set; }
         [UIHint("BooleanYesNoUnknown")]
+        public bool? CanAttend { get; set; }
+        [UIHint("BooleanYesNo")]
         public bool DidRsvp { get; set; }
         [Display(Name = "RSVP Date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd}")]
         public DateTime? RsvpDate { get; set; }
         public bool UpdatedRsvp { get; set; }
         public DateTime? UpdatedRsvpDate { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
+        [UIHint("BooleanYesNo")]
         public bool HasPlusOne { get; set; }
         [UIHint("BooleanYesNoUnknown")]
         public bool? PlusOneCanAtend { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
+        [DataType(DataType.MultilineText)]
+        public string InviteMessage { get; set; }
 
         // dietary prefs
-        [UIHint("BooleanYesNoUnknown")]
-        public bool Meatless { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool Vegan { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool NoGluten { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? Meatless { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? Vegan { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? NoGluten { get; set; }
+        [DataType(DataType.MultilineText)]
         public string DietaryNotes { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool MeatlessPlusOne { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool VeganPlusOne { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool NoGlutenPlusOne { get; set; }
+
+        // plus one prefs
+        [Display(Name = "First Name")]
+        public string FirstNamePlusOne { get; set; }
+        [Display(Name = "Last Name")]
+        public string LastNamePlusOne { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? MeatlessPlusOne { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? VeganPlusOne { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? NoGlutenPlusOne { get; set; }
+        [DataType(DataType.MultilineText)]
         public string DietaryNotesPlusOne { get; set; }
 
     }
@@ -62,7 +75,7 @@ namespace HoneyWedding.Models
         [UIHint("BooleanYesNoUnknown")]
         public bool? CanAttend { get; set; }
         [Display(Name = "Plus one?")]
-        [UIHint("BooleanYesNoUnknown")]
+        [UIHint("BooleanYesNo")]
         public bool HasPlusOne { get; set; }
         [Display(Name = "Plus one can attend")]
         [UIHint("BooleanYesNoUnknown")]
@@ -71,19 +84,27 @@ namespace HoneyWedding.Models
         public string Notes { get; set; }
 
         // dietary prefs
-        [UIHint("BooleanYesNoUnknown")]
-        public bool Meatless { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool Vegan { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool NoGluten { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? Meatless { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? Vegan { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? NoGluten { get; set; }
+        [DataType(DataType.MultilineText)]
         public string DietaryNotes { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool MeatlessPlusOne { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool VeganPlusOne { get; set; }
-        [UIHint("BooleanYesNoUnknown")]
-        public bool NoGlutenPlusOne { get; set; }
+
+        // plus one prefs
+        [Display(Name = "First Name")]
+        public string FirstNamePlusOne { get; set; }
+        [Display(Name = "Last Name")]
+        public string LastNamePlusOne { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? MeatlessPlusOne { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? VeganPlusOne { get; set; }
+        [UIHint("BooleanYesNo")]
+        public bool? NoGlutenPlusOne { get; set; }
+        [DataType(DataType.MultilineText)]
         public string DietaryNotesPlusOne { get; set; }
     }
 
@@ -114,7 +135,5 @@ namespace HoneyWedding.Models
         public string Notes { get; set; }
 
     }
-
-
 
 }

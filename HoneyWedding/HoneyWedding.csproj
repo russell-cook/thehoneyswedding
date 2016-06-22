@@ -215,6 +215,7 @@
     <Content Include="Content\img\ourstory\RussWesFirstDayOfSchool.jpeg" />
     <Content Include="Content\img\russ_bike_chase.png" />
     <Content Include="Content\img\russ_chase.png" />
+    <Content Include="Content\img\honey_wedding--RSVP_header.jpg" />
     <Content Include="Scripts\fastdom\fastdom-strict.js" />
     <Content Include="Scripts\fastdom\fastdom.js" />
     <Content Include="Scripts\fastdom\fastdom.min.js" />
@@ -487,6 +488,8 @@
     <Content Include="Views\WeddingGuests\RSVPConfirmation.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\BooleanYesNoUnknown.cshtml" />
     <Content Include="Views\WeddingGuests\Edit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\BooleanYesNo.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\BooleanYesNo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -622,6 +625,10 @@
     <Compile Include="Migrations\201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.Designer.cs">
       <DependentUpon>201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606222237353_AddFirstLastNameToPlusOne.cs" />
+    <Compile Include="Migrations\201606222237353_AddFirstLastNameToPlusOne.Designer.cs">
+      <DependentUpon>201606222237353_AddFirstLastNameToPlusOne.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -703,6 +710,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.resx">
       <DependentUpon>201606142308373_RefineDietaryPrefsFieldsForWeddingGuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606222237353_AddFirstLastNameToPlusOne.resx">
+      <DependentUpon>201606222237353_AddFirstLastNameToPlusOne.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

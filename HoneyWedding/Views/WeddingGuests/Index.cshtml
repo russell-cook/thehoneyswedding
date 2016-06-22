@@ -27,6 +27,7 @@
                 @Html.DisplayNameFor(model => model.FirstOrDefault().CanAttend)
             </th>
             <th></th>
+            <th></th>
             </thead>
 
             @foreach (var item in Model)
@@ -48,9 +49,28 @@
                         @Html.DisplayFor(modelItem => item.CanAttend)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { userId = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { userId = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { userId = item.Id })
+                        <i class="material-icons mdl-color-text--accent" id="info_@item.Id">info</i>
+                        <span class="mdl-tooltip mdl-tooltip--large mdl-tooltip--left" for="info_@item.Id">
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().PhoneNumber): @Html.DisplayFor(model => item.PhoneNumber)<br /><br />
+
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().DidRsvp): @Html.DisplayFor(model => item.DidRsvp)<br />
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().RsvpDate): @Html.DisplayFor(model => item.RsvpDate)<br />
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().CanAttend): @Html.DisplayFor(model => item.CanAttend)<br />
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().HasPlusOne): @Html.DisplayFor(model => item.HasPlusOne)<br />
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().PlusOneCanAtend): @Html.DisplayFor(model => item.PlusOneCanAtend)<br /><br />
+
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().Meatless): @Html.DisplayFor(model => item.Meatless)<br />
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().Vegan): @Html.DisplayFor(model => item.Vegan)<br />
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().DietaryNotes): @Html.DisplayFor(model => item.DietaryNotes)<br /><br />
+
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().MeatlessPlusOne): @Html.DisplayFor(model => item.MeatlessPlusOne)<br />
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().VeganPlusOne): @Html.DisplayFor(model => item.VeganPlusOne)<br />
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().DietaryNotesPlusOne): @Html.DisplayFor(model => item.DietaryNotesPlusOne)<br /><br />
+
+                        </span>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { userId = item.Id }) 
                     </td>
                 </tr>
             }

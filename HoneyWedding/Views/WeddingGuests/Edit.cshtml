@@ -1,19 +1,17 @@
-﻿@model HoneyWedding.Models.WeddingGuest
+﻿@model HoneyWedding.Models.InviteWeddingGuestViewModel
 @{
-    ViewBag.Title = "RSVP";
+    ViewBag.Title = "Edit Wedding Guest";
 }
 
 <section id="editWeddingGuestForm">
 
-    @using (Html.BeginForm("RSVP", "WeddingGuests", FormMethod.Post, new { @class = "mdl-card", role = "form" }))
+    @using (Html.BeginForm("Edit", "WeddingGuests", FormMethod.Post, new { @class = "mdl-card mdl-card__page-small", role = "form" }))
     {
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.HasPlusOne)
         @Html.AntiForgeryToken()
-        <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">You're Invited!</h2>
-        </div>
+        <h4>Edit Wedding Guest</h4>
         <div class="mdl-card__supporting-text">
-            <p>Hello @Model.FirstName !</p>
             @Html.ValidationSummary("", new { @class = "text-error" })
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 @Html.TextBoxFor(m => m.FirstName, new { @class = "mdl-textfield__input" })
@@ -35,22 +33,14 @@
                 @Html.LabelFor(m => m.PhoneNumber, new { @class = "mdl-textfield__label" })
                 @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "mdl-textfield__error" })
             </div>
-            <label class="mdl-checkbox mdl-js-checkbox">
-                @Html.CheckBoxFor(m => m.HasPlusOne, new { @class = "mdl-checkbox__input" })
-                <span class="mdl-checkbox__label">@Html.DisplayNameFor(m => m.HasPlusOne)</span>
-            </label>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 @Html.TextAreaFor(m => m.Notes, new { @class = "mdl-textfield__input" })
                 @Html.LabelFor(m => m.Notes, new { @class = "mdl-textfield__label" })
                 @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "mdl-textfield__error" })
             </div>
 
-            @Html.LabelFor(m => m.NoMeat, new { @class = "" })
-            @Html.EditorFor(m => m.NoMeat, new { @class = "" })
-
-            <div class="form-group">
-                <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Save Changes" />
-            </div>
+            @Html.ActionLink("Back to List", "Index", "WeddingGuests")
+            <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Save Changes" />
         </div>
     }
 </section>
