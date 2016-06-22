@@ -6,6 +6,18 @@ textarea {
     max-width: 280px;
 }
 
+select {
+    font-size: 18px;
+        color: rgba(0, 0, 0, 0.54);
+}
+
+.form-group {
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    border-radius: 2px;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
 /* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;

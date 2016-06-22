@@ -105,6 +105,7 @@ a.mdl-layout__tab:hover {
     max-width: 736px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 16px;
 }
 
 .mdl-card__small-form {
@@ -252,3 +253,11 @@ a.mdl-layout__tab:hover {
     }
 
 }
+
+@media screen and (max-width: 767px) {
+    .mdl-card__page-small {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+

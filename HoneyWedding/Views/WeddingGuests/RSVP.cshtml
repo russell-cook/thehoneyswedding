@@ -6,46 +6,79 @@
     <body class="mdl-color--indigo-100">
 }
 
-<div class="mdl-card mdl-card__page-small mdl-color--indigo-50 mdl-shadow--2dp">
+<style>
+    h4, h5, h6 {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    select {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+
+</style>
+
+<div class="mdl-card mdl-card__page-small mdl-shadow--2dp">
 
     <section id="rsvpForm">
 
         @using (Html.BeginForm("RSVP", "WeddingGuests", FormMethod.Post, new { @class = "", role = "form" }))
         {
             @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.FirstName)
+            @Html.HiddenFor(model => model.LastName)
+            @Html.HiddenFor(model => model.Email)
+            @Html.HiddenFor(model => model.HasPlusOne)
             @Html.AntiForgeryToken()
             <div class="mdl-card__title">
                 <h2 class="mdl-card__title-text">RSVP</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                <p>Hello @Model.FirstName !</p>
+                <p>Hi @Model.FirstName! Thanks so much for taking the time to RSVP.</p>
                 @Html.ValidationSummary("", new { @class = "text-error" })
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    @Html.TextBoxFor(m => m.FirstName, new { @class = "mdl-textfield__input" })
-                    @Html.LabelFor(m => m.FirstName, new { @class = "mdl-textfield__label" })
-                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "mdl-textfield__error" })
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    @Html.TextBoxFor(m => m.LastName, new { @class = "mdl-textfield__input" })
-                    @Html.LabelFor(m => m.LastName, new { @class = "mdl-textfield__label" })
-                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "mdl-textfield__error" })
-                </div>
-                <label class="mdl-checkbox mdl-js-checkbox">
-                    @Html.CheckBoxFor(m => m.HasPlusOne, new { @class = "mdl-checkbox__input" })
-                    <span class="mdl-checkbox__label">@Html.DisplayNameFor(m => m.HasPlusOne)</span>
-                </label>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    @Html.TextAreaFor(m => m.Notes, new { @class = "mdl-textfield__input" })
-                    @Html.LabelFor(m => m.Notes, new { @class = "mdl-textfield__label" })
-                    @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "mdl-textfield__error" })
-                </div>
 
-                @Html.LabelFor(m => m.Meatless, new { @class = "" })
-                @Html.EditorFor(m => m.Meatless, new { @class = "" })
+                <h4>Will you be able to join us?</h4>
+                @Html.EditorFor(m => m.CanAttend, new { @class = "" })
+                <p><i>If you'd like to attend but you're not certain if you'll be able, select 'Unsure' and we'll send you a reminder in a few weeks.</i></p>
 
                 <div class="form-group">
-                    <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Submit RSVP" />
+                    <h5>Dietary Preferences</h5>
+                    <p><i>It's important to us that we accommodate the dietary needs of our guests. The menu may contain gluten items like bread and crackers, but these will be obvious and easy to avoid if desired.</i></p>
+                    <h6>Would you like a meatless meal option?</h6>
+                    @Html.EditorFor(m => m.Meatless, new { @class = "" })
+
+                    <h6>Would you like a vegan meal option?</h6>
+                    @Html.EditorFor(m => m.Vegan, new { @class = "" })
+
+                    <h6>Do you have any special dietary needs not accommodated by the questions above?</h6>
+                    @Html.EditorFor(m => m.DietaryNotes, new { @class = "" })
                 </div>
+
+                @if (Model.HasPlusOne)
+                {
+                    <br /><br />
+                    <h5>Will your 'plus one' be able to join us?</h5>
+                    @Html.EditorFor(m => m.PlusOneCanAttend, new { @class = "" })
+                    <p><i>If you're not certain, select 'Unsure' and we'll send you a reminder in a few weeks.</i></p>
+
+                    <div class="form-group">
+                        <h5>Dietary Preferences for your 'plus one'</h5>
+                        <h6>Would your 'plus one' like a meatless meal option?</h6>
+                        @Html.EditorFor(m => m.MeatlessPlusOne, new { @class = "" })
+
+                        <h6>Would your 'plus one' like a vegan meal option?</h6>
+                        @Html.EditorFor(m => m.VeganPlusOne, new { @class = "" })
+
+                        <h6>Does your 'plus one' have any special dietary needs not accommodated by the questions above?</h6>
+                        @Html.EditorFor(m => m.DietaryNotesPlusOne, new { @class = "" })
+                    </div>
+
+                }
+
+
+                <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Submit RSVP" />
             </div>
         }
     </section>
