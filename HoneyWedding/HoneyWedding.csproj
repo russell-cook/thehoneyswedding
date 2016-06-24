@@ -174,6 +174,7 @@
     <Content Include="Content\img\accommodations\gorgeous_mountain_escape.jpg" />
     <Content Include="Content\img\accommodations\lucindas.jpg" />
     <Content Include="Content\img\accommodations\mountain_cabin.jpg" />
+    <Content Include="Content\img\accommodations\Perry_Creek_Cottage.jpg" />
     <Content Include="Content\img\accommodations\rest_hotel.jpg" />
     <Content Include="Content\img\accommodations\saluti.jpg" />
     <Content Include="Content\img\accommodations\perry_creek_suite.jpg" />
@@ -181,6 +182,7 @@
     <Content Include="Content\img\accommodations\tall_pines.jpg" />
     <Content Include="Content\img\accommodations\toogood_crush_pad.jpg" />
     <Content Include="Content\img\accommodations\toogood_yellow_house.jpg" />
+    <Content Include="Content\img\accommodations\Whistler_Cottage.jpg" />
     <Content Include="Content\img\accommodations\wild_bird_ranch.jpg" />
     <Content Include="Content\img\accommodations\wine_country_cabin.jpg" />
     <Content Include="Content\img\accommodations\wine_country_studio.jpg" />
