@@ -65,12 +65,17 @@ namespace HoneyWedding.Controllers
             return View();
         }
 
-        public ActionResult Things_To_Do()
+        public ActionResult ThingsToDo()
         {
             return View();
         }
 
         public ActionResult Venue()
+        {
+            return View();
+        }
+
+        public ActionResult PlanYourTrip()
         {
             return View();
         }

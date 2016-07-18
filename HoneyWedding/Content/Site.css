@@ -106,7 +106,7 @@ a.mdl-layout__tab:hover {
     max-width: 736px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 .mdl-card__small-form {
@@ -183,13 +183,18 @@ a.mdl-layout__tab:hover {
 
 .table-list td {
     padding-bottom: 8px;
+    vertical-align: top;
+}
+
+.table-list td:nth-of-type(1) {
+    max-width: 250px;
 }
 
 .table-list--term {
     font-weight: 700;
     float: right;
     text-align: right;
-    margin-right: 10px;
+    padding-right: 10px;
 }
 
 .table-list--term:after {
@@ -260,5 +265,10 @@ a.mdl-layout__tab:hover {
         margin-left: 16px;
         margin-right: 16px;
     }
+
+    .table-list td:nth-of-type(1) {
+        max-width: 180px;
+    }
+
 }
 

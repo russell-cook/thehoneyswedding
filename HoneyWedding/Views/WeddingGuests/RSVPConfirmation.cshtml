@@ -1,1 +1,126 @@
-﻿Yo!
+﻿@model HoneyWedding.Models.WeddingGuestViewModel
+@{
+    ViewBag.Title = "RSVP Confirmation";
+}
+@section bodyTagOpen {
+    <body class="mdl-color--indigo-100">
+}
+
+<style>
+    table {
+        /*font-size: 0.9em;*/
+    }
+
+    h3, h4, h5, h6 {
+        /*margin-top: 8px;
+        margin-bottom: 8px;*/
+        color: rgb(57, 73, 171);
+    }
+
+
+    .table-list {
+        width: auto;
+    }
+</style>
+<div class="mdl-card mdl-card__page-small mdl-shadow--2dp">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td>
+                <img alt="RSVP" src="../../Content/img/honey_wedding--RSVPConfirmation_header.jpg" width="100%" style="margin: 0; border: 0; padding: 0; display: block;">
+            </td>
+        </tr>
+    </table>
+
+    <div class="mdl-card__supporting-text">
+
+        <h4>Thanks @Model.FirstName, @(ViewBag.UpdatedRsvp == true ? "we've received your updated RSVP info!" : "" )</h4>
+        <h6>
+            @(Model.CanAttend == true ? "We're so glad you'll be able to join us" : "")@(Model.CanAttend == true && Model.PlusOneIsKnown && Model.PlusOneCanAtend == false ? string.Format(", but we're sorry {0} won't be able to make it.", Model.FirstNamePlusOne) : ".")
+            @(Model.CanAttend == false ? "We're sorry you won't be able to join us." : "")
+            @(Model.CanAttend == null ? "We hope you'll be able to join us! We'll hold your spot for now, but we'd appreciate an update as soon as possible." : "")
+            You should receive an email momentarily confirming the following @(ViewBag.UpdatedRsvp == true ? "updates" : "information" ):
+        </h6>
+
+        <table class="table-list" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="table-list--term">Can you attend?</td>
+                <td>@Html.DisplayFor(model => model.CanAttend)</td>
+            </tr>
+            @if (Model.CanAttend == true)
+            {
+                <tr>
+                    <td class="table-list--term">Would you like a meatless option?</td>
+                    <td>@Html.DisplayFor(model => model.Meatless)</td>
+                </tr>
+                <tr>
+                    <td class="table-list--term">Would you like a vegan option?</td>
+                    <td>@Html.DisplayFor(model => model.Vegan)</td>
+                </tr>
+                <tr>
+                    <td class="table-list--term">Dietary needs</td>
+                    <td>@Html.DisplayFor(model => model.DietaryNotes)</td>
+                </tr>
+            }
+            @if (Model.CanAttend == true && Model.HasPlusOne)
+            {
+                <tr>
+                    <td class="table-list--term">Can @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") attend?</td>
+                    <td>@Html.DisplayFor(model => model.PlusOneCanAtend)</td>
+                </tr>
+                if (Model.PlusOneCanAtend == true)
+                {
+                    if (!Model.PlusOneIsKnown)
+                    {
+                        <tr>
+                            <td class="table-list--term">Name of your 'plus one'</td>
+                            <td>@Model.FirstNamePlusOne @Model.LastNamePlusOne</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td class="table-list--term">Would @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") like a meatless option?</td>
+                        <td>@Html.DisplayFor(model => model.MeatlessPlusOne)</td>
+                    </tr>
+                    <tr>
+                        <td class="table-list--term">Would @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") like a vegan option?</td>
+                        <td>@Html.DisplayFor(model => model.VeganPlusOne)</td>
+                    </tr>
+                    <tr>
+                        <td class="table-list--term">Dietary needs for @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'")</td>
+                        <td>@Html.DisplayFor(model => model.DietaryNotesPlusOne)</td>
+                    </tr>
+                }
+            }
+        </table>
+
+        <p>
+            @(Model.CanAttend == true || Model.CanAttend == null ? "If this information is incorrect, or if you need to change your responses in the future, you can use the link we've provided in your confirmation email." : "")
+            @if(Model.CanAttend == null || (Model.CanAttend == true && Model.HasPlusOne == true && Model.PlusOneCanAtend == null))
+            {
+                <text>We'll send you a reminder in a few weeks about @(Model.CanAttend == null ? "your" : "")@(Model.CanAttend == true && Model.HasPlusOne == true && Model.PlusOneCanAtend == null && !Model.PlusOneIsKnown ? "your plus one's" : "")@(Model.CanAttend == true && Model.HasPlusOne == true && Model.PlusOneCanAtend == null && Model.PlusOneIsKnown ? string.Format("{0}'s", Model.FirstNamePlusOne) : "") RSVP status.</text>
+            }
+            @(Model.CanAttend == false ? "If your plans change please email Lisa and Russ as soon as possible (our addresses are included in the confirmation email), and we'll do our best to accommodate you!" : "")
+        </p>
+
+        @if (Model.CanAttend != false)
+        {
+            <hr />
+            <h5>Please take a few moments to browse our wedding website!</h5>
+            <p>Not only can you learn more about @Html.ActionLink("our story", "Index", "Home", null, null, "ourStory", null, null), but we've also collected a lot of information to help you @Html.ActionLink("plan your trip", "PlanYourTrip", "Home").</p>
+            <p>Fair Play is a small town with limited accommodations, so we recommend checking out our @Html.ActionLink("accommodations page", "Accommodations", "Home") for a list of options.</p>
+            <p>We'd also like to invite you to explore the wonderful wines made at @Html.ActionLink("our wedding venue", "Venue", "Home"), as well as our other @Html.ActionLink("favorite wineries in Fair Play", "Wineries", "Home"). Collectively we think they make some of the finest wines in California. </p>
+        }
+
+        <strong>-The Honeys</strong>
+
+    </div>
+
+    @if (Model.CanAttend != false)
+    {
+        <div class="mdl-card__actions mdl-card--border">
+            @Html.ActionLink("Home Page", "Index", "Home", null, new { @class = "mdl-button mdl-js-button mdl-button--raised mdl-color--green-400 mdl-color-text--accent-contrast" })
+            @Html.ActionLink("Plan Your Trip", "PlanYourTrip", "Home", null, new { @class = "mdl-button mdl-js-button mdl-button--raised mdl-color--green-400 mdl-color-text--accent-contrast" })
+        </div>
+    }
+
+</div>

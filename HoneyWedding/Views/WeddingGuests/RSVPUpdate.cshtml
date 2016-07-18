@@ -1,0 +1,182 @@
+﻿@model HoneyWedding.Models.WeddingGuestViewModel
+@{
+    ViewBag.Title = "Update RSVP Info";
+}
+@section bodyTagOpen {
+    <body class="mdl-color--indigo-100">
+}
+
+<style>
+    h4, h5, h6 {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        /*font-weight: 700;*/
+        color: rgb(57, 73, 171);
+    }
+
+    select {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .form-disabled {
+        opacity: 0.3;
+    }
+
+    .form-hidden {
+        display: none;
+    }
+</style>
+
+<div class="mdl-card mdl-card__page-small mdl-shadow--2dp">
+
+    <section id="rsvpForm">
+
+        @using (Html.BeginForm("RSVPUpdate", "WeddingGuests", FormMethod.Post, new { @class = "", role = "form" }))
+        {
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.FirstName)
+            @Html.HiddenFor(model => model.LastName)
+            @Html.HiddenFor(model => model.Email)
+            @Html.HiddenFor(model => model.HasPlusOne)
+            @Html.HiddenFor(model => model.PlusOneIsKnown)
+            @Html.HiddenFor(model => model.DidRsvp)
+            @Html.AntiForgeryToken()
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td>
+                        <img alt="RSVP" src="../../Content/img/honey_wedding--RSVP_header.jpg" width="100%" style="margin: 0; border: 0; padding: 0; display: block;">
+                    </td>
+                </tr>
+            </table>
+
+            <div class="mdl-card__supporting-text">
+                @Html.ValidationSummary("", new { @class = "text-error" })
+
+                <h4>Hi @Model.FirstName! We've already received your RSVP, but you can use the form below to update the information you provided.</h4>
+                <h4>Will you be able to join us at our ceremony on October 1st?</h4>
+                @Html.EditorFor(m => m.CanAttend, new { @class = "" })
+                <p>If you'd like to attend but you're not certain if you'll be able, select 'Unsure' and we'll send you a reminder in a few weeks.</p>
+
+                <div class="form-group form-hidden" id="DietaryPrefs">
+                    <h5>Dietary Preferences</h5>
+                    <p>It's important to us that we accommodate the dietary needs of our guests. The menu may contain gluten items like bread and crackers, but these will be obvious and easy to avoid if desired.</p>
+                    <h6>Would you like a meatless meal option?</h6>
+                    @Html.EditorFor(m => m.Meatless, new { @class = "" })
+
+                    <h6>Would you like a vegan meal option?</h6>
+                    @Html.EditorFor(m => m.Vegan, new { @class = "" })
+
+                    <h6>Do you have any special dietary needs not accommodated by the questions above?</h6>
+                    @Html.EditorFor(m => m.DietaryNotes, new { @class = "" })
+                </div>
+
+                @if (Model.HasPlusOne)
+                {
+                    <div class="form-disabled" id="PlusOneResponse">
+                        <div class="form-hidden" id="HorizontalSeparator">
+                            <br />
+                            <hr />
+                            <br />
+                        </div>
+                        <h4>Will @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") be able to join us?</h4>
+                        @Html.EditorFor(m => m.PlusOneCanAtend, new { @class = "" })
+                        <p>If you're not certain, select 'Unsure' and we'll send you a reminder in a few weeks.</p>
+                        @if (!Model.PlusOneIsKnown)
+                        {
+                            <h6>For use on the seating chart, please provide us with the name of your 'plus one':</h6>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                @Html.TextBoxFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__input" })
+                                @Html.LabelFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__label" })
+                                @Html.ValidationMessageFor(m => m.FirstNamePlusOne, "", new { @class = "mdl-textfield__error" })
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                @Html.TextBoxFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__input" })
+                                @Html.LabelFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__label" })
+                                @Html.ValidationMessageFor(m => m.LastNamePlusOne, "", new { @class = "mdl-textfield__error" })
+                            </div>
+                            <p><strong>NOTE: </strong>If you're not sure who you're bringing but you want to reserve the 'plus one' anyway, just leave the name blank and we'll send you a reminder later.</p>
+                        }
+                        else
+                        {
+                            @Html.HiddenFor(model => model.FirstNamePlusOne)
+                            @Html.HiddenFor(model => model.LastNamePlusOne)
+                        }
+                    </div>
+
+                    <div class="form-group form-hidden" id="PlusOneDietaryPrefs">
+                        <h5>Dietary Preferences for @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'")</h5>
+
+                        <h6>Would @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") like a meatless meal option?</h6>
+                        @Html.EditorFor(m => m.MeatlessPlusOne, new { @class = "" })
+
+                        <h6>Would @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") like a vegan meal option?</h6>
+                        @Html.EditorFor(m => m.VeganPlusOne, new { @class = "" })
+
+                        <h6>Does @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") have any special dietary needs not accommodated by the questions above?</h6>
+                        @Html.EditorFor(m => m.DietaryNotesPlusOne, new { @class = "" })
+                    </div>
+
+                }
+
+
+                <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-color--green-400 mdl-color-text--accent-contrast" value="Update RSVP" />
+            </div>
+        }
+    </section>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        function handleCanAttend() {
+            var value = $("#CanAttend").val();
+            if (value == "true") {
+                $("#DietaryPrefs").removeClass("form-hidden");
+                $("#HorizontalSeparator").removeClass("form-hidden");
+                $("#PlusOneResponse").removeClass("form-disabled");
+                $("#PlusOneCanAtend").prop("disabled", false);
+            }
+            else {
+                $("#DietaryPrefs").addClass("form-hidden");
+                $("#HorizontalSeparator").addClass("form-hidden");
+                $("#PlusOneResponse").addClass("form-disabled");
+                $("#PlusOneCanAtend").prop("disabled", true);
+            }
+        }
+
+        function handlePlusOneCanAtend() {
+            var value = $("#PlusOneCanAtend").val();
+            if (value == "true") {
+                $("#PlusOneDietaryPrefs").removeClass("form-hidden");
+            }
+            else {
+                $("#PlusOneDietaryPrefs").addClass("form-hidden");
+            }
+        }
+
+    </script>
+}
+
+
+<script>
+    @section scriptWindowLoad {
+
+    $("#CanAttend").change(function () {
+        handleCanAttend();
+    });
+
+    $("#PlusOneCanAtend").change(function () {
+        handlePlusOneCanAtend();
+    });
+
+    if ($("#CanAttend").val() != "true") {
+        $("#PlusOneCanAtend").prop("disabled", true);
+    }
+
+    handleCanAttend();
+    handlePlusOneCanAtend();
+
+    }
+</script>

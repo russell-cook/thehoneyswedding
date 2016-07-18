@@ -38,6 +38,7 @@ namespace HoneyWedding.Models
         public string DietaryNotes { get; set; }
 
         // plus one prefs
+        public bool PlusOneIsKnown { get; set; }
         [Display(Name = "First Name")]
         public string FirstNamePlusOne { get; set; }
         [Display(Name = "Last Name")]
@@ -79,7 +80,7 @@ namespace HoneyWedding.Models
         public bool HasPlusOne { get; set; }
         [Display(Name = "Plus one can attend")]
         [UIHint("BooleanYesNoUnknown")]
-        public bool? PlusOneCanAttend { get; set; }
+        public bool? PlusOneCanAtend { get; set; }
         [Display(Name = "Notes...")]
         public string Notes { get; set; }
 
@@ -94,6 +95,7 @@ namespace HoneyWedding.Models
         public string DietaryNotes { get; set; }
 
         // plus one prefs
+        public bool PlusOneIsKnown { get; set; }
         [Display(Name = "First Name")]
         public string FirstNamePlusOne { get; set; }
         [Display(Name = "Last Name")]
@@ -129,8 +131,14 @@ namespace HoneyWedding.Models
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Plus one?")]
-        [UIHint("BooleanYesNoUnknown")]
         public bool HasPlusOne { get; set; }
+        [Display(Name = "Do we know who the Plus One is?")]
+        public bool PlusOneIsKnown { get; set; }
+        [Display(Name = "Plus One First Name")]
+        public string FirstNamePlusOne { get; set; }
+        [Display(Name = "Plus One Last Name")]
+        public string LastNamePlusOne { get; set; }
+
         [Display(Name = "Notes...")]
         public string Notes { get; set; }
 

@@ -38,6 +38,20 @@
                 @Html.CheckBoxFor(m => m.HasPlusOne, new { @class = "mdl-checkbox__input" })
                 <span class="mdl-checkbox__label">@Html.DisplayNameFor(m => m.HasPlusOne)</span>
             </label>
+            <label class="mdl-checkbox mdl-js-checkbox">
+                @Html.CheckBoxFor(m => m.PlusOneIsKnown, new { @class = "mdl-checkbox__input" })
+                <span class="mdl-checkbox__label">@Html.DisplayNameFor(m => m.PlusOneIsKnown)</span>
+            </label>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                @Html.TextBoxFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__input" })
+                @Html.LabelFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__label" })
+                @Html.ValidationMessageFor(m => m.FirstNamePlusOne, "", new { @class = "mdl-textfield__error" })
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                @Html.TextBoxFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__input" })
+                @Html.LabelFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__label" })
+                @Html.ValidationMessageFor(m => m.LastNamePlusOne, "", new { @class = "mdl-textfield__error" })
+            </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 @Html.TextAreaFor(m => m.Notes, new { @class = "mdl-textfield__input" })
                 @Html.LabelFor(m => m.Notes, new { @class = "mdl-textfield__label" })

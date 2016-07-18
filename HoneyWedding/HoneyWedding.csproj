@@ -190,25 +190,29 @@
     <Content Include="Content\img\honeys_in_peach_tree.jpg" />
     <Content Include="Content\img\honeys_with_fish.jpg" />
     <Content Include="Content\img\honey_wedding--home_page_overlay.png" />
+    <Content Include="Content\img\honey_wedding--RSVPConfirmation_header.jpg" />
     <Content Include="Content\img\invite_header.jpg" />
     <Content Include="Content\img\lisa_bike_chase.png" />
     <Content Include="Content\img\lisa_bike_chase_alt.png" />
     <Content Include="Content\img\lisa_chase.png" />
-    <Content Include="Content\img\ourstory\Lisa21stPassedOut.jpeg" />
+    <Content Include="Content\img\ourstory\ArnyRichardVickiOnCouch.jpg" />
+    <Content Include="Content\img\ourstory\HassFamilyHawaiiCruise.jpeg" />
     <Content Include="Content\img\ourstory\Lisa21stYardOfBeer.jpeg" />
     <Content Include="Content\img\ourstory\LisaBaby.jpg" />
+    <Content Include="Content\img\ourstory\LisaBananas.jpeg" />
     <Content Include="Content\img\ourstory\LisaBirthdayCake.jpeg" />
     <Content Include="Content\img\ourstory\LisaCarlieRamonGondola.jpeg" />
     <Content Include="Content\img\ourstory\LisaChair.jpeg" />
     <Content Include="Content\img\ourstory\LisaChristmasPresents.jpeg" />
     <Content Include="Content\img\ourstory\LisaCoconut.jpeg" />
     <Content Include="Content\img\ourstory\LisaEiffelTower.jpeg" />
-    <Content Include="Content\img\ourstory\LisaGroovyDress.jpeg" />
     <Content Include="Content\img\ourstory\LisaHalloweenBlonde.jpeg" />
     <Content Include="Content\img\ourstory\LisaHighSchoolGrad.jpeg" />
     <Content Include="Content\img\ourstory\LisaJudyWedding.jpeg" />
     <Content Include="Content\img\ourstory\LisaLindsayDreads.jpeg" />
+    <Content Include="Content\img\ourstory\LisaLoriNorwayDresses.jpeg" />
     <Content Include="Content\img\ourstory\LisaLoriSwing.jpeg" />
+    <Content Include="Content\img\ourstory\LisaLoriVickiHawaiiCruise.jpeg" />
     <Content Include="Content\img\ourstory\LisaLoriVickiTurtles.jpeg" />
     <Content Include="Content\img\ourstory\LisaMatterhorn.jpeg" />
     <Content Include="Content\img\ourstory\LisaPony.jpeg" />
@@ -414,6 +418,7 @@
     <Content Include="Scripts\material.min.js" />
     <Content Include="Scripts\modernizr-custom.js" />
     <Content Include="Scripts\prefixfree.min.js" />
+    <Content Include="Templates\RsvpConfirmationEmailTemplate.html" />
     <Content Include="Templates\InviteWeddingGuestEmailHead.html" />
     <Content Include="Templates\InviteWeddingGuestEmailTail.html" />
     <Content Include="Templates\NewUserRegistrationConfirmation.html" />
@@ -486,12 +491,14 @@
     <Content Include="Views\Home\Venue.cshtml" />
     <Content Include="Views\Home\Venue - Backup.cshtml" />
     <Content Include="Views\Home\Wineries.cshtml" />
-    <Content Include="Views\Home\Things_To_Do.cshtml" />
+    <Content Include="Views\Home\ThingsToDo.cshtml" />
     <Content Include="Views\WeddingGuests\RSVPConfirmation.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\BooleanYesNoUnknown.cshtml" />
     <Content Include="Views\WeddingGuests\Edit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BooleanYesNo.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\BooleanYesNo.cshtml" />
+    <Content Include="Views\WeddingGuests\RSVPUpdate.cshtml" />
+    <Content Include="Views\Home\PlanYourTrip.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -631,6 +638,10 @@
     <Compile Include="Migrations\201606222237353_AddFirstLastNameToPlusOne.Designer.cs">
       <DependentUpon>201606222237353_AddFirstLastNameToPlusOne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607162156073_AddPlusOneIsKnownToWeddingGuestModel.cs" />
+    <Compile Include="Migrations\201607162156073_AddPlusOneIsKnownToWeddingGuestModel.Designer.cs">
+      <DependentUpon>201607162156073_AddPlusOneIsKnownToWeddingGuestModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccommodationsModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -715,6 +726,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606222237353_AddFirstLastNameToPlusOne.resx">
       <DependentUpon>201606222237353_AddFirstLastNameToPlusOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607162156073_AddPlusOneIsKnownToWeddingGuestModel.resx">
+      <DependentUpon>201607162156073_AddPlusOneIsKnownToWeddingGuestModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

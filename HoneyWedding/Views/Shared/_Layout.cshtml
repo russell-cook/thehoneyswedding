@@ -48,7 +48,7 @@ else
                 @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { id = "menuOurStory", @class = "mdl-layout__tab" })
                 @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { id = "menuOurFamilies", @class = "mdl-layout__tab" })
                 @Html.ActionLink("The Venue", "Venue", "Home", null, null, null, null, new { id = "menuVenue", @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Venue" ? "is-active" : "") })
-                <a href="#" id="staying_there_menu" class="mdl-layout__tab @string.Format("mdl-layout__tab {0}", ViewBag.Title == "Staying There" ? "is-active" : "")"><i class="material-icons">arrow_drop_down</i>Staying There</a>
+                <a href="#" id="staying_there_menu" class="mdl-layout__tab @string.Format("mdl-layout__tab {0}", ViewBag.MenuGroup == "Staying There" ? "is-active" : "")"><i class="material-icons">arrow_drop_down</i>Staying There</a>
                 @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = string.Format("mdl-layout__tab {0}", ViewBag.Title == "The Honey Fund" ? "is-active" : "") })
                 <button id="user_menu" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">more_vert</i>
@@ -63,9 +63,10 @@ else
             @Html.ActionLink("Our Story", "Index", "Home", null, null, "ourStory", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("Our Families", "Index", "Home", null, null, "ourFamilies", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Venue", "Venue", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Plan Your Trip", "PlanYourTrip", "Home", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("Accommodations", "Accommodations", "Home", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("Wineries to Visit", "Wineries", "Home", null, new { @class = "mdl-navigation__link" })
-            @Html.ActionLink("Things To Do", "Things_To_Do", "Home", null, new { @class = "mdl-navigation__link" })
+            @Html.ActionLink("Things To Do", "ThingsToDo", "Home", null, new { @class = "mdl-navigation__link" })
             @Html.ActionLink("The Honey Fund (Registry)", "Registry", "Home", new { area = "" }, new { @class = "mdl-navigation__link" })
         </nav>
     </div>
@@ -89,9 +90,10 @@ else
 
 <!--Staying There Menu-->
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="staying_there_menu">
+    <li>@Html.ActionLink("Plan Your Trip", "PlanYourTrip", "Home", null, new { @class = "mdl-menu__item" })</li>
     <li>@Html.ActionLink("Accommodations", "Accommodations", "Home", null, new { @class = "mdl-menu__item" })</li>
     <li>@Html.ActionLink("Wineries to Visit", "Wineries", "Home", null, new { @class = "mdl-menu__item" })</li>
-    <li>@Html.ActionLink("Things To Do", "Things_To_Do", "Home", null, new { @class = "mdl-menu__item" })</li>
+    <li>@Html.ActionLink("Things To Do", "ThingsToDo", "Home", null, new { @class = "mdl-menu__item" })</li>
 </ul>
 
 <!--User Menu-->
