@@ -32,7 +32,7 @@
 
     <section id="rsvpForm">
 
-        @using (Html.BeginForm("RSVP", "WeddingGuests", FormMethod.Post, new { @class = "", role = "form" }))
+        @using (Html.BeginForm("RSVP", "WeddingGuests", FormMethod.Post, new { @class = "", @id = "RsvpForm", role = "form" }))
         {
             @Html.HiddenFor(model => model.Id)
             @Html.HiddenFor(model => model.FirstName)
@@ -71,30 +71,32 @@
 
                 @if (Model.HasPlusOne)
                 {
+                    <h6>@(Model.PlusOneCanAtend == false ? string.Format("You previously indicated that {0}. Unfortunately you can't change that response yourself. If your plans have changed please email Lisa and Russ as soon as possible at contact@thehoneyswedding.net, and we'll do our best to accommodate you!", Model.PlusOneIsKnown ? string.Format("{0} won't be able to attend.", Model.FirstNamePlusOne) : "you did not wish to bring a 'plus one'") : "" )</h6>
                     <div class="form-disabled" id="PlusOneResponse">
                         <div class="form-hidden" id="HorizontalSeparator">
                             <br />
                             <hr />
                             <br />
                         </div>
-                        <h4>Will @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") be able to join us?</h4>
+                        <h4>@(Model.PlusOneIsKnown ? string.Format("Will {0} be able to attend?", Model.FirstNamePlusOne) : "Would you like to bring a 'plus one'?")</h4>
                         @Html.EditorFor(m => m.PlusOneCanAtend, new { @class = "" })
                         <p>If you're not certain, select 'Unsure' and we'll send you a reminder in a few weeks.</p>
                         @if (!Model.PlusOneIsKnown)
                         {
-                            <h6>For use on the seating chart, please provide us with the name of your 'plus one':</h6>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                @Html.TextBoxFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__input" })
-                                @Html.LabelFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__label" })
-                                @Html.ValidationMessageFor(m => m.FirstNamePlusOne, "", new { @class = "mdl-textfield__error" })
-                            </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                @Html.TextBoxFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__input" })
-                                @Html.LabelFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__label" })
-                                @Html.ValidationMessageFor(m => m.LastNamePlusOne, "", new { @class = "mdl-textfield__error" })
-                            </div>
-                            <p><strong>NOTE: </strong>If you're not sure who you're bringing but you want to reserve the 'plus one' anyway, just leave the name blank and we'll send you a reminder later.</p>
-                        }
+                            <div class="form-hidden" id="PlusOneName">
+                                <h6>For use on the seating chart, please provide us with the name of your 'plus one':</h6>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    @Html.TextBoxFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__input" })
+                                    @Html.LabelFor(m => m.FirstNamePlusOne, new { @class = "mdl-textfield__label" })
+                                    @Html.ValidationMessageFor(m => m.FirstNamePlusOne, "", new { @class = "mdl-textfield__error" })
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    @Html.TextBoxFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__input" })
+                                    @Html.LabelFor(m => m.LastNamePlusOne, new { @class = "mdl-textfield__label" })
+                                    @Html.ValidationMessageFor(m => m.LastNamePlusOne, "", new { @class = "mdl-textfield__error" })
+                                </div>
+                                <p><strong>NOTE: </strong>If you're not sure who you're bringing but you want to reserve the 'plus one' anyway, just leave the name blank and we'll send you a reminder later.</p>
+                            </div>                        }
                         else
                         {
                             @Html.HiddenFor(model => model.FirstNamePlusOne)
@@ -128,20 +130,30 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script>
 
+        var plusOneOnLockdown = false;
+
         function handleCanAttend() {
             var value = $("#CanAttend").val();
             if (value == "true") {
                 $("#DietaryPrefs").removeClass("form-hidden");
                 $("#HorizontalSeparator").removeClass("form-hidden");
-                $("#PlusOneResponse").removeClass("form-disabled");
-                $("#PlusOneCanAtend").prop("disabled", false);
+                if (!plusOneOnLockdown)
+                {
+                    $("#PlusOneResponse").removeClass("form-disabled");
+                    $("#PlusOneCanAtend").prop("disabled", false);
+                }
             }
             else {
                 $("#DietaryPrefs").addClass("form-hidden");
                 $("#PlusOneDietaryPrefs").addClass("form-hidden");
                 $("#HorizontalSeparator").addClass("form-hidden");
-                $("#PlusOneResponse").addClass("form-disabled");
-                $("#PlusOneCanAtend").prop("disabled", true);
+                if (!plusOneOnLockdown)
+                {
+                    $("#PlusOneResponse").addClass("form-disabled");
+                    $("#PlusOneCanAtend").prop("disabled", true);
+                    $("#PlusOneCanAtend").val("");
+                    $("#PlusOneName").addClass("form-hidden");
+                }
             }
         }
 
@@ -149,9 +161,11 @@
             var value = $("#PlusOneCanAtend").val();
             if (value == "true") {
                 $("#PlusOneDietaryPrefs").removeClass("form-hidden");
+                $("#PlusOneName").removeClass("form-hidden");
             }
             else {
                 $("#PlusOneDietaryPrefs").addClass("form-hidden");
+                $("#PlusOneName").addClass("form-hidden");
             }
         }
 
@@ -173,6 +187,36 @@
     if ($("#CanAttend").val() != "true") {
         $("#PlusOneCanAtend").prop("disabled", true);
     }
+
+    if ($("#PlusOneCanAtend").val() == "false") {
+        plusOneOnLockdown = true;
+        $("#PlusOneResponse").addClass("form-hidden");
+
+    }
+
+    var cleanForm = $("#RsvpForm").serialize();
+
+    $("#RsvpForm").submit(function () {
+        if ($("#RsvpForm").serialize() == cleanForm)
+        {
+            alert("You have not changed any of your RSVP information");
+            return false;
+        }
+        if ($("#CanAttend").val() == "false") {
+            return confirm("PLEASE CONFIRM: Your RSVP indicates that you will not be able to attend our ceremony. If you wish to change your response you will not be able to do this yourself--you'll need to email Lisa or Russ directly. Would you still like to submit your RSVP?");
+        }
+        else if (!plusOneOnLockdown && $("#PlusOneCanAtend").val() == "false") {
+            var confirmMessage;
+            if ($("#PlusOneIsKnown").val() == "true")
+            {
+                confirmMessage = $("#FirstNamePlusOne").val() + " will be unable to attend";
+            }
+            else {
+                confirmMessage = "you would not like to bring a 'plus one' to";
+            }
+            return confirm("PLEASE CONFIRM: Your RSVP indicates that " + confirmMessage + " our ceremony. If you wish to change this response you won't be able to do this yourself--you'll need to email Lisa or Russ directly. Would you still like to submit your RSVP?");
+        }
+    });
 
     handleCanAttend();
     handlePlusOneCanAtend();

@@ -53,9 +53,9 @@
                 @Html.ValidationMessageFor(m => m.LastNamePlusOne, "", new { @class = "mdl-textfield__error" })
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                @Html.TextAreaFor(m => m.Notes, new { @class = "mdl-textfield__input" })
-                @Html.LabelFor(m => m.Notes, new { @class = "mdl-textfield__label" })
-                @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "mdl-textfield__error" })
+                @Html.TextAreaFor(m => m.InviteMessage, new { @class = "mdl-textfield__input" })
+                @Html.LabelFor(m => m.InviteMessage, new { @class = "mdl-textfield__label" })
+                @Html.ValidationMessageFor(m => m.InviteMessage, "", new { @class = "mdl-textfield__error" })
             </div>
             <p>
                 <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Send Invite" />

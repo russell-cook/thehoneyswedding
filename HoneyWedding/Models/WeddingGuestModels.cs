@@ -139,8 +139,9 @@ namespace HoneyWedding.Models
         [Display(Name = "Plus One Last Name")]
         public string LastNamePlusOne { get; set; }
 
-        [Display(Name = "Notes...")]
-        public string Notes { get; set; }
+        [Display(Name = "Special Honey Message...")]
+        [DataType(DataType.MultilineText)]
+        public string InviteMessage { get; set; }
 
     }
 

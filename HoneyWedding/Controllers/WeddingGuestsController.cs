@@ -34,7 +34,7 @@ namespace HoneyWedding.Controllers
         [Authorize(Roles = "WeddingAdmin")]
         // POST: /WeddingGuests/Create
         [HttpPost]
-        public async Task<ActionResult> Invite(InviteWeddingGuestViewModel guestViewModel)
+        public async Task<ActionResult> Invite(InviteWeddingGuestViewModel model)
         {
             InviteWeddingGuestViewModel viewModel = new InviteWeddingGuestViewModel();
 
@@ -42,21 +42,21 @@ namespace HoneyWedding.Controllers
             {
                 var newUser = new WeddingGuest
                 {
-                    FirstName = guestViewModel.FirstName,
-                    LastName = guestViewModel.LastName,
-                    UserName = guestViewModel.Email,
-                    Email = guestViewModel.Email,
-                    PhoneNumber = guestViewModel.PhoneNumber,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    UserName = model.Email,
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
                     IsActive = true,
                     InviteDate = DateTime.Now,
-                    HasPlusOne = guestViewModel.HasPlusOne,
-                    PlusOneIsKnown = guestViewModel.PlusOneIsKnown,
-                    FirstNamePlusOne = guestViewModel.FirstNamePlusOne,
-                    LastNamePlusOne = guestViewModel.LastNamePlusOne,
-                    Notes = guestViewModel.Notes
+                    HasPlusOne = model.HasPlusOne,
+                    PlusOneIsKnown = model.PlusOneIsKnown,
+                    FirstNamePlusOne = model.FirstNamePlusOne,
+                    LastNamePlusOne = model.LastNamePlusOne,
+                    InviteMessage = model.InviteMessage
                 };
                 // set guest's password to their email address
-                string password = guestViewModel.Email;
+                string password = model.Email;
                 var adminresult = await UserManager.CreateAsync(newUser, password);
                 string requestMessage = "";
 
@@ -64,9 +64,9 @@ namespace HoneyWedding.Controllers
                 {
                     // send invitation email to guest
                     string body;
-                    string templateTail;
                     string salutation;
-                    string plusOneMessage = "<h4>But wait, there's more... you get to bring a <i>PLUS ONE!</i> (so choose your guest wisely...)</h4>";
+                    string plusOneMessage = newUser.HasPlusOne ? "<h4>But wait, there's more... you get to bring a <i>PLUS ONE!</i> (so choose your guest wisely...)</h4>" : "";
+                    string specialMessage = string.IsNullOrEmpty(newUser.InviteMessage) ? "" : "<hr /><p><strong>Special Message from The Honeys: <i>" + newUser.InviteMessage + "</i></strong></p><hr />";
 
                     if (newUser.PlusOneIsKnown)
                     {
@@ -77,22 +77,13 @@ namespace HoneyWedding.Controllers
                         salutation = newUser.FirstName;
                     }
                     
-                    using (var sr = new StreamReader(Server.MapPath("\\Templates\\") + "InviteWeddingGuestEmailHead.html"))
+                    using (var sr = new StreamReader(Server.MapPath("\\Templates\\") + "InviteWeddingGuestEmailTemplate.html"))
                     {
                         body = await sr.ReadToEndAsync();
                     }
-                    using (var sr = new StreamReader(Server.MapPath("\\Templates\\") + "InviteWeddingGuestEmailTail.html"))
-                    {
-                        templateTail = await sr.ReadToEndAsync();
-                    }
-                    if (newUser.HasPlusOne && !newUser.PlusOneIsKnown)
-                    {
-                        body += plusOneMessage;
-                    }
-                    body += templateTail;
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(newUser.Id);
                     var callbackUrl = Url.Action("RSVP", "WeddingGuests", new { userId = newUser.Id }, protocol: Request.Url.Scheme);
-                    string messageBody = string.Format(body, salutation, callbackUrl);
+                    string messageBody = string.Format(body, salutation, plusOneMessage, specialMessage, callbackUrl);
                     await UserManager.SendEmailAsync(newUser.Id, "Please RSVP--You're invited to Russ and Lisa's Wedding!", messageBody);
 
                     //Add User to the selected Roles 
@@ -174,6 +165,10 @@ namespace HoneyWedding.Controllers
             if (guest.DidRsvp)
             {
                 ViewBag.DidRsvp = true;
+                if (guest.CanAttend == false)
+                {
+                    return RedirectToAction("RsvpNo", new { userId = guest.Id });
+                }
             }
 
             var viewModel = new WeddingGuestViewModel();
@@ -229,23 +224,23 @@ namespace HoneyWedding.Controllers
                     infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Would you like a meatless option?:</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.Meatless == true ? "Yes" : "No");
                     infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Would you like a vegan option?:</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.Vegan == true ? "Yes" : "No");
                     infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Dietary needs:</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.DietaryNotes);
-                }
-                if (guest.HasPlusOne)
-                {
-                    infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Can {0} attend?:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? guest.FirstNamePlusOne : "your 'plus one'", guest.Meatless == true ? "Yes" : "No");
-                    if (!guest.PlusOneIsKnown == true)
+                    if (guest.HasPlusOne)
                     {
-                        infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Name of your 'plus one':</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.FirstNamePlusOne + " " + guest.LastNamePlusOne);
-                    }
-                    if (guest.PlusOneCanAtend == true)
-                    {
-                        infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Would {0} like a meatless option?:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? guest.FirstNamePlusOne : "your 'plus one'", guest.Meatless == true ? "Yes" : "No");
-                        infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Would {0} like a vegan option?:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? guest.FirstNamePlusOne : "your 'plus one'", guest.Vegan == true ? "Yes" : "No");
-                        infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Dietary needs for {0}:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? guest.FirstNamePlusOne : "your 'plus one'", guest.DietaryNotes);
+                        infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >{0}:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? string.Format("Will {0} be able to attend?", guest.FirstNamePlusOne) : "Would you like to bring a 'plus one'?", guest.PlusOneCanAtend == true ? "Yes" : "No");
+                        if (!guest.PlusOneIsKnown == true && guest.PlusOneCanAtend == true)
+                        {
+                            infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Name of your 'plus one':</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.FirstNamePlusOne + " " + guest.LastNamePlusOne);
+                        }
+                        if (guest.PlusOneCanAtend == true)
+                        {
+                            infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Would {0} like a meatless option?:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? guest.FirstNamePlusOne : "your 'plus one'", guest.Meatless == true ? "Yes" : "No");
+                            infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Would {0} like a vegan option?:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? guest.FirstNamePlusOne : "your 'plus one'", guest.Vegan == true ? "Yes" : "No");
+                            infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Dietary needs for {0}:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? guest.FirstNamePlusOne : "your 'plus one'", guest.DietaryNotes);
+                        }
                     }
                 }
 
-                string instructions = guest.CanAttend != false ? "If this information is incorrect, or if you need to change your responses in the future, please use the following link:" : "If your plans change and you'd like to attend, please email Lisa and Russ as soon as possible at <a href = \"mailto:contact@thehoneyswedding.net?subject=Please Change \">contact@thehoneyswedding.com</a>, and we'll do our best to accommodate you";
+                string instructions = guest.CanAttend != false ? "If this information is incorrect, or if you need to change your responses in the future, please use the following link:" : "If your plans change and you'd like to attend, please email Lisa and Russ as soon as possible at <a href = \"mailto:contact@thehoneyswedding.net?subject=Please Change My RSVP\">contact@thehoneyswedding.com</a>, and we'll do our best to accommodate you";
                 var callbackUrl = Url.Action("RSVP", "WeddingGuests", new { userId = guest.Id }, protocol: Request.Url.Scheme);
                 var button = guest.CanAttend != false ? string.Format("<table border='0' cellpadding='0' cellspacing='12' width='100%'><tr><td align='center'><table border='0' cellpadding='0' cellspacing='0'><tr><td bgcolor='#f46e6c' style='padding: 12px 18px 12px 18px; -webkit-border-radius: 3px; border-radius: 3px; background-color: #ff5858;' align='center'><a href='{0}' style='text-decoration: none; font-size: 18px; color: #ffffff; '>Update RSVP Info</a></td></tr></table></td></tr></table>", callbackUrl) : "";
 
@@ -279,6 +274,26 @@ namespace HoneyWedding.Controllers
             if (guest.UpdatedRsvp)
             {
                 ViewBag.UpdatedRsvp = true;
+            }
+
+            var viewModel = new WeddingGuestViewModel();
+            viewModel.InjectFrom(guest);
+
+            return View(viewModel);
+        }
+
+        public async Task<ActionResult> RsvpNo(string userId)
+        {
+            if (userId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var guest = await UserManager.FindByIdAsync(userId) as WeddingGuest;
+
+            if (guest == null)
+            {
+                return HttpNotFound();
             }
 
             var viewModel = new WeddingGuestViewModel();

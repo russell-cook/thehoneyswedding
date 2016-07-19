@@ -36,7 +36,7 @@
 
         <h4>Thanks @Model.FirstName, @(ViewBag.UpdatedRsvp == true ? "we've received your updated RSVP info!" : "" )</h4>
         <h6>
-            @(Model.CanAttend == true ? "We're so glad you'll be able to join us" : "")@(Model.CanAttend == true && Model.PlusOneIsKnown && Model.PlusOneCanAtend == false ? string.Format(", but we're sorry {0} won't be able to make it.", Model.FirstNamePlusOne) : ".")
+            @(Model.CanAttend == true ? "We're so glad you'll be able to join us" : "")@(Model.CanAttend == true && Model.PlusOneIsKnown && Model.PlusOneCanAtend == false ? string.Format(", but we're sorry {0} won't be able to make it.", Model.FirstNamePlusOne) : "")@(Model.CanAttend == true ? "." : "")
             @(Model.CanAttend == false ? "We're sorry you won't be able to join us." : "")
             @(Model.CanAttend == null ? "We hope you'll be able to join us! We'll hold your spot for now, but we'd appreciate an update as soon as possible." : "")
             You should receive an email momentarily confirming the following @(ViewBag.UpdatedRsvp == true ? "updates" : "information" ):
@@ -65,7 +65,7 @@
             @if (Model.CanAttend == true && Model.HasPlusOne)
             {
                 <tr>
-                    <td class="table-list--term">Can @(Model.PlusOneIsKnown ? Model.FirstNamePlusOne : "your 'plus one'") attend?</td>
+                    <td class="table-list--term">@(Model.PlusOneIsKnown ? string.Format("Will {0} be able to attend?", Model.FirstNamePlusOne) : "Would you like to bring a 'plus one'?")</td>
                     <td>@Html.DisplayFor(model => model.PlusOneCanAtend)</td>
                 </tr>
                 if (Model.PlusOneCanAtend == true)
@@ -102,25 +102,29 @@
             @(Model.CanAttend == false ? "If your plans change please email Lisa and Russ as soon as possible (our addresses are included in the confirmation email), and we'll do our best to accommodate you!" : "")
         </p>
 
+        <hr />
+        <h5>@(Model.CanAttend != false ? "P" : "Since you're here, p")lease take a few moments to browse our wedding website!</h5>
         @if (Model.CanAttend != false)
         {
-            <hr />
-            <h5>Please take a few moments to browse our wedding website!</h5>
             <p>Not only can you learn more about @Html.ActionLink("our story", "Index", "Home", null, null, "ourStory", null, null), but we've also collected a lot of information to help you @Html.ActionLink("plan your trip", "PlanYourTrip", "Home").</p>
             <p>Fair Play is a small town with limited accommodations, so we recommend checking out our @Html.ActionLink("accommodations page", "Accommodations", "Home") for a list of options.</p>
             <p>We'd also like to invite you to explore the wonderful wines made at @Html.ActionLink("our wedding venue", "Venue", "Home"), as well as our other @Html.ActionLink("favorite wineries in Fair Play", "Wineries", "Home"). Collectively we think they make some of the finest wines in California. </p>
+        }
+        else
+        {
+            <p>You can learn more about @Html.ActionLink("our story", "Index", "Home", null, null, "ourStory", null, null) and @Html.ActionLink("our families", "Index", "Home", null, null, "ourFamilies", null, null), and you can explore the wonderful wines made at @Html.ActionLink("our wedding venue", "Venue", "Home"), as well as our other @Html.ActionLink("favorite wineries in Fair Play", "Wineries", "Home").</p>
         }
 
         <strong>-The Honeys</strong>
 
     </div>
 
-    @if (Model.CanAttend != false)
-    {
-        <div class="mdl-card__actions mdl-card--border">
-            @Html.ActionLink("Home Page", "Index", "Home", null, new { @class = "mdl-button mdl-js-button mdl-button--raised mdl-color--green-400 mdl-color-text--accent-contrast" })
+    <div class="mdl-card__actions mdl-card--border">
+        @Html.ActionLink("Home Page", "Index", "Home", null, new { @class = "mdl-button mdl-js-button mdl-button--raised mdl-color--green-400 mdl-color-text--accent-contrast" })
+        @if (Model.CanAttend != false)
+        {
             @Html.ActionLink("Plan Your Trip", "PlanYourTrip", "Home", null, new { @class = "mdl-button mdl-js-button mdl-button--raised mdl-color--green-400 mdl-color-text--accent-contrast" })
-        </div>
-    }
+        }
+    </div>
 
 </div>

@@ -1,0 +1,49 @@
+﻿@model HoneyWedding.Models.WeddingGuestViewModel
+@{
+    ViewBag.Title = "RsvpNo";
+}
+
+@section bodyTagOpen {
+    <body class="mdl-color--indigo-100">
+}
+
+<style>
+    h3, h4, h5, h6 {
+        /*margin-top: 8px;
+        margin-bottom: 8px;*/
+        color: rgb(57, 73, 171);
+    }
+
+</style>
+<div class="mdl-card mdl-card__page-small mdl-shadow--2dp">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td>
+                <img alt="RSVP" src="../../Content/img/honey_wedding--RSVPConfirmation_header.jpg" width="100%" style="margin: 0; border: 0; padding: 0; display: block;">
+            </td>
+        </tr>
+    </table>
+
+    <div class="mdl-card__supporting-text">
+
+        <h4>Hi @Model.FirstName,</h4>
+        <h5>
+            Our records indicate that you previously RSVP'd with a 'No' response. Unfortunately you can't change this response yourself.
+        </h5>
+
+
+        <p>
+            If your plans have changed please email Lisa and Russ as soon as possible at <a href="mailto:contact@thehoneyswedding.net?subject=Please Change My RSVP">contact@thehoneyswedding.net</a>, and we'll do our best to accommodate you!
+        </p>
+
+        <strong>-The Honeys</strong>
+
+    </div>
+
+    <div class="mdl-card__actions mdl-card--border">
+        @Html.ActionLink("Home Page", "Index", "Home", null, new { @class = "mdl-button mdl-js-button mdl-button--raised mdl-color--green-400 mdl-color-text--accent-contrast" })
+    </div>
+
+</div>
+
