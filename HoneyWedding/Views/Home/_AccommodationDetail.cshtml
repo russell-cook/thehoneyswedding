@@ -8,6 +8,8 @@
 
     <div class="mdl-card__supporting-text" id="detail_text">
         <p><strong>@Html.DisplayNameFor(model => model.Description): </strong>@Html.DisplayFor(model => model.Description)</p>
+        <p><strong>@Html.DisplayNameFor(model => model.Notes): </strong>@Html.DisplayFor(model => model.Notes)</p>
+        <p><strong><small>We need your help keeping this info up to date! If you book this location please email <a href="mailto:contact@thehoneyswedding.net?subject=Accommodation Booking">contact@thehoneyswedding.net</a> to let us know.</small></strong></p>
 
         <table class="mdl-data-table mdl-data-table-condensed" id="table__accommodation-rooms">
             <thead>
@@ -86,11 +88,6 @@
                 </td>
                 <td>
                     <strong>@Html.DisplayNameFor(model => model.InFairPlay): </strong>@Html.DisplayFor(model => model.InFairPlay)
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <strong>@Html.DisplayNameFor(model => model.Notes): </strong>@Html.DisplayFor(model => model.Notes)
                 </td>
             </tr>
         </table>

@@ -65,8 +65,8 @@ namespace HoneyWedding.Controllers
                     // send invitation email to guest
                     string body;
                     string salutation;
-                    string plusOneMessage = newUser.HasPlusOne ? "<h4>But wait, there's more... you get to bring a <i>PLUS ONE!</i> (so choose your guest wisely...)</h4>" : "";
-                    string specialMessage = string.IsNullOrEmpty(newUser.InviteMessage) ? "" : "<hr /><p><strong>Special Message from The Honeys: <i>" + newUser.InviteMessage + "</i></strong></p><hr />";
+                    string plusOneMessage = newUser.HasPlusOne && !newUser.PlusOneIsKnown ? "<h4>But wait, there's more... you get to bring a <i>PLUS ONE!</i> (so choose your guest wisely...)</h4>" : "";
+                    string specialMessage = string.IsNullOrEmpty(newUser.InviteMessage) ? "" : "<hr /><p><strong>Special Message from The Honeys: </strong>" + newUser.InviteMessage + "</p><hr />";
 
                     if (newUser.PlusOneIsKnown)
                     {
@@ -218,7 +218,22 @@ namespace HoneyWedding.Controllers
                 }
 
                 // format info table
-                string infoTable = string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Can you attend?:</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.CanAttend == true ? "Yes" : "No");
+                var attendMessage = string.Empty;
+                switch (guest.CanAttend)
+                {
+                    case true:
+                        attendMessage = "Yes";
+                        break;
+                    case false:
+                        attendMessage = "No";
+                        break;
+                    case null:
+                        attendMessage = "Unsure";
+                        break;
+                    default:
+                        break;
+                }
+                string infoTable = string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Can you attend?:</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", attendMessage);
                 if (guest.CanAttend == true)
                 {
                     infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Would you like a meatless option?:</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.Meatless == true ? "Yes" : "No");
@@ -226,7 +241,23 @@ namespace HoneyWedding.Controllers
                     infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Dietary needs:</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.DietaryNotes);
                     if (guest.HasPlusOne)
                     {
-                        infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >{0}:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? string.Format("Will {0} be able to attend?", guest.FirstNamePlusOne) : "Would you like to bring a 'plus one'?", guest.PlusOneCanAtend == true ? "Yes" : "No");
+                        var PlusOneAttendMessage = string.Empty;
+                        switch (guest.PlusOneCanAtend)
+                        {
+                            case true:
+                                PlusOneAttendMessage = "Yes";
+                                break;
+                            case false:
+                                PlusOneAttendMessage = "No";
+                                break;
+                            case null:
+                                PlusOneAttendMessage = "Unsure";
+                                break;
+                            default:
+                                break;
+                        }
+
+                        infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >{0}:</ td ><td width = '75%' align = 'left' valign = 'top' >{1}</ td ></ tr >", guest.PlusOneIsKnown ? string.Format("Will {0} be able to attend?", guest.FirstNamePlusOne) : "Would you like to bring a 'plus one'?", PlusOneAttendMessage);
                         if (!guest.PlusOneIsKnown == true && guest.PlusOneCanAtend == true)
                         {
                             infoTable += string.Format("<tr><td width = '25%' align = 'right' valign = 'top' >Name of your 'plus one':</ td ><td width = '75%' align = 'left' valign = 'top' >{0}</ td ></ tr >", guest.FirstNamePlusOne + " " + guest.LastNamePlusOne);

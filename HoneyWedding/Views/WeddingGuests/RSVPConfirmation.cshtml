@@ -34,11 +34,13 @@
 
     <div class="mdl-card__supporting-text">
 
-        <h4>Thanks @Model.FirstName, @(ViewBag.UpdatedRsvp == true ? "we've received your updated RSVP info!" : "" )</h4>
+        <h4>Thanks @Model.FirstName, @(ViewBag.UpdatedRsvp == true ? "we've received your updated RSVP info." : "" )</h4>
         <h6>
-            @(Model.CanAttend == true ? "We're so glad you'll be able to join us" : "")@(Model.CanAttend == true && Model.PlusOneIsKnown && Model.PlusOneCanAtend == false ? string.Format(", but we're sorry {0} won't be able to make it.", Model.FirstNamePlusOne) : "")@(Model.CanAttend == true ? "." : "")
+            @(Model.CanAttend == true ? "We're so glad you'll be able to join us" : "")@(Model.CanAttend == true && Model.PlusOneIsKnown && Model.PlusOneCanAtend == false ? string.Format(", but we're sorry {0} won't be able to make it.", Model.FirstNamePlusOne) : "")@(Model.CanAttend == true ? "!" : "")
             @(Model.CanAttend == false ? "We're sorry you won't be able to join us." : "")
-            @(Model.CanAttend == null ? "We hope you'll be able to join us! We'll hold your spot for now, but we'd appreciate an update as soon as possible." : "")
+            @(Model.CanAttend == null ? "We hope you'll be able to join us! We'll hold your spot for now, but we'd appreciate an update as soon as possible. If we don't hear back soon we'll send a reminder." : "")
+        </h6>
+        <h6>
             You should receive an email momentarily confirming the following @(ViewBag.UpdatedRsvp == true ? "updates" : "information" ):
         </h6>
 

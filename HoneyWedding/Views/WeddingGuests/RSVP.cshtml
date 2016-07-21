@@ -54,7 +54,10 @@
 
                 <h4>Hi @Model.FirstName! @(ViewBag.DidRsvp == true ? "We've already received your RSVP, but you can use the form below to update the information you provided." : "Thanks so much for taking the time to RSVP." ) Will you be able to join us at our ceremony on October 1st?</h4>
                 @Html.EditorFor(m => m.CanAttend, new { @class = "" })
-                <p><strong>NOTE: </strong>If you'd like to attend but you're not certain if you'll be able, select 'Unsure' and we'll send you a reminder in a few weeks.</p>
+                @if (ViewBag.DidRsvp != true)
+                {
+                    <p><strong>NOTE: </strong>If you'd like to attend but you're not certain if you'll be able, select 'Unsure' and we'll send you a reminder in a few weeks.</p>
+                }
 
                 <div class="form-group form-hidden" id="DietaryPrefs">
                     <h5>Dietary Preferences</h5>
@@ -143,6 +146,11 @@
                     $("#PlusOneCanAtend").prop("disabled", false);
                 }
             }
+            @*else if (value == "" && "@ViewBag.DidRsvp" == "True") {
+                alert("If you previously responded 'Yes' then you can only change your response to 'No'. If your circumstances have changed and you're uncertain whether you'll be able to attend just leave your response as 'Yes' for now, and we'll send you a reminder in a few weeks.");
+                $("#CanAttend").val("true");
+                return false;
+            }*@
             else {
                 $("#DietaryPrefs").addClass("form-hidden");
                 $("#PlusOneDietaryPrefs").addClass("form-hidden");
@@ -197,10 +205,12 @@
     var cleanForm = $("#RsvpForm").serialize();
 
     $("#RsvpForm").submit(function () {
-        if ($("#RsvpForm").serialize() == cleanForm)
+        if ("@ViewBag.DidRsvp" == "True")
         {
-            alert("You have not changed any of your RSVP information");
-            return false;
+            if ($("#RsvpForm").serialize() == cleanForm) {
+                alert("You have not changed any of your RSVP information");
+                return false;
+            }
         }
         if ($("#CanAttend").val() == "false") {
             return confirm("PLEASE CONFIRM: Your RSVP indicates that you will not be able to attend our ceremony. If you wish to change your response you will not be able to do this yourself--you'll need to email Lisa or Russ directly. Would you still like to submit your RSVP?");
