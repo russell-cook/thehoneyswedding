@@ -419,6 +419,7 @@
     <Content Include="Scripts\material.min.js" />
     <Content Include="Scripts\modernizr-custom.js" />
     <Content Include="Scripts\prefixfree.min.js" />
+    <Content Include="Templates\AdminRsvpNotificationEmailTemplate.html" />
     <Content Include="Templates\RsvpConfirmationEmailTemplate.html" />
     <Content Include="Templates\InviteWeddingGuestEmailTemplate.html" />
     <Content Include="Templates\NewUserRegistrationConfirmation.html" />
@@ -500,6 +501,7 @@
     <Content Include="Views\WeddingGuests\RSVPUpdate.cshtml" />
     <Content Include="Views\Home\PlanYourTrip.cshtml" />
     <Content Include="Views\WeddingGuests\RsvpNo.cshtml" />
+    <Content Include="Views\Home\Registry.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -2,6 +2,23 @@
     Global look and feel
    ======================================= */
 
+/* Palette */
+.honeyBlue {
+    background-color: rgb(87, 109, 171);
+}
+
+.honeyLightBlue {
+    background-color: rgb(193, 206, 237);
+}
+
+.honeyBurgundy {
+    background-color: rgb(117, 61, 63);
+}
+
+.honeyLightBurgundy {
+    background-color: rgb(168, 63, 65);
+}
+
 /* Hide certain elements until mdl has done its upgrade (prevents content flash on small screens) */
 .obscure-on-load {
     display: none;
